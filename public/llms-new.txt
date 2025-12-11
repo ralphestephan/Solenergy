@@ -1,0 +1,50 @@
+# Solenergy llms.txt
+
+Solenergy is a leading solar energy, generators, energy management, and Industry 4.0 solutions provider based in Lebanon. We specialize in designing, installing, and maintaining sustainable energy systems that work seamlessly with Lebanon's unique power conditions, frequent outages, and infrastructure challenges. Our expertise spans solar panel installations, backup generators, smart energy management systems, and industrial automation.
+
+## Website Description
+Solenergy delivers comprehensive energy solutions tailored for Lebanese households, businesses, and industrial facilities. We offer consultation, solar system design, generator installation, energy monitoring, and Industry 4.0 automation systems that ensure reliable power during grid instability. Our innovative solutions include sunflower solar tracking systems and smart load prioritization technology.
+
+## Key Pages
+[Home](https://solenergy.com): Main landing page showcasing our solar energy, generators, energy management, and Industry 4.0 solutions for Lebanon.
+
+[About](https://solenergy.com/about): Company background, mission, journey from 2020, team, and expertise in sustainable energy and industrial automation.
+
+[Solutions](https://solenergy.com/solutions): Comprehensive service offerings including generators, solar installations, maintenance, energy management, and Industry 4.0 technologies.
+
+[Solutions: Generators](https://solenergy.com/solutions/generators): Reliable backup power solutions with automatic transfer switches and smart load management.
+
+[Solutions: Solar Services](https://solenergy.com/solutions/solar-services): Complete solar energy installations from consultation to monitoring and maintenance.
+
+[Solutions: Energy Management & Industry 4.0](https://solenergy.com/solutions/energy-management): Complete industrial solution combining smart energy management, IoT automation, and Industry 4.0 technologies with Sol4.o platform.
+
+[Solutions: Maintenance Services](https://solenergy.com/solutions/maintenance-services): 24/7 preventive maintenance and emergency support for all energy systems.
+
+[Insights](https://solenergy.com/insights): Expert guides, technical insights, and practical advice on solar energy, generators, and energy management for Lebanese conditions.
+
+[Contact](https://solenergy.com/contact): Contact information, consultation booking, and ways to reach our energy solutions experts.
+
+[FAQs](https://solenergy.com/faqs): Frequently asked questions about solar installations, generators, energy management, and technical support.
+
+## Core Services
+- Solar Energy Systems: Complete installation, monitoring, and maintenance
+- Backup Generators: Automatic switching, load management, and fuel optimization
+- Energy Management: Real-time monitoring, multi-source integration, demand response
+- Industry 4.0: IoT sensors, process automation, predictive maintenance
+- Smart Solar Innovations: Sunflower tracking, smart load prioritization
+- Maintenance Services: 24/7 emergency response, preventive care, performance optimization
+
+## Technologies & Solutions
+- Sunflower Solar Tracking (dual-axis tracking for 40% more energy)
+- Smart Load Prioritization (AI-driven power allocation)
+- Hybrid Battery Storage Systems
+- Automatic Transfer Switches
+- Weather-Adaptive Control Systems
+- Industrial IoT & SCADA Integration
+- Predictive Maintenance Algorithms
+
+## Target Audience
+Lebanese homeowners, businesses, and industrial facilities seeking reliable, sustainable energy solutions that function effectively during frequent power cuts and grid instability. Our services are particularly valuable for energy-conscious clients requiring automated load management, solar integration, backup power systems, and industrial automation.
+
+## Geographic Focus
+Based in Lebanon, serving clients nationwide across residential, commercial, industrial, and agricultural sectors with local expertise, 24/7 support, and understanding of Lebanese power infrastructure challenges.
