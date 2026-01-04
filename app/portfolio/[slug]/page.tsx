@@ -57,9 +57,8 @@ export default async function ProjectPage({ params }: Props) {
         <div className="mx-auto max-w-7xl px-6 lg:px-8 py-4">
           <Breadcrumbs
             items={[
-              { label: "Home", href: "/" },
-              { label: "Portfolio", href: "/portfolio" },
-              { label: project.title, href: `/portfolio/${project.slug}` },
+              { name: "Portfolio", href: "/portfolio" },
+              { name: project.title },
             ]}
           />
         </div>
