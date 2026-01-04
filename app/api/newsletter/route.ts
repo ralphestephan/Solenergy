@@ -144,24 +144,23 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Email is required" }, { status: 400 });
     }
 
-    // Prepare metadata
-    const metadata: Record<string, any> = {};
-    if (name) metadata.name = name;
-    if (phone) metadata.phone = phone;
+    // Prepare data for Supabase - only include fields that exist in the schema
+    const insertData: any = {
+      organization_id: SOLENERGY_ORG_ID,
+      email: email,
+      source: 'website',
+      status: 'active',
+    };
+
+    // Only add optional fields if they exist
+    if (name) insertData.name = name;
+    if (phone) insertData.phone = phone;
 
     // Save to Supabase using BDI Systems schema with upsert to handle duplicates
     const { data, error } = await supabase
       .from('newsletter_subscribers')
       .upsert(
-        {
-          organization_id: SOLENERGY_ORG_ID,
-          email: email,
-          name: name || null,
-          phone: phone || null,
-          source: 'website',
-          status: 'active',
-          metadata: metadata,
-        },
+        insertData,
         {
           onConflict: 'organization_id,email',
         }
