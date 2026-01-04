@@ -168,21 +168,69 @@ export default function Page() {
       </section>
 
       {/* POPULAR SOLUTIONS */}
-      <section className="py-24 bg-white">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <Reveal>
-            <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight">
-                POPULAR <span className="text-brand-yellow">SOLUTIONS</span>
-              </h2>
-              <div className="w-16 h-1 bg-brand-yellow mx-auto mt-4 mb-6" />
-              <p className="text-zinc-600 max-w-2xl mx-auto">
-                Explore our most requested energy solutions for homes, businesses, and industrial facilities.
-              </p>
+      <section className="py-20 bg-zinc-50">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="text-center mb-14">
+            <span className="inline-flex items-center px-4 py-2 rounded-full bg-brand-yellow/10 text-brand-yellow text-sm font-semibold">
+              OUR SOLUTIONS
+            </span>
+            <h2 className="mt-4 text-3xl md:text-4xl font-extrabold">
+              <span className="text-zinc-900">Popular </span>
+              <span className="text-brand-yellow">Solutions</span>
+            </h2>
+            <div className="mt-4 flex justify-center">
+              <div className="w-20 h-1 bg-brand-yellow rounded-full" />
             </div>
+            <p className="mt-6 text-zinc-600 max-w-2xl mx-auto">
+              Explore our most requested energy solutions for homes, businesses, and industrial facilities.
+            </p>
+          </div>
 
-            <SolutionsGrid />
-          </Reveal>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {solutions.slice(0, 6).map((solution) => (
+              <Link key={solution.slug} href={`/solutions/${solution.slug}`} className="group">
+                <article className="h-full rounded-2xl overflow-hidden bg-white border border-zinc-100 shadow-lg hover:shadow-xl hover:border-brand-yellow/30 transition-all">
+                  {/* Image */}
+                  <div className="relative aspect-[16/10] overflow-hidden">
+                    <Image
+                      src={solution.image}
+                      alt={solution.heading}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/30 to-transparent" />
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-6">
+                    <h3 className="text-lg font-bold text-zinc-900 group-hover:text-brand-yellow transition-colors line-clamp-2 mb-3">
+                      {solution.heading}
+                    </h3>
+                    <p className="text-zinc-600 text-sm line-clamp-3 mb-4">
+                      {solution.description}
+                    </p>
+                    <div className="flex items-center justify-between">
+                      <span className="inline-flex items-center gap-2 text-brand-yellow font-semibold group-hover:gap-3 transition-all text-sm">
+                        Learn More
+                        <ArrowRight className="w-4 h-4" />
+                      </span>
+                    </div>
+                  </div>
+                </article>
+              </Link>
+            ))}
+          </div>
+
+          {/* View All Button */}
+          <div className="text-center mt-12">
+            <Link
+              href="/solutions"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-brand-yellow text-zinc-900 font-bold rounded-xl hover:bg-brand-orange hover:shadow-lg transition-all"
+            >
+              View All Solutions
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+          </div>
         </div>
       </section>
 
