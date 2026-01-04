@@ -193,7 +193,7 @@ export default function Page() {
                   {/* Image */}
                   <div className="relative aspect-[16/10] overflow-hidden">
                     <Image
-                      src={solution.image}
+                      src={solution.image || "/images/panels.png"}
                       alt={solution.heading}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
