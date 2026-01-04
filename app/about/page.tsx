@@ -208,36 +208,41 @@ export default function Page() {
             </h2>
             <div className="w-16 h-1 bg-brand-yellow mx-auto mt-4 mb-6" />
             <p className="text-zinc-600 max-w-2xl mx-auto">
-              Five years of growth, innovation, and powering Lebanon&apos;s energy transformation.
+              Three decades of growth, innovation, and powering the region&apos;s energy transformation.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                year: "2020",
-                title: "Generator Services Started",
+                year: "1996",
+                title: "Backup Generator Services Started",
                 description: "Founded Solenergy with backup generator sales, installation, and maintenance services.",
               },
               {
-                year: "2021",
-                title: "Maintenance Excellence",
-                description: "Expanded maintenance services offering 24/7 support and preventive care for power systems.",
+                year: "2018",
+                title: "Maintenance Services",
+                description: "Expanded comprehensive maintenance services offering 24/7 support and preventive care for power systems.",
               },
               {
-                year: "2022",
-                title: "Solar Energy Solutions",
-                description: "Launched comprehensive solar services including design, installation, and monitoring.",
+                year: "2020",
+                title: "Solar Energy Installations",
+                description: "Launched solar energy services, shifting to regional leader by 2023 with comprehensive solar solutions.",
               },
               {
                 year: "2024",
-                title: "Regional Leader",
-                description: "Recognized as a leading energy solutions provider across Lebanon with 200+ projects.",
+                title: "Qatar Expansion",
+                description: "Expanded operations to Qatar, serving the GCC region with our comprehensive energy solutions.",
               },
               {
                 year: "2025",
-                title: "Energy Management Platform",
-                description: "Introduced Sol4.o—our complete Industry 4.0 and energy management platform.",
+                title: "Iraq Expansion",
+                description: "Extended our services to Iraq, further establishing our presence across the region.",
+              },
+              {
+                year: "2026",
+                title: "Sol4.0 & Industry 4.0",
+                description: "Starting Sol4.0—our complete energy management and Industry 4.0 solutions platform.",
               },
             ].map((milestone) => (
               <div
@@ -273,11 +278,36 @@ export default function Page() {
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             {[
-              { name: "Charbel Mansour", role: "Owner", img: "/images/fieldwork.png" },
-              { name: "Tarek", role: "Manager", img: "/images/work.png" },
-              { name: "Ralph Estephan", role: "IIoT Engineer", img: "/images/panels.png" },
-              { name: "Mohammad", role: "Technician", img: "/images/fieldwork.png" },
-              { name: "Mario", role: "Site Engineer", img: "/images/work.png" },
+              { 
+                name: "Charbel Mansour", 
+                role: "Owner", 
+                img: "/images/fieldwork.png",
+                quote: "Building reliable energy solutions for Lebanon's future, one project at a time."
+              },
+              { 
+                name: "Tarek", 
+                role: "Manager", 
+                img: "/images/work.png",
+                quote: "Excellence in energy management starts with understanding our clients' unique needs."
+              },
+              { 
+                name: "Ralph Estephan", 
+                role: "IIoT Engineer", 
+                img: "/images/panels.png",
+                quote: "Innovation and smart technology are the keys to efficient energy systems."
+              },
+              { 
+                name: "Mohammad", 
+                role: "Technician", 
+                img: "/images/fieldwork.png",
+                quote: "Quality installation and maintenance ensure long-term reliability and performance."
+              },
+              { 
+                name: "Mario", 
+                role: "Site Engineer", 
+                img: "/images/work.png",
+                quote: "Every project is an opportunity to deliver excellence and exceed expectations."
+              },
             ].map((p) => (
               <div
                 key={p.name}
@@ -296,6 +326,9 @@ export default function Page() {
                   </div>
                   <div className="mt-4 font-bold text-zinc-900">{p.name}</div>
                   <div className="mt-1 text-sm text-brand-yellow">{p.role}</div>
+                  <div className="mt-4 pt-4 border-t border-zinc-100">
+                    <p className="text-xs text-zinc-600 italic leading-relaxed">&quot;{p.quote}&quot;</p>
+                  </div>
                 </div>
               </div>
             ))}
