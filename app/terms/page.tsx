@@ -219,8 +219,8 @@ export default function TermsPage() {
               <div className="text-zinc-700 space-y-1">
                 <p>
                   Email:{" "}
-                  <a className="text-brand-yellow font-semibold" href="mailto:solenergysarl@gmail.com">
-                    solenergysarl@gmail.com
+                  <a className="text-brand-yellow font-semibold" href="mailto:info@solenergypower.com">
+                    info@solenergypower.com
                   </a>
                 </p>
                 <p>
@@ -235,7 +235,7 @@ export default function TermsPage() {
                     +961 71 654 956
                   </a>
                 </p>
-                <p>Address: Galaxy Mall, Baabda, Mount Lebanon<br />Doha, Qatar</p>
+                <p><strong>LB:</strong> Galaxy Mall, Baabda, Mount Lebanon<br /><strong>QR:</strong> Doha, Qatar</p>
               </div>
             </section>
           </div>

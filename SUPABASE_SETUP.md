@@ -49,7 +49,7 @@ Stores newsletter subscriptions with:
 ✅ **Contact Forms**:
 - Saves to `contact_form_submissions` table
 - Sends branded confirmation email to user
-- Sends notification email to admin (solenergysarl@gmail.com)
+- Sends notification email to admin (info@solenergypower.com)
 - All form fields stored in metadata JSONB
 
 ✅ **Newsletter Subscriptions**:

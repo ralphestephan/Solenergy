@@ -65,7 +65,7 @@ function getNewsletterConfirmationEmail() {
                 © ${new Date().getFullYear()} Solenergy. All rights reserved.
               </p>
               <p style="margin: 0; color: #9ca3af; font-size: 12px;">
-                Galaxy Mall, Baabda, Mount Lebanon • Doha, Qatar
+                <strong>LB:</strong> Galaxy Mall, Baabda, Mount Lebanon • <strong>QR:</strong> Doha, Qatar
               </p>
             </td>
           </tr>
@@ -180,7 +180,7 @@ export async function POST(req: Request) {
     // Send confirmation email to subscriber
     try {
       await resend.emails.send({
-        from: "Solenergy <info@solenergy.me>",
+        from: "Solenergy <info@solenergypower.com>",
         to: email,
         subject: "Welcome to Solenergy Newsletter!",
         html: getNewsletterConfirmationEmail(),
@@ -191,8 +191,8 @@ export async function POST(req: Request) {
 
     // Send notification email to admin
     await resend.emails.send({
-      from: "Solenergy Newsletter <info@solenergy.me>",
-      to: "solenergysarl@gmail.com",
+      from: "Solenergy Newsletter <info@solenergypower.com>",
+      to: "info@solenergypower.com",
       subject: "New Newsletter Subscription",
       html: getNewsletterNotificationEmail(email),
     });
