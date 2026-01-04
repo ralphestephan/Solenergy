@@ -10,7 +10,7 @@ import { SITE } from "@/lib/site";
 export const metadata: Metadata = {
   title: "About Solenergy | Leading Energy Solutions Provider in Lebanon",
   description:
-    "Solenergy delivers innovative solar energy, generators, energy management, and Industry 4.0 solutions. Powering Lebanon's future since 2020 with sustainable technology.",
+    "Solenergy is transforming how homes and businesses in Lebanon and the GCC region manage energy. We deliver intelligent, reliable, and sustainable energy solutions — from solar panel systems and backup generators to advanced energy management platforms.",
   alternates: { canonical: "/about" },
   openGraph: {
     title: "About Solenergy",
@@ -79,8 +79,9 @@ export default function Page() {
             </div>
 
             <p className="text-lg md:text-xl text-white/80 max-w-2xl mb-10 leading-relaxed">
-              Lebanon-based energy solutions provider delivering comprehensive solar installations, 
-              backup generators, energy management systems, and Industry 4.0 technologies since 2020.
+              Solenergy is transforming how homes and businesses in Lebanon and the GCC region manage energy. 
+              We deliver intelligent, reliable, and sustainable energy solutions — from solar panel systems 
+              and backup generators to advanced energy management platforms.
             </p>
 
             <div className="flex flex-wrap gap-4">
@@ -110,7 +111,8 @@ export default function Page() {
             </h2>
             <div className="w-16 h-1 bg-brand-yellow mx-auto mt-4 mb-6" />
             <p className="text-zinc-600 max-w-2xl mx-auto text-lg">
-              Powering Lebanon&apos;s energy future with innovative solutions since 2020.
+              With 30 years of experience, 50+ MW installed, and 24/7 support, Solenergy is a trusted partner 
+              for organizations seeking energy independence, efficiency, and resilience.
             </p>
           </div>
 
@@ -129,14 +131,13 @@ export default function Page() {
               
               <div className="space-y-4 text-zinc-600">
                 <p>
-                  Since 2020, Solenergy has been at the forefront of sustainable energy 
-                  solutions in Lebanon. We combine solar technology, backup power systems, 
-                  and smart energy management to deliver reliable, efficient power solutions.
+                  Solenergy is transforming how homes and businesses in Lebanon and the GCC region manage energy. 
+                  We deliver intelligent, reliable, and sustainable energy solutions — from solar panel systems 
+                  and backup generators to advanced energy management platforms.
                 </p>
                 <p>
-                  From residential solar installations to industrial energy management 
-                  systems, we provide end-to-end solutions that reduce costs, increase 
-                  reliability, and promote sustainability.
+                  With 30 years of experience, 50+ MW installed, and 24/7 support, Solenergy is a trusted partner 
+                  for organizations seeking energy independence, efficiency, and resilience in an evolving energy landscape.
                 </p>
               </div>
             </div>
@@ -181,9 +182,9 @@ export default function Page() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
             {[
-              { k: "5+", v: "Years of Excellence" },
-              { k: "200+", v: "Projects Completed" },
+              { k: "30", v: "Years of Excellence" },
               { k: "50+", v: "MW Installed" },
+              { k: "1kW-1MW", v: "Project Range" },
               { k: "99%", v: "Client Satisfaction" },
             ].map(({ k, v }) => (
               <div
@@ -236,7 +237,7 @@ export default function Page() {
               {
                 year: "2025",
                 title: "Energy Management Platform",
-                description: "Introduced Sol4.o—our complete Industry 4.0 and energy management SaaS solution.",
+                description: "Introduced Sol4.o—our complete Industry 4.0 and energy management platform.",
               },
             ].map((milestone) => (
               <div
@@ -270,12 +271,13 @@ export default function Page() {
             </p>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-4">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             {[
-              { name: "Electrical Engineer", role: "Founder & CEO", img: "/images/fieldwork.png" },
-              { name: "Energy Specialist", role: "Chief Engineer", img: "/images/work.png" },
-              { name: "Technical Expert", role: "Operations Manager", img: "/images/panels.png" },
-              { name: "Field Technician", role: "Technical Lead", img: "/images/fieldwork.png" },
+              { name: "Charbel Mansour", role: "Owner", img: "/images/fieldwork.png" },
+              { name: "Tarek", role: "Manager", img: "/images/work.png" },
+              { name: "Ralph Estephan", role: "IIoT Engineer", img: "/images/panels.png" },
+              { name: "Mohammad", role: "Technician", img: "/images/fieldwork.png" },
+              { name: "Mario", role: "Site Engineer", img: "/images/work.png" },
             ].map((p) => (
               <div
                 key={p.name}

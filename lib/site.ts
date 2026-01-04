@@ -1,11 +1,11 @@
 // lib/site.ts
 export const SITE = {
-  name: "Solenergy — Powering Tomorrow",
+  name: "Solenergy | Solar, Generators & Smart Energy Solutions",
   brand: "Solenergy",
-  tagline: "Powering Your Future with Smart Energy Solutions",
-  baseUrl: "https://solenergy.com",
+  tagline: "Energy shouldn't fail. It should think.",
+  baseUrl: "https://solenergypower.com",
   description:
-    "Solenergy is your trusted partner for solar energy, generators, energy management, and Industry 4.0 solutions. We deliver innovative, sustainable power solutions tailored to your needs.",
+    "Solenergy is transforming how homes and businesses in Lebanon and the GCC region manage energy. We deliver intelligent, reliable, and sustainable energy solutions — from solar panel systems and backup generators to advanced energy management platforms.",
   keywords: [
     // Core Services
     "solar energy",
@@ -44,7 +44,7 @@ export const SITE = {
   },
   org: {
     legalName: "Solenergy",
-    url: "https://solenergy.com",
+    url: "https://solenergypower.com",
     logo: "/images/solenergy-logo.png",
     sameAs: [
       "https://twitter.com/Solenergy",

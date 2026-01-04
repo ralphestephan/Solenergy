@@ -213,7 +213,7 @@ export default function PrivacyPage() {
                     +961 71 654 956
                   </a>
                 </p>
-                <p>Address: Adonis, Lebanon</p>
+                <p>Address: Galaxy Mall, Baabda, Mount Lebanon<br />Doha, Qatar</p>
               </div>
             </section>
           </div>

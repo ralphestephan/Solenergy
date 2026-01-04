@@ -89,7 +89,10 @@ export default function CTAPremium() {
                 </div>
                 <div>
                   <div className="text-sm text-zinc-700">Location</div>
-                  <span className="font-bold text-zinc-900">Adonis, Lebanon</span>
+                  <div className="flex flex-col">
+                    <span className="font-bold text-zinc-900">Galaxy Mall, Baabda, Mount Lebanon</span>
+                    <span className="font-bold text-zinc-900 text-sm">Doha, Qatar</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -131,10 +134,10 @@ export default function CTAPremium() {
 
             <div className="grid sm:grid-cols-2 gap-6">
               {[
-                { stat: "5+", label: "Years Experience" },
-                { stat: "50+", label: "Projects Completed" },
+                { stat: "30", label: "Years Experience" },
+                { stat: "50+", label: "MW Installed" },
+                { stat: "1kW-1MW", label: "Project Range" },
                 { stat: "24/7", label: "Support Available" },
-                { stat: "100%", label: "Client Satisfaction" },
               ].map(({ stat, label }) => (
                 <div key={label} className="p-6 rounded-xl bg-white/5 border border-white/10">
                   <div className="text-3xl font-extrabold text-brand-yellow mb-1">{stat}</div>

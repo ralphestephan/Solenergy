@@ -7,6 +7,7 @@ import { insights } from "@/data/insights";
 const staticPaths = [
   { path: "", priority: 1.0 },
   { path: "/solutions", priority: 0.9 },
+  { path: "/portfolio", priority: 0.9 },
   { path: "/homedome", priority: 0.9 },
   { path: "/shop", priority: 0.8 },
   { path: "/insights", priority: 0.8 },
@@ -40,5 +41,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   })) : [];
 
-  return [...base, ...solutionPages, ...insightPages];
+  const projectPages = [
+    { slug: "commercial-solar-beirut" },
+    { slug: "industrial-generator-setup" },
+    { slug: "smart-factory-integration" },
+    { slug: "residential-solar-system" },
+    { slug: "hybrid-power-hotel" },
+    { slug: "commercial-solar-farm" },
+    { slug: "backup-generator-hospital" },
+    { slug: "residential-solar-battery" },
+    { slug: "commercial-energy-management" },
+    { slug: "industrial-solar-installation" },
+    { slug: "residential-off-grid" },
+    { slug: "generator-maintenance-upgrade" },
+  ].map((p) => ({
+    url: `${SITE.baseUrl}/portfolio/${p.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+  }));
+
+  return [...base, ...solutionPages, ...insightPages, ...projectPages];
 }

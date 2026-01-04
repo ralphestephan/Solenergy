@@ -207,7 +207,7 @@ export default function Page() {
                     { v: "solar", label: "Solar Systems", Icon: Sun },
                     { v: "generators", label: "Generators", Icon: Zap },
                     { v: "maintenance", label: "Maintenance", Icon: Wrench },
-                    { v: "saas", label: "Sol4.o SaaS", Icon: Cloud },
+                    { v: "saas", label: "Sol4.o Platform", Icon: Cloud },
                   ].map(({ v, label, Icon }) => (
                     <TabsTrigger
                       key={v}
@@ -273,9 +273,9 @@ export default function Page() {
               <TabsContent value="saas" className="motion-safe:animate-tabIn-slow">
                 <SplitCard
                   label="Sol4.o Platform"
-                  title="Smart Energy Management SaaS"
-                  desc="Cloud-based platform integrating solar, generators, and grid power with real-time monitoring, analytics, and intelligent automation."
-                  img="/images/synchnorizedDist.png"
+                  title="Smart Energy Management Platform"
+                  desc="Real-time platform integrating solar, generators, and grid power with advanced monitoring, analytics, and intelligent automation."
+                  img="/images/deyeESS.png"
                   tone="orange"
                   items={[
                     "Multi-source energy integration",
@@ -316,8 +316,8 @@ export default function Page() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                { Icon: Shield, title: "30+ Years", subtitle: "Experience", desc: "Proven track record across Lebanon and GCC" },
-                { Icon: Leaf, title: "50+ MW", subtitle: "Installed", desc: "Powering businesses and homes sustainably" },
+                { Icon: Shield, title: "30 Years", subtitle: "Experience", desc: "Proven track record across Lebanon and GCC" },
+                { Icon: Leaf, title: "50+ MW", subtitle: "Installed", desc: "Projects ranging from 1kW to 1MW capacity" },
                 { Icon: Clock, title: "24/7", subtitle: "Support", desc: "Round-the-clock monitoring and maintenance" },
                 { Icon: Settings, title: "Turnkey", subtitle: "Solutions", desc: "From design to commissioning, we handle it all" },
               ].map(({ Icon, title, subtitle, desc }) => (
