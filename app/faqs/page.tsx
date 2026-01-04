@@ -76,7 +76,7 @@ const faqCategories = [
       {
         question: "How do I get started with solar energy?",
         answer:
-          "Contact us for a free consultation at +961 71 654 956 or solenergysarl@gmail.com. We'll assess your property, analyze your energy consumption, and design a customized solar solution with transparent pricing and expected savings.",
+          "Contact us for a free consultation at +961 71 654 956 or info@solenergypower.com. We'll assess your property, analyze your energy consumption, and design a customized solar solution with transparent pricing and expected savings.",
       },
       {
         question: "How much does a solar system cost in Lebanon?",
@@ -221,7 +221,7 @@ const faqCategories = [
       {
         question: "How do I contact Solenergy support?",
         answer:
-          "Call +961 71 654 956, WhatsApp at the same number, or email solenergysarl@gmail.com. Our support team is available during business hours for technical assistance, maintenance scheduling, and emergency support.",
+          "Call +961 71 654 956, WhatsApp at the same number, or email info@solenergypower.com. Our support team is available during business hours for technical assistance, maintenance scheduling, and emergency support.",
       },
       {
         question: "Do you provide system monitoring?",

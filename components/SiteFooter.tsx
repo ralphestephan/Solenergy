@@ -41,7 +41,7 @@ export default function SiteFooter() {
   const helpful: [string, string][] = [
     ["Support", "/contact"],
     ["WhatsApp", "https://wa.me/96171654956"],
-    ["Email us", "mailto:solenergysarl@gmail.com"],
+    ["Email us", "mailto:info@solenergypower.com"],
   ];
 
   const [email, setEmail] = useState("");
@@ -192,8 +192,8 @@ export default function SiteFooter() {
               <div className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 mt-0.5 text-zinc-500" aria-hidden />
                 <div className="flex flex-col gap-1">
-                  <span className="whitespace-nowrap md:whitespace-normal">Galaxy Mall, Baabda, Mount Lebanon</span>
-                  <span className="whitespace-nowrap md:whitespace-normal text-zinc-500">Doha, Qatar</span>
+                  <span className="whitespace-nowrap md:whitespace-normal"><strong>LB:</strong> Galaxy Mall, Baabda, Mount Lebanon</span>
+                  <span className="whitespace-nowrap md:whitespace-normal"><strong>QR:</strong> Doha, Qatar</span>
                 </div>
               </div>
               <div className="flex items-center gap-2">

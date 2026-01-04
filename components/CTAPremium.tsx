@@ -78,8 +78,8 @@ export default function CTAPremium() {
                 </div>
                 <div>
                   <div className="text-sm text-zinc-700">Email</div>
-                  <a href="mailto:solenergysarl@gmail.com" className="font-bold text-zinc-900 hover:underline">
-                    solenergysarl@gmail.com
+                  <a href="mailto:info@solenergypower.com" className="font-bold text-zinc-900 hover:underline">
+                    info@solenergypower.com
                   </a>
                 </div>
               </div>
@@ -88,10 +88,10 @@ export default function CTAPremium() {
                   <MapPin className="w-5 h-5 text-zinc-900" />
                 </div>
                 <div>
-                  <div className="text-sm text-zinc-700">Location</div>
-                  <div className="flex flex-col">
-                    <span className="font-bold text-zinc-900">Galaxy Mall, Baabda, Mount Lebanon</span>
-                    <span className="font-bold text-zinc-900 text-sm">Doha, Qatar</span>
+                  <div className="text-sm text-zinc-700">Locations</div>
+                  <div className="flex flex-col gap-1">
+                    <span className="font-bold text-zinc-900"><strong>LB:</strong> Galaxy Mall, Baabda, Mount Lebanon</span>
+                    <span className="font-bold text-zinc-900"><strong>QR:</strong> Doha, Qatar</span>
                   </div>
                 </div>
               </div>

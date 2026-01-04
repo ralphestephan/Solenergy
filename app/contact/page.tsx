@@ -145,7 +145,7 @@ export default function Page() {
 
             {/* Email Card */}
             <a
-              href="mailto:solenergysarl@gmail.com"
+              href="mailto:info@solenergypower.com"
               className="group p-8 rounded-2xl bg-white border border-zinc-100 shadow-xl hover:shadow-2xl hover:border-brand-yellow/50 transition-all duration-300"
             >
               <div className="w-16 h-16 rounded-xl bg-brand-orange text-white inline-grid place-items-center mb-6 group-hover:scale-110 transition-transform">
@@ -154,7 +154,7 @@ export default function Page() {
               <h3 className="text-xl font-bold text-zinc-900">Email</h3>
               <p className="mt-2 text-zinc-600">For detailed inquiries</p>
               <p className="mt-4 text-brand-orange font-semibold flex items-center gap-2">
-                solenergysarl@gmail.com <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                info@solenergypower.com <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </p>
             </a>
 
@@ -204,9 +204,9 @@ export default function Page() {
                     <MapPin className="w-6 h-6" />
                   </div>
                   <div>
-                    <p className="font-semibold text-zinc-900">Galaxy Mall, Baabda, Mount Lebanon</p>
-                    <p className="text-zinc-600 text-sm mt-1">Doha, Qatar</p>
-                    <p className="text-zinc-600 text-sm mt-1">Serving all of Lebanon & the GCC region</p>
+                    <p className="font-semibold text-zinc-900"><strong>LB:</strong> Galaxy Mall, Baabda, Mount Lebanon</p>
+                    <p className="font-semibold text-zinc-900 mt-2"><strong>QR:</strong> Doha, Qatar</p>
+                    <p className="text-zinc-600 text-sm mt-2">Serving all of Lebanon & the GCC region</p>
                   </div>
                 </div>
               </div>

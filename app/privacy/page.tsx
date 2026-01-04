@@ -152,8 +152,8 @@ export default function PrivacyPage() {
               </ul>
               <p className="text-zinc-700 mt-3">
                 To exercise these rights, contact us at{" "}
-                <a className="text-brand-yellow font-semibold" href="mailto:solenergysarl@gmail.com">
-                  solenergysarl@gmail.com
+                <a className="text-brand-yellow font-semibold" href="mailto:info@solenergypower.com">
+                  info@solenergypower.com
                 </a>{" "}
                 or call{" "}
                 <a className="text-brand-yellow font-semibold" href="tel:+96171654956">
@@ -199,8 +199,8 @@ export default function PrivacyPage() {
               <div className="mt-3 text-zinc-700 space-y-1">
                 <p>
                   Email:{" "}
-                  <a className="text-brand-yellow font-semibold" href="mailto:solenergysarl@gmail.com">
-                    solenergysarl@gmail.com
+                  <a className="text-brand-yellow font-semibold" href="mailto:info@solenergypower.com">
+                    info@solenergypower.com
                   </a>
                 </p>
                 <p>
@@ -213,7 +213,7 @@ export default function PrivacyPage() {
                     +961 71 654 956
                   </a>
                 </p>
-                <p>Address: Galaxy Mall, Baabda, Mount Lebanon<br />Doha, Qatar</p>
+                <p><strong>LB:</strong> Galaxy Mall, Baabda, Mount Lebanon<br /><strong>QR:</strong> Doha, Qatar</p>
               </div>
             </section>
           </div>

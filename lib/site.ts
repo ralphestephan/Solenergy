@@ -53,7 +53,7 @@ export const SITE = {
     ],
   },
   contact: {
-    email: "info@solenergy.com",
-    phone: "+961 XX XXX XXX",
+    email: "info@solenergypower.com",
+    phone: "+961 71 654 956",
   },
 } as const;

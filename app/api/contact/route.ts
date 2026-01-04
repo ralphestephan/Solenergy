@@ -45,8 +45,9 @@ function getContactConfirmationEmail(name: string) {
               
               <div style="background-color: #f9fafb; border-left: 4px solid #F4B41A; padding: 20px; margin: 20px 0; border-radius: 4px;">
                 <p style="margin: 0 0 10px 0; color: #1f2937; font-size: 14px; font-weight: 600;">📞 Phone: <a href="tel:+96171654956" style="color: #F4B41A; text-decoration: none;">+961 71 654 956</a></p>
-                <p style="margin: 0 0 10px 0; color: #1f2937; font-size: 14px; font-weight: 600;">✉️ Email: <a href="mailto:solenergysarl@gmail.com" style="color: #F4B41A; text-decoration: none;">solenergysarl@gmail.com</a></p>
-                <p style="margin: 0; color: #1f2937; font-size: 14px; font-weight: 600;">📍 Location: Galaxy Mall, Baabda, Mount Lebanon</p>
+                <p style="margin: 0 0 10px 0; color: #1f2937; font-size: 14px; font-weight: 600;">✉️ Email: <a href="mailto:info@solenergypower.com" style="color: #F4B41A; text-decoration: none;">info@solenergypower.com</a></p>
+                <p style="margin: 0 0 5px 0; color: #1f2937; font-size: 14px; font-weight: 600;">📍 <strong>LB:</strong> Galaxy Mall, Baabda, Mount Lebanon</p>
+                <p style="margin: 0; color: #1f2937; font-size: 14px; font-weight: 600;">📍 <strong>QR:</strong> Doha, Qatar</p>
               </div>
               
               <p style="margin: 20px 0 0 0; color: #6b7280; font-size: 14px; line-height: 1.6;">
@@ -233,7 +234,7 @@ export async function POST(req: Request) {
     // Send confirmation email to user
     try {
       await resend.emails.send({
-        from: "Solenergy <info@solenergy.me>",
+        from: "Solenergy <info@solenergypower.com>",
         to: form.email,
         subject: "Thank You for Contacting Solenergy",
         html: getContactConfirmationEmail(form.name || "Valued Customer"),
@@ -244,8 +245,8 @@ export async function POST(req: Request) {
 
     // Send notification email to admin
     await resend.emails.send({
-      from: "Solenergy Contact <info@solenergy.me>",
-      to: "solenergysarl@gmail.com",
+      from: "Solenergy Contact <info@solenergypower.com>",
+      to: "info@solenergypower.com",
       subject: "New Contact Form Submission",
       html: getContactNotificationEmail(form),
     });
