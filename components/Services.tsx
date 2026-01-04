@@ -35,7 +35,7 @@ const services = [
   {
     title: "Energy Management",
     body:
-      "Sol4.o SaaS platform—smart monitoring, control, and optimization of all your energy assets from one dashboard.",
+      "Sol4.o platform—smart monitoring, control, and optimization of all your energy assets from one dashboard.",
     icon: Cloud,
     href: "/solutions/energy-management",
     tint: "orange" as const,

@@ -98,8 +98,8 @@ export default function HeroPremium() {
 
           {/* Main headline with split color */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] tracking-tight text-white mb-6">
-            WE DO BIG THINGS WITH{" "}
-            <span className="text-brand-yellow">NEW IDEAS</span>
+            ENERGY SHOULDN&apos;T FAIL.{" "}
+            <span className="text-brand-yellow">IT SHOULD THINK.</span>
           </h1>
 
           {/* Yellow accent line */}
@@ -110,8 +110,8 @@ export default function HeroPremium() {
 
           {/* Subtitle */}
           <p className="text-lg md:text-xl text-white/80 max-w-2xl mb-10 leading-relaxed">
-            Solenergy delivers comprehensive solar energy, backup generators, and smart energy management. 
-            We power businesses and homes with intelligent, sustainable technology.
+            At Solenergy, we build smart energy ecosystems—not just solar panels or generators. 
+            Welcome to your complete Energy Solutions.
           </p>
 
           {/* CTA Buttons */}
@@ -140,7 +140,7 @@ export default function HeroPremium() {
           <div className="mt-12 flex flex-wrap items-center gap-8">
             <div className="flex items-center gap-3">
               <div className="w-12 h-12 rounded-full bg-brand-yellow/20 flex items-center justify-center">
-                <span className="text-brand-yellow font-bold text-lg">5+</span>
+                <span className="text-brand-yellow font-bold text-lg">30</span>
               </div>
               <div className="text-white/70 text-sm">
                 <div className="font-semibold text-white">Years</div>
@@ -153,8 +153,8 @@ export default function HeroPremium() {
                 <span className="text-brand-yellow font-bold text-lg">50+</span>
               </div>
               <div className="text-white/70 text-sm">
-                <div className="font-semibold text-white">Projects</div>
-                Completed
+                <div className="font-semibold text-white">MW</div>
+                Installed
               </div>
             </div>
             <div className="w-px h-10 bg-white/20 hidden sm:block" />

@@ -1,0 +1,6 @@
+Copy and paste this EXACTLY into a file named .env.local in the root directory:
+
+NEXT_PUBLIC_SUPABASE_URL=https://uwhamhqmwduyzbyqkjod.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV3aGFtaHFtd2R1eXpieXFram9kIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjIxNzI1OTUsImV4cCI6MjA3Nzc0ODU5NX0.QJdRkGoBK5kBDiKuFKBDGFf4zempzGG5-pHAr-ujbBY
+RESEND_API_KEY=re_GNE1Zft7_FK2SbKxwuNFrxumZQNP9wVi1
+

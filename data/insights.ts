@@ -651,7 +651,7 @@ export const insights: Insight[] = [
   
   {
     slug: "solen-4-0-energy-management-saas-platform",
-    title: "Sol4.o: Complete Energy Management SaaS Platform",
+    title: "Sol4.o: Complete Energy Management Platform",
     excerpt:
       "Introducing Sol4.o—Solenergy's flagship cloud-based platform that unifies solar, generators, batteries, and grid power into one intelligent dashboard. Monitor, control, and optimize all your energy assets from anywhere.",
     date: "2025-10-29",

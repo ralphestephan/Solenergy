@@ -151,8 +151,8 @@ const solutions: Solution[] = [
     slug: "energy-management",
     heading: "Energy Management & Industry 4.0",
     description:
-      "Complete industrial solution combining smart energy management, IoT automation, and Industry 4.0 technologies. Integrate solar, generators, and grid power with advanced monitoring, predictive analytics, and our SaaS platform Sol4.o for total operational control.",
-    image: "/images/synchnorizedDist.png",
+      "Complete industrial solution combining smart energy management, IoT automation, and Industry 4.0 technologies. Integrate solar, generators, and grid power with advanced monitoring, predictive analytics, and our Sol4.o platform for total operational control.",
+    image: "/images/deyeESS.png",
     category: "specialized",
     tech: [
       { 
@@ -181,9 +181,9 @@ const solutions: Solution[] = [
       },
       { 
         key: "solen-platform", 
-        label: "Sol4.o SaaS Platform", 
+        label: "Sol4.o Platform", 
         icon: "cloud", 
-        blurb: "Unified cloud platform managing solar, generators, and energy systems in one dashboard." 
+        blurb: "Unified platform managing solar, generators, and energy systems in one real-time dashboard." 
       },
       { 
         key: "predictive-maintenance", 

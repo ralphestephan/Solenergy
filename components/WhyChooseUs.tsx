@@ -74,9 +74,10 @@ export default function WhyChooseUs() {
             <div className="w-16 h-1 bg-brand-yellow mb-6" />
 
             <p className="text-zinc-600 text-lg leading-relaxed mb-8">
-              With over 5 years of experience in the energy sector, Solenergy has established 
+              With 30 years of experience in the energy sector, Solenergy has established 
               itself as a trusted leader in solar energy, generators, and smart energy 
-              management solutions across Lebanon and the GCC region.
+              management solutions across Lebanon and the GCC region. We've completed 50+ MW 
+              of projects, ranging from 1kW to 1MW installations.
             </p>
 
             {/* Highlight pills */}
@@ -95,9 +96,9 @@ export default function WhyChooseUs() {
             {/* Stats row */}
             <div className="grid grid-cols-3 gap-4">
               {[
-                { value: "5+", label: "Years" },
-                { value: "50+", label: "Projects" },
-                { value: "100%", label: "Satisfaction" },
+                { value: "30", label: "Years" },
+                { value: "50+", label: "MW" },
+                { value: "1kW-1MW", label: "Range" },
               ].map(({ value, label }) => (
                 <div key={label} className="text-center p-4 rounded-xl bg-zinc-50">
                   <div className="text-2xl font-extrabold text-brand-yellow">{value}</div>

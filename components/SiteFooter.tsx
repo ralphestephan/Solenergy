@@ -32,6 +32,7 @@ export default function SiteFooter() {
   const links: [string, string][] = [
     ["About", "/about"],
     ["Solutions", "/solutions"],
+    ["Portfolio", "/portfolio"],
     ["Industry Insights", "/insights"],
     ["FAQ", "/faqs"],
     ["Contact", "/contact"],
@@ -190,7 +191,10 @@ export default function SiteFooter() {
             <div className="mt-2 md:mt-3 space-y-2 md:space-y-3 text-zinc-400 text-sm md:text-base leading-6">
               <div className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 mt-0.5 text-zinc-500" aria-hidden />
-                <span className="whitespace-nowrap md:whitespace-normal">Adonis, Lebanon</span>
+                <div className="flex flex-col gap-1">
+                  <span className="whitespace-nowrap md:whitespace-normal">Galaxy Mall, Baabda, Mount Lebanon</span>
+                  <span className="whitespace-nowrap md:whitespace-normal text-zinc-500">Doha, Qatar</span>
+                </div>
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="h-4 w-4 text-zinc-500" aria-hidden />

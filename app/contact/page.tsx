@@ -204,7 +204,8 @@ export default function Page() {
                     <MapPin className="w-6 h-6" />
                   </div>
                   <div>
-                    <p className="font-semibold text-zinc-900">Adonis, Lebanon</p>
+                    <p className="font-semibold text-zinc-900">Galaxy Mall, Baabda, Mount Lebanon</p>
+                    <p className="text-zinc-600 text-sm mt-1">Doha, Qatar</p>
                     <p className="text-zinc-600 text-sm mt-1">Serving all of Lebanon & the GCC region</p>
                   </div>
                 </div>
