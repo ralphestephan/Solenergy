@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     url: `${SITE.baseUrl}/`,
     images: [{ url: SITE.ogImage }],
   },
-  twitter: { card: "summary_large_image", site: "@solenergy" },
+  // twitter: { card: "summary_large_image", site: "@solenergy" }, // Disabled until further notice
   other: {
     keywords:
       "solar energy, solar panels, generators, energy management, Industry 4.0, smart solar, renewable energy, backup power, energy solutions Lebanon, sunflower solar tracking",
