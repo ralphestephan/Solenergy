@@ -173,6 +173,55 @@ export default function PortfolioPage() {
             ))}
           </div>
 
+          {/* Mobile: Staggered/Masonry Layout */}
+          <div
+            className={[
+              "lg:hidden columns-2 gap-4",
+              "transition-all duration-700 delay-200",
+              show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
+            ].join(" ")}
+          >
+            {filteredProjects.map((project, index) => (
+              <Link
+                key={project.id}
+                href={`/portfolio/${project.slug}`}
+                className="group relative rounded-xl overflow-hidden bg-zinc-100 mb-4 break-inside-avoid"
+                style={{
+                  marginTop: index % 3 === 0 ? '0' : '1rem',
+                }}
+              >
+                {/* Image */}
+                <div className="relative aspect-[4/3]">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    sizes="(max-width: 640px) 50vw, 33vw"
+                  />
+                </div>
+
+                {/* Content overlay - always visible on mobile */}
+                <div className="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-zinc-900/95 via-zinc-900/80 to-transparent">
+                  <div className="text-xs text-brand-yellow font-medium mb-1">
+                    {project.category}
+                  </div>
+                  <h3 className="text-white font-bold text-sm mb-1 line-clamp-1">{project.title}</h3>
+                  <div className="flex items-center gap-2 text-white/80 text-xs">
+                    <span>{project.capacity}</span>
+                    <span>•</span>
+                    <span className="line-clamp-1">{project.location}</span>
+                  </div>
+                </div>
+
+                {/* Top-right arrow */}
+                <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-brand-yellow flex items-center justify-center">
+                  <ArrowRight className="w-4 h-4 text-zinc-900" />
+                </div>
+              </Link>
+            ))}
+          </div>
+
           {/* Stats section */}
           <div
             className={[

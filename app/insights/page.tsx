@@ -207,6 +207,49 @@ export default function Page() {
               </Link>
             ))}
           </div>
+
+          {/* Mobile: Staggered/Masonry Layout */}
+          <div className="lg:hidden columns-2 gap-4">
+            {restInsights.map((post, index) => (
+              <Link key={post.slug} href={`/insights/${post.slug}`} className="group mb-4 break-inside-avoid">
+                <article className="h-full rounded-2xl overflow-hidden bg-white border border-zinc-100 shadow-lg">
+                  {/* Image */}
+                  <div className="relative aspect-[16/10] overflow-hidden">
+                    <Image
+                      src={post.cover}
+                      alt={post.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 640px) 50vw, 33vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/30 to-transparent" />
+                    <span className="absolute left-3 top-3 inline-flex items-center px-2 py-1 rounded-full bg-white/90 text-xs font-medium">
+                      {post.tags[0]}
+                    </span>
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-4">
+                    <h3 className="text-base font-bold text-zinc-900 group-hover:text-brand-yellow transition-colors line-clamp-2 mb-2">
+                      {post.title}
+                    </h3>
+                    <p className="text-zinc-600 text-xs line-clamp-2 mb-3">
+                      {post.excerpt}
+                    </p>
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="text-zinc-500 flex items-center gap-1">
+                        <Calendar className="w-3 h-3" />
+                        {new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
+                      </span>
+                      <span className="text-brand-yellow font-semibold flex items-center gap-1">
+                        Read <ArrowRight className="w-3 h-3" />
+                      </span>
+                    </div>
+                  </div>
+                </article>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
