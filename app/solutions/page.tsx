@@ -125,7 +125,7 @@ export default function Page() {
       <section className="relative min-h-[60vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/images/panels.png"
+            src="/images/ChatGPT Image Jan 5, 2026, 12_06_25 AM.png"
             alt="Solenergy solar panel installation"
             fill
             className="object-cover"
