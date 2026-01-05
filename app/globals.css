@@ -29,31 +29,17 @@
   border-color: rgba(255, 255, 255, 0.5);
 }
 
-/* Clients Carousel - Perfect Infinite Scroll */
-@keyframes clientsScroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-.clients-scroll {
-  animation: clientsScroll 25s linear infinite;
-  will-change: transform;
-}
-
-/* Faster on mobile */
-@media (max-width: 768px) {
-  .clients-scroll {
-    animation: clientsScroll 12s linear infinite;
-  }
+/* Clients Carousel - JavaScript-based Infinite Scroll */
+.clients-scroll-js {
+  display: flex;
+  backface-visibility: hidden;
+  perspective: 1000px;
 }
 
 .clients-set {
-  min-width: max-content;
+  display: flex;
   flex-shrink: 0;
+  min-width: max-content;
 }
 
 /* -----------------------------
