@@ -444,8 +444,7 @@ export default function Page() {
           </div>
 
           {/* VALUES */}
-          {/* Desktop Grid */}
-          <div className="hidden md:grid md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-3 gap-3 sm:gap-6">
             {[
               { Icon: Award, label: "Excellence" },
               { Icon: TrendingUp, label: "Innovation" },
@@ -453,33 +452,12 @@ export default function Page() {
             ].map(({ Icon, label }) => (
               <div
                 key={label}
-                className="p-6 rounded-2xl bg-white border border-zinc-100 shadow-lg hover:shadow-xl transition-all duration-300 text-center"
+                className="p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-white border border-zinc-100 shadow-lg hover:shadow-xl transition-all duration-300 text-center"
               >
-                <div className="w-14 h-14 rounded-xl bg-brand-yellow/10 text-brand-yellow flex items-center justify-center mx-auto mb-4">
-                  <Icon className="w-7 h-7" />
+                <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-xl bg-brand-yellow/10 text-brand-yellow flex items-center justify-center mx-auto mb-2 sm:mb-4">
+                  <Icon className="w-5 h-5 sm:w-7 sm:h-7" />
                 </div>
-                <h3 className="text-lg font-bold">{label}</h3>
-              </div>
-            ))}
-          </div>
-
-          {/* Mobile: Stacked Cards */}
-          <div className="md:hidden space-y-4">
-            {[
-              { Icon: Award, label: "Excellence" },
-              { Icon: TrendingUp, label: "Innovation" },
-              { Icon: Users, label: "Customer Focus" },
-            ].map(({ Icon, label }) => (
-              <div
-                key={label}
-                className="p-5 rounded-xl bg-white border border-zinc-100 shadow-lg transition-all duration-300"
-              >
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-brand-yellow/10 text-brand-yellow flex items-center justify-center flex-shrink-0">
-                    <Icon className="w-6 h-6" />
-                  </div>
-                  <h3 className="text-base font-bold">{label}</h3>
-                </div>
+                <h3 className="text-xs sm:text-lg font-bold leading-tight">{label}</h3>
               </div>
             ))}
           </div>
