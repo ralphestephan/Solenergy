@@ -9,7 +9,7 @@ import { SITE } from "@/lib/site";
 import SEOJsonLd from "@/components/SEOJsonLd";
 import { projects } from "@/data/projects";
 
-const CATEGORIES = ["All Projects", "Solar Systems", "Generators", "Energy Management", "Commercial", "Residential"] as const;
+const CATEGORIES = ["All Projects", "Solar Systems", "Generators", "Energy Management", "Commercial", "Residential", "Institutional"] as const;
 type Category = typeof CATEGORIES[number];
 
 function useInView<T extends HTMLElement>(opts: IntersectionObserverInit = { threshold: 0.1 }) {
