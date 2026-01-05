@@ -178,23 +178,41 @@ export async function POST(req: Request) {
 
     // Send confirmation email to subscriber
     try {
-      await resend.emails.send({
+      const confirmResult = await resend.emails.send({
         from: "Solenergy <info@solenergypower.com>",
         to: email,
         subject: "Welcome to Solenergy Newsletter!",
         html: getNewsletterConfirmationEmail(),
       });
-    } catch (emailErr) {
-      console.error("Failed to send confirmation email:", emailErr);
+      console.log("✅ Newsletter confirmation email sent successfully:", confirmResult);
+    } catch (emailErr: any) {
+      console.error("❌ Failed to send newsletter confirmation email:", emailErr);
+      console.error("Error details:", {
+        message: emailErr?.message,
+        name: emailErr?.name,
+        statusCode: emailErr?.response?.status,
+        body: emailErr?.response?.body,
+      });
     }
 
     // Send notification email to admin
-    await resend.emails.send({
-      from: "Solenergy Newsletter <info@solenergypower.com>",
-      to: "info@solenergypower.com",
-      subject: "New Newsletter Subscription",
-      html: getNewsletterNotificationEmail(email),
-    });
+    try {
+      const adminResult = await resend.emails.send({
+        from: "Solenergy Newsletter <info@solenergypower.com>",
+        to: "info@solenergypower.com",
+        subject: "New Newsletter Subscription",
+        html: getNewsletterNotificationEmail(email),
+      });
+      console.log("✅ Admin newsletter notification sent successfully:", adminResult);
+    } catch (adminEmailErr: any) {
+      console.error("❌ Failed to send admin newsletter notification:", adminEmailErr);
+      console.error("Error details:", {
+        message: adminEmailErr?.message,
+        name: adminEmailErr?.name,
+        statusCode: adminEmailErr?.response?.status,
+        body: adminEmailErr?.response?.body,
+      });
+    }
 
     return NextResponse.json({ success: true });
   } catch (err: any) {
