@@ -238,23 +238,41 @@ export async function POST(req: Request) {
 
     // Send confirmation email to user
     try {
-      await resend.emails.send({
+      const confirmResult = await resend.emails.send({
         from: "Solenergy <info@solenergypower.com>",
         to: form.email,
         subject: "Thank You for Contacting Solenergy",
         html: getContactConfirmationEmail(form.name || "Valued Customer"),
       });
-    } catch (emailErr) {
-      console.error("Failed to send confirmation email:", emailErr);
+      console.log("✅ User confirmation email sent successfully:", confirmResult);
+    } catch (emailErr: any) {
+      console.error("❌ Failed to send confirmation email:", emailErr);
+      console.error("Error details:", {
+        message: emailErr?.message,
+        name: emailErr?.name,
+        statusCode: emailErr?.response?.status,
+        body: emailErr?.response?.body,
+      });
     }
 
     // Send notification email to admin
-    await resend.emails.send({
-      from: "Solenergy Contact <info@solenergypower.com>",
-      to: "info@solenergypower.com",
-      subject: "New Contact Form Submission",
-      html: getContactNotificationEmail(form),
-    });
+    try {
+      const adminResult = await resend.emails.send({
+        from: "Solenergy Contact <info@solenergypower.com>",
+        to: "info@solenergypower.com",
+        subject: "New Contact Form Submission",
+        html: getContactNotificationEmail(form),
+      });
+      console.log("✅ Admin notification email sent successfully:", adminResult);
+    } catch (adminEmailErr: any) {
+      console.error("❌ Failed to send admin notification email:", adminEmailErr);
+      console.error("Error details:", {
+        message: adminEmailErr?.message,
+        name: adminEmailErr?.name,
+        statusCode: adminEmailErr?.response?.status,
+        body: adminEmailErr?.response?.body,
+      });
+    }
 
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (err: any) {

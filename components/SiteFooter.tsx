@@ -127,12 +127,12 @@ export default function SiteFooter() {
 {/* Socials */}
 <div className="mt-4 md:mt-6 flex flex-wrap items-center gap-2">
   {[
-    { label: "Instagram", href: "https://www.instagram.com/solenergy_official", Icon: Instagram },
-    { label: "Facebook",  href: "https://www.facebook.com/solenergy",  Icon: Facebook  },
-    { label: "LinkedIn",  href: "https://lb.linkedin.com/company/solenergy", Icon: Linkedin },
-    { label: "YouTube",   href: "https://www.youtube.com/@solenergy", Icon: Youtube  },
-    { label: "X",        href: "https://x.com/solenergy", Icon: XLogo },
-    { label: "TikTok",   href: "https://tiktok.com/@solenergy", Icon: FaTiktok },
+    { label: "Instagram", href: "https://www.instagram.com/solenergy.me", Icon: Instagram },
+    { label: "Facebook",  href: "https://www.facebook.com/solenergylebanon",  Icon: Facebook  },
+    { label: "LinkedIn",  href: "https://www.linkedin.com/company/solenergy-sarl", Icon: Linkedin },
+    // { label: "YouTube",   href: "https://www.youtube.com/@solenergy", Icon: Youtube  },
+    // { label: "X",        href: "https://x.com/solenergy", Icon: XLogo },
+    { label: "TikTok",   href: "https://www.tiktok.com/@solenergysarl", Icon: FaTiktok },
   ].map(({ label, href, Icon }) => (
     <a
       key={label}

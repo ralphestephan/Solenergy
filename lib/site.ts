@@ -38,18 +38,22 @@ export const SITE = {
   ],
   ogImage: "/images/og/solenergy-og.png",
   socials: {
-    twitter: "@Solenergy",
-    instagram: "solenergy_official",
-    linkedin: "solenergy",
+    // twitter: "@Solenergy", // Disabled until further notice
+    instagram: "solenergy.me",
+    linkedin: "solenergy-sarl",
+    facebook: "solenergylebanon",
+    tiktok: "@solenergysarl",
   },
   org: {
     legalName: "Solenergy",
     url: "https://solenergypower.com",
     logo: "/images/solenergy-logo.png",
     sameAs: [
-      "https://twitter.com/Solenergy",
-      "https://www.instagram.com/solenergy_official",
-      "https://www.linkedin.com/company/solenergy",
+      // "https://twitter.com/Solenergy", // Disabled until further notice
+      "https://www.instagram.com/solenergy.me",
+      "https://www.linkedin.com/company/solenergy-sarl",
+      "https://www.facebook.com/solenergylebanon",
+      "https://www.tiktok.com/@solenergysarl",
     ],
   },
   contact: {
