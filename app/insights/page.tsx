@@ -208,11 +208,11 @@ export default function Page() {
             ))}
           </div>
 
-          {/* Mobile: Staggered/Masonry Layout */}
-          <div className="lg:hidden columns-2 gap-4">
-            {restInsights.map((post, index) => (
-              <Link key={post.slug} href={`/insights/${post.slug}`} className="group mb-4 break-inside-avoid">
-                <article className="h-full rounded-2xl overflow-hidden bg-white border border-zinc-100 shadow-lg">
+          {/* Mobile: Improved Grid Layout with Better Spacing */}
+          <div className="lg:hidden grid grid-cols-2 gap-3">
+            {restInsights.map((post) => (
+              <Link key={post.slug} href={`/insights/${post.slug}`} className="group">
+                <article className="h-full rounded-xl overflow-hidden bg-white border border-zinc-100 shadow-md">
                   {/* Image */}
                   <div className="relative aspect-[16/10] overflow-hidden">
                     <Image
@@ -222,27 +222,27 @@ export default function Page() {
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                       sizes="(max-width: 640px) 50vw, 33vw"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/30 to-transparent" />
-                    <span className="absolute left-3 top-3 inline-flex items-center px-2 py-1 rounded-full bg-white/90 text-xs font-medium">
+                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/40 to-transparent" />
+                    <span className="absolute left-2 top-2 inline-flex items-center px-2 py-0.5 rounded-full bg-white/95 text-[10px] font-semibold shadow-sm">
                       {post.tags[0]}
                     </span>
                   </div>
 
                   {/* Content */}
-                  <div className="p-4">
-                    <h3 className="text-base font-bold text-zinc-900 group-hover:text-brand-yellow transition-colors line-clamp-2 mb-2">
+                  <div className="p-3">
+                    <h3 className="text-xs font-bold text-zinc-900 group-hover:text-brand-yellow transition-colors line-clamp-2 mb-1.5 leading-tight">
                       {post.title}
                     </h3>
-                    <p className="text-zinc-600 text-xs line-clamp-2 mb-3">
+                    <p className="text-zinc-600 text-[10px] line-clamp-2 mb-2 leading-snug">
                       {post.excerpt}
                     </p>
-                    <div className="flex items-center justify-between text-xs">
+                    <div className="flex items-center justify-between text-[10px]">
                       <span className="text-zinc-500 flex items-center gap-1">
-                        <Calendar className="w-3 h-3" />
+                        <Calendar className="w-2.5 h-2.5" />
                         {new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
                       </span>
-                      <span className="text-brand-yellow font-semibold flex items-center gap-1">
-                        Read <ArrowRight className="w-3 h-3" />
+                      <span className="text-brand-yellow font-semibold flex items-center gap-0.5">
+                        Read <ArrowRight className="w-2.5 h-2.5" />
                       </span>
                     </div>
                   </div>
