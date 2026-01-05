@@ -13,6 +13,7 @@ export interface Project {
   client?: string;
   year?: string;
   systemType?: "Off-Grid" | "Hybrid" | "Grid-Tie";
+  gallery?: string[]; // Array of additional project images
 }
 
 export const projects: Project[] = [
@@ -33,7 +34,13 @@ export const projects: Project[] = [
       "Complete energy independence",
       "Professional installation"
     ],
-    year: "2024"
+    year: "2024",
+    gallery: [
+      "/images/panels.png",
+      "/images/fieldwork.png",
+      "/images/work.png",
+      "/images/field.jpg"
+    ]
   },
   {
     id: "2",
@@ -52,7 +59,13 @@ export const projects: Project[] = [
       "Complete installation",
       "Energy independence"
     ],
-    year: "2024"
+    year: "2024",
+    gallery: [
+      "/images/volvoGENERATOR.png",
+      "/images/panels.png",
+      "/images/fieldwork.png",
+      "/images/deyeESS.png"
+    ]
   },
   {
     id: "3",
@@ -71,7 +84,13 @@ export const projects: Project[] = [
       "Grid connectivity",
       "Commercial installation"
     ],
-    year: "2024"
+    year: "2024",
+    gallery: [
+      "/images/smaESS.png",
+      "/images/panels.png",
+      "/images/work.png",
+      "/images/deyeBattery.jpg"
+    ]
   },
   {
     id: "4",
@@ -90,7 +109,13 @@ export const projects: Project[] = [
       "Commercial building",
       "Reliable backup power"
     ],
-    year: "2024"
+    year: "2024",
+    gallery: [
+      "/images/PanelBrands.png",
+      "/images/panels.png",
+      "/images/fieldwork.png",
+      "/images/field.jpg"
+    ]
   },
   {
     id: "5",
@@ -109,7 +134,13 @@ export const projects: Project[] = [
       "Large-scale residential",
       "Complete energy management"
     ],
-    year: "2024"
+    year: "2024",
+    gallery: [
+      "/images/fieldwork.png",
+      "/images/panels.png",
+      "/images/work.png",
+      "/images/deyeESS.png"
+    ]
   },
   {
     id: "6",
@@ -128,7 +159,13 @@ export const projects: Project[] = [
       "Institutional installation",
       "Reliable power supply"
     ],
-    year: "2024"
+    year: "2024",
+    gallery: [
+      "/images/work.png",
+      "/images/panels.png",
+      "/images/fieldwork.png",
+      "/images/huaweibattery.jpg"
+    ]
   },
   {
     id: "7",
@@ -147,7 +184,13 @@ export const projects: Project[] = [
       "Residential installation",
       "Energy independence"
     ],
-    year: "2024"
+    year: "2024",
+    gallery: [
+      "/images/field.jpg",
+      "/images/panels.png",
+      "/images/fieldwork.png",
+      "/images/deyeESS.png"
+    ]
   },
   {
     id: "8",
@@ -166,7 +209,13 @@ export const projects: Project[] = [
       "Energy savings",
       "Professional installation"
     ],
-    year: "2024"
+    year: "2024",
+    gallery: [
+      "/images/deyeESS.png",
+      "/images/panels.png",
+      "/images/synchnorizedDist.png",
+      "/images/work.png"
+    ]
   },
   {
     id: "9",
@@ -185,7 +234,13 @@ export const projects: Project[] = [
       "Hybrid system",
       "Advanced monitoring"
     ],
-    year: "2024"
+    year: "2024",
+    gallery: [
+      "/images/synchnorizedDist.png",
+      "/images/panels.png",
+      "/images/fieldwork.png",
+      "/images/deyeBattery.jpg"
+    ]
   },
   {
     id: "10",
@@ -204,7 +259,13 @@ export const projects: Project[] = [
       "Battery storage",
       "Smart energy management"
     ],
-    year: "2024"
+    year: "2024",
+    gallery: [
+      "/images/back-up-generator-business.jpg",
+      "/images/panels.png",
+      "/images/volvoGENERATOR.png",
+      "/images/work.png"
+    ]
   },
   {
     id: "11",
@@ -223,7 +284,13 @@ export const projects: Project[] = [
       "Complete independence",
       "Battery backup"
     ],
-    year: "2024"
+    year: "2024",
+    gallery: [
+      "/images/deyeBattery.jpg",
+      "/images/panels.png",
+      "/images/fieldwork.png",
+      "/images/deyeESS.png"
+    ]
   },
   {
     id: "12",
@@ -242,6 +309,12 @@ export const projects: Project[] = [
       "Commercial installation",
       "Energy optimization"
     ],
-    year: "2024"
+    year: "2024",
+    gallery: [
+      "/images/huaweibattery.jpg",
+      "/images/panels.png",
+      "/images/synchnorizedDist.png",
+      "/images/work.png"
+    ]
   },
 ];
