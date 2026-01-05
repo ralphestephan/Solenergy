@@ -325,8 +325,9 @@ export default function Page() {
             </div>
 
             <Tabs defaultValue="solar" className="w-full">
-              <div className="flex justify-center mb-10">
-                <TabsList className="rounded-2xl bg-white border border-zinc-200 p-1.5 md:p-2 inline-flex shadow-lg">
+              {/* Desktop: Centered Tabs */}
+              <div className="hidden md:flex justify-center mb-10">
+                <TabsList className="rounded-2xl bg-white border border-zinc-200 p-2 inline-flex shadow-lg">
                   {[
                     { v: "solar", label: "Solar Systems", Icon: Sun },
                     { v: "generators", label: "Generators", Icon: Zap },
@@ -337,16 +338,42 @@ export default function Page() {
                       key={v}
                       value={v}
                       className="
-                        rounded-xl px-3 py-2 md:px-6 md:py-3 flex items-center gap-1.5 md:gap-2 transition-all font-medium text-sm md:text-base
+                        rounded-xl px-6 py-3 flex items-center gap-2 transition-all font-medium text-base
                         hover:bg-zinc-50 data-[state=active]:bg-brand-yellow data-[state=active]:text-zinc-900 data-[state=active]:shadow-md
-                        focus-visible:ring-2 focus-visible:ring-brand-yellow/40 tracking-tight md:tracking-normal
+                        focus-visible:ring-2 focus-visible:ring-brand-yellow/40
                       "
-                      style={{ letterSpacing: '-0.02em' }}
                     >
-                      <Icon className="w-3.5 h-3.5 md:w-4 md:h-4" /> <span className="whitespace-nowrap">{label}</span>
+                      <Icon className="w-4 h-4" /> <span className="whitespace-nowrap">{label}</span>
                     </TabsTrigger>
                   ))}
                 </TabsList>
+              </div>
+
+              {/* Mobile: Horizontal Scrollable Compact Tabs */}
+              <div className="md:hidden mb-8 -mx-4 px-4">
+                <div className="overflow-x-auto scrollbar-hide snap-x snap-mandatory scroll-smooth">
+                  <TabsList className="rounded-2xl bg-white border border-zinc-200 p-1.5 inline-flex shadow-lg min-w-max">
+                    {[
+                      { v: "solar", label: "Solar", shortLabel: "Solar", Icon: Sun },
+                      { v: "generators", label: "Generators", shortLabel: "Gen", Icon: Zap },
+                      { v: "maintenance", label: "Maintenance", shortLabel: "Maint", Icon: Wrench },
+                      { v: "saas", label: "Sol4.o", shortLabel: "Sol4.o", Icon: Cloud },
+                    ].map(({ v, label, shortLabel, Icon }) => (
+                      <TabsTrigger
+                        key={v}
+                        value={v}
+                        className="
+                          snap-start rounded-xl px-4 py-2.5 flex flex-col items-center gap-1.5 transition-all font-semibold text-xs
+                          hover:bg-zinc-50 data-[state=active]:bg-brand-yellow data-[state=active]:text-zinc-900 data-[state=active]:shadow-md
+                          focus-visible:ring-2 focus-visible:ring-brand-yellow/40 min-w-[80px]
+                        "
+                      >
+                        <Icon className="w-5 h-5" />
+                        <span className="whitespace-nowrap leading-tight">{shortLabel}</span>
+                      </TabsTrigger>
+                    ))}
+                  </TabsList>
+                </div>
               </div>
 
               <TabsContent value="solar" className="motion-safe:animate-tabIn-slow">
