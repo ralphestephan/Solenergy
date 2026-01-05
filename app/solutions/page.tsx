@@ -166,80 +166,128 @@ export default function Page() {
         </div>
       </section>
 
-      {/* POPULAR SOLUTIONS - Creative Carousel */}
-      <section className="py-20 bg-white relative overflow-hidden">
-        {/* Decorative background elements */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-brand-yellow/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-brand-orange/5 rounded-full blur-3xl" />
+      {/* POPULAR SOLUTIONS - Innovative Grid/Carousel */}
+      <section className="py-20 bg-gradient-to-b from-white via-zinc-50/50 to-white relative overflow-hidden">
+        {/* Subtle background pattern */}
+        <div className="absolute inset-0 opacity-40">
+          <div className="absolute top-20 right-10 w-64 h-64 bg-brand-yellow/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-20 left-10 w-64 h-64 bg-brand-orange/5 rounded-full blur-3xl" />
+        </div>
 
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-14">
+          <div className="text-center mb-16">
             <span className="inline-flex items-center px-4 py-2 rounded-full bg-brand-yellow/10 text-brand-yellow text-sm font-semibold">
               OUR SOLUTIONS
             </span>
-            <h2 className="mt-4 text-3xl md:text-4xl font-extrabold">
+            <h2 className="mt-4 text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight">
               <span className="text-zinc-900">Popular </span>
               <span className="text-brand-yellow">Solutions</span>
             </h2>
             <div className="mt-4 flex justify-center">
               <div className="w-20 h-1 bg-brand-yellow rounded-full" />
             </div>
-            <p className="mt-6 text-zinc-600 max-w-2xl mx-auto">
+            <p className="mt-6 text-zinc-600 max-w-2xl mx-auto text-lg">
               Explore our most requested energy solutions for homes, businesses, and industrial facilities.
             </p>
           </div>
 
-          {/* Carousel Container */}
-          <div className="relative">
-            {/* Gradient fade edges - Mobile visible */}
-            <div className="pointer-events-none absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-white via-white/80 to-transparent z-10 md:w-32" />
-            <div className="pointer-events-none absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-white via-white/80 to-transparent z-10 md:w-32" />
+          {/* Desktop: Innovative Grid Layout */}
+          <div className="hidden lg:grid lg:grid-cols-3 gap-6 mb-8">
+            {solutions.slice(0, 6).map((solution, index) => {
+              const isLarge = index === 0 || index === 4;
+              return (
+                <Link
+                  key={solution.slug}
+                  href={`/solutions/${solution.slug}`}
+                  className={`group ${isLarge ? 'lg:col-span-2' : ''}`}
+                  style={{ 
+                    transform: index % 3 === 1 ? 'translateY(1.5rem)' : 'translateY(0)',
+                  }}
+                >
+                  <article className="h-full rounded-3xl overflow-hidden bg-white border border-zinc-200/80 shadow-lg hover:shadow-2xl hover:border-brand-yellow transition-all duration-500 hover:-translate-y-1 relative">
+                    {/* Image */}
+                    <div className={`relative overflow-hidden bg-zinc-100 ${isLarge ? 'aspect-[21/9]' : 'aspect-[16/10]'}`}>
+                      <Image
+                        src={solution.image || "/images/panels.png"}
+                        alt={solution.heading}
+                        fill
+                        className="object-cover group-hover:scale-110 transition-transform duration-700"
+                        sizes={isLarge ? "(min-width: 1024px) 66vw, 100vw" : "(min-width: 1024px) 33vw, 100vw"}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/80 via-zinc-900/30 to-transparent" />
+                      
+                      {/* Category Badge */}
+                      <div className="absolute top-5 left-5 px-4 py-2 rounded-full bg-brand-yellow text-zinc-900 text-xs font-bold shadow-lg">
+                        {solution.category?.toUpperCase() || "SOLUTION"}
+                      </div>
 
-            {/* Scrollable Carousel */}
-            <div className="overflow-x-auto scrollbar-hide snap-x snap-mandatory scroll-smooth -mx-4 px-4 md:-mx-6 md:px-6 lg:-mx-8 lg:px-8">
-              <div className="flex gap-6 md:gap-8" style={{ width: 'max-content' }}>
+                      {/* Number Badge */}
+                      <div className="absolute top-5 right-5 w-10 h-10 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white font-bold text-sm">
+                        {index + 1}
+                      </div>
+                    </div>
+
+                    {/* Content */}
+                    <div className={`${isLarge ? 'p-8' : 'p-6'}`}>
+                      <h3 className={`font-extrabold text-zinc-900 group-hover:text-brand-yellow transition-colors line-clamp-2 mb-3 ${isLarge ? 'text-2xl' : 'text-xl'}`}>
+                        {solution.heading}
+                      </h3>
+                      <p className={`text-zinc-600 line-clamp-3 mb-6 ${isLarge ? 'text-base' : 'text-sm'}`}>
+                        {solution.description}
+                      </p>
+                      <div className="flex items-center gap-2 text-brand-yellow font-bold group-hover:gap-3 transition-all">
+                        <span>Explore</span>
+                        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                      </div>
+                    </div>
+
+                    {/* Accent Line */}
+                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-yellow via-brand-orange to-brand-yellow opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </article>
+                </Link>
+              );
+            })}
+          </div>
+
+          {/* Mobile & Tablet: Clean Horizontal Scroll */}
+          <div className="lg:hidden">
+            <div className="overflow-x-auto scrollbar-hide snap-x snap-mandatory scroll-smooth -mx-4 px-4">
+              <div className="flex gap-4" style={{ width: 'max-content' }}>
                 {solutions.slice(0, 6).map((solution, index) => (
                   <Link
                     key={solution.slug}
                     href={`/solutions/${solution.slug}`}
-                    className="group snap-start flex-shrink-0 w-[85vw] sm:w-[70vw] md:w-[45vw] lg:w-[380px] xl:w-[420px]"
+                    className="group snap-start flex-shrink-0 w-[80vw] sm:w-[65vw]"
                   >
-                    <article className="h-full rounded-2xl overflow-hidden bg-white border-2 border-zinc-100 shadow-lg hover:shadow-2xl hover:border-brand-yellow/50 transition-all duration-300 hover:-translate-y-2">
-                      {/* Image with overlay */}
+                    <article className="h-full rounded-2xl overflow-hidden bg-white border border-zinc-200 shadow-xl hover:shadow-2xl transition-all duration-300">
+                      {/* Image */}
                       <div className="relative aspect-[16/10] overflow-hidden bg-zinc-100">
                         <Image
                           src={solution.image || "/images/panels.png"}
                           alt={solution.heading}
                           fill
                           className="object-cover group-hover:scale-110 transition-transform duration-700"
-                          sizes="(max-width: 640px) 85vw, (max-width: 768px) 70vw, (max-width: 1024px) 45vw, 380px"
+                          sizes="(max-width: 640px) 80vw, 65vw"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/70 via-zinc-900/20 to-transparent" />
                         
                         {/* Category Badge */}
-                        <div className="absolute top-4 left-4 px-3 py-1.5 rounded-full bg-brand-yellow/90 backdrop-blur-sm text-zinc-900 text-xs font-bold">
+                        <div className="absolute top-4 left-4 px-3 py-1.5 rounded-full bg-brand-yellow text-zinc-900 text-xs font-bold shadow-lg">
                           {solution.category?.toUpperCase() || "SOLUTION"}
-                        </div>
-
-                        {/* Hover Arrow */}
-                        <div className="absolute bottom-4 right-4 w-10 h-10 rounded-full bg-brand-yellow flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:rotate-45">
-                          <ArrowRight className="w-5 h-5 text-zinc-900" />
                         </div>
                       </div>
 
                       {/* Content */}
-                      <div className="p-6 md:p-8">
-                        <h3 className="text-xl md:text-2xl font-bold text-zinc-900 group-hover:text-brand-yellow transition-colors line-clamp-2 mb-3">
+                      <div className="p-5">
+                        <h3 className="text-xl font-extrabold text-zinc-900 group-hover:text-brand-yellow transition-colors line-clamp-2 mb-2">
                           {solution.heading}
                         </h3>
-                        <p className="text-zinc-600 text-sm md:text-base line-clamp-3 mb-5">
+                        <p className="text-zinc-600 text-sm line-clamp-2 mb-4">
                           {solution.description}
                         </p>
-                        <div className="flex items-center justify-between pt-4 border-t border-zinc-100">
-                          <span className="inline-flex items-center gap-2 text-brand-yellow font-semibold group-hover:gap-3 transition-all text-sm md:text-base">
-                            Learn More
-                            <ArrowRight className="w-4 h-4" />
-                          </span>
+                        <div className="flex items-center gap-2 text-brand-yellow font-bold">
+                          <span>Explore</span>
+                          <ArrowRight className="w-4 h-4" />
                         </div>
                       </div>
                     </article>
@@ -249,20 +297,11 @@ export default function Page() {
             </div>
           </div>
 
-          {/* Scroll Hint for Mobile */}
-          <div className="mt-8 text-center md:hidden">
-            <p className="text-sm text-zinc-500 flex items-center justify-center gap-2">
-              <span>←</span>
-              <span>Swipe to see more</span>
-              <span>→</span>
-            </p>
-          </div>
-
           {/* View All Button */}
           <div className="text-center mt-12">
             <Link
               href="/solutions"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-brand-yellow text-zinc-900 font-bold rounded-xl hover:bg-brand-orange hover:shadow-lg transition-all text-lg"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-brand-yellow text-zinc-900 font-bold rounded-xl hover:bg-brand-orange hover:shadow-lg transition-all text-lg hover:scale-105"
             >
               View All Solutions
               <ArrowRight className="w-5 h-5" />
@@ -287,7 +326,7 @@ export default function Page() {
 
             <Tabs defaultValue="solar" className="w-full">
               <div className="flex justify-center mb-10">
-                <TabsList className="rounded-2xl bg-white border border-zinc-200 p-2 inline-flex shadow-lg">
+                <TabsList className="rounded-2xl bg-white border border-zinc-200 p-1.5 md:p-2 inline-flex shadow-lg">
                   {[
                     { v: "solar", label: "Solar Systems", Icon: Sun },
                     { v: "generators", label: "Generators", Icon: Zap },
@@ -298,12 +337,13 @@ export default function Page() {
                       key={v}
                       value={v}
                       className="
-                        rounded-xl px-6 py-3 flex items-center gap-2 transition-all font-medium
+                        rounded-xl px-3 py-2 md:px-6 md:py-3 flex items-center gap-1.5 md:gap-2 transition-all font-medium text-sm md:text-base
                         hover:bg-zinc-50 data-[state=active]:bg-brand-yellow data-[state=active]:text-zinc-900 data-[state=active]:shadow-md
-                        focus-visible:ring-2 focus-visible:ring-brand-yellow/40
+                        focus-visible:ring-2 focus-visible:ring-brand-yellow/40 tracking-tight md:tracking-normal
                       "
+                      style={{ letterSpacing: '-0.02em' }}
                     >
-                      <Icon className="w-4 h-4" /> {label}
+                      <Icon className="w-3.5 h-3.5 md:w-4 md:h-4" /> <span className="whitespace-nowrap">{label}</span>
                     </TabsTrigger>
                   ))}
                 </TabsList>
