@@ -2,6 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Brand Scrollbar for Popular Solutions Mobile */
+.popular-solutions-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #F4B41A transparent;
+}
+
+.popular-solutions-scroll::-webkit-scrollbar {
+  height: 10px;
+}
+
+.popular-solutions-scroll::-webkit-scrollbar-track {
+  background: rgba(244, 180, 26, 0.1);
+  border-radius: 10px;
+  margin: 0 16px;
+}
+
+.popular-solutions-scroll::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, #F4B41A 0%, #E8952F 100%);
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.popular-solutions-scroll::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(90deg, #E8952F 0%, #F4B41A 100%);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
 /* -----------------------------
    Root variables
 ----------------------------- */

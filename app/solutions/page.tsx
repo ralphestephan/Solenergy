@@ -249,9 +249,9 @@ export default function Page() {
             })}
           </div>
 
-          {/* Mobile & Tablet: Clean Horizontal Scroll */}
+          {/* Mobile & Tablet: Clean Horizontal Scroll with Brand Scrollbar */}
           <div className="lg:hidden">
-            <div className="overflow-x-auto scrollbar-hide snap-x snap-mandatory scroll-smooth -mx-4 px-4">
+            <div className="overflow-x-auto snap-x snap-mandatory scroll-smooth -mx-4 px-4 popular-solutions-scroll">
               <div className="flex gap-4" style={{ width: 'max-content' }}>
                 {solutions.slice(0, 6).map((solution, index) => (
                   <Link
