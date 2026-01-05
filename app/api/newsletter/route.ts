@@ -148,7 +148,6 @@ export async function POST(req: Request) {
     const insertData: any = {
       organization_id: SOLENERGY_ORG_ID,
       email: email,
-      source: 'website',
       status: 'active',
     };
 
@@ -184,7 +183,16 @@ export async function POST(req: Request) {
         subject: "Welcome to Solenergy Newsletter!",
         html: getNewsletterConfirmationEmail(),
       });
-      console.log("✅ Newsletter confirmation email sent successfully:", confirmResult);
+      if (confirmResult.error) {
+        console.error("❌ Newsletter confirmation email failed:", confirmResult.error);
+        console.error("Error details:", {
+          statusCode: confirmResult.error.statusCode,
+          name: confirmResult.error.name,
+          message: confirmResult.error.message,
+        });
+      } else {
+        console.log("✅ Newsletter confirmation email sent successfully:", confirmResult.data?.id);
+      }
     } catch (emailErr: any) {
       console.error("❌ Failed to send newsletter confirmation email:", emailErr);
       console.error("Error details:", {
@@ -203,7 +211,16 @@ export async function POST(req: Request) {
         subject: "New Newsletter Subscription",
         html: getNewsletterNotificationEmail(email),
       });
-      console.log("✅ Admin newsletter notification sent successfully:", adminResult);
+      if (adminResult.error) {
+        console.error("❌ Admin newsletter notification failed:", adminResult.error);
+        console.error("Error details:", {
+          statusCode: adminResult.error.statusCode,
+          name: adminResult.error.name,
+          message: adminResult.error.message,
+        });
+      } else {
+        console.log("✅ Admin newsletter notification sent successfully:", adminResult.data?.id);
+      }
     } catch (adminEmailErr: any) {
       console.error("❌ Failed to send admin newsletter notification:", adminEmailErr);
       console.error("Error details:", {
