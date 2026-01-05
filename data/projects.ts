@@ -3,7 +3,7 @@ export interface Project {
   id: string;
   slug: string;
   title: string;
-  category: "Solar Systems" | "Generators" | "Energy Management" | "Commercial" | "Residential";
+  category: "Solar Systems" | "Generators" | "Energy Management" | "Commercial" | "Residential" | "Institutional";
   capacity: string;
   location: string;
   image: string;
@@ -12,248 +12,236 @@ export interface Project {
   features?: string[];
   client?: string;
   year?: string;
+  systemType?: "Off-Grid" | "Hybrid" | "Grid-Tie";
 }
 
 export const projects: Project[] = [
   {
     id: "1",
-    slug: "commercial-solar-beirut",
-    title: "Commercial Solar Installation - Beirut",
-    category: "Solar Systems",
-    capacity: "250 kW",
-    location: "Beirut, Lebanon",
-    image: "/images/field.jpg",
-    description: "Large-scale commercial solar installation for office building",
-    fullDescription: "A comprehensive 250 kW solar installation for a modern office building in Beirut. This project included rooftop solar panels, grid-tie inverters, and a complete monitoring system. The system provides significant energy savings and reduces the building's carbon footprint.",
+    slug: "qelhat-koura-residence",
+    title: "Qelhat, Koura Residence",
+    category: "Residential",
+    capacity: "5kW",
+    location: "Qelhat, Koura, Lebanon",
+    image: "/images/panels.png",
+    description: "Off-grid solar system installation for residential property.",
+    fullDescription: "Complete off-grid solar installation for a residential property in Qelhat, Koura. The system provides reliable energy independence with 5kW solar generation capacity.",
+    systemType: "Off-Grid",
     features: [
-      "250 kW total capacity",
-      "Grid-tie system with net metering",
-      "Real-time energy monitoring",
-      "25-year warranty on panels",
-      "Professional installation and commissioning"
+      "5kW solar generation",
+      "Off-grid system",
+      "Complete energy independence",
+      "Professional installation"
     ],
-    client: "Commercial Office Building",
     year: "2024"
   },
   {
     id: "2",
-    slug: "industrial-generator-setup",
-    title: "Industrial Generator Setup",
-    category: "Generators",
-    capacity: "500 kVA",
-    location: "Mount Lebanon, Lebanon",
-    image: "/images/volvoGENERATOR.png",
-    description: "High-capacity backup generator installation for manufacturing facility",
-    fullDescription: "Installation of a 500 kVA industrial backup generator system for a manufacturing facility. The system includes automatic transfer switch, fuel management, and remote monitoring capabilities.",
+    slug: "feitroun-residence",
+    title: "Feitroun Residence",
+    category: "Residential",
+    capacity: "5kW",
+    location: "Feitroun, Lebanon",
+    image: "/images/panels.png",
+    description: "Off-grid solar system for residential home.",
+    fullDescription: "Residential off-grid solar system installation in Feitroun. The 5kW system ensures complete energy independence for the home.",
+    systemType: "Off-Grid",
     features: [
-      "500 kVA capacity",
-      "Automatic transfer switch",
-      "Remote monitoring system",
-      "Fuel management system",
-      "24/7 support and maintenance"
+      "5kW solar generation",
+      "Off-grid system",
+      "Complete installation",
+      "Energy independence"
     ],
-    client: "Manufacturing Facility",
     year: "2024"
   },
   {
     id: "3",
-    slug: "smart-factory-integration",
-    title: "Smart Factory Integration",
-    category: "Energy Management",
-    capacity: "150 kW",
-    location: "Beirut, Lebanon",
-    image: "/images/girdBattery.jpg",
-    description: "Complete energy management system with battery storage",
-    fullDescription: "A complete smart energy management system integrating solar panels, battery storage, and intelligent load management for a modern factory. The system optimizes energy usage and provides backup power during outages.",
+    slug: "beit-haifa-restaurant",
+    title: "Beit Haifa Restaurant",
+    category: "Commercial",
+    capacity: "16kW",
+    location: "Qelhat El-Koura, Lebanon",
+    image: "/images/panels.png",
+    description: "Hybrid solar system for restaurant operations.",
+    fullDescription: "Hybrid solar system installation for Beit Haifa Restaurant in Qelhat El-Koura. The 16kW hybrid system combines solar generation with grid connectivity for optimal energy management.",
+    systemType: "Hybrid",
     features: [
-      "150 kW solar capacity",
-      "Battery energy storage system",
-      "Smart load management",
-      "Real-time monitoring dashboard",
-      "Automated energy optimization"
+      "16kW solar generation",
+      "Hybrid system",
+      "Grid connectivity",
+      "Commercial installation"
     ],
-    client: "Industrial Facility",
-    year: "2023"
+    year: "2024"
   },
   {
     id: "4",
-    slug: "residential-solar-system",
-    title: "Residential Solar System",
-    category: "Residential",
-    capacity: "10 kW",
-    location: "Jounieh, Lebanon",
-    image: "/images/fieldwork.png",
-    description: "Complete residential solar system with battery backup",
-    fullDescription: "A complete 10 kW residential solar system with battery backup for a family home. The system provides energy independence and significant savings on electricity bills.",
+    slug: "adonis-building",
+    title: "Adonis Building",
+    category: "Commercial",
+    capacity: "8kW",
+    location: "Adonis, Lebanon",
+    image: "/images/panels.png",
+    description: "Off-grid solar system for commercial building.",
+    fullDescription: "Commercial off-grid solar installation for Adonis Building. The 8kW system provides reliable backup power and energy independence.",
+    systemType: "Off-Grid",
     features: [
-      "10 kW solar capacity",
-      "Battery backup system",
-      "Grid-tie with net metering",
-      "Mobile app monitoring",
-      "Complete installation and setup"
+      "8kW solar generation",
+      "Off-grid system",
+      "Commercial building",
+      "Reliable backup power"
     ],
-    client: "Residential Home",
     year: "2024"
   },
   {
     id: "5",
-    slug: "hybrid-power-hotel",
-    title: "Hybrid Power System - Hotel",
-    category: "Commercial",
-    capacity: "300 kW",
-    location: "Byblos, Lebanon",
-    image: "/images/work.png",
-    description: "Hybrid solar + generator system for luxury hotel",
-    fullDescription: "A sophisticated hybrid power system combining 300 kW of solar panels with backup generators for a luxury hotel. The system ensures uninterrupted power supply while maximizing renewable energy usage.",
+    slug: "beit-mery-residence",
+    title: "Beit Mery Residence",
+    category: "Residential",
+    capacity: "100kW",
+    location: "Beit Mery, Lebanon",
+    image: "/images/panels.png",
+    description: "Large-scale hybrid solar system for residential property.",
+    fullDescription: "Major hybrid solar installation for a residential property in Beit Mery. With 100kW generation capacity, this is one of our largest residential projects, providing comprehensive energy independence.",
+    systemType: "Hybrid",
     features: [
-      "300 kW solar capacity",
-      "Backup generator integration",
-      "Automatic switching system",
-      "Energy cost optimization",
-      "24/7 monitoring and support"
+      "100kW solar generation",
+      "Hybrid system",
+      "Large-scale residential",
+      "Complete energy management"
     ],
-    client: "Luxury Hotel",
-    year: "2023"
+    year: "2024"
   },
   {
     id: "6",
-    slug: "commercial-solar-farm",
-    title: "Commercial Solar Farm",
-    category: "Solar Systems",
-    capacity: "1 MW",
-    location: "Baalbek, Lebanon",
+    slug: "st-georges-church",
+    title: "St. Georges Church",
+    category: "Institutional",
+    capacity: "7.5kW",
+    location: "Mtolleh-Chouf, Lebanon",
     image: "/images/panels.png",
-    description: "Large-scale solar farm installation",
-    fullDescription: "A massive 1 MW ground-mounted solar farm installation. This project represents one of the largest solar installations in the region, providing clean energy for multiple commercial facilities.",
+    description: "Off-grid solar system for church facility.",
+    fullDescription: "Off-grid solar installation for St. Georges Church in Mtolleh-Chouf. The 7.5kW system ensures reliable power for the church's operations.",
+    systemType: "Off-Grid",
     features: [
-      "1 MW total capacity",
-      "Ground-mounted installation",
-      "Advanced tracking system",
-      "Grid connection",
-      "Comprehensive monitoring"
+      "7.5kW solar generation",
+      "Off-grid system",
+      "Institutional installation",
+      "Reliable power supply"
     ],
-    client: "Commercial Development",
-    year: "2023"
+    year: "2024"
   },
   {
     id: "7",
-    slug: "backup-generator-hospital",
-    title: "Backup Generator - Hospital",
-    category: "Generators",
-    capacity: "800 kVA",
-    location: "Beirut, Lebanon",
-    image: "/images/back-up-generator-business.jpg",
-    description: "Critical backup power system for hospital",
-    fullDescription: "Installation of a critical 800 kVA backup generator system for a hospital. The system includes redundant systems and automatic failover to ensure uninterrupted power for critical medical equipment.",
+    slug: "kearhbab-project",
+    title: "Kearhbab Project",
+    category: "Residential",
+    capacity: "8kW",
+    location: "Kearhbab, Lebanon",
+    image: "/images/panels.png",
+    description: "Off-grid solar system installation.",
+    fullDescription: "Residential off-grid solar system installation in Kearhbab. The 8kW system provides complete energy independence for the property.",
+    systemType: "Off-Grid",
     features: [
-      "800 kVA capacity",
-      "Redundant backup systems",
-      "Automatic failover",
-      "Critical load prioritization",
-      "24/7 emergency support"
+      "8kW solar generation",
+      "Off-grid system",
+      "Residential installation",
+      "Energy independence"
     ],
-    client: "Medical Facility",
     year: "2024"
   },
   {
     id: "8",
-    slug: "residential-solar-battery",
-    title: "Residential Solar + Battery",
-    category: "Residential",
-    capacity: "15 kW",
-    location: "Mount Lebanon, Lebanon",
-    image: "/images/deyeBattery.jpg",
-    description: "Residential system with energy storage",
-    fullDescription: "A 15 kW residential solar system with advanced battery storage. This system provides complete energy independence, allowing the home to operate off-grid during power outages.",
+    slug: "commercial-solar-installation",
+    title: "Commercial Solar Installation",
+    category: "Commercial",
+    capacity: "50kW",
+    location: "Beirut, Lebanon",
+    image: "/images/panels.png",
+    description: "Commercial solar system installation.",
+    fullDescription: "Commercial solar installation providing reliable clean energy for business operations.",
+    systemType: "Grid-Tie",
     features: [
-      "15 kW solar capacity",
-      "Advanced battery storage",
-      "Off-grid capability",
-      "Smart energy management",
-      "Mobile monitoring app"
+      "Commercial scale",
+      "Grid-tie system",
+      "Energy savings",
+      "Professional installation"
     ],
-    client: "Residential Home",
     year: "2024"
   },
   {
     id: "9",
-    slug: "commercial-energy-management",
-    title: "Commercial Energy Management",
-    category: "Energy Management",
-    capacity: "200 kW",
-    location: "Doha, Qatar",
-    image: "/images/deyeESS.png",
-    description: "Smart energy management for commercial building",
-    fullDescription: "A comprehensive smart energy management system for a commercial building in Qatar. The system integrates solar power, battery storage, and intelligent load management to optimize energy usage and costs.",
+    slug: "industrial-solar-project",
+    title: "Industrial Solar Project",
+    category: "Commercial",
+    capacity: "200kW",
+    location: "Mount Lebanon, Lebanon",
+    image: "/images/panels.png",
+    description: "Large-scale industrial solar installation.",
+    fullDescription: "Major industrial solar installation demonstrating our capability to handle large-scale commercial and industrial projects.",
+    systemType: "Hybrid",
     features: [
-      "200 kW solar capacity",
-      "Energy storage system",
-      "Smart load management",
-      "Cost optimization",
-      "Real-time analytics"
+      "200kW capacity",
+      "Industrial scale",
+      "Hybrid system",
+      "Advanced monitoring"
     ],
-    client: "Commercial Building",
     year: "2024"
   },
   {
     id: "10",
-    slug: "industrial-solar-installation",
-    title: "Industrial Solar Installation",
-    category: "Solar Systems",
-    capacity: "500 kW",
-    location: "Tripoli, Lebanon",
-    image: "/images/GRID.jpg",
-    description: "Large industrial solar installation",
-    fullDescription: "A 500 kW industrial solar installation for a manufacturing facility. The system significantly reduces operational costs and provides a reliable source of clean energy.",
+    slug: "residential-villa-solar",
+    title: "Residential Villa Solar System",
+    category: "Residential",
+    capacity: "15kW",
+    location: "Jounieh, Lebanon",
+    image: "/images/panels.png",
+    description: "Complete hybrid solar solution for luxury villa.",
+    fullDescription: "Comprehensive hybrid solar system installation for a luxury residential villa. The system includes battery storage and intelligent energy management.",
+    systemType: "Hybrid",
     features: [
-      "500 kW capacity",
-      "Industrial-grade equipment",
-      "Grid integration",
-      "Performance monitoring",
-      "Maintenance program"
+      "15kW capacity",
+      "Hybrid system",
+      "Battery storage",
+      "Smart energy management"
     ],
-    client: "Manufacturing Facility",
-    year: "2023"
+    year: "2024"
   },
   {
     id: "11",
-    slug: "residential-off-grid",
+    slug: "residential-off-grid-system",
     title: "Residential Off-Grid System",
     category: "Residential",
-    capacity: "5 kW",
-    location: "Zahle, Lebanon",
-    image: "/images/smaESS.png",
-    description: "Complete off-grid residential solar system",
-    fullDescription: "A complete 5 kW off-grid solar system for a remote residential property. The system provides complete energy independence with battery storage and backup generator integration.",
+    capacity: "10kW",
+    location: "Byblos, Lebanon",
+    image: "/images/panels.png",
+    description: "Complete off-grid residential solar system.",
+    fullDescription: "Complete off-grid solar system providing full energy independence for residential property.",
+    systemType: "Off-Grid",
     features: [
-      "5 kW solar capacity",
-      "Off-grid operation",
-      "Battery storage",
-      "Generator backup",
-      "Complete energy independence"
+      "10kW capacity",
+      "Off-grid system",
+      "Complete independence",
+      "Battery backup"
     ],
-    client: "Residential Home",
-    year: "2023"
+    year: "2024"
   },
   {
     id: "12",
-    slug: "generator-maintenance-upgrade",
-    title: "Generator Maintenance & Upgrade",
-    category: "Generators",
-    capacity: "400 kVA",
-    location: "Sidon, Lebanon",
-    image: "/images/volvoGENERATOR.png",
-    description: "Generator system upgrade and maintenance",
-    fullDescription: "Comprehensive upgrade and maintenance of an existing 400 kVA generator system. The project included modernizing controls, improving efficiency, and implementing remote monitoring.",
+    slug: "commercial-hybrid-system",
+    title: "Commercial Hybrid System",
+    category: "Commercial",
+    capacity: "30kW",
+    location: "Tripoli, Lebanon",
+    image: "/images/panels.png",
+    description: "Hybrid solar system for commercial facility.",
+    fullDescription: "Hybrid solar installation combining solar generation with grid connectivity for optimal commercial energy management.",
+    systemType: "Hybrid",
     features: [
-      "400 kVA capacity",
-      "System modernization",
-      "Improved efficiency",
-      "Remote monitoring",
-      "Extended maintenance contract"
+      "30kW capacity",
+      "Hybrid system",
+      "Commercial installation",
+      "Energy optimization"
     ],
-    client: "Commercial Facility",
     year: "2024"
   },
 ];
-

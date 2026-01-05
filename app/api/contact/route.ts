@@ -201,6 +201,7 @@ export async function POST(req: Request) {
 
     // Prepare metadata - only for extra data NOT in the database schema
     // Fields like city, reason, budget, contact_pref, phone, email are already in the schema
+    // Send as object, not stringified - can be {} if empty
     const metadata: Record<string, any> = {};
     if (form.property) metadata.property = form.property;
     if (form.solutions) {
@@ -225,7 +226,7 @@ export async function POST(req: Request) {
           contact_pref: form.contact_pref || null,
           source: 'website',
           status: 'new',
-          metadata: Object.keys(metadata).length > 0 ? metadata : null,
+          metadata: metadata, // Send as object, not stringified - can be {}
         }
       ])
       .select();
