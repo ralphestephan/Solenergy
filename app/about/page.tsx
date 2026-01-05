@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import CTAPremium from "@/components/CTAPremium";
 import TrustSignals from "@/components/TrustSignals";
-import { Award, Lightbulb, Target, TrendingUp, Users, Calendar, CheckCircle2 } from "lucide-react";
+import { Award, Lightbulb, Target, TrendingUp, Users, Calendar, CheckCircle2, Settings, UserCog, Briefcase, Wrench } from "lucide-react";
 import SEOJsonLd from "@/components/SEOJsonLd";
 import { SITE } from "@/lib/site";
 
@@ -263,136 +263,88 @@ export default function Page() {
         </div>
       </section>
 
-      {/* MEET THE TEAM */}
+      {/* OUR TEAM */}
       <section className="py-24 relative overflow-x-clip bg-zinc-50">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="text-center mb-16">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/work.png"
+            alt="Solenergy team"
+            fill
+            className="object-cover opacity-10"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-zinc-50 via-zinc-50/95 to-zinc-50" />
+        </div>
+
+        <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight">
-              MEET THE <span className="text-brand-yellow">TEAM</span>
+              OUR <span className="text-brand-yellow">TEAM</span>
             </h2>
             <div className="w-16 h-1 bg-brand-yellow mx-auto mt-4 mb-6" />
-            <p className="text-zinc-600 max-w-2xl mx-auto">
-              Expert engineers and technicians dedicated to delivering reliable energy solutions.
+            <p className="text-zinc-600 text-lg leading-relaxed max-w-3xl mx-auto mb-4">
+              Our team is composed of engineers, managing partners, professionals, and technicians dedicated to delivering reliable and innovative energy solutions.
             </p>
           </div>
 
-          {/* Desktop Grid */}
-          <div className="hidden lg:grid lg:grid-cols-3 xl:grid-cols-5 gap-6">
+          {/* Team Composition Cards */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             {[
-              { 
-                name: "Charbel Mansour", 
-                role: "Owner", 
-                img: "/images/fieldwork.png",
-                quote: "Building reliable energy solutions for Lebanon's future, one project at a time."
+              {
+                title: "Engineers",
+                description: "Expert engineers specializing in solar systems, generators, and energy management solutions.",
+                Icon: Settings
               },
-              { 
-                name: "Tarek", 
-                role: "Manager", 
-                img: "/images/work.png",
-                quote: "Excellence in energy management starts with understanding our clients' unique needs."
+              {
+                title: "Managing Partners",
+                description: "Strategic leadership driving innovation and excellence across all operations.",
+                Icon: UserCog
               },
-              { 
-                name: "Ralph Estephan", 
-                role: "IIoT Engineer", 
-                img: "/images/panels.png",
-                quote: "Innovation and smart technology are the keys to efficient energy systems."
+              {
+                title: "Professionals",
+                description: "Skilled professionals ensuring quality installation, maintenance, and customer support.",
+                Icon: Briefcase
               },
-              { 
-                name: "Mohammad", 
-                role: "Technician", 
-                img: "/images/fieldwork.png",
-                quote: "Quality installation and maintenance ensure long-term reliability and performance."
+              {
+                title: "Technicians",
+                description: "Certified technicians providing 24/7 support and maintenance services.",
+                Icon: Wrench
               },
-              { 
-                name: "Mario", 
-                role: "Site Engineer", 
-                img: "/images/work.png",
-                quote: "Every project is an opportunity to deliver excellence and exceed expectations."
-              },
-            ].map((p) => (
+            ].map((item, index) => (
               <div
-                key={p.name}
-                className="group p-6 rounded-2xl bg-white border border-zinc-100 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden"
+                key={index}
+                className="group p-6 rounded-2xl bg-white border border-zinc-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden"
               >
                 <div className="absolute top-0 right-0 w-0 h-0 border-t-[30px] border-r-[30px] border-t-transparent border-r-brand-yellow/10" />
-                <div className="flex flex-col items-center text-center">
-                  <div className="w-28 h-28 rounded-full overflow-hidden ring-2 ring-brand-yellow/20 bg-zinc-100">
-                    <Image
-                      src={p.img}
-                      alt={`${p.name} — ${p.role}`}
-                      width={160}
-                      height={160}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="mt-4 font-bold text-zinc-900">{p.name}</div>
-                  <div className="mt-1 text-sm text-brand-yellow">{p.role}</div>
-                  <div className="mt-4 pt-4 border-t border-zinc-100">
-                    <p className="text-xs text-zinc-600 italic leading-relaxed">&quot;{p.quote}&quot;</p>
-                  </div>
+                <div className="w-12 h-12 rounded-xl bg-brand-yellow/10 text-brand-yellow flex items-center justify-center mb-4">
+                  <item.Icon className="w-6 h-6" />
                 </div>
+                <h3 className="text-xl font-bold text-zinc-900 mb-2">{item.title}</h3>
+                <p className="text-zinc-600 text-sm leading-relaxed">{item.description}</p>
               </div>
             ))}
           </div>
 
-          {/* Mobile Carousel */}
-          <div className="lg:hidden overflow-x-auto snap-x snap-mandatory scroll-smooth -mx-6 px-6 popular-solutions-scroll">
-            <div className="flex gap-4" style={{ width: 'max-content' }}>
-              {[
-                { 
-                  name: "Charbel Mansour", 
-                  role: "Owner", 
-                  img: "/images/fieldwork.png",
-                  quote: "Building reliable energy solutions for Lebanon's future, one project at a time."
-                },
-                { 
-                  name: "Tarek", 
-                  role: "Manager", 
-                  img: "/images/work.png",
-                  quote: "Excellence in energy management starts with understanding our clients' unique needs."
-                },
-                { 
-                  name: "Ralph Estephan", 
-                  role: "IIoT Engineer", 
-                  img: "/images/panels.png",
-                  quote: "Innovation and smart technology are the keys to efficient energy systems."
-                },
-                { 
-                  name: "Mohammad", 
-                  role: "Technician", 
-                  img: "/images/fieldwork.png",
-                  quote: "Quality installation and maintenance ensure long-term reliability and performance."
-                },
-                { 
-                  name: "Mario", 
-                  role: "Site Engineer", 
-                  img: "/images/work.png",
-                  quote: "Every project is an opportunity to deliver excellence and exceed expectations."
-                },
-              ].map((p) => (
-                <div
-                  key={p.name}
-                  className="group snap-start flex-shrink-0 w-[75vw] sm:w-[60vw] p-6 rounded-2xl bg-white border border-zinc-100 shadow-xl relative overflow-hidden"
-                >
-                  <div className="absolute top-0 right-0 w-0 h-0 border-t-[30px] border-r-[30px] border-t-transparent border-r-brand-yellow/10" />
-                  <div className="flex flex-col items-center text-center">
-                    <div className="w-24 h-24 rounded-full overflow-hidden ring-2 ring-brand-yellow/20 bg-zinc-100 mb-4">
-                      <Image
-                        src={p.img}
-                        alt={`${p.name} — ${p.role}`}
-                        width={96}
-                        height={96}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="font-bold text-zinc-900 text-lg">{p.name}</div>
-                    <div className="mt-1 text-sm text-brand-yellow font-semibold">{p.role}</div>
-                    <div className="mt-4 pt-4 border-t border-zinc-100 w-full">
-                      <p className="text-sm text-zinc-600 italic leading-relaxed">&quot;{p.quote}&quot;</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
+          {/* Additional Info */}
+          <div className="max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="p-6 rounded-2xl bg-white/80 backdrop-blur-sm border border-zinc-200 shadow-lg">
+                <h3 className="text-xl font-bold text-zinc-900 mb-3 flex items-center gap-2">
+                  <span className="text-brand-yellow">✓</span> Expertise & Experience
+                </h3>
+                <p className="text-zinc-600 text-sm leading-relaxed">
+                  With over 30 years of combined experience, our team brings deep industry knowledge and technical expertise to every project.
+                </p>
+              </div>
+              <div className="p-6 rounded-2xl bg-white/80 backdrop-blur-sm border border-zinc-200 shadow-lg">
+                <h3 className="text-xl font-bold text-zinc-900 mb-3 flex items-center gap-2">
+                  <span className="text-brand-yellow">✓</span> Commitment to Quality
+                </h3>
+                <p className="text-zinc-600 text-sm leading-relaxed">
+                  Every team member is committed to delivering the highest standards of quality, safety, and customer satisfaction.
+                </p>
+              </div>
             </div>
           </div>
         </div>

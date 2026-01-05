@@ -9,6 +9,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, MapPin, Zap, Calendar, Building2, CheckCircle } from "lucide-react";
 import CTAPremium from "@/components/CTAPremium";
+import ProjectGallery from "@/components/ProjectGallery";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -141,6 +142,17 @@ export default async function ProjectPage({ params }: Props) {
                       </div>
                     ))}
                   </div>
+                </div>
+              )}
+
+              {/* Project Gallery */}
+              {project.gallery && project.gallery.length > 0 && (
+                <div className="mt-12">
+                  <h3 className="text-2xl font-bold text-zinc-900 mb-6">Project Gallery</h3>
+                  <p className="text-zinc-600 mb-6">
+                    Click on any image to view in full screen and scroll through all project photos.
+                  </p>
+                  <ProjectGallery images={project.gallery} projectTitle={project.title} />
                 </div>
               )}
             </div>
