@@ -125,6 +125,66 @@ export default function BlogTeasers() {
             );
           })}
         </div>
+
+        {/* Mobile Carousel */}
+        <div className="md:hidden overflow-x-auto snap-x snap-mandatory scroll-smooth -mx-4 px-4 popular-solutions-scroll mt-6">
+          <div className="flex gap-4" style={{ width: 'max-content' }}>
+            {latest.map((p, idx) => {
+              const fallbackKey = (["garden", "pet", "summer"] as const)[idx % 3];
+              const tag = p.tags?.[0] ?? "Insight";
+              const read = `${p.readMins} min read`;
+
+              return (
+                <article
+                  key={p.slug}
+                  className="group snap-start flex-shrink-0 w-[85vw] h-full flex flex-col overflow-hidden rounded-card bg-white border border-zinc-100 shadow-soft"
+                >
+                  {/* Thumbnail */}
+                  <Link href={`/insights/${p.slug}`} className="relative aspect-[16/10] w-full overflow-hidden">
+                    <div className="absolute inset-0 gradient-brand opacity-20 pointer-events-none" />
+                    {p.cover ? (
+                      <Image
+                        src={p.cover}
+                        alt={p.coverAlt || p.title}
+                        fill
+                        sizes="85vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        priority={false}
+                      />
+                    ) : (
+                      <FallbackArt which={fallbackKey} />
+                    )}
+                    <span className="absolute left-3 top-3 inline-flex items-center px-2.5 py-1 rounded-full bg-white/90 text-xs font-medium shadow-sm">
+                      {tag}
+                    </span>
+                  </Link>
+
+                  {/* Content */}
+                  <div className="p-5 flex flex-col flex-1">
+                    <h3 className="font-semibold leading-snug line-clamp-2 mb-2">
+                      <Link href={`/insights/${p.slug}`} className="hover:underline">
+                        {p.title}
+                      </Link>
+                    </h3>
+                    <p className="text-sm text-zinc-600 line-clamp-2 mb-4">{p.excerpt}</p>
+
+                    {/* Footer with Read button */}
+                    <div className="mt-auto pt-2 flex items-center justify-between text-sm">
+                      <span className="text-zinc-500">{read}</span>
+                      <Link
+                        href={`/insights/${p.slug}`}
+                        className="inline-flex items-center gap-1 rounded-full bg-zinc-100 hover:bg-zinc-200 px-3 py-1.5 font-semibold text-brand-blue transition"
+                        aria-label={`Read ${p.title}`}
+                      >
+                        Read <span aria-hidden>→</span>
+                      </Link>
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </div>
       </div>
     </section>
   );

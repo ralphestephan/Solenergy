@@ -35,12 +35,19 @@
     transform: translateX(0);
   }
   to {
-    transform: translateX(calc(-100% / 2));
+    transform: translateX(calc(-100% / 3));
   }
 }
 
 .clients-scroll {
-  animation: clientsScroll 30s linear infinite;
+  animation: clientsScroll 45s linear infinite;
+}
+
+/* Faster on mobile */
+@media (max-width: 768px) {
+  .clients-scroll {
+    animation: clientsScroll 18s linear infinite;
+  }
 }
 
 .clients-set {

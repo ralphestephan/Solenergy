@@ -57,7 +57,7 @@ export default function Clients() {
           <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
           <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
 
-          {/* CSS Animated Scrolling Track - Smooth infinite loop */}
+          {/* CSS Animated Scrolling Track - Smooth infinite loop with 3 sets for seamless animation */}
           <div className="flex clients-scroll group-hover:[animation-play-state:paused]">
             {/* First set of logos */}
             <div className="flex gap-12 shrink-0 py-8 clients-set">
@@ -77,11 +77,29 @@ export default function Clients() {
                 </div>
               ))}
             </div>
-            {/* Duplicate set for seamless loop */}
+            {/* Second set for seamless loop */}
             <div className="flex gap-12 shrink-0 py-8 clients-set">
               {clients.map((client) => (
                 <div
                   key={`dup-${client.name}`}
+                  className="flex-shrink-0 w-40 h-24 flex items-center justify-center transition-all duration-300 opacity-100 hover:scale-110"
+                >
+                  <div className="relative w-full h-full">
+                    <Image
+                      src={client.logo}
+                      alt={client.name}
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+            {/* Third set for truly seamless loop */}
+            <div className="flex gap-12 shrink-0 py-8 clients-set">
+              {clients.map((client) => (
+                <div
+                  key={`dup2-${client.name}`}
                   className="flex-shrink-0 w-40 h-24 flex items-center justify-center transition-all duration-300 opacity-100 hover:scale-110"
                 >
                   <div className="relative w-full h-full">
