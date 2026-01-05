@@ -422,7 +422,7 @@ export async function POST(req: Request) {
           statusCode: adminResult.error.statusCode,
           name: adminResult.error.name,
           message: adminResult.error.message,
-        });
+    });
       } else {
         console.log("✅ Admin notification email sent successfully:", adminResult.data?.id);
       }

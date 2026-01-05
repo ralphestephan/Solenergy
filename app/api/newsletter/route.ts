@@ -311,7 +311,7 @@ export async function POST(req: Request) {
         name: adminEmailErr?.name,
         statusCode: adminEmailErr?.response?.status,
         body: adminEmailErr?.response?.body,
-      });
+    });
     }
 
     return NextResponse.json({ success: true });

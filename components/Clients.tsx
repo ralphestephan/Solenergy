@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const clients = [
   { name: "Aya Hotel", logo: "/logos/clients/ayaHotel.png" },
@@ -35,6 +35,12 @@ const clients = [
 ];
 
 export default function Clients() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const animationFrameRef = useRef<number | null>(null);
+  const [isPaused, setIsPaused] = useState(false);
+  const scrollPositionRef = useRef(0);
+  const firstSetWidthRef = useRef(0);
+
   // Preload all client logos
   useEffect(() => {
     clients.forEach((client) => {
@@ -45,6 +51,56 @@ export default function Clients() {
       document.head.appendChild(link);
     });
   }, []);
+
+  // Infinite scroll animation
+  useEffect(() => {
+    const container = scrollRef.current;
+    if (!container) return;
+
+    // Calculate the width of the first set
+    const firstSet = container.querySelector('.clients-set') as HTMLElement;
+    if (!firstSet) return;
+
+    const updateFirstSetWidth = () => {
+      firstSetWidthRef.current = firstSet.offsetWidth;
+    };
+
+    updateFirstSetWidth();
+    window.addEventListener('resize', updateFirstSetWidth);
+
+    // Scroll speed: pixels per frame (adjust for speed)
+    const scrollSpeed = window.innerWidth <= 768 ? 1.5 : 0.8; // Faster on mobile
+
+    const animate = () => {
+      if (isPaused || !container) {
+        animationFrameRef.current = requestAnimationFrame(animate);
+        return;
+      }
+
+      scrollPositionRef.current += scrollSpeed;
+
+      // When we've scrolled past the first set, reset to start (seamless loop)
+      if (scrollPositionRef.current >= firstSetWidthRef.current) {
+        scrollPositionRef.current = 0;
+      }
+
+      // Apply the transform
+      container.style.transform = `translateX(-${scrollPositionRef.current}px)`;
+      container.style.transition = 'none'; // No transition for instant reset
+
+      animationFrameRef.current = requestAnimationFrame(animate);
+    };
+
+    // Start animation
+    animationFrameRef.current = requestAnimationFrame(animate);
+
+    return () => {
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
+      window.removeEventListener('resize', updateFirstSetWidth);
+    };
+  }, [isPaused]);
 
   return (
     <section className="py-16 bg-gradient-to-b from-white to-zinc-50">
@@ -64,18 +120,26 @@ export default function Clients() {
         </div>
 
         {/* Carousel Container */}
-        <div className="relative overflow-hidden group">
+        <div 
+          className="relative overflow-hidden group"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
           {/* Gradient Overlays */}
           <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
           <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
 
-          {/* CSS Animated Scrolling Track - Perfect infinite loop with 2 sets */}
-          <div className="flex clients-scroll group-hover:[animation-play-state:paused]">
+          {/* JavaScript-based infinite scroll - linked list style */}
+          <div 
+            ref={scrollRef}
+            className="clients-scroll-js flex"
+            style={{ willChange: 'transform' }}
+          >
             {/* First set of logos */}
-            <div className="flex gap-12 shrink-0 py-8 clients-set">
-              {clients.map((client) => (
+            <div className="clients-set flex gap-12 py-8">
+              {clients.map((client, index) => (
                 <div
-                  key={client.name}
+                  key={`set1-${client.name}`}
                   className="flex-shrink-0 w-40 h-24 flex items-center justify-center transition-all duration-300 opacity-100 hover:scale-110"
                 >
                   <div className="relative w-full h-full">
@@ -85,17 +149,17 @@ export default function Clients() {
                       fill
                       className="object-contain"
                       loading="eager"
-                      priority={clients.indexOf(client) < 6}
+                      priority={index < 6}
                     />
                   </div>
                 </div>
               ))}
             </div>
-            {/* Duplicate set for seamless infinite loop */}
-            <div className="flex gap-12 shrink-0 py-8 clients-set">
-              {clients.map((client) => (
+            {/* Duplicate set for seamless infinite loop - must be identical */}
+            <div className="clients-set flex gap-12 py-8">
+              {clients.map((client, index) => (
                 <div
-                  key={`dup-${client.name}`}
+                  key={`set2-${client.name}`}
                   className="flex-shrink-0 w-40 h-24 flex items-center justify-center transition-all duration-300 opacity-100 hover:scale-110"
                 >
                   <div className="relative w-full h-full">
@@ -105,6 +169,7 @@ export default function Clients() {
                       fill
                       className="object-contain"
                       loading="eager"
+                      priority={false}
                     />
                   </div>
                 </div>
