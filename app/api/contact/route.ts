@@ -224,7 +224,6 @@ export async function POST(req: Request) {
           reason: form.reason || null,
           budget: form.budget || null,
           contact_pref: form.contact_pref || null,
-          source: 'website',
           status: 'new',
           metadata: metadata, // Send as object, not stringified - can be {}
         }
@@ -244,7 +243,16 @@ export async function POST(req: Request) {
         subject: "Thank You for Contacting Solenergy",
         html: getContactConfirmationEmail(form.name || "Valued Customer"),
       });
-      console.log("✅ User confirmation email sent successfully:", confirmResult);
+      if (confirmResult.error) {
+        console.error("❌ User confirmation email failed:", confirmResult.error);
+        console.error("Error details:", {
+          statusCode: confirmResult.error.statusCode,
+          name: confirmResult.error.name,
+          message: confirmResult.error.message,
+        });
+      } else {
+        console.log("✅ User confirmation email sent successfully:", confirmResult.data?.id);
+      }
     } catch (emailErr: any) {
       console.error("❌ Failed to send confirmation email:", emailErr);
       console.error("Error details:", {
@@ -263,7 +271,16 @@ export async function POST(req: Request) {
         subject: "New Contact Form Submission",
         html: getContactNotificationEmail(form),
       });
-      console.log("✅ Admin notification email sent successfully:", adminResult);
+      if (adminResult.error) {
+        console.error("❌ Admin notification email failed:", adminResult.error);
+        console.error("Error details:", {
+          statusCode: adminResult.error.statusCode,
+          name: adminResult.error.name,
+          message: adminResult.error.message,
+        });
+      } else {
+        console.log("✅ Admin notification email sent successfully:", adminResult.data?.id);
+      }
     } catch (adminEmailErr: any) {
       console.error("❌ Failed to send admin notification email:", adminEmailErr);
       console.error("Error details:", {
