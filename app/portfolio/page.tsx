@@ -125,10 +125,11 @@ export default function PortfolioPage() {
             </div>
           </div>
 
-          {/* Projects grid */}
+          {/* Projects grid - Desktop: Grid, Mobile: Masonry/Staggered */}
+          {/* Desktop Grid */}
           <div
             className={[
-              "grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6",
+              "hidden lg:grid lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6",
               "transition-all duration-700 delay-200",
               show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
             ].join(" ")}

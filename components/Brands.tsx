@@ -7,7 +7,6 @@ export default function Brands() {
     { name: "Grid", src: "/logos/brands/GRID.jpg" },
     { name: "Huawei", src: "/logos/brands/Huawei.png" },
     { name: "Khonaysse Group", src: "/logos/brands/khonayssegroup.jpg" },
-    { name: "Liban Cables", src: "/logos/brands/libanCables.jpg" },
   ];
 
   return (
@@ -47,7 +46,7 @@ export default function Brands() {
         </div>
 
         {/* Logos */}
-        <div className="mt-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 items-center">
+        <div className="mt-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 items-center">
           {items.map((i) => (
             <div
               key={i.name}

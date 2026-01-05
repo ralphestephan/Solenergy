@@ -57,14 +57,14 @@ export default function Clients() {
           <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
           <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
 
-          {/* CSS Animated Scrolling Track */}
-          <div className="flex animate-scroll group-hover:[animation-play-state:paused]">
+          {/* CSS Animated Scrolling Track - Smooth infinite loop */}
+          <div className="flex clients-scroll group-hover:[animation-play-state:paused]">
             {/* First set of logos */}
-            <div className="flex gap-12 shrink-0 py-8">
+            <div className="flex gap-12 shrink-0 py-8 clients-set">
               {clients.map((client) => (
                 <div
                   key={client.name}
-                  className="flex-shrink-0 w-40 h-24 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100"
+                  className="flex-shrink-0 w-40 h-24 flex items-center justify-center transition-all duration-300 opacity-100 hover:scale-110"
                 >
                   <div className="relative w-full h-full">
                     <Image
@@ -78,11 +78,11 @@ export default function Clients() {
               ))}
             </div>
             {/* Duplicate set for seamless loop */}
-            <div className="flex gap-12 shrink-0 py-8 ml-12">
+            <div className="flex gap-12 shrink-0 py-8 clients-set">
               {clients.map((client) => (
                 <div
                   key={`dup-${client.name}`}
-                  className="flex-shrink-0 w-40 h-24 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100"
+                  className="flex-shrink-0 w-40 h-24 flex items-center justify-center transition-all duration-300 opacity-100 hover:scale-110"
                 >
                   <div className="relative w-full h-full">
                     <Image
