@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useEffect } from "react";
 
 const clients = [
   { name: "Aya Hotel", logo: "/logos/clients/ayaHotel.png" },
@@ -34,6 +35,17 @@ const clients = [
 ];
 
 export default function Clients() {
+  // Preload all client logos
+  useEffect(() => {
+    clients.forEach((client) => {
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.as = 'image';
+      link.href = client.logo;
+      document.head.appendChild(link);
+    });
+  }, []);
+
   return (
     <section className="py-16 bg-gradient-to-b from-white to-zinc-50">
       <div className="mx-auto max-w-7xl px-4">
@@ -57,7 +69,7 @@ export default function Clients() {
           <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
           <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
 
-          {/* CSS Animated Scrolling Track - Smooth infinite loop with 3 sets for seamless animation */}
+          {/* CSS Animated Scrolling Track - Perfect infinite loop with 2 sets */}
           <div className="flex clients-scroll group-hover:[animation-play-state:paused]">
             {/* First set of logos */}
             <div className="flex gap-12 shrink-0 py-8 clients-set">
@@ -72,12 +84,14 @@ export default function Clients() {
                       alt={client.name}
                       fill
                       className="object-contain"
+                      loading="eager"
+                      priority={clients.indexOf(client) < 6}
                     />
                   </div>
                 </div>
               ))}
             </div>
-            {/* Second set for seamless loop */}
+            {/* Duplicate set for seamless infinite loop */}
             <div className="flex gap-12 shrink-0 py-8 clients-set">
               {clients.map((client) => (
                 <div
@@ -90,24 +104,7 @@ export default function Clients() {
                       alt={client.name}
                       fill
                       className="object-contain"
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
-            {/* Third set for truly seamless loop */}
-            <div className="flex gap-12 shrink-0 py-8 clients-set">
-              {clients.map((client) => (
-                <div
-                  key={`dup2-${client.name}`}
-                  className="flex-shrink-0 w-40 h-24 flex items-center justify-center transition-all duration-300 opacity-100 hover:scale-110"
-                >
-                  <div className="relative w-full h-full">
-                    <Image
-                      src={client.logo}
-                      alt={client.name}
-                      fill
-                      className="object-contain"
+                      loading="eager"
                     />
                   </div>
                 </div>

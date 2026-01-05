@@ -276,7 +276,8 @@ export default function Page() {
             </p>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+          {/* Desktop Grid */}
+          <div className="hidden lg:grid lg:grid-cols-3 xl:grid-cols-5 gap-6">
             {[
               { 
                 name: "Charbel Mansour", 
@@ -333,6 +334,67 @@ export default function Page() {
               </div>
             ))}
           </div>
+
+          {/* Mobile Carousel */}
+          <div className="lg:hidden overflow-x-auto snap-x snap-mandatory scroll-smooth -mx-6 px-6 popular-solutions-scroll">
+            <div className="flex gap-4" style={{ width: 'max-content' }}>
+              {[
+                { 
+                  name: "Charbel Mansour", 
+                  role: "Owner", 
+                  img: "/images/fieldwork.png",
+                  quote: "Building reliable energy solutions for Lebanon's future, one project at a time."
+                },
+                { 
+                  name: "Tarek", 
+                  role: "Manager", 
+                  img: "/images/work.png",
+                  quote: "Excellence in energy management starts with understanding our clients' unique needs."
+                },
+                { 
+                  name: "Ralph Estephan", 
+                  role: "IIoT Engineer", 
+                  img: "/images/panels.png",
+                  quote: "Innovation and smart technology are the keys to efficient energy systems."
+                },
+                { 
+                  name: "Mohammad", 
+                  role: "Technician", 
+                  img: "/images/fieldwork.png",
+                  quote: "Quality installation and maintenance ensure long-term reliability and performance."
+                },
+                { 
+                  name: "Mario", 
+                  role: "Site Engineer", 
+                  img: "/images/work.png",
+                  quote: "Every project is an opportunity to deliver excellence and exceed expectations."
+                },
+              ].map((p) => (
+                <div
+                  key={p.name}
+                  className="group snap-start flex-shrink-0 w-[75vw] sm:w-[60vw] p-6 rounded-2xl bg-white border border-zinc-100 shadow-xl relative overflow-hidden"
+                >
+                  <div className="absolute top-0 right-0 w-0 h-0 border-t-[30px] border-r-[30px] border-t-transparent border-r-brand-yellow/10" />
+                  <div className="flex flex-col items-center text-center">
+                    <div className="w-24 h-24 rounded-full overflow-hidden ring-2 ring-brand-yellow/20 bg-zinc-100 mb-4">
+                      <Image
+                        src={p.img}
+                        alt={`${p.name} — ${p.role}`}
+                        width={96}
+                        height={96}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="font-bold text-zinc-900 text-lg">{p.name}</div>
+                    <div className="mt-1 text-sm text-brand-yellow font-semibold">{p.role}</div>
+                    <div className="mt-4 pt-4 border-t border-zinc-100 w-full">
+                      <p className="text-sm text-zinc-600 italic leading-relaxed">&quot;{p.quote}&quot;</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -382,7 +444,8 @@ export default function Page() {
           </div>
 
           {/* VALUES */}
-          <div className="grid grid-cols-3 gap-6">
+          {/* Desktop Grid */}
+          <div className="hidden md:grid md:grid-cols-3 gap-6">
             {[
               { Icon: Award, label: "Excellence" },
               { Icon: TrendingUp, label: "Innovation" },
@@ -396,6 +459,27 @@ export default function Page() {
                   <Icon className="w-7 h-7" />
                 </div>
                 <h3 className="text-lg font-bold">{label}</h3>
+              </div>
+            ))}
+          </div>
+
+          {/* Mobile: Stacked Cards */}
+          <div className="md:hidden space-y-4">
+            {[
+              { Icon: Award, label: "Excellence" },
+              { Icon: TrendingUp, label: "Innovation" },
+              { Icon: Users, label: "Customer Focus" },
+            ].map(({ Icon, label }) => (
+              <div
+                key={label}
+                className="p-5 rounded-xl bg-white border border-zinc-100 shadow-lg transition-all duration-300"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-brand-yellow/10 text-brand-yellow flex items-center justify-center flex-shrink-0">
+                    <Icon className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-base font-bold">{label}</h3>
+                </div>
               </div>
             ))}
           </div>

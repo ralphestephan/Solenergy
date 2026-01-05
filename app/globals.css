@@ -29,29 +29,31 @@
   border-color: rgba(255, 255, 255, 0.5);
 }
 
-/* Clients Carousel - Smooth Infinite Scroll */
+/* Clients Carousel - Perfect Infinite Scroll */
 @keyframes clientsScroll {
-  from {
+  0% {
     transform: translateX(0);
   }
-  to {
-    transform: translateX(calc(-100% / 3));
+  100% {
+    transform: translateX(-50%);
   }
 }
 
 .clients-scroll {
-  animation: clientsScroll 45s linear infinite;
+  animation: clientsScroll 25s linear infinite;
+  will-change: transform;
 }
 
 /* Faster on mobile */
 @media (max-width: 768px) {
   .clients-scroll {
-    animation: clientsScroll 18s linear infinite;
+    animation: clientsScroll 12s linear infinite;
   }
 }
 
 .clients-set {
   min-width: max-content;
+  flex-shrink: 0;
 }
 
 /* -----------------------------
