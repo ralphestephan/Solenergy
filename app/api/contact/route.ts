@@ -199,17 +199,17 @@ export async function POST(req: Request) {
       return NextResponse.json({ success: true }, { status: 200 });
     }
 
-    // Prepare metadata with all form fields
-    const metadata: Record<string, any> = {
-      city: form.city || null,
-      reason: form.reason || null,
-      property: form.property || null,
-      solutions: Array.isArray(form.solutions) ? form.solutions : form.solutions ? [form.solutions] : null,
-      budget: form.budget || null,
-      contact_pref: form.contact_pref || null,
-    };
+    // Prepare metadata - only for extra data NOT in the database schema
+    // Fields like city, reason, budget, contact_pref, phone, email are already in the schema
+    const metadata: Record<string, any> = {};
+    if (form.property) metadata.property = form.property;
+    if (form.solutions) {
+      metadata.solutions = Array.isArray(form.solutions) ? form.solutions : [form.solutions];
+    }
+    // Add any other extra fields that aren't in the schema here
 
     // Save to Supabase using BDI Systems schema
+    // Include schema fields as direct properties, not in metadata
     const { data, error } = await supabase
       .from('contact_form_submissions')
       .insert([
@@ -219,9 +219,13 @@ export async function POST(req: Request) {
           email: form.email,
           phone: form.phone || null,
           message: form.message || null,
+          city: form.city || null,
+          reason: form.reason || null,
+          budget: form.budget || null,
+          contact_pref: form.contact_pref || null,
           source: 'website',
           status: 'new',
-          metadata: metadata,
+          metadata: Object.keys(metadata).length > 0 ? metadata : null,
         }
       ])
       .select();
