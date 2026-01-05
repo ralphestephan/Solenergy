@@ -30,7 +30,7 @@ export const insights: Insight[] = [
       "How hybrid solar systems combine photovoltaic panels, energy storage, and smart grid management to deliver reliable 24/7 power in Lebanon's challenging electrical environment.",
     date: "2025-08-12",
     readMins: 14,
-    cover: "/images/panels.png",
+    cover: "/images/ChatGPT Image Jan 5, 2026, 12_22_47 AM.png",
     coverAlt: "Solar panels and battery storage system",
     tags: ["Solar Energy", "Energy Storage"],
     sections: [
@@ -219,7 +219,7 @@ export const insights: Insight[] = [
       "How advanced energy management transforms industrial operations through real-time monitoring, predictive analytics, and automated control—delivering 20-30% energy savings and operational excellence.",
     date: "2025-09-19",
     readMins: 15,
-    cover: "/images/synchnorizedDist.png",
+    cover: "/images/ChatGPT Image Jan 5, 2026, 12_06_25 AM.png",
     coverAlt: "Industrial energy management dashboard",
     tags: ["Industry 4.0", "Energy Management"],
     sections: [
@@ -305,7 +305,7 @@ export const insights: Insight[] = [
       "Understanding battery technologies, sizing strategies, and integration best practices for reliable round-the-clock solar power in commercial and residential applications.",
     date: "2025-07-15",
     readMins: 13,
-    cover: "/images/smaESS.png",
+    cover: "/images/ChatGPT Image Jan 4, 2026, 06_50_39 PM.png",
     coverAlt: "Energy storage system installation",
     tags: ["Energy Storage", "Solar Energy"],
     sections: [
@@ -390,7 +390,7 @@ export const insights: Insight[] = [
       "Practical maintenance strategies for Lebanon's dusty, high-temperature environment. How to maintain peak solar performance and protect your investment for 25+ years.",
     date: "2025-06-10",
     readMins: 10,
-    cover: "/images/fieldwork.png",
+    cover: "/images/ChatGPT Image Jan 4, 2026, 06_46_33 PM.png",
     coverAlt: "Technician cleaning solar panels",
     tags: ["Solar Energy", "Maintenance"],
     sections: [
@@ -656,7 +656,7 @@ export const insights: Insight[] = [
       "Introducing Sol4.o—Solenergy's flagship cloud-based platform that unifies solar, generators, batteries, and grid power into one intelligent dashboard. Monitor, control, and optimize all your energy assets from anywhere.",
     date: "2025-10-29",
     readMins: 10,
-    cover: "/images/synchnorizedDist.png",
+    cover: "/images/ChatGPT Image Jan 5, 2026, 12_22_47 AM.png",
     coverAlt: "Sol4.o energy management dashboard",
     tags: ["Industry 4.0", "Smart Systems", "Energy Management", "SaaS"],
     sections: [
