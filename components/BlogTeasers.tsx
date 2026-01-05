@@ -67,8 +67,9 @@ export default function BlogTeasers() {
           </Link>
         </div>
 
-        {/* Cards */}
-        <div className="mt-6 grid gap-6 sm:grid-cols-2 md:grid-cols-3 auto-rows-fr">
+        {/* Cards - Desktop: Grid, Mobile: Carousel */}
+        {/* Desktop Grid */}
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr mt-6">
           {latest.map((p, idx) => {
             const fallbackKey = (["garden", "pet", "summer"] as const)[idx % 3];
             const tag = p.tags?.[0] ?? "Insight";

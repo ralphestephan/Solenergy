@@ -162,7 +162,8 @@ export default function Page() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Desktop Grid */}
+          <div className="hidden lg:grid lg:grid-cols-3 gap-8">
             {restInsights.map((post) => (
               <Link key={post.slug} href={`/insights/${post.slug}`} className="group">
                 <article className="h-full rounded-2xl overflow-hidden bg-white border border-zinc-100 shadow-lg hover:shadow-xl hover:border-brand-yellow/30 transition-all">

@@ -29,6 +29,24 @@
   border-color: rgba(255, 255, 255, 0.5);
 }
 
+/* Clients Carousel - Smooth Infinite Scroll */
+@keyframes clientsScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% / 2));
+  }
+}
+
+.clients-scroll {
+  animation: clientsScroll 30s linear infinite;
+}
+
+.clients-set {
+  min-width: max-content;
+}
+
 /* -----------------------------
    Root variables
 ----------------------------- */

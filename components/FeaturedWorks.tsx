@@ -82,10 +82,11 @@ export default function FeaturedWorks() {
           </div>
         </div>
 
-        {/* Projects grid - matching the design */}
+        {/* Projects grid - Desktop: Grid, Mobile: Carousel */}
+        {/* Desktop Grid */}
         <div
           className={[
-            "grid sm:grid-cols-2 lg:grid-cols-4 gap-4",
+            "hidden lg:grid lg:grid-cols-4 gap-4",
             "transition-all duration-700 delay-200",
             show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
           ].join(" ")}
@@ -126,6 +127,57 @@ export default function FeaturedWorks() {
               </div>
             </Link>
           ))}
+        </div>
+
+        {/* Mobile Carousel */}
+        <div
+          className={[
+            "lg:hidden overflow-x-auto snap-x snap-mandatory scroll-smooth -mx-6 px-6 popular-solutions-scroll",
+            "transition-all duration-700 delay-200",
+            show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
+          ].join(" ")}
+        >
+          <div className="flex gap-4" style={{ width: 'max-content' }}>
+            {filteredProjects.map((project) => (
+              <Link
+                key={project.id}
+                href={`/portfolio/${project.slug}`}
+                className="group snap-start flex-shrink-0 w-[85vw] sm:w-[70vw]"
+              >
+                <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-zinc-800">
+                  {/* Image */}
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    sizes="(max-width: 640px) 85vw, 70vw"
+                  />
+
+                  {/* Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/80 via-zinc-900/30 to-transparent" />
+
+                  {/* Content overlay - always visible on mobile */}
+                  <div className="absolute inset-x-0 bottom-0 p-4">
+                    <div className="text-xs text-brand-yellow font-medium mb-1">
+                      {project.category}
+                    </div>
+                    <h3 className="text-white font-bold text-lg mb-2">{project.title}</h3>
+                    <div className="flex items-center gap-3 text-white/80 text-sm">
+                      <span>{project.capacity}</span>
+                      <span>•</span>
+                      <span>{project.location}</span>
+                    </div>
+                  </div>
+
+                  {/* Top-right arrow */}
+                  <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-brand-yellow flex items-center justify-center">
+                    <ArrowRight className="w-5 h-5 text-zinc-900" />
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
 
         {/* View all button */}
