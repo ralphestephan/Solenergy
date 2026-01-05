@@ -2,7 +2,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import SolutionsGrid from "@/components/SolutionsGrid";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   CheckCircle, Sun, Zap, Battery, Factory, Settings,
@@ -167,9 +166,13 @@ export default function Page() {
         </div>
       </section>
 
-      {/* POPULAR SOLUTIONS */}
-      <section className="py-20 bg-zinc-50">
-        <div className="mx-auto max-w-7xl px-4">
+      {/* POPULAR SOLUTIONS - Creative Carousel */}
+      <section className="py-20 bg-white relative overflow-hidden">
+        {/* Decorative background elements */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-brand-yellow/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-brand-orange/5 rounded-full blur-3xl" />
+
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-14">
             <span className="inline-flex items-center px-4 py-2 rounded-full bg-brand-yellow/10 text-brand-yellow text-sm font-semibold">
               OUR SOLUTIONS
@@ -186,46 +189,80 @@ export default function Page() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {solutions.slice(0, 6).map((solution) => (
-              <Link key={solution.slug} href={`/solutions/${solution.slug}`} className="group">
-                <article className="h-full rounded-2xl overflow-hidden bg-white border border-zinc-100 shadow-lg hover:shadow-xl hover:border-brand-yellow/30 transition-all">
-                  {/* Image */}
-                  <div className="relative aspect-[16/10] overflow-hidden">
-                    <Image
-                      src={solution.image || "/images/panels.png"}
-                      alt={solution.heading}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/30 to-transparent" />
-                  </div>
+          {/* Carousel Container */}
+          <div className="relative">
+            {/* Gradient fade edges - Mobile visible */}
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-white via-white/80 to-transparent z-10 md:w-32" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-white via-white/80 to-transparent z-10 md:w-32" />
 
-                  {/* Content */}
-                  <div className="p-6">
-                    <h3 className="text-lg font-bold text-zinc-900 group-hover:text-brand-yellow transition-colors line-clamp-2 mb-3">
-                      {solution.heading}
-                    </h3>
-                    <p className="text-zinc-600 text-sm line-clamp-3 mb-4">
-                      {solution.description}
-                    </p>
-                    <div className="flex items-center justify-between">
-                      <span className="inline-flex items-center gap-2 text-brand-yellow font-semibold group-hover:gap-3 transition-all text-sm">
-                        Learn More
-                        <ArrowRight className="w-4 h-4" />
-                      </span>
-                    </div>
-                  </div>
-                </article>
-              </Link>
-            ))}
+            {/* Scrollable Carousel */}
+            <div className="overflow-x-auto scrollbar-hide snap-x snap-mandatory scroll-smooth -mx-4 px-4 md:-mx-6 md:px-6 lg:-mx-8 lg:px-8">
+              <div className="flex gap-6 md:gap-8" style={{ width: 'max-content' }}>
+                {solutions.slice(0, 6).map((solution, index) => (
+                  <Link
+                    key={solution.slug}
+                    href={`/solutions/${solution.slug}`}
+                    className="group snap-start flex-shrink-0 w-[85vw] sm:w-[70vw] md:w-[45vw] lg:w-[380px] xl:w-[420px]"
+                  >
+                    <article className="h-full rounded-2xl overflow-hidden bg-white border-2 border-zinc-100 shadow-lg hover:shadow-2xl hover:border-brand-yellow/50 transition-all duration-300 hover:-translate-y-2">
+                      {/* Image with overlay */}
+                      <div className="relative aspect-[16/10] overflow-hidden bg-zinc-100">
+                        <Image
+                          src={solution.image || "/images/panels.png"}
+                          alt={solution.heading}
+                          fill
+                          className="object-cover group-hover:scale-110 transition-transform duration-700"
+                          sizes="(max-width: 640px) 85vw, (max-width: 768px) 70vw, (max-width: 1024px) 45vw, 380px"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/70 via-zinc-900/20 to-transparent" />
+                        
+                        {/* Category Badge */}
+                        <div className="absolute top-4 left-4 px-3 py-1.5 rounded-full bg-brand-yellow/90 backdrop-blur-sm text-zinc-900 text-xs font-bold">
+                          {solution.category?.toUpperCase() || "SOLUTION"}
+                        </div>
+
+                        {/* Hover Arrow */}
+                        <div className="absolute bottom-4 right-4 w-10 h-10 rounded-full bg-brand-yellow flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:rotate-45">
+                          <ArrowRight className="w-5 h-5 text-zinc-900" />
+                        </div>
+                      </div>
+
+                      {/* Content */}
+                      <div className="p-6 md:p-8">
+                        <h3 className="text-xl md:text-2xl font-bold text-zinc-900 group-hover:text-brand-yellow transition-colors line-clamp-2 mb-3">
+                          {solution.heading}
+                        </h3>
+                        <p className="text-zinc-600 text-sm md:text-base line-clamp-3 mb-5">
+                          {solution.description}
+                        </p>
+                        <div className="flex items-center justify-between pt-4 border-t border-zinc-100">
+                          <span className="inline-flex items-center gap-2 text-brand-yellow font-semibold group-hover:gap-3 transition-all text-sm md:text-base">
+                            Learn More
+                            <ArrowRight className="w-4 h-4" />
+                          </span>
+                        </div>
+                      </div>
+                    </article>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Scroll Hint for Mobile */}
+          <div className="mt-8 text-center md:hidden">
+            <p className="text-sm text-zinc-500 flex items-center justify-center gap-2">
+              <span>←</span>
+              <span>Swipe to see more</span>
+              <span>→</span>
+            </p>
           </div>
 
           {/* View All Button */}
           <div className="text-center mt-12">
             <Link
               href="/solutions"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-brand-yellow text-zinc-900 font-bold rounded-xl hover:bg-brand-orange hover:shadow-lg transition-all"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-brand-yellow text-zinc-900 font-bold rounded-xl hover:bg-brand-orange hover:shadow-lg transition-all text-lg"
             >
               View All Solutions
               <ArrowRight className="w-5 h-5" />
@@ -244,7 +281,7 @@ export default function Page() {
               </h2>
               <div className="w-16 h-1 bg-brand-yellow mx-auto mt-4 mb-6" />
               <p className="text-zinc-600 max-w-2xl mx-auto">
-                Focused solutions for every energy need—solar, generators, maintenance, and our smart SaaS platform.
+                Focused solutions for every energy need—solar, generators, maintenance, and our smart platform.
               </p>
             </div>
 
@@ -305,31 +342,30 @@ export default function Page() {
 
               <TabsContent value="maintenance" className="motion-safe:animate-tabIn-slow">
                 <SplitCard
-                  label="Maintenance Services"
-                  title="24/7 Maintenance & Support"
-                  desc="Comprehensive preventive maintenance and emergency support for generators, solar systems, and energy infrastructure."
-                  img="/images/volvoGENERATOR.png"
+                  label="Maintenance & Support"
+                  title="24/7 Maintenance Services"
+                  desc="Comprehensive maintenance programs ensuring optimal performance and longevity of your energy systems."
+                  img="/images/work.png"
                   items={[
-                    "24/7 emergency response",
                     "Preventive maintenance schedules",
-                    "Genuine parts and warranty",
-                    "Expert technician teams",
+                    "24/7 emergency support",
+                    "Remote monitoring and diagnostics",
+                    "Extended warranty options",
                   ]}
                 />
               </TabsContent>
 
               <TabsContent value="saas" className="motion-safe:animate-tabIn-slow">
                 <SplitCard
-                  label="Sol4.o Platform"
-                  title="Smart Energy Management Platform"
-                  desc="Real-time platform integrating solar, generators, and grid power with advanced monitoring, analytics, and intelligent automation."
+                  label="Energy Management"
+                  title="Sol4.o Platform"
+                  desc="Unified platform managing solar, generators, and energy systems in one real-time dashboard."
                   img="/images/deyeESS.png"
-                  tone="orange"
                   items={[
-                    "Multi-source energy integration",
-                    "Real-time monitoring & analytics",
+                    "Real-time energy monitoring",
+                    "Smart load management",
                     "Predictive maintenance alerts",
-                    "Mobile & web access anywhere",
+                    "Mobile app access",
                   ]}
                 />
               </TabsContent>
@@ -338,52 +374,10 @@ export default function Page() {
         </Reveal>
       </section>
 
-      {/* WHY SOLENERGY - Premium Style */}
-      <section className="py-20 relative overflow-hidden bg-zinc-900">
-        {/* Triangle decorations */}
-        <div className="absolute top-0 left-0 w-40 h-40 border-l-[40px] border-l-brand-yellow border-t-[40px] border-t-transparent border-r-[40px] border-r-transparent border-b-[40px] border-b-brand-yellow opacity-20" />
-        <div className="absolute bottom-0 right-0 w-40 h-40 border-r-[40px] border-r-brand-yellow border-b-[40px] border-b-transparent border-l-[40px] border-l-transparent border-t-[40px] border-t-brand-yellow opacity-20" />
-        
-        <Reveal>
-          <div className="mx-auto max-w-7xl px-4">
-            <div className="text-center mb-14">
-              <span className="inline-flex items-center px-4 py-2 rounded-full bg-brand-yellow/20 text-brand-yellow text-sm font-semibold">
-                WHY CHOOSE US
-              </span>
-              <h2 className="mt-4 text-4xl sm:text-5xl font-extrabold tracking-tight">
-                <span className="text-white">Proven </span>
-                <span className="text-brand-yellow">Excellence</span>
-              </h2>
-              <div className="mt-4 flex justify-center">
-                <div className="w-24 h-1 bg-brand-yellow rounded-full" />
-              </div>
-              <p className="mt-6 text-zinc-400 max-w-2xl mx-auto text-lg">
-                With decades of experience and hundreds of successful installations, we deliver reliable energy solutions.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {[
-                { Icon: Shield, title: "30 Years", subtitle: "Experience", desc: "Proven track record across Lebanon and GCC" },
-                { Icon: Leaf, title: "50+ MW", subtitle: "Installed", desc: "Projects ranging from 1kW to 1MW capacity" },
-                { Icon: Clock, title: "24/7", subtitle: "Support", desc: "Round-the-clock monitoring and maintenance" },
-                { Icon: Settings, title: "Turnkey", subtitle: "Solutions", desc: "From design to commissioning, we handle it all" },
-              ].map(({ Icon, title, subtitle, desc }) => (
-                <div key={title} className="group p-8 rounded-2xl bg-zinc-800/50 border border-zinc-700/50 hover:border-brand-yellow/50 hover:bg-zinc-800 transition-all duration-300">
-                  <div className="w-16 h-16 rounded-xl bg-brand-yellow text-zinc-900 inline-grid place-items-center mb-6 group-hover:scale-110 transition-transform">
-                    <Icon className="w-8 h-8" />
-                  </div>
-                  <h3 className="text-3xl font-bold text-white">{title}</h3>
-                  <p className="text-brand-yellow font-semibold text-lg">{subtitle}</p>
-                  <p className="mt-3 text-zinc-400">{desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </Reveal>
-      </section>
-
+      {/* PROCESS */}
       <Process />
+
+      {/* PREMIUM CTA + TRUST */}
       <CTAPremium />
       <TrustSignals />
     </main>
