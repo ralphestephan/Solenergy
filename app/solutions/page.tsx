@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     url: `${SITE.baseUrl}/solutions`,
     images: [{ url: SITE.ogImage }],
   },
-  twitter: { card: "summary_large_image", site: "@solenergy" },
+  // twitter: { card: "summary_large_image", site: "@solenergy" }, // Disabled until further notice
   other: {
     keywords: "solar energy Lebanon, hybrid solar systems, Volvo Penta generators, energy storage, Industry 4.0, energy management, backup power, renewable energy",
   },

@@ -32,14 +32,15 @@ export const metadata: Metadata = {
     siteName: SITE.name,
     images: [{ url: SITE.ogImage, width: 1200, height: 630, alt: SITE.name }],
   },
-  twitter: {
-    card: "summary_large_image",
-    site: SITE.socials.twitter,
-    creator: SITE.socials.twitter,
-    title: SITE.name,
-    description: SITE.description,
-    images: [SITE.ogImage],
-  },
+  // Twitter metadata disabled until further notice
+  // twitter: {
+  //   card: "summary_large_image",
+  //   site: SITE.socials.twitter,
+  //   creator: SITE.socials.twitter,
+  //   title: SITE.name,
+  //   description: SITE.description,
+  //   images: [SITE.ogImage],
+  // },
   robots: {
     index: true,
     follow: true,

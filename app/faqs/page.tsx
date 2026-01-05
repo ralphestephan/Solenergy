@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     url: `${SITE.baseUrl}/faqs`,
     images: [{ url: SITE.ogImage }],
   },
-  twitter: { card: "summary_large_image", site: "@solenergy" },
+  // twitter: { card: "summary_large_image", site: "@solenergy" }, // Disabled until further notice
   robots: { index: true, follow: true },
   other: {
     keywords: "solar energy Lebanon, hybrid solar systems, backup generators, energy storage, renewable energy",

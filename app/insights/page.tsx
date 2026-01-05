@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     url: `${SITE.baseUrl}/insights`,
     images: [{ url: SITE.ogImage }],
   },
-  twitter: { card: "summary_large_image", site: "@solenergy" },
+  // twitter: { card: "summary_large_image", site: "@solenergy" }, // Disabled until further notice
 };
 
 export default function Page() {

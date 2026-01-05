@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     url: `${SITE.baseUrl}/contact`,
     images: [{ url: SITE.ogImage }],
   },
-  twitter: { card: "summary_large_image", site: "@solenergy" },
+  // twitter: { card: "summary_large_image", site: "@solenergy" }, // Disabled until further notice
   other: {
     keywords: "solar energy lebanon, solar panels, backup generators, hybrid solar systems, energy storage, battery systems, volvo penta generators, energy management, industry 4.0, renewable energy lebanon",
   },

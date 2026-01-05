@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: `${SITE.baseUrl}/portfolio/${project.slug}`,
       images: [{ url: project.image, width: 1200, height: 630 }],
     },
-    twitter: { card: "summary_large_image", site: "@solenergy" },
+    // twitter: { card: "summary_large_image", site: "@solenergy" }, // Disabled until further notice
   };
 }
 
