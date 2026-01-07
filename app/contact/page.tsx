@@ -11,15 +11,15 @@ import { useState } from "react";
 export default function Page() {
   const [status, setStatus] = useState<"idle" | "loading" | "ok" | "err">("idle");
   const [msg, setMsg] = useState("");
-  
+
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-  
+
     setStatus("loading");
     setMsg("");
-  
+
     const formEl = e.currentTarget;
-  
+
     const fd = new FormData(formEl);
     const data: Record<string, any> = {};
     fd.forEach((val, key) => {
@@ -29,14 +29,14 @@ export default function Page() {
         data[key] = val;
       }
     });
-  
+
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
-  
+
       if (!res.ok) {
         let errJson: any = {};
         try {
@@ -46,7 +46,7 @@ export default function Page() {
         }
         throw new Error(errJson?.error || `Request failed with ${res.status}`);
       }
-  
+
       setStatus("ok");
       setMsg("Your request was sent successfully! We'll get back to you soon.");
       formEl.reset();
@@ -127,21 +127,21 @@ export default function Page() {
         <div className="mx-auto max-w-7xl px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* WhatsApp Card */}
-            <a
-              href="https://wa.me/96171654956?text=Hello%20Solenergy%20%F0%9F%91%8B"
-              target="_blank"
-              rel="noreferrer"
-              className="group p-8 rounded-2xl bg-white border border-zinc-100 shadow-xl hover:shadow-2xl hover:border-brand-yellow/50 transition-all duration-300"
-            >
+            <div className="group p-8 rounded-2xl bg-white border border-zinc-100 shadow-xl hover:shadow-2xl hover:border-brand-yellow/50 transition-all duration-300">
               <div className="w-16 h-16 rounded-xl bg-brand-yellow text-zinc-900 inline-grid place-items-center mb-6 group-hover:scale-110 transition-transform">
                 <MessageCircle className="w-8 h-8" />
               </div>
               <h3 className="text-xl font-bold text-zinc-900">WhatsApp</h3>
-              <p className="mt-2 text-zinc-600">Quick response via chat</p>
-              <p className="mt-4 text-brand-yellow font-semibold flex items-center gap-2">
-                +961 71 654 956 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </p>
-            </a>
+              <p className="mt-2 text-zinc-600 mb-4">Quick response via chat</p>
+
+              <div className="space-y-3">
+                <a href="https://wa.me/96103654956" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-zinc-900 font-semibold hover:text-brand-orange transition-colors">
+                  <span className="text-xs uppercase tracking-wider text-zinc-500 font-bold w-8">LB</span>
+                  +961 03 654 956
+                  <ArrowRight className="w-4 h-4 ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
+                </a>
+              </div>
+            </div>
 
             {/* Email Card */}
             <a
@@ -159,19 +159,25 @@ export default function Page() {
             </a>
 
             {/* Phone Card */}
-            <a
-              href="tel:+96171654956"
-              className="group p-8 rounded-2xl bg-white border border-zinc-100 shadow-xl hover:shadow-2xl hover:border-brand-yellow/50 transition-all duration-300"
-            >
+            <div className="group p-8 rounded-2xl bg-white border border-zinc-100 shadow-xl hover:shadow-2xl hover:border-brand-yellow/50 transition-all duration-300">
               <div className="w-16 h-16 rounded-xl bg-zinc-900 text-white inline-grid place-items-center mb-6 group-hover:scale-110 transition-transform">
                 <Phone className="w-8 h-8" />
               </div>
               <h3 className="text-xl font-bold text-zinc-900">Call Us</h3>
-              <p className="mt-2 text-zinc-600">Speak directly with our team</p>
-              <p className="mt-4 text-zinc-900 font-semibold flex items-center gap-2">
-                +961 71 654 956 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </p>
-            </a>
+              <p className="mt-2 text-zinc-600 mb-4">Speak directly with our team</p>
+
+              <div className="space-y-3">
+                <div className="flex flex-col gap-1">
+                  <span className="text-xs font-bold text-zinc-400 uppercase tracking-wider">Lebanon</span>
+                  <a href="tel:+96103654956" className="text-zinc-900 font-semibold hover:text-brand-yellow transition-colors block">+961 03 654 956</a>
+                  <a href="tel:+96171010508" className="text-zinc-900 font-semibold hover:text-brand-yellow transition-colors block">+961 71 010 508</a>
+                </div>
+                <div className="flex flex-col gap-1 pt-2 border-t border-zinc-100">
+                  <span className="text-xs font-bold text-zinc-400 uppercase tracking-wider">Qatar</span>
+                  <a href="tel:+97433256185" className="text-zinc-900 font-semibold hover:text-brand-yellow transition-colors block">+974 33 256 185</a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -198,15 +204,30 @@ export default function Page() {
 
               {/* Location Info */}
               <div className="p-6 rounded-2xl bg-white border border-zinc-200 shadow-lg">
-                <h3 className="font-bold text-lg text-zinc-900 mb-4">Our Location</h3>
+                <h3 className="font-bold text-lg text-zinc-900 mb-4">Info</h3>
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-xl bg-brand-yellow/10 text-brand-yellow inline-grid place-items-center flex-shrink-0">
                     <MapPin className="w-6 h-6" />
                   </div>
-                  <div>
-                    <p className="font-semibold text-zinc-900"><strong>LB:</strong> Galaxy Mall, Baabda, Mount Lebanon</p>
-                    <p className="font-semibold text-zinc-900 mt-2"><strong>QR:</strong> Doha, Qatar</p>
-                    <p className="text-zinc-600 text-sm mt-2">Serving all of Lebanon & the GCC region</p>
+                  <div className="space-y-4 w-full">
+                    {/* Lebanon */}
+                    <div>
+                      <p className="font-semibold text-zinc-900 text-lg">Lebanon</p>
+                      <p className="text-zinc-700">Galaxy Complex, Baabda, Mount Lebanon</p>
+                      <div className="flex flex-col mt-1 space-y-0.5">
+                        <a href="tel:+96103654956" className="text-zinc-600 hover:text-brand-yellow transition-colors font-medium">+961 03 654 956</a>
+                        <a href="tel:+96171010508" className="text-zinc-600 hover:text-brand-yellow transition-colors font-medium">+961 71 010 508</a>
+                      </div>
+                    </div>
+
+                    {/* Qatar */}
+                    <div>
+                      <p className="font-semibold text-zinc-900 text-lg">Qatar</p>
+                      <p className="text-zinc-700">Doha, Lusail</p>
+                      <div className="flex flex-col mt-1 space-y-0.5">
+                        <a href="tel:+97433256185" className="text-zinc-600 hover:text-brand-yellow transition-colors font-medium">+974 33 256 185</a>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -219,8 +240,8 @@ export default function Page() {
                     <Clock className="w-6 h-6" />
                   </div>
                   <div>
-                    <p className="font-semibold text-zinc-900">Mon – Sat: 9:00 – 18:00</p>
-                    <p className="text-zinc-600 text-sm mt-1">Response time: Usually same day</p>
+                    <p className="font-semibold text-zinc-900">Mon – Sat</p>
+                    <p className="text-zinc-600 text-sm mt-1">Qatar: Sat – Thu</p>
                   </div>
                 </div>
               </div>
@@ -392,7 +413,7 @@ export default function Page() {
                       )}
                     </button>
                     <a
-                      href="https://wa.me/96171654956?text=Hello%20Solenergy%20%F0%9F%91%8B"
+                      href="https://wa.me/96103654956?text=Hello%20Solenergy%20%F0%9F%91%8B"
                       target="_blank"
                       rel="noreferrer"
                       className="px-8 py-4 rounded-xl border-2 border-zinc-200 font-bold text-lg hover:border-brand-yellow hover:text-brand-yellow transition-all flex items-center justify-center gap-2"
@@ -404,13 +425,12 @@ export default function Page() {
                   {/* Status Message */}
                   {status !== "idle" && (
                     <div
-                      className={`mt-4 px-6 py-4 rounded-xl text-base font-medium ${
-                        status === "ok"
-                          ? "bg-green-50 text-green-700 border border-green-200"
-                          : status === "err"
+                      className={`mt-4 px-6 py-4 rounded-xl text-base font-medium ${status === "ok"
+                        ? "bg-green-50 text-green-700 border border-green-200"
+                        : status === "err"
                           ? "bg-red-50 text-red-700 border border-red-200"
                           : "text-zinc-500"
-                      }`}
+                        }`}
                     >
                       {msg}
                     </div>
@@ -441,13 +461,13 @@ export default function Page() {
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <a
-              href="tel:+96171654956"
+              href="tel:+96103654956"
               className="px-8 py-4 rounded-xl bg-zinc-900 text-white font-bold text-lg hover:bg-zinc-800 transition-all flex items-center gap-2"
             >
               <Phone className="w-5 h-5" /> Call Now
             </a>
             <a
-              href="https://wa.me/96171654956"
+              href="https://wa.me/96103654956"
               target="_blank"
               rel="noreferrer"
               className="px-8 py-4 rounded-xl bg-white text-zinc-900 font-bold text-lg hover:shadow-lg transition-all flex items-center gap-2"

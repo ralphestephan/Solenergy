@@ -21,7 +21,7 @@ import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/s
 function XLogo(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden {...props}>
-      <path d="M18.146 3H21l-7.47 8.54L22.5 21h-6.03l-4.72-5.77L5.5 21H3l7.9-9.02L1.5 3h6.03l4.33 5.29L18.146 3Z"/>
+      <path d="M18.146 3H21l-7.47 8.54L22.5 21h-6.03l-4.72-5.77L5.5 21H3l7.9-9.02L1.5 3h6.03l4.33 5.29L18.146 3Z" />
     </svg>
   );
 }
@@ -57,15 +57,15 @@ export default function SiteFooter() {
     try {
       setStatus("loading");
       setMsg("");
-  
+
       const res = await fetch("/api/newsletter", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
       });
-  
+
       if (!res.ok) throw new Error("Request failed");
-  
+
       setStatus("ok");
       setMsg("Thanks! We’ll be in touch soon.");
       setEmail("");
@@ -74,7 +74,7 @@ export default function SiteFooter() {
       setMsg("Subscription failed. Please try again.");
     }
   }
-  
+
 
   return (
     <footer
@@ -124,32 +124,32 @@ export default function SiteFooter() {
             </a>
           </div>
 
-{/* Socials */}
-<div className="mt-4 md:mt-6 flex flex-wrap items-center gap-2">
-  {[
-    { label: "Instagram", href: "https://www.instagram.com/solenergy.me", Icon: Instagram },
-    { label: "Facebook",  href: "https://www.facebook.com/solenergylebanon",  Icon: Facebook  },
-    { label: "LinkedIn",  href: "https://www.linkedin.com/company/solenergy-sarl", Icon: Linkedin },
-    // { label: "YouTube",   href: "https://www.youtube.com/@solenergy", Icon: Youtube  },
-    // { label: "X",        href: "https://x.com/solenergy", Icon: XLogo },
-    { label: "TikTok",   href: "https://www.tiktok.com/@solenergysarl", Icon: FaTiktok },
-  ].map(({ label, href, Icon }) => (
-    <a
-      key={label}
-      aria-label={label}
-      href={href}
-      target="_blank"
-      rel="noreferrer"
-      className="inline-grid place-items-center size-9 rounded-full border border-zinc-700 hover:border-brand-yellow hover:bg-zinc-800 transition text-zinc-400 hover:text-brand-yellow"
-    >
-      <Icon className="h-4 w-4" />
-    </a>
-  ))}
-</div>
+          {/* Socials */}
+          <div className="mt-4 md:mt-6 flex flex-wrap items-center gap-2">
+            {[
+              { label: "Instagram", href: "https://www.instagram.com/solenergy.me", Icon: Instagram },
+              { label: "Facebook", href: "https://www.facebook.com/solenergylebanon", Icon: Facebook },
+              { label: "LinkedIn", href: "https://www.linkedin.com/company/solenergy-sarl", Icon: Linkedin },
+              // { label: "YouTube",   href: "https://www.youtube.com/@solenergy", Icon: Youtube  },
+              // { label: "X",        href: "https://x.com/solenergy", Icon: XLogo },
+              { label: "TikTok", href: "https://www.tiktok.com/@solenergysarl", Icon: FaTiktok },
+            ].map(({ label, href, Icon }) => (
+              <a
+                key={label}
+                aria-label={label}
+                href={href}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-grid place-items-center size-9 rounded-full border border-zinc-700 hover:border-brand-yellow hover:bg-zinc-800 transition text-zinc-400 hover:text-brand-yellow"
+              >
+                <Icon className="h-4 w-4" />
+              </a>
+            ))}
+          </div>
 
         </div>
 
-          <nav aria-label="Explore" className="col-span-1 md:col-span-1">
+        <nav aria-label="Explore" className="col-span-1 md:col-span-1">
           <h4 className="font-semibold text-zinc-100 tracking-wide">Explore</h4>
           <span className="mt-1 block h-0.5 w-10 rounded-full bg-gradient-to-r from-brand-yellow to-brand-orange" />
           {/* mobile: 2-col dense grid; desktop: list */}
@@ -188,18 +188,37 @@ export default function SiteFooter() {
           <address className="not-italic">
             <h4 className="font-semibold text-zinc-100 tracking-wide">Info</h4>
             <span className="mt-1 block h-0.5 w-10 rounded-full bg-gradient-to-r from-brand-yellow to-brand-orange" />
-            <div className="mt-2 md:mt-3 space-y-2 md:space-y-3 text-zinc-400 text-sm md:text-base leading-6">
-              <div className="flex items-start gap-2">
-                <MapPin className="h-4 w-4 mt-0.5 text-zinc-500" aria-hidden />
-                <div className="flex flex-col gap-1">
-                  <span className="whitespace-nowrap md:whitespace-normal"><strong>LB:</strong> Galaxy Mall, Baabda, Mount Lebanon</span>
-                  <span className="whitespace-nowrap md:whitespace-normal"><strong>QR:</strong> Doha, Qatar</span>
+            <div className="mt-2 md:mt-3 space-y-4 text-zinc-400 text-sm md:text-base leading-6">
+
+              {/* Lebanon */}
+              <div className="flex flex-col gap-1">
+                <span className="font-semibold text-zinc-300">Lebanon</span>
+                <div className="flex items-start gap-2">
+                  <MapPin className="h-4 w-4 mt-1 text-zinc-500 shrink-0" aria-hidden />
+                  <span>Galaxy Complex, Mount Lebanon, Baabda</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Phone className="h-4 w-4 text-zinc-500 shrink-0" aria-hidden />
+                  <div className="flex flex-col">
+                    <a href="tel:+96103654956" className="hover:text-brand-yellow transition-colors">+961 03 654 956</a>
+                    <a href="tel:+96171010508" className="hover:text-brand-yellow transition-colors">+961 71 010 508</a>
+                  </div>
                 </div>
               </div>
-              <div className="flex items-center gap-2">
-                <Phone className="h-4 w-4 text-zinc-500" aria-hidden />
-                <a href="tel:+96171654956" className="hover:text-brand-yellow transition-colors">+961 71 654 956</a>
+
+              {/* Qatar */}
+              <div className="flex flex-col gap-1">
+                <span className="font-semibold text-zinc-300">Qatar</span>
+                <div className="flex items-start gap-2">
+                  <MapPin className="h-4 w-4 mt-1 text-zinc-500 shrink-0" aria-hidden />
+                  <span>Doha, Lusail</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Phone className="h-4 w-4 text-zinc-500 shrink-0" aria-hidden />
+                  <a href="tel:+97433256185" className="hover:text-brand-yellow transition-colors">+974 33 256 185</a>
+                </div>
               </div>
+
             </div>
           </address>
 
@@ -252,9 +271,8 @@ export default function SiteFooter() {
 
                   <div
                     aria-live="polite"
-                    className={`mt-2 text-sm text-center ${
-                      status === "ok" ? "text-brand-yellow" : status === "err" ? "text-red-400" : "text-zinc-500"
-                    }`}
+                    className={`mt-2 text-sm text-center ${status === "ok" ? "text-brand-yellow" : status === "err" ? "text-red-400" : "text-zinc-500"
+                      }`}
                   >
                     {msg}
                   </div>
@@ -293,9 +311,8 @@ export default function SiteFooter() {
 
               <div
                 aria-live="polite"
-                className={`mt-1 text-sm ${
-                  status === "ok" ? "text-brand-yellow" : status === "err" ? "text-red-400" : "text-zinc-500"
-                }`}
+                className={`mt-1 text-sm ${status === "ok" ? "text-brand-yellow" : status === "err" ? "text-red-400" : "text-zinc-500"
+                  }`}
               >
                 {msg}
               </div>
