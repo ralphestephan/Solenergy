@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     keywords:
       "solar energy, solar panels, generators, energy management, Industry 4.0, smart solar, renewable energy, backup power, energy solutions Lebanon, sunflower solar tracking",
   },
-}; 
+};
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SITE } from "@/lib/site";
@@ -127,13 +127,13 @@ export default function Page() {
       {/* WHY CHOOSE US - Trust section */}
       <WhyChooseUs />
 
-      {/* FEATURED WORKS - Project gallery */}
-      <FeaturedWorks />
-
       {/* CLIENTS CAROUSEL */}
       <Reveal>
         <Clients />
       </Reveal>
+
+      {/* FEATURED WORKS - Project gallery */}
+      <FeaturedWorks />
 
       {/* BRANDS */}
       <Reveal><Brands /></Reveal>

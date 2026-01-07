@@ -57,7 +57,7 @@ export default function Header() {
             </ul>
 
             <Link href="/contact" className="shiny-cta px-5 py-2.5 text-sm font-semibold">
-              <span>Let's talk →</span>
+              <span>Contact Us →</span>
               <i aria-hidden className="shine"></i>
             </Link>
           </div>
@@ -81,7 +81,7 @@ export default function Header() {
             </Link>
 
             <Link href="/contact" className="shiny-cta px-3.5 py-2 text-xs font-semibold z-10">
-              <span>Let's talk</span>
+              <span>Contact Us</span>
               <i aria-hidden className="shine"></i>
             </Link>
           </div>
@@ -110,7 +110,7 @@ export default function Header() {
           </ul>
           <div className="pt-3 px-2">
             <Link href="/contact" className="shiny-cta w-full inline-flex justify-center px-4 py-2.5 text-sm font-semibold">
-              <span>Let's talk →</span>
+              <span>Contact Us →</span>
               <i aria-hidden className="shine"></i>
             </Link>
           </div>

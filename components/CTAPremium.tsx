@@ -55,7 +55,7 @@ export default function CTAPremium() {
             </h2>
             <div className="w-16 h-1 bg-zinc-900 mb-6" />
             <p className="text-zinc-800 text-lg mb-8">
-              Ready to power your future? Get a personalized quote for solar installation, 
+              Ready to power your future? Get a personalized quote for solar installation,
               generator services, or complete energy management solutions.
             </p>
 
@@ -67,9 +67,14 @@ export default function CTAPremium() {
                 </div>
                 <div>
                   <div className="text-sm text-zinc-700">Call Us</div>
-                  <a href="tel:+96171654956" className="font-bold text-zinc-900 hover:underline">
-                    +961 71 654 956
-                  </a>
+                  <div className="flex flex-col">
+                    <a href="tel:+96103654956" className="font-bold text-zinc-900 hover:underline">
+                      +961 03 654 956
+                    </a>
+                    <a href="tel:+96171010508" className="text-sm text-zinc-600 hover:underline">
+                      +961 71 010 508
+                    </a>
+                  </div>
                 </div>
               </div>
               <div className="flex items-center gap-4">
@@ -89,9 +94,15 @@ export default function CTAPremium() {
                 </div>
                 <div>
                   <div className="text-sm text-zinc-700">Locations</div>
-                  <div className="flex flex-col gap-1">
-                    <span className="font-bold text-zinc-900"><strong>LB:</strong> Galaxy Mall, Baabda, Mount Lebanon</span>
-                    <span className="font-bold text-zinc-900"><strong>QR:</strong> Doha, Qatar</span>
+                  <div className="flex flex-col gap-1 text-sm">
+                    <div>
+                      <span className="font-semibold text-zinc-900">Lebanon: </span>
+                      <span className="text-zinc-700">Galaxy Complex, Baabda</span>
+                    </div>
+                    <div>
+                      <span className="font-semibold text-zinc-900">Qatar: </span>
+                      <span className="text-zinc-700">Doha, Lusail</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -110,7 +121,7 @@ export default function CTAPremium() {
         {/* Right: Dark section with image/stats */}
         <div className="bg-zinc-800 px-8 py-16 lg:py-24 lg:px-12 relative overflow-hidden">
           {/* Background image overlay */}
-          <div 
+          <div
             className="absolute inset-0 opacity-20"
             style={{
               backgroundImage: "url('/images/field.jpg')",

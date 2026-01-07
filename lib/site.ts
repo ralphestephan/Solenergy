@@ -58,6 +58,6 @@ export const SITE = {
   },
   contact: {
     email: "info@solenergypower.com",
-    phone: "+961 71 654 956",
+    phone: "+961 03 654 956",
   },
 } as const;
