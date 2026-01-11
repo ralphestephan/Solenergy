@@ -59,10 +59,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={poppins.variable}>
       <head>
+        <meta name="google-site-verification" content="aSFML--c4EYr4rrZliksliZ-zE69910E17yB9C_xUlw" />
         <GoogleAnalytics />
       </head>
       <body className="min-h-screen text-zinc-800 antialiased overflow-x-hidden">
-        
+
         <Header />
         <main className="w-full overflow-x-clip">{children}</main>
         <BackToTopFab insetClass="bottom-6 right-6 sm:bottom-8 sm:right-8" size={56} />
