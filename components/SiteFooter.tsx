@@ -195,12 +195,12 @@ export default function SiteFooter() {
                 <span className="font-semibold text-zinc-300">Lebanon</span>
                 <div className="flex items-start gap-2">
                   <MapPin className="h-4 w-4 mt-1 text-zinc-500 shrink-0" aria-hidden />
-                  <span>Galaxy Complex, Mount Lebanon, Baabda</span>
+                  <span>Galaxy Complex, Baabda, Lebanon</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Phone className="h-4 w-4 text-zinc-500 shrink-0" aria-hidden />
                   <div className="flex flex-col">
-                    <a href="tel:+96103654956" className="hover:text-brand-yellow transition-colors">+961 03 654 956</a>
+                    <a href="tel:+96171654956" className="hover:text-brand-yellow transition-colors">+961 71 654 956</a>
                     <a href="tel:+96171010508" className="hover:text-brand-yellow transition-colors">+961 71 010 508</a>
                   </div>
                 </div>
@@ -211,11 +211,11 @@ export default function SiteFooter() {
                 <span className="font-semibold text-zinc-300">Qatar</span>
                 <div className="flex items-start gap-2">
                   <MapPin className="h-4 w-4 mt-1 text-zinc-500 shrink-0" aria-hidden />
-                  <span>Doha, Lusail</span>
+                  <span>Lusail Marina Tower, Lusail, Qatar</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Phone className="h-4 w-4 text-zinc-500 shrink-0" aria-hidden />
-                  <a href="tel:+97433256185" className="hover:text-brand-yellow transition-colors">+974 33 256 185</a>
+                  <a href="tel:+97433256185" className="hover:text-brand-yellow transition-colors">+974 3325 6185</a>
                 </div>
               </div>
 

@@ -135,9 +135,9 @@ export default function Page() {
               <p className="mt-2 text-zinc-600 mb-4">Quick response via chat</p>
 
               <div className="space-y-3">
-                <a href="https://wa.me/96103654956" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-zinc-900 font-semibold hover:text-brand-orange transition-colors">
+                <a href="https://wa.me/96171654956" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-zinc-900 font-semibold hover:text-brand-orange transition-colors">
                   <span className="text-xs uppercase tracking-wider text-zinc-500 font-bold w-8">LB</span>
-                  +961 03 654 956
+                  +961 71 654 956
                   <ArrowRight className="w-4 h-4 ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
                 </a>
               </div>
@@ -169,12 +169,12 @@ export default function Page() {
               <div className="space-y-3">
                 <div className="flex flex-col gap-1">
                   <span className="text-xs font-bold text-zinc-400 uppercase tracking-wider">Lebanon</span>
-                  <a href="tel:+96103654956" className="text-zinc-900 font-semibold hover:text-brand-yellow transition-colors block">+961 03 654 956</a>
+                  <a href="tel:+96171654956" className="text-zinc-900 font-semibold hover:text-brand-yellow transition-colors block">+961 71 654 956</a>
                   <a href="tel:+96171010508" className="text-zinc-900 font-semibold hover:text-brand-yellow transition-colors block">+961 71 010 508</a>
                 </div>
                 <div className="flex flex-col gap-1 pt-2 border-t border-zinc-100">
                   <span className="text-xs font-bold text-zinc-400 uppercase tracking-wider">Qatar</span>
-                  <a href="tel:+97433256185" className="text-zinc-900 font-semibold hover:text-brand-yellow transition-colors block">+974 33 256 185</a>
+                  <a href="tel:+97433256185" className="text-zinc-900 font-semibold hover:text-brand-yellow transition-colors block">+974 3325 6185</a>
                 </div>
               </div>
             </div>
@@ -213,9 +213,9 @@ export default function Page() {
                     {/* Lebanon */}
                     <div>
                       <p className="font-semibold text-zinc-900 text-lg">Lebanon</p>
-                      <p className="text-zinc-700">Galaxy Complex, Baabda, Mount Lebanon</p>
+                      <p className="text-zinc-700">Galaxy Complex, Baabda, Lebanon</p>
                       <div className="flex flex-col mt-1 space-y-0.5">
-                        <a href="tel:+96103654956" className="text-zinc-600 hover:text-brand-yellow transition-colors font-medium">+961 03 654 956</a>
+                        <a href="tel:+96171654956" className="text-zinc-600 hover:text-brand-yellow transition-colors font-medium">+961 71 654 956</a>
                         <a href="tel:+96171010508" className="text-zinc-600 hover:text-brand-yellow transition-colors font-medium">+961 71 010 508</a>
                       </div>
                     </div>
@@ -223,9 +223,9 @@ export default function Page() {
                     {/* Qatar */}
                     <div>
                       <p className="font-semibold text-zinc-900 text-lg">Qatar</p>
-                      <p className="text-zinc-700">Doha, Lusail</p>
+                      <p className="text-zinc-700">Lusail Marina Tower, Lusail, Qatar</p>
                       <div className="flex flex-col mt-1 space-y-0.5">
-                        <a href="tel:+97433256185" className="text-zinc-600 hover:text-brand-yellow transition-colors font-medium">+974 33 256 185</a>
+                        <a href="tel:+97433256185" className="text-zinc-600 hover:text-brand-yellow transition-colors font-medium">+974 3325 6185</a>
                       </div>
                     </div>
                   </div>
@@ -413,7 +413,7 @@ export default function Page() {
                       )}
                     </button>
                     <a
-                      href="https://wa.me/96103654956?text=Hello%20Solenergy%20%F0%9F%91%8B"
+                      href="https://wa.me/96171654956?text=Hello%20Solenergy%20%F0%9F%91%8B"
                       target="_blank"
                       rel="noreferrer"
                       className="px-8 py-4 rounded-xl border-2 border-zinc-200 font-bold text-lg hover:border-brand-yellow hover:text-brand-yellow transition-all flex items-center justify-center gap-2"
@@ -461,13 +461,13 @@ export default function Page() {
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <a
-              href="tel:+96103654956"
+              href="tel:+96171654956"
               className="px-8 py-4 rounded-xl bg-zinc-900 text-white font-bold text-lg hover:bg-zinc-800 transition-all flex items-center gap-2"
             >
               <Phone className="w-5 h-5" /> Call Now
             </a>
             <a
-              href="https://wa.me/96103654956"
+              href="https://wa.me/96171654956"
               target="_blank"
               rel="noreferrer"
               className="px-8 py-4 rounded-xl bg-white text-zinc-900 font-bold text-lg hover:shadow-lg transition-all flex items-center gap-2"

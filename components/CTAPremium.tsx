@@ -68,8 +68,8 @@ export default function CTAPremium() {
                 <div>
                   <div className="text-sm text-zinc-700">Call Us</div>
                   <div className="flex flex-col">
-                    <a href="tel:+96103654956" className="font-bold text-zinc-900 hover:underline">
-                      +961 03 654 956
+                    <a href="tel:+96171654956" className="font-bold text-zinc-900 hover:underline">
+                      +961 71 654 956
                     </a>
                     <a href="tel:+96171010508" className="text-sm text-zinc-600 hover:underline">
                       +961 71 010 508
@@ -97,11 +97,11 @@ export default function CTAPremium() {
                   <div className="flex flex-col gap-1 text-sm">
                     <div>
                       <span className="font-semibold text-zinc-900">Lebanon: </span>
-                      <span className="text-zinc-700">Galaxy Complex, Baabda</span>
+                      <span className="text-zinc-700">Galaxy Complex, Baabda, Lebanon</span>
                     </div>
                     <div>
                       <span className="font-semibold text-zinc-900">Qatar: </span>
-                      <span className="text-zinc-700">Doha, Lusail</span>
+                      <span className="text-zinc-700">Lusail Marina Tower, Lusail, Qatar</span>
                     </div>
                   </div>
                 </div>
