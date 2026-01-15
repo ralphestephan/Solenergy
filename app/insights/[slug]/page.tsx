@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = insights.find((p) => p.slug === slug);
   if (!post) return { title: "Insight" };
-  
+
   const ogImage = new URL('/api/og', SITE.baseUrl);
   ogImage.searchParams.set('title', post.title);
   ogImage.searchParams.set('description', post.excerpt);
@@ -216,6 +216,14 @@ export default async function Page({ params }: Props) {
                     ))}
                   </div>
                 </Reveal>
+              )}
+
+              {/* Custom HTML Section */}
+              {post.customHtml && (
+                <div
+                  className="custom-html-section"
+                  dangerouslySetInnerHTML={{ __html: post.customHtml }}
+                />
               )}
             </div>
 
