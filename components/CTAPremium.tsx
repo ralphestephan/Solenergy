@@ -74,6 +74,9 @@ export default function CTAPremium() {
                     <a href="tel:+96171010508" className="text-sm text-zinc-600 hover:underline">
                       +961 71 010 508
                     </a>
+                    <a href="tel:+97433256185" className="text-sm text-zinc-600 hover:underline">
+                      +974 3325 6185
+                    </a>
                   </div>
                 </div>
               </div>

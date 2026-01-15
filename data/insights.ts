@@ -20,9 +20,1042 @@ export type Insight = {
   tags: string[];
   sections: InsightSection[];
   faq?: InsightFAQ[];
+  customHtml?: string;
 };
 
 export const insights: Insight[] = [
+  {
+    slug: "blackouts-to-business-continuity-energy-strategies-lebanon",
+    title: "From Blackouts to Business Continuity: Energy Strategies for Lebanese Enterprises",
+    excerpt:
+      "Learn how Lebanese enterprises can transform their energy approach from reactive blackout management to strategic business continuity through hybrid systems, automation, and intelligent monitoring.",
+    date: "2026-01-10",
+    readMins: 14,
+    cover: "/images/edl-business-continuity-lebanon.png",
+    coverAlt: "Electricité du Liban building against blue sky",
+    tags: ["Solar Energy", "Business Continuity", "Lebanon"],
+    sections: [
+      {
+        id: "blackouts-permanent-problem",
+        heading: "Blackouts Are No Longer a Temporary Problem",
+        paras: [
+          "For Lebanese enterprises, power blackouts are not short disruptions that can be tolerated or worked around. They are a persistent operational reality that affects every sector, from manufacturing and healthcare to retail, hospitality, and logistics.",
+          "EDL supply can change quickly based on fuel availability. At times it has reached roughly six to eight hours per day nationwide, but it has also dropped sharply during fuel shocks and broader disruptions.",
+          "The practical outcome is that a single-source energy setup creates exposure across multiple dimensions: downtime and lost revenue, equipment stress and early failure, safety risks in critical environments, and reputational damage when service levels slip.",
+          "A continuity plan that does not include energy resilience is incomplete in Lebanon."
+        ]
+      },
+      {
+        id: "energy-central-to-continuity",
+        heading: "Why Energy Is Central to Business Continuity",
+        paras: [
+          "Business continuity planning is about keeping critical operations running during disruptions. In Lebanon, energy is the disruption that shows up most often and impacts the widest set of operations.",
+          "A simple way to map the impact is to look at what fails first during an outage: connectivity and IT systems (routers, servers, POS systems), cold chain and refrigeration (food, pharma, labs), production equipment (motors, compressors, controls), and customer-facing operations (lighting, HVAC, payments).",
+          "Real-life example: a supermarket might stay open with a generator, but if fuel is rationed or the generator trips, even a short interruption can spoil chilled inventory or shut down POS terminals. A clinic can have backup power but still face risk if switching is manual and delayed, or if generator maintenance has been deferred.",
+          "This is why enterprises that treat energy as strategic infrastructure, not a utility bill, are better positioned to operate reliably."
+        ]
+      },
+      {
+        id: "limitations-traditional-setups",
+        heading: "Limitations of Traditional Energy Setups",
+        paras: [
+          "Many enterprises still rely on a fragmented model: grid plus backup generators.",
+          "That approach fails continuity tests because it is reactive. It assumes the generator will always start, fuel will always be available, and someone will always be there to manage switching and loads.",
+          "It is also financially unstable. Diesel and fuel prices fluctuate and can rise meaningfully over short periods, which makes generator-heavy operations difficult to budget.",
+          "A useful internal question for leadership teams is: if the grid drops for several hours today, what is the operational plan besides 'run the generator'? If the answer is 'hope fuel is available' or 'reduce operations,' continuity is not being managed. It is being improvised."
+        ]
+      },
+      {
+        id: "core-energy-strategies",
+        heading: "Core Energy Strategies for Business Continuity",
+        paras: [
+          "Enterprises that move from blackouts to continuity tend to adopt a layered strategy with clear priorities.",
+          "A practical continuity-oriented energy strategy usually includes: redundancy (more than one reliable energy source), storage (the ability to ride through switching events and gaps), automation (reduced dependence on human response under pressure), visibility (monitoring that shows what is happening in real time), and maintenance (prevention rather than emergency repair).",
+          "Lebanon's rapid shift toward decentralized solar and solar-plus-storage shows how strongly the market has moved toward this model. Reports and expert commentary have described major growth in installed decentralized solar capacity between 2020 and 2023, driven by reliability needs across homes and businesses."
+        ],
+        bullets: [
+          "Redundancy: more than one reliable energy source",
+          "Storage: ability to ride through switching events and gaps",
+          "Automation: reduced dependence on human response under pressure",
+          "Visibility: monitoring that shows what is happening in real time",
+          "Maintenance: prevention rather than emergency repair"
+        ]
+      },
+      {
+        id: "hybrid-systems-continuity",
+        heading: "How Hybrid Energy Systems Support Continuity",
+        paras: [
+          "A hybrid energy system combines solar power, battery storage, generators, and grid electricity into one coordinated infrastructure.",
+          "Instead of thinking in terms of 'main power' and 'backup power,' the enterprise uses a portfolio of sources managed by priority rules. A typical operating logic looks like this: daytime solar supplies loads and charges batteries, during outage or peak demand batteries respond instantly to keep operations stable, for extended deficit the generator runs only when needed (not all day), and during recovery solar recharges batteries and reduces generator runtime.",
+          "This matters because batteries do something generators cannot. They fill the gap between a grid failure and generator stabilization. They also smooth out power quality issues that can harm sensitive equipment."
+        ]
+      },
+      {
+        id: "solenergy-continuity-design",
+        heading: "How Solenergy Builds Business Continuity into Energy Design",
+        paras: [
+          "Solenergy designs systems around continuity targets, not just panel counts.",
+          "The work starts with an operational assessment that translates business needs into engineering requirements. That typically includes: critical loads that must never drop, peak load windows and operational schedules, outage patterns and acceptable downtime thresholds, existing generator capacity and performance, and battery autonomy targets (such as keeping IT, refrigeration, or essential production online for a defined period).",
+          "This matters because two businesses with the same monthly consumption can have totally different continuity needs. A factory with a high starting current load needs a different design from a hotel where HVAC and elevators drive peaks.",
+          "Solenergy's value is that continuity becomes a design constraint from day one, not a feature added at the end."
+        ]
+      },
+      {
+        id: "automation-intelligent-control",
+        heading: "Automation and Intelligent Control with Solenergy",
+        paras: [
+          "A continuity plan often fails during switching. That is when human error, delayed response, and misconfigured priorities create outages even when equipment is available.",
+          "Solenergy's approach makes switching automatic. The system coordinates solar, batteries, grid, and generator with predefined priorities. Critical equipment stays powered without waiting for someone to react.",
+          "Real-life example: a business running 24/7 cannot afford to rely on 'someone will be on-site to switch sources.' Automation eliminates that dependency and reduces continuity risk at the exact moment risk is highest."
+        ]
+      },
+      {
+        id: "energy-monitoring-continuity",
+        heading: "Energy Monitoring as a Continuity Tool",
+        paras: [
+          "Continuity is not only about having equipment. It is also about knowing what is happening before a failure becomes downtime.",
+          "Solenergy supports monitoring and energy management so enterprises can track performance and risk signals such as: battery state of charge trends over time, generator runtime and frequency of starts, solar production versus expected output, and load spikes that threaten stability.",
+          "A simple example: if monitoring shows batteries consistently draining earlier than planned, it may indicate load growth, poor scheduling, or equipment degradation. That allows the enterprise to fix the issue before it becomes downtime."
+        ]
+      },
+      {
+        id: "maintenance-risk-prevention",
+        heading: "Maintenance and Support as Risk Prevention",
+        paras: [
+          "Business continuity does not end when the system is commissioned. It fails when maintenance is ignored.",
+          "Solenergy offers maintenance and support that moves customers from emergency response to prevention. Preventive maintenance and ongoing monitoring reduce the chance of failure during outages, when systems are under maximum stress.",
+          "A useful way to communicate this internally is: maintenance is a continuity policy. Enterprises that treat it as optional eventually pay for it in downtime."
+        ]
+      },
+      {
+        id: "financial-stability",
+        heading: "Financial Stability Through Energy Continuity",
+        paras: [
+          "Continuity has a direct financial impact. Downtime costs are usually larger than leadership expects because they include secondary effects like staff idle time, rushed procurement, emergency fuel purchases, spoiled inventory, delayed deliveries, and customer dissatisfaction.",
+          "Hybrid energy strategies reduce those losses and also stabilize energy operating costs by lowering diesel dependency. Fuel volatility becomes less destructive to budgets when generators run fewer hours and only as a last resort.",
+          "Many enterprises also find that once energy becomes predictable, they can plan capacity and expansion more confidently."
+        ]
+      },
+      {
+        id: "why-act-now",
+        heading: "Why Lebanese Enterprises Must Act Now",
+        paras: [
+          "Lebanon has experienced severe energy shocks, including periods where fuel shortages led to major supply disruptions and nationwide outage risk.",
+          "In this environment, the competitive advantage often goes to the enterprise that stays open, keeps quality stable, and delivers on time while others pause operations. Energy resilience is not a branding story. It is operational leverage."
+        ]
+      },
+      {
+        id: "solenergy-partner",
+        heading: "Solenergy as a Business Continuity Partner",
+        paras: [
+          "Solenergy positions itself as a long-term partner for enterprises that want energy resilience, not just equipment.",
+          "By combining hybrid system design, automation, monitoring, and maintenance support, Solenergy helps businesses shift from reactive power management to continuity-driven energy strategy. This approach fits Lebanon's reality, where continuity depends on managing multiple energy sources reliably, every day."
+        ]
+      }
+    ],
+    faq: [
+      { q: "How is business continuity different from just having backup power?", a: "Backup power is reactive—it kicks in after a failure. Business continuity is proactive—it designs systems to prevent disruptions entirely or minimize their impact through redundancy, automation, and monitoring." },
+      { q: "What's the minimum battery storage needed for business continuity?", a: "It depends on your critical loads and required autonomy time. Solenergy assesses your specific needs to determine the right battery capacity—typically enough to bridge switching gaps and provide 2-8 hours of critical load support." },
+      { q: "Can Solenergy integrate with our existing generator?", a: "Yes. Hybrid systems are designed to work with existing generators, optimizing their use while reducing runtime and fuel consumption through solar and battery prioritization." },
+      { q: "How quickly can a hybrid system respond to outages?", a: "Battery systems respond in milliseconds—far faster than generators, which typically take 10-15 seconds to start and stabilize. This instant response protects sensitive equipment and prevents operational disruption." },
+      { q: "What happens if solar production is low for extended periods?", a: "The system automatically manages multiple sources. Batteries provide immediate backup, and generators run when needed. The intelligent control ensures continuous operation regardless of weather conditions." },
+      { q: "How does energy monitoring prevent downtime?", a: "Monitoring tracks battery health, solar output, generator performance, and load patterns. Early warning alerts allow you to address issues before they cause failures—turning potential emergencies into planned maintenance." }
+    ],
+    customHtml: `
+<!-- Solenergy "About" style: white canvas, deep navy text, gold accent, soft cards -->
+<section id="book-consultation" class="se-aboutSection">
+<div class="se-wrap">
+<div class="se-grid">
+<!-- Left: Copy -->
+<div class="se-copy">
+<p class="se-kicker">CONTACT US</p>
+
+    <h2 class="se-title">
+      Book a <span>Consultation</span>
+    </h2>
+
+    <p class="se-lead">
+      Tell us what you need and our team will recommend the right mix of solar, storage, generators,
+      and energy management for your site.
+    </p>
+
+    <div class="se-infoGrid">
+      <div class="se-infoCard">
+        <div class="se-label">Lebanon</div>
+        <div class="se-value">
+          <div>Galaxy Complex, Baabda, Lebanon</div>
+          <div style="margin-top:6px">
+            <a href="tel:+96171654956">+961 71 654 956</a>
+            <span class="se-dot">•</span>
+            <a href="tel:+96171010508">+961 71 010 508</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="se-infoCard">
+        <div class="se-label">Qatar</div>
+        <div class="se-value">
+          <div>Lusail Marina Tower, Lusail, Qatar</div>
+          <div style="margin-top:6px">
+            <a href="tel:+97433256185">+974 3325 6185</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="se-infoCard">
+        <div class="se-label">Email</div>
+        <div class="se-value">
+          <a href="mailto:info@solenergypower.com">info@solenergypower.com</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="se-note">
+      For businesses with critical operations, ask about preventive maintenance and 24/7 monitoring.
+    </div>
+  </div>
+
+  <!-- Right: Form Card -->
+  <div class="se-formCard">
+    <div class="se-formHead">
+      <h3>Request a Quote</h3>
+      <p>Share your site details and we will contact you to schedule a consultation.</p>
+    </div>
+
+    <!-- Replace action with your endpoint -->
+    <form class="se-form" method="post" action="/contact">
+      <div class="se-row">
+        <label>
+          Full Name
+          <input name="name" type="text" placeholder="Your name" required />
+        </label>
+        <label>
+          Company
+          <input name="company" type="text" placeholder="Company name" />
+        </label>
+      </div>
+
+      <div class="se-row">
+        <label>
+          Email
+          <input name="email" type="email" placeholder="name@company.com" required />
+        </label>
+        <label>
+          Phone
+          <input name="phone" type="tel" placeholder="+961..." required />
+        </label>
+      </div>
+
+      <div class="se-row">
+        <label>
+          Location
+          <select name="location" required>
+            <option value="" selected disabled>Select</option>
+            <option value="Lebanon">Lebanon</option>
+            <option value="Qatar">Qatar</option>
+            <option value="Other">Other</option>
+          </select>
+        </label>
+        <label>
+          Interested In
+          <select name="interest" required>
+            <option value="" selected disabled>Select</option>
+            <option value="Solar PV System">Solar PV System</option>
+            <option value="Battery Storage">Battery Storage</option>
+            <option value="Backup Generator">Backup Generator</option>
+            <option value="Energy Management Platform">Energy Management Platform</option>
+            <option value="Maintenance and Support">Maintenance and Support</option>
+            <option value="Complete Hybrid Solution">Complete Hybrid Solution</option>
+          </select>
+        </label>
+      </div>
+
+      <label class="se-full">
+        Project Details
+        <textarea
+          name="message"
+          placeholder="Example: site type, average load, generator size, hours of outage, critical equipment, target uptime."
+          required
+        ></textarea>
+      </label>
+
+      <label class="se-check se-full">
+        <input type="checkbox" name="consent" required />
+        <span>I agree to be contacted by Solenergy about my request.</span>
+      </label>
+
+      <button class="se-btn" type="submit">Book Consultation</button>
+
+      <div class="se-alt">
+        Prefer WhatsApp?
+        <a href="https://wa.me/96171010508" target="_blank" rel="noopener">Message us</a>
+      </div>
+    </form>
+  </div>
+</div>
+
+</div>
+</section>
+
+<style>
+:root{
+/* Match the screenshot vibe: white canvas, deep navy/charcoal text, warm gold accent */
+--se-bg:#ffffff;
+--se-text:#0f172a;          /* deep navy */
+--se-sub:#475569;           /* slate */
+--se-border:#e5e7eb;        /* light gray */
+--se-card:#ffffff;
+--se-accent:#f5b21b;        /* Solenergy-like gold */
+--se-shadow:0 10px 28px rgba(15, 23, 42, .10);
+--se-radius:18px;
+--se-radius-sm:12px;
+--se-max:1120px;
+}
+
+.se-aboutSection{
+background: var(--se-bg);
+padding: 86px 20px;
+color: var(--se-text);
+}
+
+.se-wrap{ max-width: var(--se-max); margin: 0 auto; }
+
+.se-grid{
+display: grid;
+grid-template-columns: 1.05fr .95fr;
+gap: 28px;
+align-items: start;
+}
+
+.se-kicker{
+margin: 0 0 10px 0;
+font-size: 12px;
+font-weight: 800;
+letter-spacing: .14em;
+color: var(--se-accent);
+}
+
+.se-title{
+margin: 0 0 14px 0;
+font-size: 42px;
+line-height: 1.08;
+font-weight: 900;
+color: var(--se-text);
+}
+
+.se-title span{
+color: var(--se-accent);
+position: relative;
+padding-bottom: 2px;
+}
+
+.se-title span::after{
+content:"";
+position:absolute;
+left: 0;
+right: 0;
+bottom: -6px;
+height: 3px;
+background: var(--se-accent);
+border-radius: 999px;
+opacity: .95;
+}
+
+.se-lead{
+margin: 0 0 18px 0;
+font-size: 16px;
+line-height: 1.75;
+color: var(--se-sub);
+max-width: 62ch;
+}
+
+.se-infoGrid{
+display: grid;
+grid-template-columns: 1fr;
+gap: 14px;
+margin-top: 18px;
+}
+
+.se-infoCard{
+background: var(--se-card);
+border: 1px solid var(--se-border);
+border-radius: var(--se-radius);
+box-shadow: var(--se-shadow);
+padding: 16px 16px;
+}
+
+.se-label{
+font-size: 12px;
+font-weight: 700;
+color: #64748b;
+margin-bottom: 6px;
+}
+
+.se-value{
+font-size: 15px;
+line-height: 1.6;
+color: var(--se-text);
+}
+
+.se-value a{
+color: var(--se-text);
+text-decoration: none;
+border-bottom: 2px solid rgba(245,178,27,.35);
+}
+
+.se-value a:hover{
+border-bottom-color: rgba(245,178,27,.85);
+}
+
+.se-dot{ margin: 0 8px; color: #cbd5e1; }
+
+.se-muted{ color: #64748b; margin-top: 2px; }
+
+.se-note{
+margin-top: 14px;
+background: rgba(245,178,27,.10);
+border: 1px solid rgba(245,178,27,.35);
+color: #1f2937;
+border-radius: var(--se-radius);
+padding: 14px 16px;
+line-height: 1.6;
+font-size: 14px;
+}
+
+.se-formCard{
+background: var(--se-card);
+border: 1px solid var(--se-border);
+border-radius: var(--se-radius);
+box-shadow: var(--se-shadow);
+overflow: hidden;
+}
+
+.se-formHead{
+padding: 18px 18px 0 18px;
+}
+
+.se-formHead h3{
+margin: 0;
+font-size: 18px;
+font-weight: 900;
+color: var(--se-text);
+}
+
+.se-formHead p{
+margin: 6px 0 0 0;
+color: var(--se-sub);
+font-size: 14px;
+line-height: 1.6;
+}
+
+.se-form{
+padding: 16px 18px 18px 18px;
+display: grid;
+gap: 12px;
+}
+
+.se-row{
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 12px;
+}
+
+.se-form label{
+display: grid;
+gap: 6px;
+font-size: 13px;
+font-weight: 700;
+color: #334155;
+}
+
+.se-form input,
+.se-form select,
+.se-form textarea{
+width: 100%;
+border: 1px solid var(--se-border);
+border-radius: var(--se-radius-sm);
+padding: 12px 12px;
+font-size: 14px;
+outline: none;
+background: #ffffff;
+color: var(--se-text);
+transition: box-shadow .18s ease, border-color .18s ease;
+}
+
+.se-form textarea{ min-height: 120px; resize: vertical; }
+
+.se-form input:focus,
+.se-form select:focus,
+.se-form textarea:focus{
+border-color: rgba(245,178,27,.75);
+box-shadow: 0 0 0 4px rgba(245,178,27,.18);
+}
+
+.se-full{ grid-column: 1 / -1; }
+
+.se-check{
+display: flex !important;
+align-items: flex-start;
+gap: 10px;
+font-weight: 600 !important;
+color: #475569 !important;
+line-height: 1.4;
+margin-top: 4px;
+}
+.se-check input{ margin-top: 3px; width: 16px; height: 16px; }
+
+.se-btn{
+height: 46px;
+border: none;
+border-radius: 999px;
+background: var(--se-accent);
+color: #111827;
+font-weight: 900;
+font-size: 14px;
+cursor: pointer;
+box-shadow: 0 10px 18px rgba(245,178,27,.25);
+transition: transform .08s ease, box-shadow .18s ease, filter .18s ease;
+}
+.se-btn:hover{
+filter: brightness(1.02);
+box-shadow: 0 14px 24px rgba(245,178,27,.30);
+}
+.se-btn:active{ transform: translateY(1px); }
+
+.se-alt{
+font-size: 13px;
+color: #64748b;
+margin-top: 2px;
+}
+.se-alt a{
+color: var(--se-text);
+text-decoration: none;
+border-bottom: 2px solid rgba(245,178,27,.35);
+}
+.se-alt a:hover{
+border-bottom-color: rgba(245,178,27,.85);
+}
+
+@media (max-width: 940px){
+.se-grid{ grid-template-columns: 1fr; }
+.se-title{ font-size: 34px; }
+}
+
+@media (max-width: 520px){
+.se-row{ grid-template-columns: 1fr; }
+.se-aboutSection{ padding: 64px 16px; }
+}
+</style>
+`
+  },
+  {
+    slug: "eliminate-power-downtime-hybrid-solar-lebanon",
+    title: "How Lebanese Businesses Eliminate Power Downtime with Hybrid Solar Systems",
+    excerpt:
+      "Discover how hybrid solar systems help Lebanese businesses maintain continuous power, reduce generator dependence, and eliminate costly downtime with intelligent automation and battery storage.",
+    date: "2026-01-15",
+    readMins: 12,
+    cover: "/images/hybrid-solar-business-downtime.jpg",
+    coverAlt: "Solar panels on commercial building rooftop with city skyline",
+    tags: ["Solar Energy", "Hybrid Systems", "Business"],
+    sections: [
+      {
+        id: "power-downtime-risk",
+        heading: "Power Downtime Is a Business Risk in Lebanon",
+        paras: [
+          "For businesses operating in Lebanon, power downtime is not an occasional inconvenience. It is a structural risk that affects productivity, revenue, safety, and customer trust. Grid supply is unpredictable, generator fuel costs fluctuate sharply, and manual switching between power sources increases the likelihood of failure at critical moments.",
+          "Downtime impacts different sectors in different ways. For manufacturers, it halts production lines. For hospitals and clinics, it puts patient safety at risk. For retailers and hospitality businesses, it results in lost sales and damaged equipment. Over time, these disruptions compound into measurable financial losses.",
+          "Hybrid solar systems have emerged as the most effective solution to this challenge, allowing businesses to maintain continuous power while reducing dependence on generators and the public grid."
+        ]
+      },
+      {
+        id: "what-is-hybrid-solar",
+        heading: "What Is a Hybrid Solar System",
+        paras: [
+          "A hybrid solar system combines multiple energy sources into a single intelligent power architecture. Instead of relying on one source at a time, the system integrates solar panels, battery storage, generators, and the grid into a coordinated setup.",
+          "During the day, solar panels generate electricity and supply business loads directly. Excess energy is stored in batteries. When solar production drops or demand increases, batteries automatically discharge to maintain continuity. If battery levels fall below a defined threshold, the system seamlessly switches to grid or generator power without interrupting operations.",
+          "The key advantage of a hybrid system is not only generation but orchestration. Power flows are managed automatically based on availability, cost, and priority."
+        ]
+      },
+      {
+        id: "generators-not-enough",
+        heading: "Why Generators Alone No Longer Solve Downtime",
+        paras: [
+          "Generators were once the default solution for power outages, but they are no longer sufficient on their own.",
+          "Fuel supply is volatile and increasingly expensive. Maintenance requirements are high, and unexpected failures are common during extended outages. Manual generator operation also introduces human error, especially when staff are required to switch sources under pressure.",
+          "Hybrid solar systems reduce generator usage dramatically. Generators become a backup of last resort rather than the primary power source. This lowers operating costs, extends generator lifespan, and improves overall system reliability."
+        ]
+      },
+      {
+        id: "how-hybrid-eliminates-downtime",
+        heading: "How Hybrid Solar Eliminates Downtime in Practice",
+        paras: [
+          "Hybrid systems eliminate downtime through automation, redundancy, and storage.",
+          "Automation ensures instant switching between power sources without human intervention. Redundancy ensures that if one source fails, others immediately compensate. Battery storage bridges gaps between sources, preventing even short interruptions.",
+          "For businesses, this means uninterrupted operations regardless of grid availability, fuel shortages, or fluctuations in solar production."
+        ]
+      },
+      {
+        id: "solenergy-hybrid-design",
+        heading: "How Solenergy Designs Hybrid Solar Systems for Lebanese Businesses",
+        paras: [
+          "Solenergy approaches hybrid solar as a complete energy infrastructure, not a simple solar installation.",
+          "Their process begins with a detailed energy assessment that analyzes consumption patterns, peak loads, critical equipment, and outage frequency. This data-driven approach ensures that systems are correctly sized and engineered for real business needs rather than generic estimates.",
+          "Solenergy designs hybrid systems that integrate solar panels, high-performance batteries, hybrid inverters, generators, and grid connections into a single coordinated architecture. Each component is selected to match the client's operational priorities, whether that is cost reduction, uptime, or scalability.",
+          "This tailored design approach is essential in Lebanon, where no two businesses experience outages or load profiles in the same way."
+        ]
+      },
+      {
+        id: "seamless-switching",
+        heading: "Solenergy's Role in Seamless Power Switching and Automation",
+        paras: [
+          "One of the most common causes of downtime is delayed or failed switching between power sources.",
+          "Solenergy eliminates this risk through intelligent automation. Their systems automatically manage transitions between solar, batteries, grid, and generators without interruption. Critical loads remain powered at all times, even during sudden outages or load spikes.",
+          "This automation removes dependence on manual intervention and reduces operational risk, especially for facilities that operate 24 hours a day or manage sensitive equipment."
+        ]
+      },
+      {
+        id: "energy-management-monitoring",
+        heading: "Energy Management and Monitoring with Solenergy",
+        paras: [
+          "Beyond hardware, Solenergy provides advanced energy management and monitoring through its integrated digital platform.",
+          "Businesses gain real-time visibility into energy production, consumption, battery levels, and generator usage. This transparency allows decision-makers to understand true energy costs, identify inefficiencies, and optimize operations.",
+          "Alerts and performance monitoring help detect issues early, reducing the risk of unexpected failures. Over time, data insights support better planning, budgeting, and system optimization."
+        ]
+      },
+      {
+        id: "maintenance-reliability",
+        heading: "Maintenance and Reliability as a Downtime Prevention Strategy",
+        paras: [
+          "Even the best-designed system can fail without proper maintenance.",
+          "Solenergy provides ongoing maintenance and support to ensure long-term reliability. This includes preventive maintenance, system health checks, performance optimization, and rapid technical support when needed.",
+          "By monitoring systems continuously and servicing them proactively, Solenergy helps businesses avoid downtime caused by component degradation or unnoticed faults.",
+          "This after-sales support is a critical differentiator in a market where many installers disappear once installation is complete."
+        ]
+      },
+      {
+        id: "financial-impact",
+        heading: "Financial Impact of Hybrid Solar for Businesses",
+        paras: [
+          "Eliminating downtime has a direct financial impact. Lost production hours, spoiled inventory, and emergency generator expenses all erode profitability.",
+          "Hybrid solar systems reduce these losses while also lowering energy operating costs. Solar generation replaces expensive diesel fuel, batteries reduce peak demand, and intelligent management minimizes waste.",
+          "For many businesses, the combination of cost savings and improved uptime results in a strong return on investment within a few years, while delivering long-term energy stability."
+        ]
+      },
+      {
+        id: "why-now",
+        heading: "Why Lebanese Businesses Are Moving to Hybrid Solar Now",
+        paras: [
+          "The shift toward hybrid solar is driven by necessity rather than trend.",
+          "Grid instability is unlikely to disappear in the near future. Fuel costs remain unpredictable. Businesses that rely on outdated energy setups are increasingly exposed to operational and financial risk.",
+          "Hybrid solar systems provide control, predictability, and resilience. They transform energy from a liability into a strategic asset."
+        ]
+      },
+      {
+        id: "solenergy-partner",
+        heading: "Solenergy as a Long-Term Energy Partner",
+        paras: [
+          "Solenergy positions itself not as a solar installer, but as a long-term energy partner for Lebanese businesses.",
+          "From assessment and design to installation, automation, monitoring, and maintenance, Solenergy delivers a complete solution focused on reliability and performance. Their hybrid systems are built specifically for Lebanon's energy reality and the demands of commercial and industrial clients.",
+          "For businesses seeking to eliminate power downtime and regain control over their energy infrastructure, hybrid solar systems designed and supported by Solenergy offer a proven path forward."
+        ]
+      }
+    ],
+    faq: [
+      { q: "How long does it take to install a hybrid solar system for a business?", a: "Typical commercial installations take 2-4 weeks from assessment to full commissioning, depending on system size and site complexity. Solenergy handles all aspects including permits, electrical integration, and testing." },
+      { q: "Can a hybrid system work with my existing generator?", a: "Yes. Solenergy designs systems to integrate with your existing generator infrastructure, allowing seamless coordination between solar, batteries, grid, and backup generator power." },
+      { q: "What happens during extended cloudy periods?", a: "Hybrid systems are designed with sufficient battery capacity and generator backup to handle extended low-solar periods. The intelligent management system automatically adjusts power sources to maintain continuous operation." },
+      { q: "How much can I save on energy costs with a hybrid system?", a: "Most businesses see 60-80% reduction in generator fuel consumption and significant savings on overall energy costs. Exact savings depend on your current consumption patterns and system sizing." },
+      { q: "Does Solenergy provide monitoring and support after installation?", a: "Yes. Solenergy offers comprehensive monitoring through their digital platform, preventive maintenance programs, and 24/7 technical support to ensure long-term system reliability." },
+      { q: "What industries benefit most from hybrid solar systems?", a: "Manufacturing, hospitality, healthcare, retail, and data centers see the greatest benefits due to high uptime requirements and significant energy consumption. However, any business affected by power outages can benefit." }
+    ],
+    customHtml: `
+<!-- Solenergy "About" style: white canvas, deep navy text, gold accent, soft cards -->
+<section id="book-consultation" class="se-aboutSection">
+<div class="se-wrap">
+<div class="se-grid">
+<!-- Left: Copy -->
+<div class="se-copy">
+<p class="se-kicker">CONTACT US</p>
+
+    <h2 class="se-title">
+      Book a <span>Consultation</span>
+    </h2>
+
+    <p class="se-lead">
+      Tell us what you need and our team will recommend the right mix of solar, storage, generators,
+      and energy management for your site.
+    </p>
+
+    <div class="se-infoGrid">
+      <div class="se-infoCard">
+        <div class="se-label">Lebanon</div>
+        <div class="se-value">
+          <div>Galaxy Complex, Baabda, Lebanon</div>
+          <div style="margin-top:6px">
+            <a href="tel:+96171654956">+961 71 654 956</a>
+            <span class="se-dot">•</span>
+            <a href="tel:+96171010508">+961 71 010 508</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="se-infoCard">
+        <div class="se-label">Qatar</div>
+        <div class="se-value">
+          <div>Lusail Marina Tower, Lusail, Qatar</div>
+          <div style="margin-top:6px">
+            <a href="tel:+97433256185">+974 3325 6185</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="se-infoCard">
+        <div class="se-label">Email</div>
+        <div class="se-value">
+          <a href="mailto:info@solenergypower.com">info@solenergypower.com</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="se-note">
+      For businesses with critical operations, ask about preventive maintenance and 24/7 monitoring.
+    </div>
+  </div>
+
+  <!-- Right: Form Card -->
+  <div class="se-formCard">
+    <div class="se-formHead">
+      <h3>Request a Quote</h3>
+      <p>Share your site details and we will contact you to schedule a consultation.</p>
+    </div>
+
+    <!-- Replace action with your endpoint -->
+    <form class="se-form" method="post" action="/contact">
+      <div class="se-row">
+        <label>
+          Full Name
+          <input name="name" type="text" placeholder="Your name" required />
+        </label>
+        <label>
+          Company
+          <input name="company" type="text" placeholder="Company name" />
+        </label>
+      </div>
+
+      <div class="se-row">
+        <label>
+          Email
+          <input name="email" type="email" placeholder="name@company.com" required />
+        </label>
+        <label>
+          Phone
+          <input name="phone" type="tel" placeholder="+961..." required />
+        </label>
+      </div>
+
+      <div class="se-row">
+        <label>
+          Location
+          <select name="location" required>
+            <option value="" selected disabled>Select</option>
+            <option value="Lebanon">Lebanon</option>
+            <option value="Qatar">Qatar</option>
+            <option value="Other">Other</option>
+          </select>
+        </label>
+        <label>
+          Interested In
+          <select name="interest" required>
+            <option value="" selected disabled>Select</option>
+            <option value="Solar PV System">Solar PV System</option>
+            <option value="Battery Storage">Battery Storage</option>
+            <option value="Backup Generator">Backup Generator</option>
+            <option value="Energy Management Platform">Energy Management Platform</option>
+            <option value="Maintenance and Support">Maintenance and Support</option>
+            <option value="Complete Hybrid Solution">Complete Hybrid Solution</option>
+          </select>
+        </label>
+      </div>
+
+      <label class="se-full">
+        Project Details
+        <textarea
+          name="message"
+          placeholder="Example: site type, average load, generator size, hours of outage, critical equipment, target uptime."
+          required
+        ></textarea>
+      </label>
+
+      <label class="se-check se-full">
+        <input type="checkbox" name="consent" required />
+        <span>I agree to be contacted by Solenergy about my request.</span>
+      </label>
+
+      <button class="se-btn" type="submit">Book Consultation</button>
+
+      <div class="se-alt">
+        Prefer WhatsApp?
+        <a href="https://wa.me/96171010508" target="_blank" rel="noopener">Message us</a>
+      </div>
+    </form>
+  </div>
+</div>
+
+</div>
+</section>
+
+<style>
+:root{
+/* Match the screenshot vibe: white canvas, deep navy/charcoal text, warm gold accent */
+--se-bg:#ffffff;
+--se-text:#0f172a;          /* deep navy */
+--se-sub:#475569;           /* slate */
+--se-border:#e5e7eb;        /* light gray */
+--se-card:#ffffff;
+--se-accent:#f5b21b;        /* Solenergy-like gold */
+--se-shadow:0 10px 28px rgba(15, 23, 42, .10);
+--se-radius:18px;
+--se-radius-sm:12px;
+--se-max:1120px;
+}
+
+.se-aboutSection{
+background: var(--se-bg);
+padding: 86px 20px;
+color: var(--se-text);
+}
+
+.se-wrap{ max-width: var(--se-max); margin: 0 auto; }
+
+.se-grid{
+display: grid;
+grid-template-columns: 1.05fr .95fr;
+gap: 28px;
+align-items: start;
+}
+
+.se-kicker{
+margin: 0 0 10px 0;
+font-size: 12px;
+font-weight: 800;
+letter-spacing: .14em;
+color: var(--se-accent);
+}
+
+.se-title{
+margin: 0 0 14px 0;
+font-size: 42px;
+line-height: 1.08;
+font-weight: 900;
+color: var(--se-text);
+}
+
+.se-title span{
+color: var(--se-accent);
+position: relative;
+padding-bottom: 2px;
+}
+
+.se-title span::after{
+content:"";
+position:absolute;
+left: 0;
+right: 0;
+bottom: -6px;
+height: 3px;
+background: var(--se-accent);
+border-radius: 999px;
+opacity: .95;
+}
+
+.se-lead{
+margin: 0 0 18px 0;
+font-size: 16px;
+line-height: 1.75;
+color: var(--se-sub);
+max-width: 62ch;
+}
+
+.se-infoGrid{
+display: grid;
+grid-template-columns: 1fr;
+gap: 14px;
+margin-top: 18px;
+}
+
+.se-infoCard{
+background: var(--se-card);
+border: 1px solid var(--se-border);
+border-radius: var(--se-radius);
+box-shadow: var(--se-shadow);
+padding: 16px 16px;
+}
+
+.se-label{
+font-size: 12px;
+font-weight: 700;
+color: #64748b;
+margin-bottom: 6px;
+}
+
+.se-value{
+font-size: 15px;
+line-height: 1.6;
+color: var(--se-text);
+}
+
+.se-value a{
+color: var(--se-text);
+text-decoration: none;
+border-bottom: 2px solid rgba(245,178,27,.35);
+}
+
+.se-value a:hover{
+border-bottom-color: rgba(245,178,27,.85);
+}
+
+.se-dot{ margin: 0 8px; color: #cbd5e1; }
+
+.se-muted{ color: #64748b; margin-top: 2px; }
+
+.se-note{
+margin-top: 14px;
+background: rgba(245,178,27,.10);
+border: 1px solid rgba(245,178,27,.35);
+color: #1f2937;
+border-radius: var(--se-radius);
+padding: 14px 16px;
+line-height: 1.6;
+font-size: 14px;
+}
+
+.se-formCard{
+background: var(--se-card);
+border: 1px solid var(--se-border);
+border-radius: var(--se-radius);
+box-shadow: var(--se-shadow);
+overflow: hidden;
+}
+
+.se-formHead{
+padding: 18px 18px 0 18px;
+}
+
+.se-formHead h3{
+margin: 0;
+font-size: 18px;
+font-weight: 900;
+color: var(--se-text);
+}
+
+.se-formHead p{
+margin: 6px 0 0 0;
+color: var(--se-sub);
+font-size: 14px;
+line-height: 1.6;
+}
+
+.se-form{
+padding: 16px 18px 18px 18px;
+display: grid;
+gap: 12px;
+}
+
+.se-row{
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 12px;
+}
+
+.se-form label{
+display: grid;
+gap: 6px;
+font-size: 13px;
+font-weight: 700;
+color: #334155;
+}
+
+.se-form input,
+.se-form select,
+.se-form textarea{
+width: 100%;
+border: 1px solid var(--se-border);
+border-radius: var(--se-radius-sm);
+padding: 12px 12px;
+font-size: 14px;
+outline: none;
+background: #ffffff;
+color: var(--se-text);
+transition: box-shadow .18s ease, border-color .18s ease;
+}
+
+.se-form textarea{ min-height: 120px; resize: vertical; }
+
+.se-form input:focus,
+.se-form select:focus,
+.se-form textarea:focus{
+border-color: rgba(245,178,27,.75);
+box-shadow: 0 0 0 4px rgba(245,178,27,.18);
+}
+
+.se-full{ grid-column: 1 / -1; }
+
+.se-check{
+display: flex !important;
+align-items: flex-start;
+gap: 10px;
+font-weight: 600 !important;
+color: #475569 !important;
+line-height: 1.4;
+margin-top: 4px;
+}
+.se-check input{ margin-top: 3px; width: 16px; height: 16px; }
+
+.se-btn{
+height: 46px;
+border: none;
+border-radius: 999px;
+background: var(--se-accent);
+color: #111827;
+font-weight: 900;
+font-size: 14px;
+cursor: pointer;
+box-shadow: 0 10px 18px rgba(245,178,27,.25);
+transition: transform .08s ease, box-shadow .18s ease, filter .18s ease;
+}
+.se-btn:hover{
+filter: brightness(1.02);
+box-shadow: 0 14px 24px rgba(245,178,27,.30);
+}
+.se-btn:active{ transform: translateY(1px); }
+
+.se-alt{
+font-size: 13px;
+color: #64748b;
+margin-top: 2px;
+}
+.se-alt a{
+color: var(--se-text);
+text-decoration: none;
+border-bottom: 2px solid rgba(245,178,27,.35);
+}
+.se-alt a:hover{
+border-bottom-color: rgba(245,178,27,.85);
+}
+
+@media (max-width: 940px){
+.se-grid{ grid-template-columns: 1fr; }
+.se-title{ font-size: 34px; }
+}
+
+@media (max-width: 520px){
+.se-row{ grid-template-columns: 1fr; }
+.se-aboutSection{ padding: 64px 16px; }
+}
+</style>
+`
+  },
   {
     slug: "hybrid-solar-systems-lebanon-2025",
     title: "Hybrid Solar Systems: The Complete Solution for Lebanon's Energy Crisis",
@@ -648,7 +1681,7 @@ export const insights: Insight[] = [
       { q: "How customizable is the load prioritization?", a: "Fully customizable. You can define as many priority levels as needed, set time-based rules (e.g., different priorities for day vs. night), and adjust thresholds. Changes can be made anytime through the control interface—no need to call a technician for simple adjustments." }
     ]
   },
-  
+
   {
     slug: "solen-4-0-energy-management-saas-platform",
     title: "Sol4.o: Complete Energy Management Platform",
