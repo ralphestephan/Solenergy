@@ -25,6 +25,1093 @@ export type Insight = {
 
 export const insights: Insight[] = [
   {
+    slug: "reducing-generator-dependency-smarter-energy-model-commercial-facilities",
+    title: "Reducing Generator Dependency: A Smarter Energy Model for Commercial Facilities",
+    excerpt:
+      "Discover why forward-thinking commercial facilities are redesigning their energy model—not eliminating generators, but reducing dependency on them in a structured, financially sound way.",
+    date: "2026-01-21",
+    readMins: 11,
+    cover: "/images/reducing-generator-dependency.png",
+    coverAlt: "Large commercial diesel generator unit outside industrial facility",
+    tags: ["Solar Energy", "Generators", "Commercial"],
+    sections: [
+      {
+        id: "intro",
+        heading: "The Generator Dependency Challenge",
+        paras: [
+          "For years, diesel generators have been treated as an unavoidable operating cost for commercial facilities in Lebanon. Offices, malls, hospitals, factories, and hotels all rely on them—not as backup power, but as the primary source of electricity.",
+          "But today, rising fuel costs, operational inefficiencies, and increasing system failures are forcing a reassessment: Is total dependence on generators still a rational energy strategy?",
+          "Forward-thinking facilities are answering that question by redesigning their energy model—not eliminating generators, but reducing dependency on them in a structured, financially sound way."
+        ]
+      },
+      {
+        id: "dependency-problem",
+        heading: "The Generator Dependency Problem",
+        paras: [
+          "Generators were never designed to operate 16–22 hours per day, 365 days per year, under fluctuating loads and unstable fuel supply. Yet this has become the norm for Lebanese commercial facilities.",
+          "The consequences are structural: escalating diesel expenses, accelerated equipment degradation, frequent breakdowns and downtime, unpredictable monthly operating costs, and increased operational risk.",
+          "Generator dependency is no longer just expensive—it is operationally fragile."
+        ],
+        bullets: [
+          "Escalating diesel expenses",
+          "Accelerated equipment degradation",
+          "Frequent breakdowns and downtime",
+          "Unpredictable monthly operating costs",
+          "Increased operational risk"
+        ]
+      },
+      {
+        id: "hidden-cost",
+        heading: "The Hidden Cost of 'Keeping Things Running'",
+        paras: [
+          "Most businesses underestimate the true cost of generator reliance because expenses are fragmented: diesel purchases (often weekly, sometimes daily), maintenance contracts, emergency repairs, spare parts, technician call-outs, and downtime losses.",
+          "Individually, these costs seem manageable. Combined, they quietly erode margins.",
+          "For a mid-size commercial facility, diesel alone can represent 30–50% of total operating expenses. Generator-related costs often exceed capital investments in core business assets. This is not sustainable."
+        ]
+      },
+      {
+        id: "rethinking-energy",
+        heading: "Rethinking Energy: From Source to System",
+        paras: [
+          "Reducing generator dependency does not mean shutting generators off. It means shifting from a fuel-first model to a system-first model.",
+          "The traditional (outdated) model: generator runs continuously, grid fills gaps when available, no load optimization, no energy intelligence.",
+          "The smarter (modern) energy model: solar supplies daytime base load, batteries handle transitions and peaks, generator activates only when required, loads are prioritized intelligently, energy is monitored, measured, and optimized.",
+          "This approach reduces generator runtime—not reliability."
+        ],
+        bullets: [
+          "Solar supplies daytime base load",
+          "Batteries handle transitions and peaks",
+          "Generator activates only when required",
+          "Loads are prioritized intelligently",
+          "Energy is monitored, measured, and optimized"
+        ]
+      },
+      {
+        id: "solar-primary-load",
+        heading: "Solar as the Primary Load Carrier",
+        paras: [
+          "Solar energy in Lebanon is not theoretical—it is practical, reliable, and proven.",
+          "Why solar works for commercial facilities: high solar irradiance year-round, peak generation aligns with business hours, predictable output, and scalable design. A properly engineered system can cover 60–80% of daytime consumption—more when paired with load management.",
+          "Every kilowatt produced by solar is one less liter of diesel burned and one less hour of generator wear."
+        ]
+      },
+      {
+        id: "role-of-batteries",
+        heading: "The Role of Batteries: Stability, Not Independence",
+        paras: [
+          "Batteries are often misunderstood. They are not meant to replace generators entirely, but to smooth power transitions, absorb load spikes, reduce generator cycling, and maintain voltage stability.",
+          "This dramatically extends generator lifespan, reduces maintenance frequency, and improves power quality for sensitive equipment."
+        ],
+        bullets: [
+          "Smooth power transitions",
+          "Absorb load spikes",
+          "Reduce generator cycling",
+          "Maintain voltage stability"
+        ]
+      },
+      {
+        id: "generators-strategic-backup",
+        heading: "Generators: From Primary Power to Strategic Backup",
+        paras: [
+          "In a smarter energy model, generators regain their intended role: backup, redundancy, and emergency coverage.",
+          "Instead of running continuously, they operate fewer hours, at optimized loads, with predictable servicing schedules. This alone can reduce fuel consumption by 60–85%, depending on system design."
+        ]
+      },
+      {
+        id: "financial-impact",
+        heading: "Financial Impact: What Changes for the Business?",
+        paras: [
+          "Operating costs become predictable with lower fuel exposure, fixed energy production costs, and reduced maintenance volatility.",
+          "Capital works for you—solar systems are long-term assets with 25-year panel lifespans and strong ROI with fast payback.",
+          "Cash flow improves immediately as monthly diesel expenses drop. Savings often exceed financing costs if applicable."
+        ],
+        bullets: [
+          "Operating costs become predictable",
+          "Capital works for you (25-year asset lifespan)",
+          "Cash flow improves immediately"
+        ]
+      },
+      {
+        id: "operational-benefits",
+        heading: "Operational Benefits Beyond Cost",
+        paras: [
+          "Reducing generator dependency delivers more than savings: quieter facilities, cleaner air and safer work environments, improved uptime, better equipment protection, and enhanced ESG and sustainability positioning.",
+          "For commercial facilities dealing with international partners, certifications, or audits, this is increasingly important."
+        ],
+        bullets: [
+          "Quieter facilities",
+          "Cleaner air and safer work environments",
+          "Improved uptime",
+          "Better equipment protection",
+          "Enhanced ESG and sustainability positioning"
+        ]
+      },
+      {
+        id: "phased-transition",
+        heading: "A Phased, Low-Risk Transition",
+        paras: [
+          "The smartest facilities do not switch overnight. They audit energy consumption, identify critical vs non-critical loads, introduce solar for base demand, add batteries where they add value, reprogram generators as backup, and monitor and optimize continuously.",
+          "This phased approach minimizes risk while maximizing returns."
+        ],
+        bullets: [
+          "Audit energy consumption",
+          "Identify critical vs non-critical loads",
+          "Introduce solar for base demand",
+          "Add batteries where they add value",
+          "Reprogram generators as backup",
+          "Monitor and optimize continuously"
+        ]
+      },
+      {
+        id: "strategic-question",
+        heading: "The Strategic Question",
+        paras: [
+          "The question is no longer 'Can we afford solar?' It is 'Can we continue to afford full generator dependency?'",
+          "In Lebanon's energy reality, reducing generator reliance is not an environmental decision—it is a financial and operational strategy."
+        ]
+      },
+      {
+        id: "final-thought",
+        heading: "Final Thought",
+        paras: [
+          "Generators will remain part of Lebanon's energy mix for the foreseeable future. But the most resilient commercial facilities are the ones that use generators less, control their energy costs, and design systems—not patches.",
+          "Reducing generator dependency is not about changing power sources—it's about changing the way energy works for your business."
+        ]
+      }
+    ],
+    faq: [
+      { q: "How much can we realistically reduce generator usage?", a: "With a properly designed hybrid system, most commercial facilities reduce generator runtime by 60–85%. Some facilities with strong daytime operations achieve even higher reductions." },
+      { q: "Will reducing generator use affect our power reliability?", a: "No. A well-designed system actually improves reliability by adding redundancy. Solar and batteries provide instant power, while generators remain available for extended outages or peak demands." },
+      { q: "What's the typical payback period for this transition?", a: "Most commercial facilities see payback in 18–36 months, depending on current diesel consumption and system sizing. ROI typically ranges from 20–35% annually." },
+      { q: "Can we implement this in phases?", a: "Yes, phased implementation is often the smartest approach. Start with solar for base load, add batteries where needed, and progressively optimize generator usage." },
+      { q: "What happens to our existing generators?", a: "Generators remain part of your system as strategic backup. They run fewer hours and at optimized loads, which extends their lifespan and reduces maintenance costs." },
+      { q: "How do we know if this model fits our facility?", a: "A site assessment analyzes your consumption patterns, load profiles, and operational requirements. This determines the optimal system configuration and expected savings." }
+    ],
+    customHtml: `
+<!-- Solenergy "About" style: white canvas, deep navy text, gold accent, soft cards -->
+<section id="book-consultation" class="se-aboutSection">
+<div class="se-wrap">
+<div class="se-grid">
+<!-- Left: Copy -->
+<div class="se-copy">
+<p class="se-kicker">CONTACT US</p>
+
+    <h2 class="se-title">
+      Book a <span>Consultation</span>
+    </h2>
+
+    <p class="se-lead">
+      Tell us what you need and our team will recommend the right mix of solar, storage, generators,
+      and energy management for your site.
+    </p>
+
+    <div class="se-infoGrid">
+      <div class="se-infoCard">
+        <div class="se-label">Lebanon</div>
+        <div class="se-value">
+          <div>Galaxy Complex, Baabda, Lebanon</div>
+          <div style="margin-top:6px">
+            <a href="tel:+96171654956">+961 71 654 956</a>
+            <span class="se-dot">•</span>
+            <a href="tel:+96171010508">+961 71 010 508</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="se-infoCard">
+        <div class="se-label">Qatar</div>
+        <div class="se-value">
+          <div>Lusail Marina Tower, Lusail, Qatar</div>
+          <div style="margin-top:6px">
+            <a href="tel:+97433256185">+974 3325 6185</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="se-infoCard">
+        <div class="se-label">Email</div>
+        <div class="se-value">
+          <a href="mailto:info@solenergypower.com">info@solenergypower.com</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="se-note">
+      For businesses with critical operations, ask about preventive maintenance and 24/7 monitoring.
+    </div>
+  </div>
+
+  <!-- Right: Form Card -->
+  <div class="se-formCard">
+    <div class="se-formHead">
+      <h3>Request a Quote</h3>
+      <p>Share your site details and we will contact you to schedule a consultation.</p>
+    </div>
+
+    <!-- Replace action with your endpoint -->
+    <form class="se-form" method="post" action="/contact">
+      <div class="se-row">
+        <label>
+          Full Name
+          <input name="name" type="text" placeholder="Your name" required />
+        </label>
+        <label>
+          Company
+          <input name="company" type="text" placeholder="Company name" />
+        </label>
+      </div>
+
+      <div class="se-row">
+        <label>
+          Email
+          <input name="email" type="email" placeholder="name@company.com" required />
+        </label>
+        <label>
+          Phone
+          <input name="phone" type="tel" placeholder="+961..." required />
+        </label>
+      </div>
+
+      <div class="se-row">
+        <label>
+          Location
+          <select name="location" required>
+            <option value="" selected disabled>Select</option>
+            <option value="Lebanon">Lebanon</option>
+            <option value="Qatar">Qatar</option>
+            <option value="Other">Other</option>
+          </select>
+        </label>
+        <label>
+          Interested In
+          <select name="interest" required>
+            <option value="" selected disabled>Select</option>
+            <option value="Solar PV System">Solar PV System</option>
+            <option value="Battery Storage">Battery Storage</option>
+            <option value="Backup Generator">Backup Generator</option>
+            <option value="Energy Management Platform">Energy Management Platform</option>
+            <option value="Maintenance and Support">Maintenance and Support</option>
+            <option value="Complete Hybrid Solution">Complete Hybrid Solution</option>
+          </select>
+        </label>
+      </div>
+
+      <label class="se-full">
+        Project Details
+        <textarea
+          name="message"
+          placeholder="Example: site type, average load, generator size, hours of outage, critical equipment, target uptime."
+          required
+        ></textarea>
+      </label>
+
+      <label class="se-check se-full">
+        <input type="checkbox" name="consent" required />
+        <span>I agree to be contacted by Solenergy about my request.</span>
+      </label>
+
+      <button class="se-btn" type="submit">Book Consultation</button>
+
+      <div class="se-alt">
+        Prefer WhatsApp?
+        <a href="https://wa.me/96171010508" target="_blank" rel="noopener">Message us</a>
+      </div>
+    </form>
+  </div>
+</div>
+
+</div>
+</section>
+
+<style>
+:root{
+/* Match the screenshot vibe: white canvas, deep navy/charcoal text, warm gold accent */
+--se-bg:#ffffff;
+--se-text:#0f172a;          /* deep navy */
+--se-sub:#475569;           /* slate */
+--se-border:#e5e7eb;        /* light gray */
+--se-card:#ffffff;
+--se-accent:#f5b21b;        /* Solenergy-like gold */
+--se-shadow:0 10px 28px rgba(15, 23, 42, .10);
+--se-radius:18px;
+--se-radius-sm:12px;
+--se-max:1120px;
+}
+
+.se-aboutSection{
+background: var(--se-bg);
+padding: 86px 20px;
+color: var(--se-text);
+}
+
+.se-wrap{ max-width: var(--se-max); margin: 0 auto; }
+
+.se-grid{
+display: grid;
+grid-template-columns: 1.05fr .95fr;
+gap: 28px;
+align-items: start;
+}
+
+.se-kicker{
+margin: 0 0 10px 0;
+font-size: 12px;
+font-weight: 800;
+letter-spacing: .14em;
+color: var(--se-accent);
+}
+
+.se-title{
+margin: 0 0 14px 0;
+font-size: 42px;
+line-height: 1.08;
+font-weight: 900;
+color: var(--se-text);
+}
+
+.se-title span{
+color: var(--se-accent);
+position: relative;
+padding-bottom: 2px;
+}
+
+.se-title span::after{
+content:"";
+position:absolute;
+left: 0;
+right: 0;
+bottom: -6px;
+height: 3px;
+background: var(--se-accent);
+border-radius: 999px;
+opacity: .95;
+}
+
+.se-lead{
+margin: 0 0 18px 0;
+font-size: 16px;
+line-height: 1.75;
+color: var(--se-sub);
+max-width: 62ch;
+}
+
+.se-infoGrid{
+display: grid;
+grid-template-columns: 1fr;
+gap: 14px;
+margin-top: 18px;
+}
+
+.se-infoCard{
+background: var(--se-card);
+border: 1px solid var(--se-border);
+border-radius: var(--se-radius);
+box-shadow: var(--se-shadow);
+padding: 16px 16px;
+}
+
+.se-label{
+font-size: 12px;
+font-weight: 700;
+color: #64748b;
+margin-bottom: 6px;
+}
+
+.se-value{
+font-size: 15px;
+line-height: 1.6;
+color: var(--se-text);
+}
+
+.se-value a{
+color: var(--se-text);
+text-decoration: none;
+border-bottom: 2px solid rgba(245,178,27,.35);
+}
+
+.se-value a:hover{
+border-bottom-color: rgba(245,178,27,.85);
+}
+
+.se-dot{ margin: 0 8px; color: #cbd5e1; }
+
+.se-muted{ color: #64748b; margin-top: 2px; }
+
+.se-note{
+margin-top: 14px;
+background: rgba(245,178,27,.10);
+border: 1px solid rgba(245,178,27,.35);
+color: #1f2937;
+border-radius: var(--se-radius);
+padding: 14px 16px;
+line-height: 1.6;
+font-size: 14px;
+}
+
+.se-formCard{
+background: var(--se-card);
+border: 1px solid var(--se-border);
+border-radius: var(--se-radius);
+box-shadow: var(--se-shadow);
+overflow: hidden;
+}
+
+.se-formHead{
+padding: 18px 18px 0 18px;
+}
+
+.se-formHead h3{
+margin: 0;
+font-size: 18px;
+font-weight: 900;
+color: var(--se-text);
+}
+
+.se-formHead p{
+margin: 6px 0 0 0;
+color: var(--se-sub);
+font-size: 14px;
+line-height: 1.6;
+}
+
+.se-form{
+padding: 16px 18px 18px 18px;
+display: grid;
+gap: 12px;
+}
+
+.se-row{
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 12px;
+}
+
+.se-form label{
+display: grid;
+gap: 6px;
+font-size: 13px;
+font-weight: 700;
+color: #334155;
+}
+
+.se-form input,
+.se-form select,
+.se-form textarea{
+width: 100%;
+border: 1px solid var(--se-border);
+border-radius: var(--se-radius-sm);
+padding: 12px 12px;
+font-size: 14px;
+outline: none;
+background: #ffffff;
+color: var(--se-text);
+transition: box-shadow .18s ease, border-color .18s ease;
+}
+
+.se-form textarea{ min-height: 120px; resize: vertical; }
+
+.se-form input:focus,
+.se-form select:focus,
+.se-form textarea:focus{
+border-color: rgba(245,178,27,.75);
+box-shadow: 0 0 0 4px rgba(245,178,27,.18);
+}
+
+.se-full{ grid-column: 1 / -1; }
+
+.se-check{
+display: flex !important;
+align-items: flex-start;
+gap: 10px;
+font-weight: 600 !important;
+color: #475569 !important;
+line-height: 1.4;
+margin-top: 4px;
+}
+.se-check input{ margin-top: 3px; width: 16px; height: 16px; }
+
+.se-btn{
+height: 46px;
+border: none;
+border-radius: 999px;
+background: var(--se-accent);
+color: #111827;
+font-weight: 900;
+font-size: 14px;
+cursor: pointer;
+box-shadow: 0 10px 18px rgba(245,178,27,.25);
+transition: transform .08s ease, box-shadow .18s ease, filter .18s ease;
+}
+.se-btn:hover{
+filter: brightness(1.02);
+box-shadow: 0 14px 24px rgba(245,178,27,.30);
+}
+.se-btn:active{ transform: translateY(1px); }
+
+.se-alt{
+font-size: 13px;
+color: #64748b;
+margin-top: 2px;
+}
+.se-alt a{
+color: var(--se-text);
+text-decoration: none;
+border-bottom: 2px solid rgba(245,178,27,.35);
+}
+.se-alt a:hover{
+border-bottom-color: rgba(245,178,27,.85);
+}
+
+@media (max-width: 940px){
+.se-grid{ grid-template-columns: 1fr; }
+.se-title{ font-size: 34px; }
+}
+
+@media (max-width: 520px){
+.se-row{ grid-template-columns: 1fr; }
+.se-aboutSection{ padding: 64px 16px; }
+}
+</style>
+`
+  },
+  {
+    slug: "solar-vs-generators-cost-breakdown-lebanese-businesses",
+    title: "Solar vs. Generators: A Cost Breakdown for Lebanese Businesses",
+    excerpt:
+      "A clear, realistic cost comparison between solar energy systems and diesel generators for Lebanese businesses. Discover why solar has become the smarter long-term investment in Lebanon's unique energy landscape.",
+    date: "2026-01-21",
+    readMins: 12,
+    cover: "/images/solar-vs-generators-lebanon.png",
+    coverAlt: "Solar panels with battery storage compared to diesel generator",
+    tags: ["Solar Energy", "Generators", "Business"],
+    sections: [
+      {
+        id: "intro",
+        heading: "The Critical Question for Lebanese Businesses",
+        paras: [
+          "For decades, Lebanese businesses have relied on diesel generators as a necessary evil—an expensive workaround for an unstable grid. Today, rising fuel costs, supply uncertainty, and increasing operational pressure are forcing business owners to ask a critical question:",
+          "Is it still financially viable to rely on generators, or has solar become the smarter long-term investment?",
+          "This article provides a clear, realistic cost comparison between solar energy systems and diesel generators for Lebanese businesses, based on real operating conditions—not theoretical models."
+        ]
+      },
+      {
+        id: "power-reality-2026",
+        heading: "The Reality of Power in Lebanon (2026)",
+        paras: [
+          "Lebanon's electricity landscape is unique—and unforgiving. Grid supply averages 0–4 hours per day in most regions. Diesel generators have become the primary power source, not backup. Fuel prices remain volatile and unpredictable. Equipment wear is accelerated due to constant use.",
+          "For businesses, electricity is no longer an operating expense—it's a strategic risk."
+        ],
+        bullets: [
+          "Grid supply: 0–4 hours/day (in most regions)",
+          "Diesel generators: Primary power source, not backup",
+          "Fuel prices: Volatile and unpredictable",
+          "Equipment wear: Accelerated due to constant use"
+        ]
+      },
+      {
+        id: "generator-true-cost",
+        heading: "Option 1: Diesel Generators – The True Cost",
+        paras: [
+          "At first glance, generators appear affordable with upfront costs ranging from $10,000–$20,000 for 50–100 kVA units, $25,000–$50,000 for 150–300 kVA, and $70,000+ for 500+ kVA systems. But capital cost is only the beginning."
+        ]
+      },
+      {
+        id: "fuel-costs",
+        heading: "Fuel Costs – The Silent Killer",
+        paras: [
+          "Consider a medium-sized commercial business consuming ~150 kVA: diesel consumption runs 30–35 liters per hour, with average runtime of 16–20 hours per day. Monthly diesel cost reaches $6,000–$10,000+, translating to annual fuel cost of $70,000–$120,000.",
+          "And this assumes stable diesel supply, no black-market pricing spikes, and no logistics delays. Fuel is 100% recurring—forever."
+        ],
+        bullets: [
+          "Diesel consumption: ~30–35 liters/hour",
+          "Average runtime: 16–20 hours/day",
+          "Monthly diesel cost: $6,000 – $10,000+",
+          "Annual fuel cost: $70,000 – $120,000"
+        ]
+      },
+      {
+        id: "maintenance-downtime",
+        heading: "Maintenance & Downtime",
+        paras: [
+          "Generators in Lebanon run far beyond their intended duty cycle. Typical annual costs include $2,000–$5,000 for oil and filters, $3,000–$8,000 for major servicing and parts, plus unpredictable costs from unexpected breakdowns.",
+          "The hidden cost is downtime. One generator failure can mean lost production, missed deadlines, damaged equipment, and reputational risk."
+        ],
+        note: "5-Year Generator Cost Summary (Mid-Sized Business): Generator CAPEX $30,000 + Diesel Fuel $400,000–$550,000 + Maintenance $40,000–$60,000 = Total $470,000–$640,000"
+      },
+      {
+        id: "solar-long-term-asset",
+        heading: "Option 2: Solar Energy – The Long-Term Asset",
+        paras: [
+          "Solar is no longer a 'green experiment' in Lebanon—it is a financial instrument.",
+          "For a commercial hybrid solar system (100–200 kWp), the upfront investment includes Tier-1 solar panels with 25-year lifespan, hybrid inverters and control systems, optional scalable battery storage, plus engineering, installation, and commissioning. Typical CAPEX ranges from $80,000–$150,000 depending on storage and complexity."
+        ]
+      },
+      {
+        id: "solar-operating-costs",
+        heading: "Solar Operating Costs (Near-Zero)",
+        paras: [
+          "Solar systems require no fuel, minimal maintenance, deliver predictable output, and include remote monitoring. Annual OPEX is limited to $1,000–$2,000 for cleaning and inspections, with minimal inverter servicing long-term.",
+          "Lebanon is ideal for solar with high solar irradiance, long daylight hours, and peak production that aligns with business hours. Well-designed systems can cover 60–90% of daily energy demand—even more when paired with smart load management."
+        ],
+        note: "5-Year Solar Cost Summary: Solar CAPEX $120,000 + Operating & Maintenance $8,000–$12,000 = Total ~$130,000"
+      },
+      {
+        id: "hybrid-smart-middle",
+        heading: "Solar + Generator Hybrid: The Smart Middle Ground",
+        paras: [
+          "For most Lebanese businesses, the optimal solution is not 'solar OR generator' but 'solar FIRST, generator LAST.'",
+          "A hybrid system delivers: solar covers daytime load, batteries handle transitions and peaks, generator runs only when necessary. This reduces fuel consumption by 60–85%, dramatically extending generator lifespan, cutting diesel costs, stabilizing operations, and improving ROI."
+        ],
+        bullets: [
+          "Solar covers daytime load",
+          "Batteries handle transitions & peaks",
+          "Generator runs only when necessary",
+          "Fuel consumption reduced by 60–85%"
+        ]
+      },
+      {
+        id: "roi-payback",
+        heading: "ROI & Payback: The Numbers That Matter",
+        paras: [
+          "Typical payback periods are 2.5–4 years for solar-only systems and just 18–30 months for solar + generator hybrid setups.",
+          "After payback, energy becomes a competitive advantage. Costs are fixed and predictable. Cash flow improves immediately."
+        ],
+        bullets: [
+          "Solar-only payback: 2.5 – 4 years",
+          "Solar + generator hybrid payback: 18 – 30 months",
+          "After payback: energy becomes a competitive advantage"
+        ]
+      },
+      {
+        id: "strategic-benefits",
+        heading: "Beyond Cost: Strategic Business Benefits",
+        paras: [
+          "Solar offers advantages generators never will: price stability with no fuel exposure, energy independence, reduced operational risk, better ESG and sustainability positioning, higher asset value, and a quieter, cleaner work environment.",
+          "For industrial and export-oriented businesses, these are no longer optional—they are expected."
+        ],
+        bullets: [
+          "Price stability (no fuel exposure)",
+          "Energy independence",
+          "Reduced operational risk",
+          "Better ESG & sustainability positioning",
+          "Higher asset value",
+          "Quieter, cleaner work environment"
+        ]
+      },
+      {
+        id: "final-verdict",
+        heading: "Final Verdict: Which Makes Sense in Lebanon?",
+        paras: [
+          "When comparing generators vs solar: generators have lower upfront cost but extremely high long-term cost, 100% fuel dependency, poor predictability, negative ROI, and serve as a short-term fix. Solar has higher upfront cost but low long-term cost, 0% fuel dependency, excellent predictability, strong ROI, and serves as a long-term asset.",
+          "Generators keep you running. Solar keeps you competitive."
+        ]
+      },
+      {
+        id: "smart-move",
+        heading: "The Smart Move for Lebanese Businesses",
+        paras: [
+          "In Lebanon's energy reality, solar is not a luxury—it is financial discipline.",
+          "Businesses that delay the transition lock themselves into rising costs, accept unnecessary operational risk, and lose long-term competitiveness. Those who act now control their energy future, protect margins, and build resilience into their operations.",
+          "A proper decision starts with data, not assumptions. Get a customized energy cost analysis and ROI projection designed specifically for Lebanon's operating conditions."
+        ]
+      }
+    ],
+    faq: [
+      { q: "How long does a solar system last compared to a generator?", a: "Solar panels have a 25-year lifespan with minimal degradation, while inverters last 10-15 years. Generators in Lebanon's heavy-use environment typically need major overhauls every 3-5 years and full replacement within 8-10 years." },
+      { q: "What happens during cloudy days or at night?", a: "Hybrid systems use battery storage to bridge gaps and generators as backup. Well-designed systems minimize generator runtime to essential periods only, reducing fuel costs by 60-85%." },
+      { q: "Is financing available for solar installations?", a: "Yes. Various financing options exist including bank loans, leasing arrangements, and phased installations. The strong ROI makes solar attractive to lenders." },
+      { q: "How quickly can a solar system be installed?", a: "Commercial installations typically take 2-4 weeks from assessment to commissioning, depending on system size and site complexity." },
+      { q: "Will solar work for my type of business?", a: "Solar benefits virtually any business with consistent daytime operations—manufacturing, retail, hospitality, offices, warehouses, and more. A site assessment determines the optimal system configuration." },
+      { q: "What maintenance does solar require?", a: "Minimal: quarterly panel cleaning, annual electrical inspections, and periodic inverter checks. Total annual maintenance costs are typically $1,000-$2,000—a fraction of generator maintenance." }
+    ],
+    customHtml: `
+<!-- Solenergy "About" style: white canvas, deep navy text, gold accent, soft cards -->
+<section id="book-consultation" class="se-aboutSection">
+<div class="se-wrap">
+<div class="se-grid">
+<!-- Left: Copy -->
+<div class="se-copy">
+<p class="se-kicker">CONTACT US</p>
+
+    <h2 class="se-title">
+      Book a <span>Consultation</span>
+    </h2>
+
+    <p class="se-lead">
+      Tell us what you need and our team will recommend the right mix of solar, storage, generators,
+      and energy management for your site.
+    </p>
+
+    <div class="se-infoGrid">
+      <div class="se-infoCard">
+        <div class="se-label">Lebanon</div>
+        <div class="se-value">
+          <div>Galaxy Complex, Baabda, Lebanon</div>
+          <div style="margin-top:6px">
+            <a href="tel:+96171654956">+961 71 654 956</a>
+            <span class="se-dot">•</span>
+            <a href="tel:+96171010508">+961 71 010 508</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="se-infoCard">
+        <div class="se-label">Qatar</div>
+        <div class="se-value">
+          <div>Lusail Marina Tower, Lusail, Qatar</div>
+          <div style="margin-top:6px">
+            <a href="tel:+97433256185">+974 3325 6185</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="se-infoCard">
+        <div class="se-label">Email</div>
+        <div class="se-value">
+          <a href="mailto:info@solenergypower.com">info@solenergypower.com</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="se-note">
+      For businesses with critical operations, ask about preventive maintenance and 24/7 monitoring.
+    </div>
+  </div>
+
+  <!-- Right: Form Card -->
+  <div class="se-formCard">
+    <div class="se-formHead">
+      <h3>Request a Quote</h3>
+      <p>Share your site details and we will contact you to schedule a consultation.</p>
+    </div>
+
+    <!-- Replace action with your endpoint -->
+    <form class="se-form" method="post" action="/contact">
+      <div class="se-row">
+        <label>
+          Full Name
+          <input name="name" type="text" placeholder="Your name" required />
+        </label>
+        <label>
+          Company
+          <input name="company" type="text" placeholder="Company name" />
+        </label>
+      </div>
+
+      <div class="se-row">
+        <label>
+          Email
+          <input name="email" type="email" placeholder="name@company.com" required />
+        </label>
+        <label>
+          Phone
+          <input name="phone" type="tel" placeholder="+961..." required />
+        </label>
+      </div>
+
+      <div class="se-row">
+        <label>
+          Location
+          <select name="location" required>
+            <option value="" selected disabled>Select</option>
+            <option value="Lebanon">Lebanon</option>
+            <option value="Qatar">Qatar</option>
+            <option value="Other">Other</option>
+          </select>
+        </label>
+        <label>
+          Interested In
+          <select name="interest" required>
+            <option value="" selected disabled>Select</option>
+            <option value="Solar PV System">Solar PV System</option>
+            <option value="Battery Storage">Battery Storage</option>
+            <option value="Backup Generator">Backup Generator</option>
+            <option value="Energy Management Platform">Energy Management Platform</option>
+            <option value="Maintenance and Support">Maintenance and Support</option>
+            <option value="Complete Hybrid Solution">Complete Hybrid Solution</option>
+          </select>
+        </label>
+      </div>
+
+      <label class="se-full">
+        Project Details
+        <textarea
+          name="message"
+          placeholder="Example: site type, average load, generator size, hours of outage, critical equipment, target uptime."
+          required
+        ></textarea>
+      </label>
+
+      <label class="se-check se-full">
+        <input type="checkbox" name="consent" required />
+        <span>I agree to be contacted by Solenergy about my request.</span>
+      </label>
+
+      <button class="se-btn" type="submit">Book Consultation</button>
+
+      <div class="se-alt">
+        Prefer WhatsApp?
+        <a href="https://wa.me/96171010508" target="_blank" rel="noopener">Message us</a>
+      </div>
+    </form>
+  </div>
+</div>
+
+</div>
+</section>
+
+<style>
+:root{
+/* Match the screenshot vibe: white canvas, deep navy/charcoal text, warm gold accent */
+--se-bg:#ffffff;
+--se-text:#0f172a;          /* deep navy */
+--se-sub:#475569;           /* slate */
+--se-border:#e5e7eb;        /* light gray */
+--se-card:#ffffff;
+--se-accent:#f5b21b;        /* Solenergy-like gold */
+--se-shadow:0 10px 28px rgba(15, 23, 42, .10);
+--se-radius:18px;
+--se-radius-sm:12px;
+--se-max:1120px;
+}
+
+.se-aboutSection{
+background: var(--se-bg);
+padding: 86px 20px;
+color: var(--se-text);
+}
+
+.se-wrap{ max-width: var(--se-max); margin: 0 auto; }
+
+.se-grid{
+display: grid;
+grid-template-columns: 1.05fr .95fr;
+gap: 28px;
+align-items: start;
+}
+
+.se-kicker{
+margin: 0 0 10px 0;
+font-size: 12px;
+font-weight: 800;
+letter-spacing: .14em;
+color: var(--se-accent);
+}
+
+.se-title{
+margin: 0 0 14px 0;
+font-size: 42px;
+line-height: 1.08;
+font-weight: 900;
+color: var(--se-text);
+}
+
+.se-title span{
+color: var(--se-accent);
+position: relative;
+padding-bottom: 2px;
+}
+
+.se-title span::after{
+content:"";
+position:absolute;
+left: 0;
+right: 0;
+bottom: -6px;
+height: 3px;
+background: var(--se-accent);
+border-radius: 999px;
+opacity: .95;
+}
+
+.se-lead{
+margin: 0 0 18px 0;
+font-size: 16px;
+line-height: 1.75;
+color: var(--se-sub);
+max-width: 62ch;
+}
+
+.se-infoGrid{
+display: grid;
+grid-template-columns: 1fr;
+gap: 14px;
+margin-top: 18px;
+}
+
+.se-infoCard{
+background: var(--se-card);
+border: 1px solid var(--se-border);
+border-radius: var(--se-radius);
+box-shadow: var(--se-shadow);
+padding: 16px 16px;
+}
+
+.se-label{
+font-size: 12px;
+font-weight: 700;
+color: #64748b;
+margin-bottom: 6px;
+}
+
+.se-value{
+font-size: 15px;
+line-height: 1.6;
+color: var(--se-text);
+}
+
+.se-value a{
+color: var(--se-text);
+text-decoration: none;
+border-bottom: 2px solid rgba(245,178,27,.35);
+}
+
+.se-value a:hover{
+border-bottom-color: rgba(245,178,27,.85);
+}
+
+.se-dot{ margin: 0 8px; color: #cbd5e1; }
+
+.se-muted{ color: #64748b; margin-top: 2px; }
+
+.se-note{
+margin-top: 14px;
+background: rgba(245,178,27,.10);
+border: 1px solid rgba(245,178,27,.35);
+color: #1f2937;
+border-radius: var(--se-radius);
+padding: 14px 16px;
+line-height: 1.6;
+font-size: 14px;
+}
+
+.se-formCard{
+background: var(--se-card);
+border: 1px solid var(--se-border);
+border-radius: var(--se-radius);
+box-shadow: var(--se-shadow);
+overflow: hidden;
+}
+
+.se-formHead{
+padding: 18px 18px 0 18px;
+}
+
+.se-formHead h3{
+margin: 0;
+font-size: 18px;
+font-weight: 900;
+color: var(--se-text);
+}
+
+.se-formHead p{
+margin: 6px 0 0 0;
+color: var(--se-sub);
+font-size: 14px;
+line-height: 1.6;
+}
+
+.se-form{
+padding: 16px 18px 18px 18px;
+display: grid;
+gap: 12px;
+}
+
+.se-row{
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 12px;
+}
+
+.se-form label{
+display: grid;
+gap: 6px;
+font-size: 13px;
+font-weight: 700;
+color: #334155;
+}
+
+.se-form input,
+.se-form select,
+.se-form textarea{
+width: 100%;
+border: 1px solid var(--se-border);
+border-radius: var(--se-radius-sm);
+padding: 12px 12px;
+font-size: 14px;
+outline: none;
+background: #ffffff;
+color: var(--se-text);
+transition: box-shadow .18s ease, border-color .18s ease;
+}
+
+.se-form textarea{ min-height: 120px; resize: vertical; }
+
+.se-form input:focus,
+.se-form select:focus,
+.se-form textarea:focus{
+border-color: rgba(245,178,27,.75);
+box-shadow: 0 0 0 4px rgba(245,178,27,.18);
+}
+
+.se-full{ grid-column: 1 / -1; }
+
+.se-check{
+display: flex !important;
+align-items: flex-start;
+gap: 10px;
+font-weight: 600 !important;
+color: #475569 !important;
+line-height: 1.4;
+margin-top: 4px;
+}
+.se-check input{ margin-top: 3px; width: 16px; height: 16px; }
+
+.se-btn{
+height: 46px;
+border: none;
+border-radius: 999px;
+background: var(--se-accent);
+color: #111827;
+font-weight: 900;
+font-size: 14px;
+cursor: pointer;
+box-shadow: 0 10px 18px rgba(245,178,27,.25);
+transition: transform .08s ease, box-shadow .18s ease, filter .18s ease;
+}
+.se-btn:hover{
+filter: brightness(1.02);
+box-shadow: 0 14px 24px rgba(245,178,27,.30);
+}
+.se-btn:active{ transform: translateY(1px); }
+
+.se-alt{
+font-size: 13px;
+color: #64748b;
+margin-top: 2px;
+}
+.se-alt a{
+color: var(--se-text);
+text-decoration: none;
+border-bottom: 2px solid rgba(245,178,27,.35);
+}
+.se-alt a:hover{
+border-bottom-color: rgba(245,178,27,.85);
+}
+
+@media (max-width: 940px){
+.se-grid{ grid-template-columns: 1fr; }
+.se-title{ font-size: 34px; }
+}
+
+@media (max-width: 520px){
+.se-row{ grid-template-columns: 1fr; }
+.se-aboutSection{ padding: 64px 16px; }
+}
+</style>
+`
+  },
+  {
     slug: "blackouts-to-business-continuity-energy-strategies-lebanon",
     title: "From Blackouts to Business Continuity: Energy Strategies for Lebanese Enterprises",
     excerpt:
