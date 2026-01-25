@@ -427,10 +427,10 @@ const GLOSSARY: GlossarySection[] = [
     ]
   },
   {
-    category: "Advanced & Industry 4.0 Technologies",
+    category: "Advanced & Smart Technologies",
     terms: [
       {
-        term: "Industry 4.0",
+        term: "Smart Manufacturing",
         def: "The fourth industrial revolution, integrating IoT, AI, data analytics, and automation into energy and manufacturing systems."
       },
       {

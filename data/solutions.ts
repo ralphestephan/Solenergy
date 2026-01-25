@@ -8,10 +8,10 @@ export type SolutionTech = {
 
 export type Solution = {
   slug:
-    | "generators"
-    | "maintenance-services"
-    | "solar-services"
-    | "energy-management"; 
+  | "generators"
+  | "maintenance-services"
+  | "solar-services"
+  | "energy-management";
   heading: string;
   description: string;
   image?: string;       // preferred hero/teaser image for this solution
@@ -65,29 +65,29 @@ const solutions: Solution[] = [
     image: "/images/fieldwork.png",
     category: "specialized",
     tech: [
-      { 
-        key: "preventive-care", 
-        label: "Preventive Maintenance", 
-        icon: "wrench", 
-        blurb: "Scheduled inspections and servicing to prevent costly breakdowns." 
+      {
+        key: "preventive-care",
+        label: "Preventive Maintenance",
+        icon: "wrench",
+        blurb: "Scheduled inspections and servicing to prevent costly breakdowns."
       },
-      { 
-        key: "emergency-response", 
-        label: "24/7 Emergency Service", 
-        icon: "phone", 
-        blurb: "Rapid response team available around the clock for urgent repairs." 
+      {
+        key: "emergency-response",
+        label: "24/7 Emergency Service",
+        icon: "phone",
+        blurb: "Rapid response team available around the clock for urgent repairs."
       },
-      { 
-        key: "performance-tuning", 
-        label: "Performance Optimization", 
-        icon: "trending-up", 
-        blurb: "System tuning and upgrades to maximize efficiency and output." 
+      {
+        key: "performance-tuning",
+        label: "Performance Optimization",
+        icon: "trending-up",
+        blurb: "System tuning and upgrades to maximize efficiency and output."
       },
-      { 
-        key: "spare-parts", 
-        label: "Genuine Parts Inventory", 
-        icon: "package", 
-        blurb: "Extensive stock of OEM parts for immediate replacement needs." 
+      {
+        key: "spare-parts",
+        label: "Genuine Parts Inventory",
+        icon: "package",
+        blurb: "Extensive stock of OEM parts for immediate replacement needs."
       },
     ],
   },
@@ -101,101 +101,101 @@ const solutions: Solution[] = [
     image: "/images/panels.png",
     category: "popular",
     tech: [
-      { 
-        key: "site-assessment", 
-        label: "Site Assessment", 
-        icon: "map", 
-        blurb: "Detailed energy audits and feasibility studies for optimal system design." 
+      {
+        key: "site-assessment",
+        label: "Site Assessment",
+        icon: "map",
+        blurb: "Detailed energy audits and feasibility studies for optimal system design."
       },
-      { 
-        key: "custom-design", 
-        label: "Custom System Design", 
-        icon: "layers", 
-        blurb: "Tailored solar configurations matching your energy profile and budget." 
+      {
+        key: "custom-design",
+        label: "Custom System Design",
+        icon: "layers",
+        blurb: "Tailored solar configurations matching your energy profile and budget."
       },
-      { 
-        key: "professional-install", 
-        label: "Professional Installation", 
-        icon: "hammer", 
-        blurb: "Certified installers ensuring safe, compliant, and efficient setup." 
+      {
+        key: "professional-install",
+        label: "Professional Installation",
+        icon: "hammer",
+        blurb: "Certified installers ensuring safe, compliant, and efficient setup."
       },
-      { 
-        key: "smart-prioritization", 
-        label: "Smart Load Prioritization", 
-        icon: "cpu", 
-        blurb: "AI-driven system automatically allocates solar power to critical loads first." 
+      {
+        key: "smart-prioritization",
+        label: "Smart Load Prioritization",
+        icon: "cpu",
+        blurb: "AI-driven system automatically allocates solar power to critical loads first."
       },
-      { 
-        key: "sunflower-tracking", 
-        label: "Sunflower Solar Tracking", 
-        icon: "sun", 
-        blurb: "Dual-axis tracking systems following the sun's path for up to 40% more energy." 
+      {
+        key: "sunflower-tracking",
+        label: "Sunflower Solar Tracking",
+        icon: "sun",
+        blurb: "Dual-axis tracking systems following the sun's path for up to 40% more energy."
       },
-      { 
-        key: "hybrid-storage", 
-        label: "Hybrid Battery Storage", 
-        icon: "battery", 
-        blurb: "Intelligent battery management maximizing solar utilization and grid independence." 
+      {
+        key: "hybrid-storage",
+        label: "Hybrid Battery Storage",
+        icon: "battery",
+        blurb: "Intelligent battery management maximizing solar utilization and grid independence."
       },
-      { 
-        key: "performance-monitoring", 
-        label: "Performance Monitoring", 
-        icon: "bar-chart-3", 
-        blurb: "Real-time tracking of energy production, savings, and system health." 
+      {
+        key: "performance-monitoring",
+        label: "Performance Monitoring",
+        icon: "bar-chart-3",
+        blurb: "Real-time tracking of energy production, savings, and system health."
       },
     ],
   },
 
-  // INDUSTRY 4.0 & ENERGY MANAGEMENT
+  // SMART ENERGY MANAGEMENT
   {
     slug: "energy-management",
-    heading: "Energy Management & Industry 4.0",
+    heading: "Smart Energy Management",
     description:
-      "Complete industrial solution combining smart energy management, IoT automation, and Industry 4.0 technologies. Integrate solar, generators, and grid power with advanced monitoring, predictive analytics, and our Sol4.o platform for total operational control.",
+      "Complete industrial solution combining smart energy management and IoT automation. Integrate solar, generators, and grid power with advanced monitoring, predictive analytics, and our Sol4.o platform for total operational control.",
     image: "/images/deyeESS.png",
     category: "specialized",
     tech: [
-      { 
-        key: "energy-analytics", 
-        label: "Energy Analytics", 
-        icon: "activity", 
-        blurb: "Detailed consumption analysis identifying waste and optimization opportunities." 
+      {
+        key: "energy-analytics",
+        label: "Energy Analytics",
+        icon: "activity",
+        blurb: "Detailed consumption analysis identifying waste and optimization opportunities."
       },
-      { 
-        key: "multi-source", 
-        label: "Multi-Source Integration", 
-        icon: "git-branch", 
-        blurb: "Seamless coordination between solar, grid, and generator power sources." 
+      {
+        key: "multi-source",
+        label: "Multi-Source Integration",
+        icon: "git-branch",
+        blurb: "Seamless coordination between solar, grid, and generator power sources."
       },
-      { 
-        key: "iot-sensors", 
-        label: "Industrial IoT Sensors", 
-        icon: "radio", 
-        blurb: "Network of sensors monitoring equipment, environment, and production metrics." 
+      {
+        key: "iot-sensors",
+        label: "Industrial IoT Sensors",
+        icon: "radio",
+        blurb: "Network of sensors monitoring equipment, environment, and production metrics."
       },
-      { 
-        key: "automation", 
-        label: "Process Automation", 
-        icon: "cog", 
-        blurb: "PLC programming and SCADA systems for automated industrial processes." 
+      {
+        key: "automation",
+        label: "Process Automation",
+        icon: "cog",
+        blurb: "PLC programming and SCADA systems for automated industrial processes."
       },
-      { 
-        key: "solen-platform", 
-        label: "Sol4.o Platform", 
-        icon: "cloud", 
-        blurb: "Unified platform managing solar, generators, and energy systems in one real-time dashboard." 
+      {
+        key: "solen-platform",
+        label: "Sol4.o Platform",
+        icon: "cloud",
+        blurb: "Unified platform managing solar, generators, and energy systems in one real-time dashboard."
       },
-      { 
-        key: "predictive-maintenance", 
-        label: "Predictive Maintenance", 
-        icon: "shield", 
-        blurb: "AI algorithms predicting equipment failures before they occur." 
+      {
+        key: "predictive-maintenance",
+        label: "Predictive Maintenance",
+        icon: "shield",
+        blurb: "AI algorithms predicting equipment failures before they occur."
       },
-      { 
-        key: "demand-response", 
-        label: "Demand Response", 
-        icon: "clock", 
-        blurb: "Automated load shifting during peak hours to minimize electricity costs." 
+      {
+        key: "demand-response",
+        label: "Demand Response",
+        icon: "clock",
+        blurb: "Automated load shifting during peak hours to minimize electricity costs."
       },
     ],
   },

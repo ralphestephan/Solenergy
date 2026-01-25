@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "About Solenergy",
     description:
-      "Powering your future with smart energy solutions. Solar panels, backup generators, energy management systems, and Industry 4.0 technologies for a sustainable tomorrow.",
+      "Powering your future with smart energy solutions. Solar panels, backup generators, and energy management systems for a sustainable tomorrow.",
     url: `${SITE.baseUrl}/about`,
     images: [{ url: SITE.ogImage }],
   },
@@ -79,8 +79,8 @@ export default function Page() {
             </div>
 
             <p className="text-lg md:text-xl text-white/80 max-w-2xl mb-10 leading-relaxed">
-              Solenergy is transforming how homes and businesses in Lebanon and the GCC region manage energy. 
-              We deliver intelligent, reliable, and sustainable energy solutions — from solar panel systems 
+              Solenergy is transforming how homes and businesses in Lebanon and the GCC region manage energy.
+              We deliver intelligent, reliable, and sustainable energy solutions — from solar panel systems
               and backup generators to advanced energy management platforms.
             </p>
 
@@ -111,7 +111,7 @@ export default function Page() {
             </h2>
             <div className="w-16 h-1 bg-brand-yellow mx-auto mt-4 mb-6" />
             <p className="text-zinc-600 max-w-2xl mx-auto text-lg">
-              With 30 years of experience, 50+ MW installed, and 24/7 support, Solenergy is a trusted partner 
+              With 30 years of experience, 50+ MW installed, and 24/7 support, Solenergy is a trusted partner
               for organizations seeking energy independence, efficiency, and resilience.
             </p>
           </div>
@@ -120,7 +120,7 @@ export default function Page() {
             {/* Who we are */}
             <div className="group p-8 rounded-2xl bg-white border border-zinc-100 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-0 h-0 border-t-[40px] border-r-[40px] border-t-transparent border-r-brand-yellow/20" />
-              
+
               <div className="inline-flex items-center px-4 py-2 rounded-full bg-brand-yellow/10 text-brand-yellow text-sm font-medium mb-4">
                 Who we are
               </div>
@@ -128,15 +128,15 @@ export default function Page() {
                 Powering Lebanon&apos;s energy future
               </h3>
               <div className="w-12 h-0.5 bg-brand-yellow mb-6" />
-              
+
               <div className="space-y-4 text-zinc-600">
                 <p>
-                  Solenergy is transforming how homes and businesses in Lebanon and the GCC region manage energy. 
-                  We deliver intelligent, reliable, and sustainable energy solutions — from solar panel systems 
+                  Solenergy is transforming how homes and businesses in Lebanon and the GCC region manage energy.
+                  We deliver intelligent, reliable, and sustainable energy solutions — from solar panel systems
                   and backup generators to advanced energy management platforms.
                 </p>
                 <p>
-                  With 30 years of experience, 50+ MW installed, and 24/7 support, Solenergy is a trusted partner 
+                  With 30 years of experience, 50+ MW installed, and 24/7 support, Solenergy is a trusted partner
                   for organizations seeking energy independence, efficiency, and resilience in an evolving energy landscape.
                 </p>
               </div>
@@ -145,7 +145,7 @@ export default function Page() {
             {/* What we believe */}
             <div className="group p-8 rounded-2xl bg-white border border-zinc-100 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-0 h-0 border-t-[40px] border-r-[40px] border-t-transparent border-r-brand-orange/20" />
-              
+
               <div className="inline-flex items-center px-4 py-2 rounded-full bg-brand-orange/10 text-brand-orange text-sm font-medium mb-4">
                 What we believe
               </div>
@@ -153,7 +153,7 @@ export default function Page() {
                 Our Core Values
               </h3>
               <div className="w-12 h-0.5 bg-brand-orange mb-6" />
-              
+
               <ul className="space-y-4">
                 {[
                   { title: "Sustainability first", body: "Clean energy solutions that protect our environment." },
@@ -241,8 +241,8 @@ export default function Page() {
               },
               {
                 year: "2026",
-                title: "Sol4.0 & Industry 4.0",
-                description: "Starting Sol4.0—our complete energy management and Industry 4.0 solutions platform.",
+                title: "Sol4.0 Platform",
+                description: "Starting Sol4.0—our complete energy management solutions platform.",
               },
             ].map((milestone) => (
               <div
@@ -359,7 +359,7 @@ export default function Page() {
             </h2>
             <div className="w-16 h-1 bg-brand-yellow mx-auto mt-4 mb-6" />
             <p className="text-zinc-600 max-w-2xl mx-auto">
-              The principles that shape every solution we deliver—from solar to Industry 4.0.
+              The principles that shape every solution we deliver—from solar to smart energy management.
             </p>
           </div>
 
@@ -374,7 +374,7 @@ export default function Page() {
               </div>
               <div className="w-12 h-0.5 bg-brand-yellow mb-4" />
               <p className="text-zinc-600 leading-relaxed">
-                To provide Lebanon with reliable, sustainable energy solutions that reduce costs, 
+                To provide Lebanon with reliable, sustainable energy solutions that reduce costs,
                 increase efficiency, and protect our environment for future generations.
               </p>
             </div>
@@ -389,7 +389,7 @@ export default function Page() {
               </div>
               <div className="w-12 h-0.5 bg-brand-orange mb-4" />
               <p className="text-zinc-600 leading-relaxed">
-                To be the leading energy solutions provider in the region, pioneering smart, 
+                To be the leading energy solutions provider in the region, pioneering smart,
                 sustainable technologies that power industries and communities.
               </p>
             </div>

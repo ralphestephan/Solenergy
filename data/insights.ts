@@ -21,9 +21,495 @@ export type Insight = {
   sections: InsightSection[];
   faq?: InsightFAQ[];
   customHtml?: string;
+  // Arabic fields
+  titleAr?: string;
+  excerptAr?: string;
+  sectionsAr?: InsightSection[];
+  faqAr?: InsightFAQ[];
 };
 
 export const insights: Insight[] = [
+  {
+    slug: "predictable-energy-costs-lebanon-solar",
+    title: "How Lebanese Companies Can Lock in Predictable Energy Costs with Solar",
+    titleAr: "كيف يمكن للشركات اللبنانية تثبيت تكاليف الطاقة المتوقعة باستخدام الطاقة الشمسية",
+    excerpt: "Solar power offers a way to regain control. By investing in solar energy systems, Lebanese companies can lock in predictable energy costs for decades.",
+    excerptAr: "توفر الطاقة الشمسية حلاً عملياً يمكّن الشركات من تثبيت تكاليف الطاقة لسنوات طويلة، والحد من التعرض لتقلبات أسعار الوقود.",
+    date: "2026-01-24",
+    readMins: 8,
+    cover: "/images/predictable-energy-costs.jpg",
+    coverAlt: "Solar panels with Lebanon flag background",
+    tags: ["Solar Energy", "Finance", "Strategy"],
+    sections: [
+      {
+        id: "intro",
+        heading: "The Energy Cost Problem Facing Lebanese Businesses",
+        paras: [
+          "Energy costs are one of the biggest operational uncertainties for businesses in Lebanon. Grid instability, fuel price volatility, and reliance on diesel generators make budgeting difficult and long term planning even harder.",
+          "For Lebanese companies across manufacturing, hospitality, retail, healthcare, and professional services, energy has shifted from a fixed operating cost to a strategic risk.",
+          "Solar power offers a way to regain control. By investing in solar energy systems, Lebanese companies can lock in predictable energy costs for decades, reduce exposure to fuel price swings, and improve financial resilience in an unstable energy environment.",
+          "Lebanese companies typically rely on a mix of limited grid electricity and private diesel generators. This creates several challenges:",
+          "Fuel prices fluctuate with global oil markets and local supply constraints. Generator maintenance and fuel logistics add hidden operational costs. Energy availability is inconsistent, affecting productivity and service quality. Forecasting energy expenses becomes nearly impossible.",
+          "In Lebanon, this volatility is amplified by currency fluctuations and supply disruptions, making energy one of the least predictable line items on a company balance sheet."
+        ],
+        bullets: [
+          "Fuel prices fluctuate with global oil markets",
+          "Generator maintenance adds hidden costs",
+          "Energy availability is inconsistent",
+          "Forecasting expenses is nearly impossible"
+        ]
+      },
+      {
+        id: "why-solar",
+        heading: "Why Solar Creates Predictable Energy Costs",
+        paras: [
+          "Solar power fundamentally changes how companies pay for energy. Instead of continuously purchasing fuel at market prices, a solar system allows businesses to produce their own electricity at a fixed cost over the lifetime of the system.",
+          "Once installed, the primary costs are known in advance. The cost of solar energy is largely determined upfront. After installation, businesses are insulated from fuel price spikes, supply shortages, and currency driven increases in energy expenses."
+        ],
+        bullets: [
+          "No fuel costs",
+          "Minimal maintenance expenses",
+          "Long system lifespan (25+ years)",
+          "Stable output projections"
+        ]
+      },
+      {
+        id: "lebanon-advantage",
+        heading: "Lebanon’s Strong Solar Advantage",
+        paras: [
+          "Lebanon has excellent solar potential. With high annual solar irradiation levels, commercial rooftops and land based installations can generate significant energy year round.",
+          "This means businesses can rely on solar as a primary energy source rather than a supplemental one, especially when combined with battery storage.",
+          "For many Lebanese companies, solar can cover between 50 percent and 90 percent of total electricity needs depending on system size and load profile."
+        ]
+      },
+      {
+        id: "financial-benefits",
+        heading: "Financial Predictability and Budgeting Benefits",
+        paras: [
+          "From a CFO or finance director perspective, predictability is often more valuable than short term savings.",
+          "Once the system is paid off, energy costs drop dramatically, often approaching zero aside from maintenance. This creates a long term competitive advantage for businesses operating in price sensitive markets."
+        ],
+        bullets: [
+          "Fixed energy cost per kWh for 20-25 years",
+          "Improved cash flow planning",
+          "Reduced exposure to inflation",
+          "Easier pricing and contract forecasting"
+        ]
+      },
+      {
+        id: "solar-vs-diesel",
+        heading: "Solar Versus Diesel Generators in Lebanon",
+        paras: [
+          "Many Lebanese companies view solar as an alternative to diesel generators rather than a strategic replacement. This is a costly mistake.",
+          "Solar systems, by contrast, involve higher upfront investment but far lower lifetime costs. Over a 20 year period, solar energy is significantly cheaper per kilowatt hour than diesel generated electricity."
+        ],
+        bullets: [
+          "Diesel: Ongoing fuel expenses & high maintenance",
+          "Diesel: Noise and air pollution concerns",
+          "Solar: Lower lifetime costs",
+          "Solar: Minimal environmental impact"
+        ]
+      },
+      {
+        id: "ppa",
+        heading: "Locking in Costs Through Power Purchase Agreements",
+        paras: [
+          "For companies that prefer not to invest capital upfront, solar power purchase agreements offer another path to predictability.",
+          "Under a PPA, a solar provider installs and maintains the system, and the business pays a fixed rate for the electricity produced. Contract terms typically range from 10 to 20 years.",
+          "This allows companies to lock in an energy price that is often lower than diesel generation, without capital expenditure."
+        ]
+      },
+      {
+        id: "risk-reduction",
+        heading: "Risk Reduction Beyond Cost",
+        paras: [
+          "Predictable energy costs are only part of the value. Solar also reduces operational and strategic risk.",
+          "For export oriented Lebanese companies, sustainability and carbon reduction are becoming commercial requirements rather than optional initiatives."
+        ],
+        bullets: [
+          "Reduced downtime due to fuel shortages",
+          "Improved ESG and sustainability credentials",
+          "Lower exposure to regulatory changes",
+          "Increased energy independence"
+        ]
+      },
+      {
+        id: "strategy",
+        heading: "How Lebanese Companies Should Approach Solar Strategically",
+        paras: [
+          "To fully lock in predictable energy costs, businesses should approach solar as a long term infrastructure decision.",
+          "A properly designed system ensures that energy cost predictability is maintained even as the business scales."
+        ],
+        bullets: [
+          "Conduct a professional energy audit",
+          "Analyze load profiles and peak consumption",
+          "Design systems sized for long term growth",
+          "Evaluate ownership versus PPA models",
+          "Include battery storage where reliability is critical"
+        ]
+      },
+      {
+        id: "conclusion",
+        heading: "The Long Term Competitive Advantage",
+        paras: [
+          "In an environment like Lebanon’s, companies that control their energy costs gain a structural advantage over competitors who remain exposed to fuel volatility.",
+          "Solar transforms energy from an unpredictable expense into a controlled asset. Over time, this advantage compounds through lower operating costs, improved margins, and stronger financial planning.",
+          "For Lebanese businesses looking to stabilize operations, protect profitability, and plan confidently for the future, solar is no longer just an environmental choice. It is a financial and strategic one."
+        ]
+      }
+    ],
+    sectionsAr: [
+      {
+        id: "intro",
+        heading: "مشكلة تكاليف الطاقة في الشركات اللبنانية",
+        paras: [
+          "تشكل تكاليف الطاقة أحد أكبر مصادر عدم اليقين التشغيلي للشركات في لبنان. فالاعتماد على شبكة كهرباء غير مستقرة، وتقلب أسعار الوقود، والحاجة المستمرة إلى المولدات الخاصة، يجعل من التخطيط المالي تحدياً حقيقياً على المدى المتوسط والطويل.",
+          "بالنسبة للشركات اللبنانية في قطاعات الصناعة، الضيافة، التجارة، الرعاية الصحية، والخدمات المهنية، لم تعد الطاقة مجرد تكلفة تشغيلية، بل أصبحت مخاطرة استراتيجية تؤثر بشكل مباشر على الربحية والاستمرارية.",
+          "توفر الطاقة الشمسية حلاً عملياً يمكّن الشركات من تثبيت تكاليف الطاقة لسنوات طويلة، والحد من التعرض لتقلبات أسعار الوقود، وبناء نموذج تشغيلي أكثر استقراراً ومرونة.",
+          "تعتمد معظم الشركات في لبنان على مزيج من كهرباء الدولة والمولدات التي تعمل على الديزل. هذا النموذج يخلق عدة تحديات رئيسية:",
+          "تقلب مستمر في أسعار الوقود، تكاليف صيانة وتشغيل مرتفعة للمولدات، انقطاعات كهرباء تؤثر على الإنتاجية وجودة الخدمة، وصعوبة التنبؤ بالتكاليف الشهرية والسنوية للطاقة.",
+          "في لبنان، تتضاعف هذه المخاطر بسبب تقلب سعر الصرف والاضطرابات في سلاسل التوريد."
+        ],
+        bullets: [
+          "تقلب مستمر في أسعار الوقود",
+          "تكاليف صيانة وتشغيل مرتفعة للمولدات",
+          "انقطاعات كهرباء تؤثر على الإنتاجية",
+          "صعوبة التنبؤ بالتكاليف الشهرية والسنوية"
+        ]
+      },
+      {
+        id: "why-solar",
+        heading: "كيف تضمن الطاقة الشمسية تكاليف طاقة ثابتة",
+        paras: [
+          "تغير الطاقة الشمسية طريقة تعامل الشركات مع الطاقة بشكل جذري. فبدلاً من شراء الوقود بشكل مستمر بأسعار متغيرة، تقوم الشركة بإنتاج الكهرباء بنفسها بتكلفة ثابتة على مدى عمر النظام.",
+          "بعد تركيب النظام، تصبح الشركة محمية من ارتفاع أسعار الوقود ومن تقلبات السوق والطاقة."
+        ],
+        bullets: [
+          "عدم وجود تكاليف وقود",
+          "صيانة منخفضة وقابلة للتوقع",
+          "عمر تشغيلي طويل يصل إلى 25 سنة أو أكثر",
+          "قدرة عالية على التنبؤ بالإنتاج"
+        ]
+      },
+      {
+        id: "lebanon-advantage",
+        heading: "الميزة الشمسية في لبنان",
+        paras: [
+          "يتمتع لبنان بإمكانات شمسية ممتازة. فمستويات الإشعاع الشمسي المرتفعة تسمح للشركات بالاعتماد على الطاقة الشمسية كمصدر أساسي للكهرباء وليس فقط كمصدر مكمل.",
+          "هذا يعني أن أنظمة الطاقة الشمسية التجارية يمكن أن تغطي نسبة كبيرة من احتياجات الطاقة السنوية، خاصة عند دمجها بأنظمة تخزين البطاريات."
+        ]
+      },
+      {
+        id: "financial-benefits",
+        heading: "فوائد الاستقرار المالي والتخطيط",
+        paras: [
+          "من منظور المدير المالي أو الإدارة العليا، فإن القدرة على التنبؤ بالتكاليف غالباً ما تكون أكثر أهمية من التوفير القصير الأجل.",
+          "بعد استرداد تكلفة الاستثمار، تنخفض تكلفة الطاقة بشكل كبير، مما يمنح الشركة ميزة تنافسية طويلة الأمد."
+        ],
+        bullets: [
+          "تثبيت تكلفة الكيلوواط ساعة لعشرين سنة أو أكثر",
+          "تحسين التخطيط النقدي وإدارة التدفقات المالية",
+          "تقليل تأثير التضخم وارتفاع أسعار الوقود",
+          "تسعير الخدمات والمنتجات بثقة أكبر"
+        ]
+      },
+      {
+        id: "solar-vs-diesel",
+        heading: "مقارنة الطاقة الشمسية بمولدات الديزل",
+        paras: [
+          "لا تزال بعض الشركات تنظر إلى الطاقة الشمسية كبديل مؤقت للمولدات، وليس كحل استراتيجي. هذا التصور يقلل من القيمة الحقيقية للطاقة الشمسية.",
+          "في المقابل، تتميز الطاقة الشمسية بتكلفة إجمالية أقل بكثير على مدى عمر النظام."
+        ],
+        bullets: [
+          "مولدات الديزل: تكاليف وقود مستمرة ومتزايدة",
+          "مولدات الديزل: صيانة عالية واستبدال دوري",
+          "الطاقة الشمسية: تكلفة إجمالية أقل",
+          "الطاقة الشمسية: استقرار في التكاليف"
+        ]
+      },
+      {
+        id: "ppa",
+        heading: "تثبيت التكاليف عبر عقود شراء الطاقة",
+        paras: [
+          "بالنسبة للشركات التي لا ترغب في استثمار رأس مال كبير، توفر عقود شراء الطاقة الشمسية خياراً فعالاً.",
+          "بموجب هذه العقود، تقوم شركة متخصصة بتركيب وتشغيل النظام، وتدفع الشركة سعراً ثابتاً مقابل الكهرباء المنتجة. تمتد العقود عادة بين 10 و20 سنة.",
+          "يسمح هذا النموذج بتثبيت تكلفة الطاقة دون استثمار أولي، مع تقليل المخاطر التشغيلية."
+        ]
+      },
+      {
+        id: "risk-reduction",
+        heading: "تقليل المخاطر التشغيلية والاستراتيجية",
+        paras: [
+          "لا تقتصر فوائد الطاقة الشمسية على التكاليف فقط، بل تمتد إلى تقليل المخاطر التشغيلية.",
+          "أصبحت الاستدامة اليوم عاملاً تجارياً مهماً، خصوصاً للشركات التي تتعامل مع أسواق خارجية."
+        ],
+        bullets: [
+          "تقليل الانقطاعات الناتجة عن نقص الوقود",
+          "تحسين صورة الشركة في مجالات الاستدامة",
+          "الاستعداد لمتطلبات الشركاء الدوليين",
+          "زيادة الاستقلالية في الطاقة"
+        ]
+      },
+      {
+        id: "strategy",
+        heading: "كيف تعتمد الشركات اللبنانية الطاقة الشمسية بشكل استراتيجي",
+        paras: [
+          "لتحقيق أقصى استفادة، يجب التعامل مع الطاقة الشمسية كاستثمار بنية تحتية طويل الأمد. تضمن هذه المقاربة تحقيق استقرار طويل الأمد في تكاليف الطاقة."
+        ],
+        bullets: [
+          "إجراء تدقيق شامل لاستهلاك الطاقة",
+          "تحليل أنماط الأحمال وأوقات الذروة",
+          "تصميم النظام مع مراعاة النمو المستقبلي",
+          "تقييم خيار التملك مقابل عقود شراء الطاقة",
+          "دمج أنظمة التخزين عند الحاجة"
+        ]
+      },
+      {
+        id: "conclusion",
+        heading: "ميزة تنافسية طويلة الأمد",
+        paras: [
+          "في بيئة مثل لبنان، تتمتع الشركات التي تتحكم بتكاليف الطاقة بميزة هيكلية حقيقية مقارنة بمنافسيها.",
+          "تحول الطاقة الشمسية الطاقة من عبء غير متوقع إلى أصل يمكن التحكم به. ومع مرور الوقت، ينعكس ذلك في هوامش ربح أعلى، تخطيط أفضل، وقدرة أكبر على النمو بثقة.",
+          "بالنسبة للشركات اللبنانية التي تسعى إلى الاستقرار وحماية أرباحها، لم تعد الطاقة الشمسية خياراً بيئياً فقط، بل أصبحت قراراً مالياً واستراتيجياً بامتياز."
+        ]
+      }
+    ],
+    customHtml: `
+<!-- Solenergy "About" style: white canvas, deep navy text, gold accent, soft cards -->
+<section id="book-consultation" class="se-aboutSection">
+<div class="se-wrap">
+<div class="se-grid">
+<!-- Left: Copy -->
+<div class="se-copy">
+<p class="se-kicker">CONTACT US</p>
+
+    <h2 class="se-title">
+      Book a <span>Consultation</span>
+    </h2>
+
+    <p class="se-lead">
+      Tell us what you need and our team will recommend the right mix of solar, storage, generators,
+      and energy management for your site.
+    </p>
+
+    <div class="se-infoGrid">
+      <div class="se-infoCard">
+        <div class="se-label">Lebanon</div>
+        <div class="se-value">
+          <div>Galaxy Complex, Baabda, Lebanon</div>
+          <div style="margin-top:6px">
+            <a href="tel:+96171654956">+961 71 654 956</a>
+            <span class="se-dot">•</span>
+            <a href="tel:+96171010508">+961 71 010 508</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="se-infoCard">
+        <div class="se-label">Qatar</div>
+        <div class="se-value">
+          <div>Lusail Marina Tower, Lusail, Qatar</div>
+          <div style="margin-top:6px">
+            <a href="tel:+97433256185">+974 3325 6185</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="se-infoCard">
+        <div class="se-label">Iraq</div>
+        <div class="se-value">
+          <div>Bagdad, Yarmouk, 4 streets</div>
+          <div style="margin-top:6px">
+            <a href="tel:+9647805663773">+964 78 0566 3773</a>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<!-- Right: Form -->
+<div class="se-formWrap">
+    <form class="se-form" action="https://formspree.io/f/mqakevje" method="POST">
+      <div class="se-fieldGroup">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" placeholder="John Doe" required />
+      </div>
+
+      <div class="se-fieldGroup">
+        <label for="email">Work Email</label>
+        <input type="email" id="email" name="email" placeholder="john@company.com" required />
+      </div>
+      
+      <div class="se-fieldGroup">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="+961 3 123 456" />
+      </div>
+
+      <div class="se-fieldGroup">
+        <label for="message">How can we help?</label>
+        <textarea id="message" name="message" rows="4" placeholder="Tell us about your energy needs..."></textarea>
+      </div>
+
+      <button type="submit" class="se-submitBtn">
+        Send Request
+      </button>
+    </form>
+</div>
+</div>
+</div>
+<style>
+/* Scoped minimal styles for this section to match "About Us" vibe */
+.se-aboutSection {
+  background-color: #ffffff;
+  padding: 5rem 1.5rem;
+  font-family: inherit; 
+  /* Assume inter/sans serves the rest of the site */
+}
+.se-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.se-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+@media (min-width: 900px) {
+  .se-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+}
+
+/* Left Column */
+.se-kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #F4B41A; /* Brand Yellow */
+  margin-bottom: 0.5rem;
+}
+.se-title {
+  font-size: 2.5rem;
+  line-height: 1.1;
+  font-weight: 800;
+  color: #171717; /* zinc-900 */
+  margin-bottom: 1.5rem;
+}
+.se-title span {
+  color: #F4B41A;
+}
+.se-lead {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: #52525b; /* zinc-600 */
+  margin-bottom: 2.5rem;
+}
+
+.se-infoGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.se-infoCard {
+  background-color: #fafafa; /* zinc-50 */
+  border: 1px solid #e4e4e7; /* zinc-200 */
+  border-radius: 12px;
+  padding: 1.25rem;
+  transition: border-color 0.2s;
+}
+.se-infoCard:hover {
+  border-color: #F4B41A;
+}
+.se-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  color: #F4B41A;
+  margin-bottom: 0.25rem;
+}
+.se-value {
+  font-size: 0.95rem;
+  color: #18181b;
+  font-weight: 500;
+}
+.se-value a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s;
+}
+.se-value a:hover {
+  color: #F4B41A;
+}
+.se-dot {
+  margin: 0 0.4rem;
+  color: #d4d4d8;
+}
+
+/* Right Column (Form) */
+.se-formWrap {
+  background-color: #ffffff;
+  border: 1px solid #e4e4e7;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 10px 40px -10px rgba(0,0,0,0.05);
+}
+.se-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.se-fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.se-fieldGroup label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #27272a;
+}
+.se-fieldGroup input,
+.se-fieldGroup textarea {
+  background: #fafafa;
+  border: 1px solid #e4e4e7;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  color: #18181b;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+.se-fieldGroup input:focus,
+.se-fieldGroup textarea:focus {
+  background: #fff;
+  border-color: #F4B41A;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(244,180,26, 0.15);
+}
+.se-submitBtn {
+  margin-top: 0.5rem;
+  background-color: #F4B41A;
+  color: #171717;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.85rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.se-submitBtn:hover {
+  background-color: #fca703; /* slightly darker yellow/orange */
+  transform: translateY(-1px);
+}
+</style>
+</section>
+`
+  },
   {
     slug: "reducing-generator-dependency-smarter-energy-model-commercial-facilities",
     title: "Reducing Generator Dependency: A Smarter Energy Model for Commercial Facilities",
@@ -2334,14 +2820,14 @@ border-bottom-color: rgba(245,178,27,.85);
 
   {
     slug: "energy-management-systems-industry-4-0",
-    title: "Energy Management Systems for Industry 4.0: From Monitoring to Optimization",
+    title: "Energy Management Systems for Smart Manufacturing: From Monitoring to Optimization",
     excerpt:
       "How advanced energy management transforms industrial operations through real-time monitoring, predictive analytics, and automated control—delivering 20-30% energy savings and operational excellence.",
     date: "2025-09-19",
     readMins: 15,
     cover: "/images/ChatGPT Image Jan 5, 2026, 12_06_25 AM.png",
     coverAlt: "Industrial energy management dashboard",
-    tags: ["Industry 4.0", "Energy Management"],
+    tags: ["Smart Manufacturing", "Energy Management"],
     sections: [
       {
         id: "intro",
@@ -2778,7 +3264,7 @@ border-bottom-color: rgba(245,178,27,.85);
     readMins: 10,
     cover: "/images/ChatGPT Image Jan 5, 2026, 12_22_47 AM.png",
     coverAlt: "Sol4.o energy management dashboard",
-    tags: ["Industry 4.0", "Smart Systems", "Energy Management", "SaaS"],
+    tags: ["Smart Manufacturing", "Smart Systems", "Energy Management", "SaaS"],
     sections: [
       {
         id: "intro",

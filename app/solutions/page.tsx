@@ -21,7 +21,7 @@ import DynamicUnderline from "@/components/ui/DynamicUnderline";
 export const metadata: Metadata = {
   title: "Solar Energy & Generator Solutions | Solenergy Lebanon",
   description:
-    "Complete solar energy systems, backup generators, energy management, and Industry 4.0 solutions. Reliable power solutions for Lebanon's energy challenges.",
+    "Complete solar energy systems, backup generators, and energy management solutions. Reliable power solutions for Lebanon's energy challenges.",
   alternates: { canonical: "/solutions" },
   openGraph: {
     title: "Solar Energy & Generator Solutions | Solenergy Lebanon",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   },
   // twitter: { card: "summary_large_image", site: "@solenergy" }, // Disabled until further notice
   other: {
-    keywords: "solar energy Lebanon, hybrid solar systems, Volvo Penta generators, energy storage, Industry 4.0, energy management, backup power, renewable energy",
+    keywords: "solar energy Lebanon, hybrid solar systems, Volvo Penta generators, energy storage, energy management, backup power, renewable energy",
   },
 };
 
@@ -200,7 +200,7 @@ export default function Page() {
                   key={solution.slug}
                   href={`/solutions/${solution.slug}`}
                   className={`group ${isLarge ? 'lg:col-span-2' : ''}`}
-                  style={{ 
+                  style={{
                     transform: index % 3 === 1 ? 'translateY(1.5rem)' : 'translateY(0)',
                   }}
                 >
@@ -215,7 +215,7 @@ export default function Page() {
                         sizes={isLarge ? "(min-width: 1024px) 66vw, 100vw" : "(min-width: 1024px) 33vw, 100vw"}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/80 via-zinc-900/30 to-transparent" />
-                      
+
                       {/* Category Badge */}
                       <div className="absolute top-5 left-5 px-4 py-2 rounded-full bg-brand-yellow text-zinc-900 text-xs font-bold shadow-lg">
                         {solution.category?.toUpperCase() || "SOLUTION"}
@@ -270,7 +270,7 @@ export default function Page() {
                           sizes="(max-width: 640px) 80vw, 65vw"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/70 via-zinc-900/20 to-transparent" />
-                        
+
                         {/* Category Badge */}
                         <div className="absolute top-4 left-4 px-3 py-1.5 rounded-full bg-brand-yellow text-zinc-900 text-xs font-bold shadow-lg">
                           {solution.category?.toUpperCase() || "SOLUTION"}
@@ -349,31 +349,29 @@ export default function Page() {
                 </TabsList>
               </div>
 
-              {/* Mobile: Horizontal Scrollable Compact Tabs */}
-              <div className="md:hidden mb-8 -mx-4 px-4">
-                <div className="overflow-x-auto scrollbar-hide snap-x snap-mandatory scroll-smooth">
-                  <TabsList className="rounded-2xl bg-white border border-zinc-200 p-1.5 inline-flex shadow-lg min-w-max">
-                    {[
-                      { v: "solar", label: "Solar", shortLabel: "Solar", Icon: Sun },
-                      { v: "generators", label: "Generators", shortLabel: "Gen", Icon: Zap },
-                      { v: "maintenance", label: "Maintenance", shortLabel: "Maint", Icon: Wrench },
-                      { v: "saas", label: "Sol4.o", shortLabel: "Sol4.o", Icon: Cloud },
-                    ].map(({ v, label, shortLabel, Icon }) => (
-                      <TabsTrigger
-                        key={v}
-                        value={v}
-                        className="
-                          snap-start rounded-xl px-4 py-2.5 flex flex-col items-center gap-1.5 transition-all font-semibold text-xs
-                          hover:bg-zinc-50 data-[state=active]:bg-brand-yellow data-[state=active]:text-zinc-900 data-[state=active]:shadow-md
-                          focus-visible:ring-2 focus-visible:ring-brand-yellow/40 min-w-[80px]
-                        "
-                      >
-                        <Icon className="w-5 h-5" />
-                        <span className="whitespace-nowrap leading-tight">{shortLabel}</span>
-                      </TabsTrigger>
-                    ))}
-                  </TabsList>
-                </div>
+              {/* Mobile: Compact Grid Tabs (No scrolling, centered) */}
+              <div className="md:hidden mb-8 px-4 flex justify-center">
+                <TabsList className="w-full max-w-[340px] h-auto rounded-xl bg-white border border-zinc-200 p-1 grid grid-cols-4 shadow-lg gap-1">
+                  {[
+                    { v: "solar", label: "Solar", shortLabel: "Solar", Icon: Sun },
+                    { v: "generators", label: "Generators", shortLabel: "Gen", Icon: Zap },
+                    { v: "maintenance", label: "Maintenance", shortLabel: "Maint", Icon: Wrench },
+                    { v: "saas", label: "Sol4.o", shortLabel: "Sol4.o", Icon: Cloud },
+                  ].map(({ v, shortLabel, Icon }) => (
+                    <TabsTrigger
+                      key={v}
+                      value={v}
+                      className="
+                        rounded-lg py-2 flex flex-col items-center justify-center gap-1 transition-all font-semibold text-[10px] leading-tight
+                        hover:bg-zinc-50 data-[state=active]:bg-brand-yellow data-[state=active]:text-zinc-900 data-[state=active]:shadow-sm
+                        focus-visible:ring-2 focus-visible:ring-brand-yellow/40 w-full h-full min-h-[52px]
+                      "
+                    >
+                      <Icon className="w-4 h-4 flex-shrink-0" />
+                      <span>{shortLabel}</span>
+                    </TabsTrigger>
+                  ))}
+                </TabsList>
               </div>
 
               <TabsContent value="solar" className="motion-safe:animate-tabIn-slow">

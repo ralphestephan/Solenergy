@@ -4,7 +4,7 @@ import { SITE } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Contact Solenergy for Solar Energy & Generator Solutions",
   description:
-    "Get expert consultation for solar energy systems, backup generators, and energy management solutions. We specialize in hybrid solar installations, battery storage, and Industry 4.0 integration in Lebanon.",
+    "Get expert consultation for solar energy systems, backup generators, and energy management solutions. We specialize in hybrid solar installations, battery storage, and smart energy integration in Lebanon.",
   alternates: { canonical: "/contact" },
   openGraph: {
     title: "Contact Us for Professional Solar & Energy Solutions | Solenergy",
@@ -15,6 +15,6 @@ export const metadata: Metadata = {
   },
   // twitter: { card: "summary_large_image", site: "@solenergy" }, // Disabled until further notice
   other: {
-    keywords: "solar energy lebanon, solar panels, backup generators, hybrid solar systems, energy storage, battery systems, volvo penta generators, energy management, industry 4.0, renewable energy lebanon",
+    keywords: "solar energy lebanon, solar panels, backup generators, hybrid solar systems, energy storage, battery systems, volvo penta generators, energy management, smart manufacturing, renewable energy lebanon",
   },
 };

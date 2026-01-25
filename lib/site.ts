@@ -19,8 +19,8 @@ export const SITE = {
     "backup power",
     "generator maintenance",
     "power solutions",
-    // Industry 4.0
-    "Industry 4.0",
+    // Smart Manufacturing
+    "Smart Manufacturing",
     "industrial automation",
     "smart factory",
     "IoT solutions",

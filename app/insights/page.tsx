@@ -11,7 +11,7 @@ import { ArrowRight, Calendar, Clock, Tag } from "lucide-react";
 export const metadata: Metadata = {
   title: "Industry Insights | Solenergy",
   description:
-    "Expert insights on solar energy, generators, energy storage, and Industry 4.0 solutions for Lebanon's energy challenges.",
+    "Expert insights on solar energy, generators, energy storage, and smart energy solutions for Lebanon's energy challenges.",
   alternates: { canonical: "/insights" },
   openGraph: {
     title: "Industry Insights by Solenergy",
@@ -257,7 +257,7 @@ export default function Page() {
       <section className="py-20 bg-zinc-900 relative overflow-hidden">
         {/* Triangle decorations */}
         <div className="absolute top-0 right-0 w-40 h-40 border-r-[40px] border-r-brand-yellow border-t-[40px] border-t-transparent border-l-[40px] border-l-transparent border-b-[40px] border-b-brand-yellow opacity-20" />
-        
+
         <div className="mx-auto max-w-4xl px-4 text-center relative z-10">
           <h2 className="text-3xl md:text-4xl font-extrabold">
             <span className="text-white">Have Questions About </span>
