@@ -2,19 +2,19 @@
 export const metadata: Metadata = {
   title: "Solenergy | Solar, Generators & Energy Management Solutions",
   description:
-    "Solenergy delivers comprehensive solar energy, backup generators, energy management systems, and Industry 4.0 solutions. Powering your future with smart, sustainable energy.",
+    "Solenergy delivers comprehensive solar energy, backup generators, and energy management systems. Powering your future with smart, sustainable energy.",
   alternates: { canonical: "/" },
   openGraph: {
     title: "Solenergy | Solar, Generators & Energy Management Solutions",
     description:
-      "Solenergy delivers comprehensive solar energy, backup generators, energy management systems, and Industry 4.0 solutions. Powering your future with smart, sustainable energy.",
+      "Solenergy delivers comprehensive solar energy, backup generators, and energy management systems. Powering your future with smart, sustainable energy.",
     url: `${SITE.baseUrl}/`,
     images: [{ url: SITE.ogImage }],
   },
   // twitter: { card: "summary_large_image", site: "@solenergy" }, // Disabled until further notice
   other: {
     keywords:
-      "solar energy, solar panels, generators, energy management, Industry 4.0, smart solar, renewable energy, backup power, energy solutions Lebanon, sunflower solar tracking",
+      "solar energy, solar panels, generators, energy management, smart solar, renewable energy, backup power, energy solutions Lebanon, sunflower solar tracking",
   },
 };
 import type { Metadata } from "next";
@@ -55,7 +55,7 @@ export default function Page() {
             url: SITE.org.url,
             logo: SITE.org.logo,
             sameAs: SITE.org.sameAs,
-            description: "Leading provider of solar energy, backup generators, energy management systems, and Industry 4.0 solutions. Delivering sustainable power solutions across Lebanon.",
+            description: "Leading provider of solar energy, backup generators, and energy management systems. Delivering sustainable power solutions across Lebanon.",
             areaServed: {
               "@type": "Country",
               name: "Lebanon"
@@ -98,8 +98,8 @@ export default function Page() {
                 "@type": "Offer",
                 itemOffered: {
                   "@type": "Service",
-                  name: "Industry 4.0 Solutions",
-                  description: "Industrial IoT, automation, and predictive maintenance for smart factories"
+                  name: "Smart Energy Solutions",
+                  description: "Industrial IoT and automation for optimized energy management"
                 }
               }
             ]

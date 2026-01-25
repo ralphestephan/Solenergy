@@ -13,7 +13,7 @@ import TrustSignals from "@/components/TrustSignals";
 
 import {
   Zap, Sun, Battery, Wrench, Phone, TrendingUp, Package, Map, Layers, Hammer, BarChart3,
-  Activity, Clock, GitBranch, Bell, Radio, Cog, Database, Shield, Cpu, Cloud, Gauge, 
+  Activity, Clock, GitBranch, Bell, Radio, Cog, Database, Shield, Cpu, Cloud, Gauge,
   Smartphone, Droplet, CheckCircle, Award, Target, Leaf, DollarSign
 } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const s = solutions.find((x) => x.slug === slug);
   if (!s) return { title: "Solution" };
-  
+
   const ogImage = new URL('/api/og', SITE.baseUrl);
   ogImage.searchParams.set('title', s.heading);
   ogImage.searchParams.set('description', s.description);
@@ -187,18 +187,18 @@ export default async function Page({ params }: Props) {
 
               {/* stat band */}
               <div className="w-full lg:w-auto">
-                <div className="grid grid-cols-3 gap-4">
+                <div className="grid grid-cols-3 gap-2 sm:gap-4">
                   {[
                     { k: "Components", v: s.tech?.length || 0, icon: Package },
-                    { k: "Setup", v: "Professional", icon: Wrench },
+                    { k: "Setup", v: "Pro", icon: Wrench },
                     { k: "Support", v: "24/7", icon: Phone },
                   ].map(({ k, v, icon: Icon }) => (
-                    <div key={k} className="rounded-xl bg-zinc-50 border border-zinc-200 p-4 text-center hover:border-brand-yellow/50 transition-colors">
-                      <div className="w-12 h-12 rounded-xl bg-brand-yellow/10 text-brand-yellow inline-grid place-items-center mx-auto mb-2">
-                        <Icon className="w-6 h-6" />
+                    <div key={k} className="rounded-xl bg-zinc-50 border border-zinc-200 p-2 sm:p-4 text-center hover:border-brand-yellow/50 transition-colors">
+                      <div className="w-8 h-8 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-brand-yellow/10 text-brand-yellow inline-grid place-items-center mx-auto mb-1 sm:mb-2">
+                        <Icon className="w-4 h-4 sm:w-6 sm:h-6" />
                       </div>
-                      <div className="text-xs uppercase tracking-wide text-zinc-500 font-medium">{k}</div>
-                      <div className="text-lg font-bold text-zinc-900">{v}</div>
+                      <div className="text-[10px] sm:text-xs uppercase tracking-wide text-zinc-500 font-medium">{k}</div>
+                      <div className="text-sm sm:text-lg font-bold text-zinc-900">{v}</div>
                     </div>
                   ))}
                 </div>
@@ -261,7 +261,7 @@ export default async function Page({ params }: Props) {
                   </Reveal>
                 );
               })}
-              
+
               {/* Specific technologies based on solution type */}
               {s.slug === "generators" && (
                 <>
@@ -285,7 +285,7 @@ export default async function Page({ params }: Props) {
                   </Reveal>
                 </>
               )}
-              
+
               {s.slug === "solar-services" && (
                 <>
                   <Reveal as="div" className="group">
@@ -308,7 +308,7 @@ export default async function Page({ params }: Props) {
                   </Reveal>
                 </>
               )}
-              
+
               {s.slug === "energy-management" && (
                 <>
                   <Reveal as="div" className="group">
@@ -331,7 +331,7 @@ export default async function Page({ params }: Props) {
                   </Reveal>
                 </>
               )}
-              
+
               {s.slug === "energy-management" && (
                 <>
                   <Reveal as="div" className="group">
@@ -366,7 +366,7 @@ export default async function Page({ params }: Props) {
                   </Reveal>
                 </>
               )}
-              
+
               {s.slug === "solar-services" && (
                 <>
                   <Reveal as="div" className="group">
@@ -389,7 +389,7 @@ export default async function Page({ params }: Props) {
                   </Reveal>
                 </>
               )}
-              
+
               {/* Common technologies for all solutions */}
               <Reveal as="div" className="group">
                 <div className="flex items-center gap-2 px-4 py-3 rounded-full bg-white border border-zinc-200 hover:border-brand-yellow hover:shadow-md transition-all cursor-pointer">
@@ -397,28 +397,28 @@ export default async function Page({ params }: Props) {
                   <span className="text-sm font-medium text-zinc-900 truncate">Real-time monitoring</span>
                 </div>
               </Reveal>
-              
+
               <Reveal as="div" className="group">
                 <div className="flex items-center gap-2 px-4 py-3 rounded-full bg-white border border-zinc-200 hover:border-brand-yellow hover:shadow-md transition-all cursor-pointer">
                   <Cloud className="w-5 h-5 text-zinc-700 group-hover:text-brand-yellow transition-colors flex-shrink-0" />
                   <span className="text-sm font-medium text-zinc-900 truncate">Cloud backup</span>
                 </div>
               </Reveal>
-              
+
               <Reveal as="div" className="group">
                 <div className="flex items-center gap-2 px-4 py-3 rounded-full bg-white border border-zinc-200 hover:border-brand-yellow hover:shadow-md transition-all cursor-pointer">
                   <Shield className="w-5 h-5 text-zinc-700 group-hover:text-brand-yellow transition-colors flex-shrink-0" />
                   <span className="text-sm font-medium text-zinc-900 truncate">Encrypted data</span>
                 </div>
               </Reveal>
-              
+
               <Reveal as="div" className="group">
                 <div className="flex items-center gap-2 px-4 py-3 rounded-full bg-white border border-zinc-200 hover:border-brand-yellow hover:shadow-md transition-all cursor-pointer">
                   <Phone className="w-5 h-5 text-zinc-700 group-hover:text-brand-yellow transition-colors flex-shrink-0" />
                   <span className="text-sm font-medium text-zinc-900 truncate">24/7 support</span>
                 </div>
               </Reveal>
-              
+
               <Reveal as="div" className="group">
                 <div className="flex items-center gap-2 px-4 py-3 rounded-full bg-white border border-zinc-200 hover:border-brand-yellow hover:shadow-md transition-all cursor-pointer">
                   <TrendingUp className="w-5 h-5 text-zinc-700 group-hover:text-brand-yellow transition-colors flex-shrink-0" />
@@ -598,14 +598,14 @@ export default async function Page({ params }: Props) {
                 Ready to transform your energy infrastructure? Contact us for a free consultation and site assessment. We'll analyze your energy needs, evaluate your site, and provide a detailed proposal with ROI projections.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
-                <Link 
-                  href="/contact" 
+                <Link
+                  href="/contact"
                   className="px-6 py-3 rounded-full bg-gradient-to-r from-brand-yellow to-brand-orange text-white font-semibold text-center hover:shadow-lg transition-shadow"
                 >
                   Schedule Consultation
                 </Link>
-                <Link 
-                  href="/solutions" 
+                <Link
+                  href="/solutions"
                   className="px-6 py-3 rounded-full border-2 border-brand-yellow text-brand-yellow font-semibold text-center hover:bg-brand-yellow/5 transition-colors"
                 >
                   View All Solutions
