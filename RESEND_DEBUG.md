@@ -13,7 +13,7 @@
 - Newsletter Notification: `info@solenergypower.com`
 
 ### Resend API Key:
-- Key: `re_GNE1Zft7_FK2SbKxwuNFrxumZQNP9wVi1`
+- Key: `<rotated — see .env.example / Vercel env>`
 
 ## Common Issues:
 

@@ -20,7 +20,7 @@
 
 **Check**:
 - Go to Resend Dashboard → **API Keys**
-- Verify the key `re_GNE1Zft7_FK2SbKxwuNFrxumZQNP9wVi1` is active
+- Verify the key `<rotated — see .env.example / Vercel env>` is active
 - Make sure it's the correct key (not a test key that's expired)
 
 ### 3. Email Address Issues

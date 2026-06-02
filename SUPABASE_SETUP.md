@@ -11,14 +11,15 @@ Your Supabase integration is now fully configured with the BDI Systems schema!
 The following are already configured in the code (with fallbacks), but you can also set them in `.env.local`:
 
 ```env
-NEXT_PUBLIC_SUPABASE_URL=https://uwhamhqmwduyzbyqkjod.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV3aGFtaHFtd2R1eXpieXFram9kIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjIxNzI1OTUsImV4cCI6MjA3Nzc0ODU5NX0.QJdRkGoBK5kBDiKuFKBDGFf4zempzGG5-pHAr-ujbBY
-RESEND_API_KEY=re_GNE1Zft7_FK2SbKxwuNFrxumZQNP9wVi1
+NEXT_PUBLIC_SUPABASE_URL=https://<your-project-ref>.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=<your-anon-jwt>
+NEXT_PUBLIC_BDI_ORGANIZATION_ID=<solenergy-organization-uuid>
+RESEND_API_KEY=<your-resend-api-key>
 ```
 
 ### Organization ID
 
-**Solenergy Organization ID**: `3041e8aa-1139-42c9-ba3c-ebf9f2d98b5d`
+**Solenergy Organization ID**: provided via `NEXT_PUBLIC_BDI_ORGANIZATION_ID` (see `.env.example`).
 
 This is automatically included in all database inserts.
 
