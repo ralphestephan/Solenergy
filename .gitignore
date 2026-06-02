@@ -34,6 +34,9 @@ Thumbs.db
 # Tests / coverage (if any)
 coverage/
 
+# TypeScript build cache
+*.tsbuildinfo
+
 # Prisma (commit schema & migrations; ignore accidental local DBs)
 prisma/*.db
 prisma/*.db-journal

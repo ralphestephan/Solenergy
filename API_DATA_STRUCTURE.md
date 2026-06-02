@@ -25,7 +25,7 @@ This document shows exactly how data is being sent from the website to Supabase.
 ### Data Sent to Supabase:
 ```javascript
 {
-  organization_id: "REDACTED_ORG_UUID",
+  organization_id: "<solenergy-organization-uuid>",
   name: "John Doe",
   email: "john@example.com",
   phone: "+961 71 654 956",  // or null if not provided
@@ -58,7 +58,7 @@ const { data, error } = await supabase
   .from('contact_form_submissions')
   .insert([
     {
-      organization_id: SOLENERGY_ORG_ID, // "REDACTED_ORG_UUID"
+      organization_id: SOLENERGY_ORG_ID, // "<solenergy-organization-uuid>"
       name: form.name,
       email: form.email,
       phone: form.phone || null,
@@ -91,7 +91,7 @@ const { data, error } = await supabase
 ### Data Sent to Supabase:
 ```javascript
 {
-  organization_id: "REDACTED_ORG_UUID",
+  organization_id: "<solenergy-organization-uuid>",
   email: "subscriber@example.com",
   name: "Jane Doe",  // only included if provided
   phone: "+961 71 654 956",  // only included if provided
@@ -105,7 +105,7 @@ const { data, error } = await supabase
 ```typescript
 // Prepare data for Supabase - only include fields that exist in the schema
 const insertData: any = {
-  organization_id: SOLENERGY_ORG_ID, // "REDACTED_ORG_UUID"
+  organization_id: SOLENERGY_ORG_ID, // "<solenergy-organization-uuid>"
   email: email,
   source: 'website',
   status: 'active',
@@ -130,7 +130,7 @@ const { data, error } = await supabase
 
 ## 🔑 Key Points:
 
-1. **Organization ID**: Always included: `"REDACTED_ORG_UUID"`
+1. **Organization ID**: Always included: `"<solenergy-organization-uuid>"`
 
 2. **Metadata**: 
    - Sent as JavaScript object (NOT stringified/JSON.stringify)

@@ -8,9 +8,9 @@ This shows the EXACT structure of data being sent to Supabase for debugging RLS 
 
 ```typescript
 // lib/supabase.ts
-const supabaseUrl = 'https://REDACTED_SUPABASE_REF.supabase.co'
-const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...' // ANON key
-export const SOLENERGY_ORG_ID = 'REDACTED_ORG_UUID'
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+export const SOLENERGY_ORG_ID = process.env.NEXT_PUBLIC_BDI_ORGANIZATION_ID!
 
 const supabase = createClient(supabaseUrl, supabaseAnonKey)
 ```
@@ -32,7 +32,7 @@ Headers:
 ### JSON Body Being Sent:
 ```json
 {
-  "organization_id": "REDACTED_ORG_UUID",
+  "organization_id": "<solenergy-organization-uuid>",
   "name": "John Doe",
   "email": "john@example.com",
   "phone": "+961 71 654 956",
@@ -53,7 +53,7 @@ Headers:
 ### Example with minimal data:
 ```json
 {
-  "organization_id": "REDACTED_ORG_UUID",
+  "organization_id": "<solenergy-organization-uuid>",
   "name": "Jane Doe",
   "email": "jane@example.com",
   "phone": null,
@@ -85,7 +85,7 @@ Headers:
 ### JSON Body Being Sent (with name and phone):
 ```json
 {
-  "organization_id": "REDACTED_ORG_UUID",
+  "organization_id": "<solenergy-organization-uuid>",
   "email": "subscriber@example.com",
   "name": "Jane Doe",
   "phone": "+961 71 654 956",
@@ -97,7 +97,7 @@ Headers:
 ### JSON Body Being Sent (email only):
 ```json
 {
-  "organization_id": "REDACTED_ORG_UUID",
+  "organization_id": "<solenergy-organization-uuid>",
   "email": "subscriber@example.com",
   "source": "website",
   "status": "active"
@@ -137,7 +137,7 @@ WITH CHECK (true);
 - [ ] RLS is enabled on both tables
 - [ ] Policies allow INSERT for `anon` role
 - [ ] Using ANON key (not service_role key)
-- [ ] Organization ID is correct: `REDACTED_ORG_UUID`
+- [ ] Organization ID is correct (matches `NEXT_PUBLIC_BDI_ORGANIZATION_ID` from `.env.local` / Vercel env)
 - [ ] Tables exist: `contact_form_submissions` and `newsletter_subscribers`
 - [ ] All required columns exist in the tables
 - [ ] Metadata column is JSONB type (if used)
