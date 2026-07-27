@@ -8,7 +8,7 @@ import BackToTopFab from "@/components/ui/BackToTopFab";
 import Header from "@/components/Header";
 
 import GoogleAnalytics from '@/components/GoogleAnalytics';
-import { getTenantTracking } from "@/lib/tenant-brand";
+import { getTenantBrand } from "@/lib/tenant-brand";
 
 const poppins = Poppins({ subsets: ["latin"], display: "swap", variable: "--font-poppins", weight: ["700"] });
 
@@ -59,19 +59,19 @@ export const metadata: Metadata = {
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   // Tracking IDs come from the org's BDI settings (settings.brand.tracking); the site's own GA
   // property stays as a fallback so analytics never blanks if the settings fetch fails.
-  const tracking = await getTenantTracking();
+  const brand = await getTenantBrand();
   return (
     <html lang="en" className={poppins.variable}>
       <head>
         <meta name="google-site-verification" content="aSFML--c4EYr4rrZliksliZ-zE69910E17yB9C_xUlw" />
-        <GoogleAnalytics gaId={tracking.ga4Id || "G-NF65BFYXVT"} pixelId={tracking.metaPixelId} />
+        <GoogleAnalytics gaId={brand.ga4Id || "G-NF65BFYXVT"} pixelId={brand.metaPixelId} />
       </head>
       <body className="min-h-screen text-zinc-800 antialiased overflow-x-hidden">
 
         <Header />
         <main className="w-full overflow-x-clip">{children}</main>
         <BackToTopFab insetClass="bottom-6 right-6 sm:bottom-8 sm:right-8" size={56} />
-        <SiteFooter />
+        <SiteFooter contact={brand.contact} />
       </body>
     </html>
   );
