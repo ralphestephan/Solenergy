@@ -2,22 +2,39 @@
 
 import Script from 'next/script'
 
-export default function GoogleAnalytics() {
+// GA4 + optional Meta Pixel. IDs are passed in from the server layout, which resolves them from
+// the org's BDI settings (settings.brand.tracking). `gaId` falls back to the site's own GA property
+// so analytics keeps working even if the settings fetch fails.
+export default function GoogleAnalytics({
+  gaId = "G-NF65BFYXVT",
+  pixelId = "",
+}: {
+  gaId?: string;
+  pixelId?: string;
+}) {
   return (
     <>
-      <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-NF65BFYXVT"
-        strategy="afterInteractive"
-      />
-      <Script id="google-analytics" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'G-NF65BFYXVT');
-        `}
-      </Script>
+      {gaId ? (
+        <>
+          <Script
+            src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+            strategy="afterInteractive"
+          />
+          <Script id="google-analytics" strategy="afterInteractive">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${gaId}');
+            `}
+          </Script>
+        </>
+      ) : null}
+      {pixelId ? (
+        <Script id="meta-pixel" strategy="afterInteractive">
+          {`!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','${pixelId}');fbq('track','PageView');`}
+        </Script>
+      ) : null}
     </>
   )
 }
