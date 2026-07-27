@@ -28,7 +28,15 @@ function XLogo(props: React.SVGProps<SVGSVGElement>) {
 
 
 
-export default function SiteFooter() {
+export default function SiteFooter({
+  contact = {},
+}: {
+  contact?: { email?: string; phone?: string; whatsapp?: string };
+}) {
+  // Contact resolves from BDI org settings (passed by the layout); falls back to site defaults.
+  const waNum = contact.whatsapp || "96171654956";
+  const contactEmail = contact.email || "info@solenergypower.com";
+  const contactPhone = contact.phone || "+961 71 654 956";
   const links: [string, string][] = [
     ["About", "/about"],
     ["Solutions", "/solutions"],
@@ -40,8 +48,8 @@ export default function SiteFooter() {
 
   const helpful: [string, string][] = [
     ["Support", "/contact"],
-    ["WhatsApp", "https://wa.me/96171654956"],
-    ["Email us", "mailto:info@solenergypower.com"],
+    ["WhatsApp", `https://wa.me/${waNum}`],
+    ["Email us", `mailto:${contactEmail}`],
   ];
 
   const [email, setEmail] = useState("");
@@ -113,7 +121,7 @@ export default function SiteFooter() {
               Made in Lebanon
             </span>
             <a
-              href="https://wa.me/96171654956"
+              href={`https://wa.me/${waNum}`}
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-yellow hover:text-brand-orange transition-colors"
@@ -200,7 +208,7 @@ export default function SiteFooter() {
                 <div className="flex items-center gap-2">
                   <Phone className="h-4 w-4 text-zinc-500 shrink-0" aria-hidden />
                   <div className="flex flex-col">
-                    <a href="tel:+96171654956" className="hover:text-brand-yellow transition-colors">+961 71 654 956</a>
+                    <a href={`tel:${contactPhone.replace(/\s/g, "")}`} className="hover:text-brand-yellow transition-colors">{contactPhone}</a>
                     <a href="tel:+96171010508" className="hover:text-brand-yellow transition-colors">+961 71 010 508</a>
                   </div>
                 </div>
