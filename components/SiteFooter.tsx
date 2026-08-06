@@ -72,7 +72,12 @@ export default function SiteFooter({
         body: JSON.stringify({ email }),
       });
 
-      if (!res.ok) throw new Error("Request failed");
+      // /api/newsletter answers 200 with {success:boolean}; `success` is the
+      // only proof the address was stored (see lib/submission.ts). A 200 whose
+      // body says success:false means every durable leg failed, and telling the
+      // visitor "Thanks!" for that is the exact defect this replaces.
+      const json: { success?: boolean } = await res.json().catch(() => ({}));
+      if (!res.ok || json?.success !== true) throw new Error("Request failed");
 
       setStatus("ok");
       setMsg("Thanks! We’ll be in touch soon.");

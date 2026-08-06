@@ -37,14 +37,19 @@ export default function Page() {
         body: JSON.stringify(data),
       });
 
-      if (!res.ok) {
-        let errJson: any = {};
-        try {
-          errJson = await res.json();
-        } catch (parseErr) {
-          console.warn("Could not parse error JSON:", parseErr);
-        }
-        throw new Error(errJson?.error || `Request failed with ${res.status}`);
+      // /api/contact answers 200 with {success:boolean} — `success` is true only
+      // when the enquiry actually landed somewhere durable (Prisma backup or the
+      // BDI mirror). `res.ok` alone is NOT that proof: the route reports a
+      // storage failure as 200 + success:false on purpose, so that a partial
+      // outage cannot be reported to the visitor as a send.
+      let json: { success?: boolean; error?: string } = {};
+      try {
+        json = await res.json();
+      } catch (parseErr) {
+        console.warn("Could not parse response JSON:", parseErr);
+      }
+      if (!res.ok || json?.success !== true) {
+        throw new Error(json?.error || `Request failed with ${res.status}`);
       }
 
       setStatus("ok");
@@ -54,7 +59,9 @@ export default function Page() {
     } catch (err) {
       console.error("Contact form error (frontend):", err);
       setStatus("err");
-      setMsg("Something went wrong. Please try again.");
+      // Prefer the server's own wording: when storage failed it names a phone
+      // number the visitor can call instead, which a generic "try again" hides.
+      setMsg(err instanceof Error && err.message ? err.message : "Something went wrong. Please try again.");
     }
   }
 

@@ -1,62 +1,25 @@
-import { NextResponse } from "next/server";
-
-// Vealive's frontend posts to /api/contact on its own origin so it doesn't have
-// to deal with CORS. This route is a thin proxy: it injects Vealive's
-// organizationId and forwards to the BDI central submissions API, which owns
-// the Prisma write, the per-tenant Resend email, and the MemberFlow forward.
+// Contact / quote submissions for solenergypower.com.
 //
-// Required env:
-//   BDI_API_BASE          e.g. https://bdicorporate.com
-//   BDI_ORGANIZATION_ID   Vealive's org id in MemberFlow
+// This route used to be a thin proxy to `${BDI_API_BASE}/api/contact` — and its
+// header comment described Vealive, because it was copied from that repo and
+// never re-read. That target does not exist for this project (BDI_API_BASE is
+// set to the MemberFlow SPA, which answers POST with 405), and even if it had,
+// BDI Corporate's route would have written the row under BDI's OWN
+// organizationId. Both defects, the live measurements behind them, and the
+// three-leg architecture that replaces them are documented in lib/submission.ts.
+//
+// THE CONTRACT WITH THE BROWSER CHANGED, and app/contact/page.tsx changed with
+// it: this route now answers HTTP 200 with `{success:boolean, ...}` instead of
+// relaying an upstream status code, so the page branches on `json.success`, not
+// on `res.ok`.
+import { NextResponse } from "next/server";
+import { handleSubmission } from "@/lib/submission";
 
-const BDI_API_BASE = process.env.BDI_API_BASE || "";
-const ORG_ID = process.env.BDI_ORGANIZATION_ID || "";
-
-function forwardHeaders(req: Request): Record<string, string> {
-  const out: Record<string, string> = { "Content-Type": "application/json" };
-  const xff = req.headers.get("x-forwarded-for");
-  const realIp = req.headers.get("x-real-ip");
-  const ua = req.headers.get("user-agent");
-  const ref = req.headers.get("referer");
-  if (xff) out["x-forwarded-for"] = xff;
-  if (realIp) out["x-real-ip"] = realIp;
-  if (ua) out["user-agent"] = ua;
-  if (ref) out["referer"] = ref;
-  return out;
-}
+// Prisma needs the Node runtime; it does not run on the edge runtime.
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
 
 export async function POST(req: Request) {
-  if (!BDI_API_BASE || !ORG_ID) {
-    console.error("contact proxy: BDI_API_BASE or BDI_ORGANIZATION_ID missing");
-    return NextResponse.json(
-      { success: false, error: "Submissions API not configured" },
-      { status: 500 },
-    );
-  }
-
-  let form: Record<string, unknown> = {};
-  try {
-    form = await req.json();
-  } catch {
-    return NextResponse.json({ success: false, error: "Invalid JSON" }, { status: 400 });
-  }
-
-  try {
-    const upstream = await fetch(`${BDI_API_BASE}/api/contact`, {
-      method: "POST",
-      headers: forwardHeaders(req),
-      body: JSON.stringify({ ...form, organizationId: ORG_ID }),
-    });
-    const text = await upstream.text();
-    return new NextResponse(text, {
-      status: upstream.status,
-      headers: { "Content-Type": upstream.headers.get("Content-Type") || "application/json" },
-    });
-  } catch (err: unknown) {
-    console.error("contact proxy: upstream call failed:", err);
-    return NextResponse.json(
-      { success: false, error: err instanceof Error ? err.message : "Failed to send" },
-      { status: 502 },
-    );
-  }
+  const { status, json } = await handleSubmission(req, "contact");
+  return NextResponse.json(json, { status });
 }
