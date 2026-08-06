@@ -1,57 +1,28 @@
+// Newsletter subscriptions for solenergypower.com.
+//
+// Same story as ./contact/route.ts: this was a thin proxy to a BDI endpoint that
+// does not exist on the configured host, so not one of this org's subscribers
+// was ever persisted anywhere (0 rows in Prisma NewsletterSubscriber and 0 in
+// Supabase website_submissions for org 3041e8aa, read 2026-08-06). It now runs
+// the same three legs — Prisma backup, dormant Resend, BDI mirror — via
+// lib/submission.ts.
+//
+// The form_type is pinned to "newsletter" so the backup lands in
+// NewsletterSubscriber rather than the lead table, and so the BDI CRM fan-out
+// treats it as a subscribe. A body that names some other form_type is honoured
+// only if it is one website-public-submit accepts; anything unknown falls back
+// to "newsletter" here (the contact route falls back to "contact"), which keeps
+// the Prisma row and the CRM row describing the same thing.
+//
+// Contract change: HTTP 200 with `{success:boolean, ...}` — components/SiteFooter.tsx
+// branches on `json.success`, not on `res.ok`.
 import { NextResponse } from "next/server";
+import { handleSubmission } from "@/lib/submission";
 
-// Thin proxy to the BDI central submissions API. The BDI route owns the
-// upsert into NewsletterSubscriber, the Vealive-branded welcome email, and
-// the MemberFlow forward. See ./contact/route.ts for the same pattern.
-
-const BDI_API_BASE = process.env.BDI_API_BASE || "";
-const ORG_ID = process.env.BDI_ORGANIZATION_ID || "";
-
-function forwardHeaders(req: Request): Record<string, string> {
-  const out: Record<string, string> = { "Content-Type": "application/json" };
-  const xff = req.headers.get("x-forwarded-for");
-  const realIp = req.headers.get("x-real-ip");
-  const ua = req.headers.get("user-agent");
-  const ref = req.headers.get("referer");
-  if (xff) out["x-forwarded-for"] = xff;
-  if (realIp) out["x-real-ip"] = realIp;
-  if (ua) out["user-agent"] = ua;
-  if (ref) out["referer"] = ref;
-  return out;
-}
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
 
 export async function POST(req: Request) {
-  if (!BDI_API_BASE || !ORG_ID) {
-    console.error("newsletter proxy: BDI_API_BASE or BDI_ORGANIZATION_ID missing");
-    return NextResponse.json(
-      { success: false, error: "Submissions API not configured" },
-      { status: 500 },
-    );
-  }
-
-  let body: Record<string, unknown> = {};
-  try {
-    body = await req.json();
-  } catch {
-    return NextResponse.json({ success: false, error: "Invalid JSON" }, { status: 400 });
-  }
-
-  try {
-    const upstream = await fetch(`${BDI_API_BASE}/api/newsletter`, {
-      method: "POST",
-      headers: forwardHeaders(req),
-      body: JSON.stringify({ ...body, organizationId: ORG_ID }),
-    });
-    const text = await upstream.text();
-    return new NextResponse(text, {
-      status: upstream.status,
-      headers: { "Content-Type": upstream.headers.get("Content-Type") || "application/json" },
-    });
-  } catch (err: unknown) {
-    console.error("newsletter proxy: upstream call failed:", err);
-    return NextResponse.json(
-      { success: false, error: err instanceof Error ? err.message : "Failed to subscribe" },
-      { status: 502 },
-    );
-  }
+  const { status, json } = await handleSubmission(req, "newsletter");
+  return NextResponse.json(json, { status });
 }

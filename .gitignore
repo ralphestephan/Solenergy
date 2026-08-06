@@ -40,3 +40,10 @@ coverage/
 # Prisma (commit schema & migrations; ignore accidental local DBs)
 prisma/*.db
 prisma/*.db-journal
+
+# Next.js 16 writes these on every `next dev` ("Generated AGENTS.md and
+# CLAUDE.md for AI agents"). They are build artefacts of the dev server, not
+# authored files, and they showed up untracked the first time this repo was run
+# locally after the Next 16 upgrade.
+/AGENTS.md
+/CLAUDE.md
