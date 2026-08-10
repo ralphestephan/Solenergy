@@ -47,3 +47,5 @@ prisma/*.db-journal
 # locally after the Next 16 upgrade.
 /AGENTS.md
 /CLAUDE.md
+.vercel
+.env*
