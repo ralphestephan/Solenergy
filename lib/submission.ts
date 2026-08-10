@@ -145,6 +145,73 @@ function pick(body: SubmissionBody, keys: string[], max: number): string | null 
   return null;
 }
 
+// ─── THE EMPTY-SUBMISSION RULE (added 2026-08-10) ────────────────────────────
+//
+// WHAT HAPPENED. On 2026-08-06/07/09 a liveness probe sent `POST -d '{}'` to
+// every tenant site's contact endpoint. Every layer accepted it: a row was
+// written to website_submissions, the fan-out trigger promoted it to a CRM
+// lead, and notify-website-submission MAILED THE OWNER. Four of those landed in
+// a real person's inbox at a real business, reading:
+//
+//     From: there            <- the fallback rendering of an ABSENT name
+//     Email:
+//     Phone:
+//
+// 28 such rows existed across 8 orgs. They are now in
+// audit_snapshots.empty_submissions_20260810 and deleted.
+//
+// THE HONEYPOT DID NOT CATCH THIS AND STRUCTURALLY CANNOT. The honeypot only
+// fires when a bot FILLS the trap field. An empty POST carries no `hp` key at
+// all, so `typeof body.hp === "string"` is false and the check passes. Every
+// scanner, uptime monitor and careless probe sends exactly that shape. Anti-bot
+// protection that triggers on a filled trap is not emptiness validation and must
+// never be assumed to cover it. These are two independent checks and both are
+// required.
+//
+// THE RULE. A submission is REFUSED when, after trimming, it has NO email AND
+// NO phone AND NO message. A NAME ALONE IS NOT ENOUGH — "From: there" with
+// nothing else is precisely the useless email this exists to prevent, and a name
+// is not a way to reach anybody. `subject` is NOT content either: on most tenant
+// forms it is a <select>, so a lone subject is a dropdown default, not an
+// enquiry.
+//
+// MEASURED, NOT ASSUMED (read-only, 2026-08-10):
+//   * all 63 surviving website_submissions rows -> 63 carry an email,
+//     0 would be refused by this rule.
+//   * audit_snapshots.empty_submissions_20260810 -> 28 of 28 would be refused.
+// So it blocks the whole defect and none of the real traffic on record, which
+// includes the two genuine Abou Philippe bookings of 2026-08-08.
+//
+// IT MUST NEVER BE STRICTER THAN THE PLATFORM. website-public-submit enforces
+// the same rule; a client rule tighter than the server's is a form that refuses
+// a lead the platform would have kept. The message aliases below therefore err
+// LOOSE. Live payload keys across all 63 real rows are only email(53),
+// phone(31), message(31), raw_message(4) — `notes` and `comment` have never
+// arrived, and are listed only because live tenant FORMS emit them (the House of
+// Fitness booking modal uses name="notes", this site's own forms use `notes`),
+// so they must count as content.
+//
+// AND IT IS A REAL 400, NOT A SILENT 200. The honeypot answers 200 on purpose,
+// so a bot learns nothing. This is the opposite case: the caller is a form, or a
+// probe, that sent nothing usable, and it deserves to be told. A silent 200 here
+// is the exact failure mode — "we stored it" for something that went nowhere —
+// that this codebase has spent three days removing.
+const EMAIL_KEYS = ["email"];
+const PHONE_KEYS = ["phone"];
+const MESSAGE_KEYS = ["message", "notes", "comment", "raw_message"];
+
+export const EMPTY_SUBMISSION_ERROR =
+  "Please include an email address, a phone number, or a message so we can reply.";
+
+/** True when the body carries at least one thing a human could act on. */
+function hasContactableContent(body: SubmissionBody): boolean {
+  // pick() already trims and treats "" / "   " as absent, which is the whole
+  // definition of "after trimming" in the rule above.
+  return Boolean(
+    pick(body, EMAIL_KEYS, 200) || pick(body, PHONE_KEYS, 200) || pick(body, MESSAGE_KEYS, 5000),
+  );
+}
+
 /**
  * Write the PERMANENT backup row.
  *
@@ -381,6 +448,10 @@ export interface SubmissionOutcome {
     email?: EmailResult;
     bdi?: MirrorResult;
     error?: string;
+    /** "empty_submission" when the body carried nothing actionable and the
+     *  pipeline never ran. Paired with status 400. Every other outcome stays
+     *  200 and the client reads `success`. */
+    reason?: "empty_submission";
   };
 }
 
@@ -408,6 +479,25 @@ export async function handleSubmission(req: Request, defaultFormType: FormType):
   // the bot learns nothing.
   if (typeof body.hp === "string" && body.hp.trim() !== "") {
     return { status: 200, json: { success: true, prisma: "skipped", bdi: "unconfigured" } };
+  }
+
+  // EMPTIness, which the honeypot above does NOT cover — see the rule near
+  // hasContactableContent(). Refused BEFORE the Prisma write, before any mail
+  // and before the BDI mirror, so a body with nothing in it produces no row, no
+  // CRM lead and no owner notification anywhere.
+  //
+  // 400, not the 200 the honeypot answers with. The honeypot is silent on
+  // purpose so a bot learns nothing; this is the opposite case — a form, or a
+  // probe, that sent nothing usable, and it deserves to be told. This route
+  // otherwise always answers 200 and lets the client read `success`; this is the
+  // one refusal that happens BEFORE the pipeline runs, so it is a real client
+  // error rather than a pipeline outcome.
+  if (!hasContactableContent(body)) {
+    console.warn("submit: refused empty submission (no email, no phone, no message)");
+    return {
+      status: 400,
+      json: { success: false, error: EMPTY_SUBMISSION_ERROR, reason: "empty_submission" },
+    };
   }
 
   const raw = String(body.form_type || body.formType || defaultFormType);

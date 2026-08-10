@@ -30,6 +30,34 @@ export default function Page() {
       }
     });
 
+
+    // ─── THE EMPTY-SUBMISSION GUARD ──────────────────────────────────────────
+    //
+    // The inputs above carry HTML5 `required` and this <form> has no
+    // noValidate, so the browser already blocks a wholly blank submit. That is
+    // NOT sufficient and this guard is not redundant with it:
+    //   * `required` is satisfied by a field holding only spaces; this trims.
+    //   * the hidden `hp` honeypot catches only a bot that FILLS the trap — a
+    //     POST with no `hp` key at all passes it outright, which is exactly the
+    //     shape a scanner or liveness probe sends. On 2026-08-06/07/09 such a
+    //     probe (`POST -d '{}'`) was accepted by every tenant site, stored,
+    //     promoted to a CRM lead and EMAILED to the owner as
+    //     "From: there / Email: / Phone:". 28 rows across 8 orgs.
+    //
+    // THE RULE, identical to /api/contact and to BDI's website-public-submit:
+    // after trimming there must be an email OR a phone OR a message. A name
+    // alone is not a way to reach anybody. Deliberately never STRICTER than the
+    // server — a form that refuses what the platform would have kept loses a
+    // real lead. Nothing is sent, and nothing the visitor typed is cleared.
+    const filled = (k: string) => {
+      const v = data[k];
+      return typeof v === "string" ? v.trim() !== "" : v != null && String(v).trim() !== "";
+    };
+    if (!filled("email") && !filled("phone") && !["message", "notes", "comment"].some(filled)) {
+      setStatus("err");
+      setMsg("Please add an email address, a phone number, or a message so we can reply.");
+      return;
+    }
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
