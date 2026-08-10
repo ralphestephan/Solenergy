@@ -131,9 +131,9 @@ const RESEND_TIMEOUT_MS = Number(process.env.RESEND_TIMEOUT_MS || 8000);
 const SITE_SENDS_EMAIL = process.env.SITE_SENDS_EMAIL === "1";
 const BRAND = SITE.brand;
 
-export type PrismaResult = "ok" | "duplicate" | "skipped" | "failed";
+export type PrismaResult = "ok" | "duplicate" | "skipped" | "failed" | "rolled_back";
 export type EmailResult = "off" | "sent" | "partial" | "failed" | "no_recipient";
-export type MirrorResult = "ok" | "rejected" | "failed" | "unconfigured";
+export type MirrorResult = "ok" | "rejected" | "rejected_invalid" | "failed" | "unconfigured";
 
 /** First non-empty string among the given keys, trimmed and length-capped. */
 function pick(body: SubmissionBody, keys: string[], max: number): string | null {
@@ -203,13 +203,41 @@ const MESSAGE_KEYS = ["message", "notes", "comment", "raw_message"];
 export const EMPTY_SUBMISSION_ERROR =
   "Please include an email address, a phone number, or a message so we can reply.";
 
-/** True when the body carries at least one thing a human could act on. */
-function hasContactableContent(body: SubmissionBody): boolean {
+// ─── THE PLATFORM IS STRICTER FOR SOME FORM TYPES, AND THIS SIDE WAS NOT ─────
+// (found 2026-08-10 by diffing both databases)
+//
+// _shared/submission-content.ts:111 declares
+//     CONTACT_REQUIRED = {"newsletter", "booking", "order", "membership"}
+// and for those four form types a MESSAGE ALONE IS NOT ENOUGH: the platform
+// demands an email or a phone, because there would otherwise be no way to reach
+// the customer, and refuses with code "empty_submission" (HTTP 400).
+//
+// This side only ever asked for "email OR phone OR message", for every form
+// type. A newsletter carrying only a `notes` field therefore passed here, earned
+// a PERMANENT Prisma row, was refused by the platform — and the visitor was
+// answered success:true because the Prisma leg had succeeded. No CRM lead, no
+// owner notification, and a backup row with no counterpart: the same shape as
+// the 24 Prisma-only orphans cleaned up on 2026-08-10, from a different cause.
+//
+// The rule below is now a copy of the platform's, so the two agree. It is not
+// STRICTER than the platform anywhere — that prohibition still stands, and
+// matching it exactly is the only way to honour it.
+const CONTACT_REQUIRED = new Set(["newsletter", "booking", "order", "membership"]);
+
+export const CONTACT_REQUIRED_ERROR =
+  "Please include an email address or a phone number so we can reach you.";
+
+export type ContentVerdict = { ok: true } | { ok: false; error: string };
+
+/** Does this body carry something a human could act on? Mirrors
+ *  checkSubmissionContent() in _shared/submission-content.ts. */
+function checkContent(formType: string, body: SubmissionBody): ContentVerdict {
   // pick() already trims and treats "" / "   " as absent, which is the whole
   // definition of "after trimming" in the rule above.
-  return Boolean(
-    pick(body, EMAIL_KEYS, 200) || pick(body, PHONE_KEYS, 200) || pick(body, MESSAGE_KEYS, 5000),
-  );
+  if (pick(body, EMAIL_KEYS, 200) || pick(body, PHONE_KEYS, 200)) return { ok: true };
+  if (CONTACT_REQUIRED.has(formType)) return { ok: false, error: CONTACT_REQUIRED_ERROR };
+  if (pick(body, MESSAGE_KEYS, 5000)) return { ok: true };
+  return { ok: false, error: EMPTY_SUBMISSION_ERROR };
 }
 
 /**
@@ -221,26 +249,43 @@ function hasContactableContent(body: SubmissionBody): boolean {
  * forking it, so a field this schema does not name survives in the BDI mirror's
  * free-form `payload` instead.
  */
-export async function writeBackup(formType: FormType, body: SubmissionBody): Promise<PrismaResult> {
+/**
+ * What writeBackup hands back: the outcome, plus — when and only when a NEW row
+ * was created — a way to undo exactly that row.
+ *
+ * `undo` is keyed on the created row's PRIMARY KEY, never on its email. Two
+ * visitors share an address, and the same visitor writes in twice; deleting by
+ * email would destroy somebody else's lead. It is null for every outcome that
+ * created nothing ("skipped", "failed", and the newsletter "duplicate" case), so
+ * there is no path on which a pre-existing row can be removed.
+ */
+export type Backup = { result: PrismaResult; undo: null | (() => Promise<void>) };
+
+export async function writeBackup(formType: FormType, body: SubmissionBody): Promise<Backup> {
   const prisma = getPrisma();
-  if (!prisma) return "skipped";
+  if (!prisma) return { result: "skipped", undo: null };
   if (!ORG) {
     // Writing a row with organizationId = null would put a Solenergy lead into
     // the shared multi-tenant table belonging to nobody, which is how the
     // attribution defect this file exists to fix happened in the first place.
     console.error("submit: BDI_ORGANIZATION_ID unset — refusing to write an untagged row");
-    return "skipped";
+    return { result: "skipped", undo: null };
   }
 
   try {
     if (formType === "newsletter") {
       const email = pick(body, ["email"], 200);
-      if (!email) return "failed";
+      if (!email) return { result: "failed", undo: null };
       try {
-        await prisma.newsletterSubscriber.create({
+        const row = await prisma.newsletterSubscriber.create({
           data: { email, status: "active", organizationId: ORG },
         });
-        return "ok";
+        return {
+          result: "ok",
+          undo: async () => {
+            await prisma.newsletterSubscriber.delete({ where: { id: row.id } });
+          },
+        };
       } catch (e) {
         // NewsletterSubscriber.email is @unique GLOBALLY, not per organization
         // (prisma/schema.prisma:66), so a second org subscribing an address the
@@ -251,7 +296,11 @@ export async function writeBackup(formType: FormType, body: SubmissionBody): Pro
         // records the subscribe against THIS org. The constraint should become
         // @@unique([organizationId, email]); that is a shared-schema change and
         // is out of this repo's scope.
-        if (typeof e === "object" && e !== null && (e as { code?: string }).code === "P2002") return "duplicate";
+        // "duplicate" carries no undo ON PURPOSE: nothing was created, and the
+        // row that already exists belongs to whichever org subscribed first.
+        if (typeof e === "object" && e !== null && (e as { code?: string }).code === "P2002") {
+          return { result: "duplicate", undo: null };
+        }
         throw e;
       }
     }
@@ -260,7 +309,7 @@ export async function writeBackup(formType: FormType, body: SubmissionBody): Pro
     // `name` and `email` are NOT NULL in the shared schema (:49-50), so they get
     // "" rather than null when absent; "" is honest — it means the visitor left
     // it blank — and the raw values ride along to BDI.
-    await prisma.contactFormSubmission.create({
+    const row = await prisma.contactFormSubmission.create({
       data: {
         name: pick(body, ["name", "full_name", "first_name"], 200) || "",
         email: pick(body, ["email"], 200) || "",
@@ -274,10 +323,15 @@ export async function writeBackup(formType: FormType, body: SubmissionBody): Pro
         organizationId: ORG,
       },
     });
-    return "ok";
+    return {
+      result: "ok",
+      undo: async () => {
+        await prisma.contactFormSubmission.delete({ where: { id: row.id } });
+      },
+    };
   } catch (e) {
     console.error("submit: prisma write failed:", e instanceof Error ? e.message : e);
-    return "failed";
+    return { result: "failed", undo: null };
   }
 }
 
@@ -426,11 +480,22 @@ export async function mirrorToBdi(
         page_slug: typeof body.page_slug === "string" && body.page_slug ? body.page_slug : pageSlug,
       }),
     });
-    const j = (await res.json().catch(() => null)) as { success?: unknown } | null;
+    const j = (await res.json().catch(() => null)) as { success?: unknown; code?: unknown } | null;
     if (res.ok && j && j.success === true) return "ok";
     if (j !== null) {
       console.warn(`submit: BDI mirror rejected (HTTP ${res.status}):`, JSON.stringify(j).slice(0, 300));
-      return "rejected";
+      // TWO KINDS OF NO, AND THEY MEAN OPPOSITE THINGS FOR THE BACKUP.
+      //
+      //   code "empty_submission"  -> the platform judged the CONTENT unusable.
+      //     It will judge it the same way forever, so a backup row for it is a
+      //     permanent orphan and the caller drops the row it just wrote.
+      //
+      //   anything else (429 rate limited, 403 origin not allowed, a 500,
+      //     "organization_id required") -> the content was fine and the platform
+      //     simply could not take it. The Prisma row is the ONLY copy of a real
+      //     lead and must survive. That is the whole reason the backup is
+      //     written first, and nothing here may delete it.
+      return j.code === "empty_submission" ? "rejected_invalid" : "rejected";
     }
     console.warn(`submit: BDI mirror gave no JSON (HTTP ${res.status})`);
     return "failed";
@@ -482,7 +547,7 @@ export async function handleSubmission(req: Request, defaultFormType: FormType):
   }
 
   // EMPTIness, which the honeypot above does NOT cover — see the rule near
-  // hasContactableContent(). Refused BEFORE the Prisma write, before any mail
+  // checkContent(). Refused BEFORE the Prisma write, before any mail
   // and before the BDI mirror, so a body with nothing in it produces no row, no
   // CRM lead and no owner notification anywhere.
   //
@@ -492,16 +557,20 @@ export async function handleSubmission(req: Request, defaultFormType: FormType):
   // otherwise always answers 200 and lets the client read `success`; this is the
   // one refusal that happens BEFORE the pipeline runs, so it is a real client
   // error rather than a pipeline outcome.
-  if (!hasContactableContent(body)) {
-    console.warn("submit: refused empty submission (no email, no phone, no message)");
-    return {
-      status: 400,
-      json: { success: false, error: EMPTY_SUBMISSION_ERROR, reason: "empty_submission" },
-    };
-  }
-
+  // formType is resolved BEFORE the content check, because the rule now depends
+  // on it: the platform requires an email or a phone for newsletter / booking /
+  // order / membership, and a message alone for the rest.
   const raw = String(body.form_type || body.formType || defaultFormType);
   const formType = (FORM_TYPES.has(raw) ? raw : defaultFormType) as FormType;
+
+  const content = checkContent(formType, body);
+  if (!content.ok) {
+    console.warn(`submit: refused empty submission (${formType}): ${content.error}`);
+    return {
+      status: 400,
+      json: { success: false, error: content.error, reason: "empty_submission" },
+    };
+  }
 
   const ip = (req.headers.get("x-forwarded-for") || "").split(",")[0].trim() || req.headers.get("x-real-ip") || null;
 
@@ -514,7 +583,8 @@ export async function handleSubmission(req: Request, defaultFormType: FormType):
   }
 
   // 1. PERMANENT BACKUP FIRST.
-  const prismaResult = await writeBackup(formType, body);
+  const backup = await writeBackup(formType, body);
+  let prismaResult = backup.result;
   // 2. Then this site's own mail — dormant until SITE_SENDS_EMAIL=1. Wrapped
   //    again here so that even a bug inside sendEmails cannot cost the mirror.
   let emailResult: EmailResult = "off";
@@ -527,7 +597,54 @@ export async function handleSubmission(req: Request, defaultFormType: FormType):
   // 3. The CRM mirror LAST, time-bounded, unable to fail either leg above.
   const bdiResult = await mirrorToBdi(formType, body, ip, pageSlug);
 
+  // 4. RECONCILE. The write order is Prisma-first for a good reason — a lead
+  //    must survive the platform being down — but it has one cost: anything the
+  //    platform refuses AFTER the backup lands leaves a Prisma row with no
+  //    counterpart, forever, and nothing ever notices. That is exactly how 24
+  //    empty probe rows accumulated in the backup of a live org.
+  //
+  //    Matching the platform's content rule above (checkContent) stops the
+  //    refusals we know about today. This step stops the ones we do not:
+  //    whenever the platform says the content itself is unusable, the row
+  //    written moments ago is undone, so this site's rule tracks the platform's
+  //    automatically instead of needing a hand-edit in eight repositories every
+  //    time the platform tightens.
+  //
+  //    ONLY "rejected_invalid" triggers it. A timeout or a rate limit must never
+  //    delete a backup — see the note in mirrorToBdi.
+  if (bdiResult === "rejected_invalid" && backup.undo) {
+    try {
+      await backup.undo();
+      prismaResult = "rolled_back";
+      console.warn("submit: BDI refused the content; backup row rolled back to keep both stores in step");
+    } catch (e) {
+      // The row stays. Say so loudly — a known orphan that is logged is
+      // recoverable; a silent one is what took three days to find.
+      console.error(
+        "submit: BDI refused the content but the backup row could NOT be removed — " +
+          "a Prisma-only row now exists and needs reconciling:",
+        e instanceof Error ? e.message : e,
+      );
+    }
+  }
+
   const stored = prismaResult === "ok" || prismaResult === "duplicate" || bdiResult === "ok";
+
+  // A content refusal is the visitor's to fix, so it is reported as such — and
+  // as a 400 — rather than with the generic "try again" that describes an outage.
+  if (!stored && bdiResult === "rejected_invalid") {
+    return {
+      status: 400,
+      json: {
+        success: false,
+        prisma: prismaResult,
+        email: emailResult,
+        bdi: bdiResult,
+        error: CONTACT_REQUIRED_ERROR,
+        reason: "empty_submission",
+      },
+    };
+  }
 
   return {
     status: 200,
