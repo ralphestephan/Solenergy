@@ -3,13 +3,16 @@ import type { MetadataRoute } from "next";
 import { SITE } from "@/lib/site";
 import solutions from "@/data/solutions";
 import { insights } from "@/data/insights";
+import { projects } from "@/data/projects";
 
+// Every path here must be a route that exists in app/. /homedome and /shop were
+// listed for months and have never been built — both answered 404 to Google and
+// to anyone who followed them. Removed rather than stubbed: an empty page is a
+// worse answer than no page. If either is wanted, build the route and add it back.
 const staticPaths = [
   { path: "", priority: 1.0 },
   { path: "/solutions", priority: 0.9 },
   { path: "/portfolio", priority: 0.9 },
-  { path: "/homedome", priority: 0.9 },
-  { path: "/shop", priority: 0.8 },
   { path: "/insights", priority: 0.8 },
   { path: "/glossary", priority: 0.7 },
   { path: "/about", priority: 0.7 },
@@ -41,20 +44,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   })) : [];
 
-  const projectPages = [
-    { slug: "commercial-solar-beirut" },
-    { slug: "industrial-generator-setup" },
-    { slug: "smart-factory-integration" },
-    { slug: "residential-solar-system" },
-    { slug: "hybrid-power-hotel" },
-    { slug: "commercial-solar-farm" },
-    { slug: "backup-generator-hospital" },
-    { slug: "residential-solar-battery" },
-    { slug: "commercial-energy-management" },
-    { slug: "industrial-solar-installation" },
-    { slug: "residential-off-grid" },
-    { slug: "generator-maintenance-upgrade" },
-  ].map((p) => ({
+  // Derived from the same data that app/portfolio/[slug] builds from, exactly as
+  // solutions and insights above already are. It used to be a hand-written list of
+  // twelve slugs that no longer matched a single real project — Solenergy's actual
+  // work is named after the sites it was installed on, so every one of those twelve
+  // 404'd while the twelve real case studies were invisible to search.
+  const projectPages = projects.map((p) => ({
     url: `${SITE.baseUrl}/portfolio/${p.slug}`,
     lastModified: now,
     changeFrequency: "monthly" as const,
