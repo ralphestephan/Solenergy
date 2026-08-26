@@ -36,7 +36,7 @@ export const SITE = {
     "solar prioritization",
     "Solenergy",
   ],
-  ogImage: "/images/og/solenergy-og.png",
+  ogImage: "/images/og/og-solenergy.png",
   socials: {
     // twitter: "@Solenergy", // Disabled until further notice
     instagram: "solenergy.me",
@@ -47,7 +47,7 @@ export const SITE = {
   org: {
     legalName: "Solenergy",
     url: "https://solenergypower.com",
-    logo: "/images/solenergy-logo.png",
+    logo: "/images/logo.png",
     sameAs: [
       // "https://twitter.com/Solenergy", // Disabled until further notice
       "https://www.instagram.com/solenergy.me",
