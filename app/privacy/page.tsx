@@ -1,9 +1,14 @@
 import type { Metadata } from "next";
 
-export const metadata: Metadata = { title: "Privacy Policy — Solenergy" };
+export const metadata: Metadata = {
+  title: "Privacy Policy",
+  description:
+    "How Solenergy collects, uses and protects your information, which cookies and analytics tools run only with your consent, and how to exercise your privacy rights.",
+  alternates: { canonical: "/privacy" },
+};
 
 export default function PrivacyPage() {
-  const updated = "January 15, 2025";
+  const updated = "September 17, 2026";
 
   const toc = [
     ["Overview", "overview"],
@@ -165,12 +170,32 @@ export default function PrivacyPage() {
             <section id="cookies" className="p-6 md:p-8 rounded-card bg-white border border-zinc-100 shadow-soft scroll-mt-24">
               <h2 className="text-2xl font-bold mb-4">Cookies & Analytics</h2>
               <p className="text-zinc-700">
-                We use essential cookies for website functionality and security. Optional analytics cookies help us
-                understand how visitors use our site to improve the experience.
+                When you first visit, a cookie banner asks for your choice. <strong>Accept all</strong> and{" "}
+                <strong>Reject all</strong> are equally easy, and <strong>Manage preferences</strong> lets you switch
+                each optional category on or off. Nothing optional runs until you choose, and if you reject, it never
+                runs. We use three categories:
               </p>
-              <p className="text-zinc-700 mt-2">
-                You can manage cookie preferences through your browser settings. Disabling cookies may affect
-                certain website features.
+              <ul className="list-disc pl-5 space-y-2 text-zinc-700 mt-3">
+                <li>
+                  <strong>Necessary</strong> (always on): what the site needs to work and stay secure, such as sending
+                  the contact and newsletter forms and remembering your cookie choice, which is stored in your
+                  browser&apos;s local storage.
+                </li>
+                <li>
+                  <strong>Analytics</strong> (off until you allow it): Google Analytics 4, to understand which pages
+                  are visited and how the site is used. Google&apos;s script is not loaded at all without this
+                  consent, and even with it, Google&apos;s advertising features stay switched off.
+                </li>
+                <li>
+                  <strong>Advertising</strong> (off until you allow it): the Meta Pixel, to measure the results of our
+                  Facebook and Instagram ads. Meta&apos;s script is not loaded without this consent. If your browser
+                  sends a Global Privacy Control signal, Advertising stays off.
+                </li>
+              </ul>
+              <p className="text-zinc-700 mt-3">
+                You can change or withdraw your choice at any time with <strong>Cookie preferences</strong> at the
+                bottom of every page. You can also clear cookies and site data in your browser settings, which
+                brings the banner back on your next visit.
               </p>
             </section>
 

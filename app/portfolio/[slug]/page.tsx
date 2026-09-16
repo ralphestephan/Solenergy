@@ -22,13 +22,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const project = projects.find((x) => x.slug === slug);
   if (!project) return { title: "Project" };
   
+  const system = `${project.capacity}${project.systemType ? ` ${project.systemType}` : ""}`;
+  const description = `${project.capacity}${project.systemType ? ` ${project.systemType.toLowerCase()}` : ""} solar system in ${project.location}. ${project.fullDescription || project.description}`;
+
   return {
-    title: `${project.title} | Solenergy Portfolio`,
-    description: project.description,
+    title: `${project.title}: ${system} Solar Project`,
+    description,
     alternates: { canonical: `/portfolio/${project.slug}` },
     openGraph: {
       title: project.title,
-      description: project.description,
+      description,
       url: `${SITE.baseUrl}/portfolio/${project.slug}`,
       images: [{ url: project.image, width: 1200, height: 630 }],
     },

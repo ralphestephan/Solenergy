@@ -19,7 +19,7 @@ import Reveal from "@/components/ui/Reveal";
 import DynamicUnderline from "@/components/ui/DynamicUnderline";
 
 export const metadata: Metadata = {
-  title: "Solar Energy & Generator Solutions | Solenergy Lebanon",
+  title: "Solar Energy & Generator Solutions in Lebanon",
   description:
     "Complete solar energy systems, backup generators, and energy management solutions. Reliable power solutions for Lebanon's energy challenges.",
   alternates: { canonical: "/solutions" },

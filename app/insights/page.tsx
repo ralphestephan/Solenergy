@@ -9,7 +9,7 @@ import SEOJsonLd from "@/components/SEOJsonLd";
 import { ArrowRight, Calendar, Clock, Tag } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Industry Insights | Solenergy",
+  title: "Industry Insights",
   description:
     "Expert insights on solar energy, generators, energy storage, and smart energy solutions for Lebanon's energy challenges.",
   alternates: { canonical: "/insights" },

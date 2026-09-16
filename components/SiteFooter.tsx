@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { FaTiktok } from "react-icons/fa";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
+import { openConsentPreferences } from "@/lib/consent";
 
 // Minimal brand marks (inline SVGs)
 function XLogo(props: React.SVGProps<SVGSVGElement>) {
@@ -76,11 +77,18 @@ export default function SiteFooter({
       // only proof the address was stored (see lib/submission.ts). A 200 whose
       // body says success:false means every durable leg failed, and telling the
       // visitor "Thanks!" for that is the exact defect this replaces.
-      const json: { success?: boolean } = await res.json().catch(() => ({}));
+      const json: { success?: boolean; bdi?: string } = await res.json().catch(() => ({}));
       if (!res.ok || json?.success !== true) throw new Error("Request failed");
 
       setStatus("ok");
-      setMsg("Thanks! We’ll be in touch soon.");
+      // BDI (the "bdi" leg) sends a confirmation email and the address is NOT subscribed until that
+      // link is clicked (confirmed opt-in), so success must not read as "you're subscribed". When BDI
+      // did not take it, the address is only in this site's own backup and no email is on its way.
+      setMsg(
+        json.bdi === "ok"
+          ? "Almost done: check your inbox and click the link to confirm your subscription."
+          : "Thanks, we have your email address."
+      );
       setEmail("");
     } catch {
       setStatus("err");
@@ -342,6 +350,7 @@ export default function SiteFooter({
             <Link href="/privacy" className="hover:text-brand-yellow transition-colors">Privacy</Link>
             <Link href="/terms" className="hover:text-brand-yellow transition-colors">Terms</Link>
             <Link href="/glossary" className="hover:text-brand-yellow transition-colors">Glossary</Link>
+            <button type="button" onClick={openConsentPreferences} className="hover:text-brand-yellow transition-colors">Cookie preferences</button>
           </div>
         </div>
       </div>

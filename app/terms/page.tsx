@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 
-export const metadata: Metadata = { title: "Terms of Service — Solenergy" };
+export const metadata: Metadata = {
+  title: "Terms of Service",
+  description:
+    "The terms governing Solenergy's solar, generator, energy storage and consultation services: quotes and pricing, installation, warranties, maintenance and payment.",
+  alternates: { canonical: "/terms" },
+};
 
 export default function TermsPage() {
   const effective = "January 15, 2025";

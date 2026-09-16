@@ -8,9 +8,9 @@ import SEOJsonLd from "@/components/SEOJsonLd";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "About Solenergy | Leading Energy Solutions Provider in Lebanon",
+  title: "About Us: Solar, Generator & Energy Experts Since 1996",
   description:
-    "Solenergy is transforming how homes and businesses in Lebanon and the GCC region manage energy. We deliver intelligent, reliable, and sustainable energy solutions — from solar panel systems and backup generators to advanced energy management platforms.",
+    "From backup generator services in 1996 to solar installations and the Sol4.0 energy management platform: Solenergy's story, values and team, with 50+ MW installed and service in Lebanon, Qatar and Iraq.",
   alternates: { canonical: "/about" },
   openGraph: {
     title: "About Solenergy",

@@ -8,6 +8,7 @@ import BackToTopFab from "@/components/ui/BackToTopFab";
 import Header from "@/components/Header";
 
 import GoogleAnalytics from '@/components/GoogleAnalytics';
+import CookieConsent from '@/components/CookieConsent';
 import { getTenantBrand } from "@/lib/tenant-brand";
 
 const poppins = Poppins({ subsets: ["latin"], display: "swap", variable: "--font-poppins", weight: ["700"] });
@@ -59,6 +60,7 @@ export const metadata: Metadata = {
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   // Tracking IDs come from the org's BDI settings (settings.brand.tracking); the site's own GA
   // property stays as a fallback so analytics never blanks if the settings fetch fails.
+  // Neither GA4 nor the Meta Pixel loads until the visitor consents (components/CookieConsent.tsx).
   const brand = await getTenantBrand();
   return (
     <html lang="en" className={poppins.variable}>
@@ -72,6 +74,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <main className="w-full overflow-x-clip">{children}</main>
         <BackToTopFab insetClass="bottom-6 right-6 sm:bottom-8 sm:right-8" size={56} />
         <SiteFooter contact={brand.contact} />
+        <CookieConsent />
       </body>
     </html>
   );

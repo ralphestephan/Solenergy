@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   ogImage.searchParams.set('type', 'solution');
 
   return {
-    title: `${s.heading} | Solenergy`,
+    title: s.heading,
     description: s.description,
     alternates: { canonical: `/solutions/${s.slug}` },
     openGraph: {

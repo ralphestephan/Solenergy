@@ -17,7 +17,7 @@ import { HelpCircle, MessageCircle, Phone, ArrowRight, ChevronRight, Rocket, Sun
    SEO
 --------------------------- */
 export const metadata: Metadata = {
-  title: "Solar Energy & Generator Solutions FAQ | Solenergy Lebanon",
+  title: "Solar Energy & Generator FAQ for Lebanon",
   description:
     "Get answers about solar energy systems, backup generators, energy storage, and hybrid power solutions. Expert guidance on renewable energy for Lebanon.",
   alternates: { canonical: "/faqs" },

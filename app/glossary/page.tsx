@@ -1,4 +1,6 @@
 // app/glossary/page.tsx
+import type { Metadata } from "next";
+import { SITE } from "@/lib/site";
 import Reveal from "@/components/ui/Reveal";
 import DynamicUnderline from "@/components/ui/DynamicUnderline";
 
@@ -583,6 +585,20 @@ const TERMS = [
     def: "Electricity generation from sources that are distributed throughout the grid, such as rooftop solar panels."
   }
 ];
+
+export const metadata: Metadata = {
+  title: "Solar & Energy Glossary",
+  description:
+    "Plain-language definitions of solar PV, battery storage (ESS), inverter, grid, backup generator, energy management and power quality terms, organized by topic for easy reference.",
+  alternates: { canonical: "/glossary" },
+  openGraph: {
+    title: "Solar & Energy Glossary | Solenergy",
+    description:
+      "Solar, energy storage, inverter, generator and energy management terms explained in plain language.",
+    url: `${SITE.baseUrl}/glossary`,
+    images: [{ url: SITE.ogImage }],
+  },
+};
 
 export default function GlossaryPage() {
   return (
