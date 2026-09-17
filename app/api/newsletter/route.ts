@@ -23,6 +23,10 @@ export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 export async function POST(req: Request) {
-  const { status, json } = await handleSubmission(req, "newsletter");
+  // Scripted posts are screened out first (lib/bot-screen.ts). The gibberish check
+  // is on here too: this route honours a body's form_type, so without it a bot
+  // could post a "contact" here and skip the check the contact route runs. On a
+  // real signup (email only) it looks at fields that are absent, and passes.
+  const { status, json } = await handleSubmission(req, "newsletter", { gibberishFields: ["name", "message"] });
   return NextResponse.json(json, { status });
 }

@@ -5,12 +5,18 @@ import { SITE } from "@/lib/site";
 import { MessageCircle, Mail, Phone, Clock, MapPin, ArrowRight, CheckCircle } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 
 export default function Page() {
   const [status, setStatus] = useState<"idle" | "loading" | "ok" | "err">("idle");
   const [msg, setMsg] = useState("");
+  // Stamped after mount, so it only exists when the page actually ran: a script
+  // posting straight at /api/contact has none and is dropped (lib/bot-screen.ts).
+  const startedAt = useRef(0);
+  useEffect(() => {
+    startedAt.current = Date.now();
+  }, []);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -62,7 +68,7 @@ export default function Page() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, startedAt: startedAt.current, submittedAt: Date.now() }),
       });
 
       // /api/contact answers 200 with {success:boolean} — `success` is true only

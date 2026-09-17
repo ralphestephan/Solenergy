@@ -20,6 +20,8 @@ export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 export async function POST(req: Request) {
-  const { status, json } = await handleSubmission(req, "contact");
+  // Scripted posts are screened out first (lib/bot-screen.ts); on this route that
+  // includes single-token gibberish in the name or message.
+  const { status, json } = await handleSubmission(req, "contact", { gibberishFields: ["name", "message"] });
   return NextResponse.json(json, { status });
 }

@@ -107,6 +107,7 @@
 // this is fully configured on the first deploy.
 import { getPrisma } from "@/lib/db";
 import { SITE } from "@/lib/site";
+import { SILENT_SUCCESS, screenSubmission, type ScreenOptions } from "@/lib/bot-screen";
 
 /** Exactly the set `website-public-submit` accepts (index.ts:87). */
 const FORM_TYPES = new Set(["contact", "booking", "order", "quote", "newsletter", "custom", "membership"]);
@@ -277,8 +278,14 @@ export async function writeBackup(formType: FormType, body: SubmissionBody): Pro
       const email = pick(body, ["email"], 200);
       if (!email) return { result: "failed", undo: null };
       try {
+        // 'PENDING', NOT 'ACTIVE' (2026-09-17). BDI runs confirmed opt-in: a
+        // website signup is a REQUEST, held out of every audience until the
+        // address clicks the confirmation link BDI emails. Writing 'active' here
+        // claimed an opt-in that had not happened. Nothing updates this row later
+        // (BDI flips its own row on confirmation), so this table is a backup of
+        // what arrived, not a list of who is subscribed. Existing rows untouched.
         const row = await prisma.newsletterSubscriber.create({
-          data: { email, status: "active", organizationId: ORG },
+          data: { email, status: "pending", organizationId: ORG },
         });
         return {
           result: "ok",
@@ -287,17 +294,14 @@ export async function writeBackup(formType: FormType, body: SubmissionBody): Pro
           },
         };
       } catch (e) {
-        // NewsletterSubscriber.email is @unique GLOBALLY, not per organization
-        // (prisma/schema.prisma:66), so a second org subscribing an address the
-        // first org already holds collides. The row is NOT overwritten:
-        // reassigning organizationId would silently move another tenant's
-        // subscriber into this one. P2002 is reported as "duplicate" — the
-        // address is durably in the table, and the BDI mirror below still
-        // records the subscribe against THIS org. The constraint should become
-        // @@unique([organizationId, email]); that is a shared-schema change and
-        // is out of this repo's scope.
+        // The live unique index is (organizationId, email) -- read from pg_indexes
+        // on 2026-09-17: NewsletterSubscriber_organizationId_email_key; the old
+        // global unique on email is gone. So P2002 now means THIS org already
+        // holds the address (a repeat signup), and it is reported as "duplicate":
+        // the address is durably in the table and the existing row is never
+        // touched (bumping it would invent a date or knock a status back).
         // "duplicate" carries no undo ON PURPOSE: nothing was created, and the
-        // row that already exists belongs to whichever org subscribed first.
+        // row that already exists must never be deleted by this request.
         if (typeof e === "object" && e !== null && (e as { code?: string }).code === "P2002") {
           return { result: "duplicate", undo: null };
         }
@@ -528,7 +532,11 @@ export interface SubmissionOutcome {
  * reached Prisma but whose confirmation bounced is still a lead Solenergy has —
  * telling the visitor to retype it would only create a duplicate.
  */
-export async function handleSubmission(req: Request, defaultFormType: FormType): Promise<SubmissionOutcome> {
+export async function handleSubmission(
+  req: Request,
+  defaultFormType: FormType,
+  screenOpts: ScreenOptions = {},
+): Promise<SubmissionOutcome> {
   let parsed: unknown;
   try {
     parsed = await req.json();
@@ -538,13 +546,19 @@ export async function handleSubmission(req: Request, defaultFormType: FormType):
   if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) {
     return { status: 400, json: { success: false, error: "Invalid body" } };
   }
-  const body = parsed as SubmissionBody;
 
-  // Honeypot: a silent 200, matching website-public-submit (index.ts:199), so
-  // the bot learns nothing.
-  if (typeof body.hp === "string" && body.hp.trim() !== "") {
-    return { status: 200, json: { success: true, prisma: "skipped", bdi: "unconfigured" } };
+  // Scripted posts (honeypot filled, no/implausible startedAt, missing or foreign
+  // Origin, gibberish where the route asks) are dropped HERE, before anything is
+  // stored, mailed or mirrored to BDI, and answered with the same JSON a stored
+  // submission gets, so the bot learns nothing. See lib/bot-screen.ts. The
+  // honeypot used to answer its own distinct {prisma:"skipped"} shape, which told
+  // a bot exactly which check had caught it.
+  const screen = screenSubmission(req, parsed as SubmissionBody, screenOpts);
+  if (!screen.ok) {
+    console.warn(`submit: dropped a suspected bot (${defaultFormType}: ${screen.reason})`);
+    return { status: 200, json: SILENT_SUCCESS };
   }
+  const body = screen.body;
 
   // EMPTIness, which the honeypot above does NOT cover — see the rule near
   // checkContent(). Refused BEFORE the Prisma write, before any mail

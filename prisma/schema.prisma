@@ -63,11 +63,15 @@ model ContactFormSubmission {
 
 model NewsletterSubscriber {
   id              Int      @id @default(autoincrement())
-  email           String   @unique
+  email           String
   subscribedAt    DateTime @default(now())
   status          String   @default("active")
   organizationId  String?
 
+  // (organizationId, email), NOT a global unique on email -- in sync with the LIVE
+  // database, whose index is NewsletterSubscriber_organizationId_email_key (read
+  // from pg_indexes on 2026-09-17). This file still said `email @unique`.
+  @@unique([organizationId, email])
   @@index([organizationId])
 }
 

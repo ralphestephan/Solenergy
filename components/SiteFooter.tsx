@@ -54,6 +54,14 @@ export default function SiteFooter({
   ];
 
   const [email, setEmail] = useState("");
+  // Bot screening (lib/bot-screen.ts): a honeypot no person can see, and a
+  // startedAt stamped after mount, which a script posting straight at
+  // /api/newsletter never has.
+  const [hp, setHp] = useState("");
+  const startedAt = useRef(0);
+  useEffect(() => {
+    startedAt.current = Date.now();
+  }, []);
   const [status, setStatus] = useState<"idle" | "loading" | "ok" | "err">("idle");
   const [msg, setMsg] = useState("");
 
@@ -70,7 +78,7 @@ export default function SiteFooter({
       const res = await fetch("/api/newsletter", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email, hp, startedAt: startedAt.current, submittedAt: Date.now() }),
       });
 
       // /api/newsletter answers 200 with {success:boolean}; `success` is the
@@ -273,6 +281,16 @@ export default function SiteFooter({
                     aria-label="Newsletter subscription form"
                   >
                     <input
+                      type="text"
+                      name="hp"
+                      value={hp}
+                      onChange={(e) => setHp(e.target.value)}
+                      tabIndex={-1}
+                      autoComplete="off"
+                      aria-hidden="true"
+                      className="hidden"
+                    />
+                    <input
                       type="email"
                       placeholder="Your email"
                       value={email}
@@ -312,6 +330,16 @@ export default function SiteFooter({
                 onSubmit={handleSubscribeSubmit}
                 aria-label="Newsletter subscription"
               >
+                <input
+                  type="text"
+                  name="hp"
+                  value={hp}
+                  onChange={(e) => setHp(e.target.value)}
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  className="hidden"
+                />
                 <input
                   type="email"
                   placeholder="Your email"
