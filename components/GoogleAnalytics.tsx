@@ -31,7 +31,7 @@ function useConsent(): ConsentPrefs {
 }
 
 export default function GoogleAnalytics({
-  gaId = "G-NF65BFYXVT",
+  gaId = "",
   pixelId = "",
 }: {
   gaId?: string;
