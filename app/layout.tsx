@@ -8,6 +8,7 @@ import BackToTopFab from "@/components/ui/BackToTopFab";
 import Header from "@/components/Header";
 
 import GoogleAnalytics from '@/components/GoogleAnalytics';
+import { ga4Ids } from '@/lib/tenant-brand';
 import CookieConsent from '@/components/CookieConsent';
 import { getTenantBrand } from "@/lib/tenant-brand";
 
@@ -58,18 +59,19 @@ export const metadata: Metadata = {
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  // Tracking IDs come from the org's BDI settings (settings.brand.tracking) and nowhere else.
-  // There is deliberately NO hard-coded fallback: until 2026-09-23 this fell back to
-  // G-NF65BFYXVT, which is Solenergy's own GA4 property, not BDI's (it is on none of the
-  // properties under BDI's GA account). BDI now runs its own property for this site; a fallback
-  // would bring the old one back whenever the settings fetch failed.
+  // Tracking IDs come from the org's BDI settings (settings.brand.tracking), and BOTH GA4
+  // properties fire: BDI's own (ga4_measurement_id, G-433WQHXDBQ), which fills BDI's Analytics
+  // page, and Solenergy's own (client_ga4_measurement_id, G-NF65BFYXVT), which holds the site's
+  // history since January and keeps receiving every visit. G-NF65BFYXVT was verified on
+  // 2026-09-23 to be on none of the properties under BDI's GA account — it is Solenergy's — and
+  // stays the fallback, so analytics never blanks if the settings fetch fails.
   // Neither GA4 nor the Meta Pixel loads until the visitor consents (components/CookieConsent.tsx).
   const brand = await getTenantBrand();
   return (
     <html lang="en" className={poppins.variable}>
       <head>
         <meta name="google-site-verification" content="aSFML--c4EYr4rrZliksliZ-zE69910E17yB9C_xUlw" />
-        <GoogleAnalytics gaId={brand.ga4Id} pixelId={brand.metaPixelId} />
+        <GoogleAnalytics gaIds={ga4Ids(brand).length ? ga4Ids(brand) : ["G-NF65BFYXVT"]} pixelId={brand.metaPixelId} />
       </head>
       <body className="min-h-screen text-zinc-800 antialiased overflow-x-hidden">
 

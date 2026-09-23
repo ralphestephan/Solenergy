@@ -6,8 +6,9 @@ import { CONSENT_CHANGE_EVENT, getStoredConsent, type ConsentPrefs } from '@/lib
 
 // GA4 + optional Meta Pixel, behind cookie consent (see lib/consent.ts and components/CookieConsent.tsx).
 // IDs are passed in from the server layout, which resolves them from the org's BDI settings
-// (settings.brand.tracking). `gaId` falls back to the site's own GA property so analytics keeps
-// working even if the settings fetch fails.
+// (settings.brand.tracking). `gaIds` carries BDI's own GA4 AND Solenergy's own, which both fire —
+// one loader, one config per id; the layout falls back to Solenergy's own property so analytics
+// keeps working even if the settings fetch fails.
 //
 // NOTHING from Google loads until the visitor allows Analytics, and nothing from Meta until they allow
 // Advertising. There is deliberately no <noscript> pixel: without JavaScript nobody can consent.
@@ -31,21 +32,24 @@ function useConsent(): ConsentPrefs {
 }
 
 export default function GoogleAnalytics({
-  gaId = "",
+  gaIds = [],
   pixelId = "",
 }: {
-  gaId?: string;
+  gaIds?: string[];
   pixelId?: string;
 }) {
   const { analytics, advertising } = useConsent();
+  // A stable key for the id list, so the effect below re-runs only when the ids change.
+  const idsKey = gaIds.join(' ');
 
   // A script that already ran cannot be unloaded, so withdrawing consent mid-visit is honoured by
   // switching the loaded tags off (and back on if the visitor changes their mind again).
   useEffect(() => {
     const w = window as unknown as TrackingWindow;
-    if (gaId) w[`ga-disable-${gaId}`] = !analytics;
+    // EVERY id: switching off only the first would leave the other one sending.
+    for (const id of idsKey.split(' ').filter(Boolean)) w[`ga-disable-${id}`] = !analytics;
     w.gtag?.('consent', 'update', { analytics_storage: analytics ? 'granted' : 'denied' });
-  }, [analytics, gaId]);
+  }, [analytics, idsKey]);
 
   useEffect(() => {
     (window as unknown as TrackingWindow).fbq?.('consent', advertising ? 'grant' : 'revoke');
@@ -53,14 +57,14 @@ export default function GoogleAnalytics({
 
   return (
     <>
-      {gaId && analytics ? (
+      {gaIds.length && analytics ? (
         <>
           <Script
-            src={`https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(gaId)}`}
+            src={`https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(gaIds[0])}`}
             strategy="afterInteractive"
           />
           <Script id="google-analytics" strategy="afterInteractive">
-            {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("consent","default",{analytics_storage:"granted",ad_storage:"denied",ad_user_data:"denied",ad_personalization:"denied"});gtag("js",new Date());gtag("config",${JSON.stringify(gaId)});`}
+            {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("consent","default",{analytics_storage:"granted",ad_storage:"denied",ad_user_data:"denied",ad_personalization:"denied"});gtag("js",new Date());${gaIds.map((id) => `gtag("config",${JSON.stringify(id)});`).join('')}`}
           </Script>
         </>
       ) : null}

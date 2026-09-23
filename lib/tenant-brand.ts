@@ -4,14 +4,18 @@
 // Every field falls back to "" so callers keep their own hardcoded defaults; analytics/contact can
 // never silently blank out.
 export type TenantBrand = {
+  /** BDI's own GA4 (settings.brand.tracking.ga4_measurement_id). */
   ga4Id: string;
   metaPixelId: string;
+  /** Solenergy's own GA4 (settings.brand.tracking.client_ga4_measurement_id). */
+  clientGa4Id: string;
   contact: { email: string; phone: string; whatsapp: string };
 };
 
 const EMPTY: TenantBrand = {
   ga4Id: "",
   metaPixelId: "",
+  clientGa4Id: "",
   contact: { email: "", phone: "", whatsapp: "" },
 };
 
@@ -41,6 +45,7 @@ export async function getTenantBrand(): Promise<TenantBrand> {
     return {
       ga4Id: (t.ga4_measurement_id as string) || "",
       metaPixelId: (t.meta_pixel_id as string) || "",
+      clientGa4Id: (t.client_ga4_measurement_id as string) || "",
       contact: {
         email: (c.email as string) || "",
         phone: (c.phone as string) || "",
@@ -50,6 +55,20 @@ export async function getTenantBrand(): Promise<TenantBrand> {
   } catch {
     return EMPTY;
   }
+}
+
+// Every GA4 id to configure: BDI's own and Solenergy's own. They go into an inline <script>,
+// and the client_* id is typed by the tenant in BDI, so anything that is not exactly the shape
+// of an id is dropped rather than escaped; the same id twice is configured once, or every
+// visit would be counted twice.
+const GA4_ID = /^G-[A-Z0-9]{4,20}$/;
+export function ga4Ids(b: TenantBrand): string[] {
+  const out: string[] = [];
+  for (const raw of [b.ga4Id, b.clientGa4Id]) {
+    const v = String(raw || "").trim();
+    if (GA4_ID.test(v) && !out.includes(v)) out.push(v);
+  }
+  return out;
 }
 
 // Back-compat: some callers only need the tracking ids.
