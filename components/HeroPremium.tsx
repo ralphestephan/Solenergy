@@ -61,7 +61,7 @@ export default function HeroPremium() {
       ref={ref}
       className="relative min-h-[85vh] lg:min-h-[90vh] flex items-center overflow-hidden"
     >
-      {/* Background video with dark overlay */}
+      {/* Background video, unshaded */}
       <div className="absolute inset-0 bg-zinc-900">
         <video
           ref={videoRef}
@@ -78,15 +78,15 @@ export default function HeroPremium() {
           <source src={VIDEO.av1} type='video/mp4; codecs="av01.0.05M.08"' />
           <source src={VIDEO.h264} type="video/mp4" />
         </video>
-        {/* Dark gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-zinc-900/90 via-zinc-900/70 to-zinc-900/40" />
-        <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/60 via-transparent to-zinc-900/30" />
       </div>
 
       {/* Content */}
       <div
         className={[
           "relative z-10 mx-auto max-w-7xl px-6 lg:px-8 py-20",
+          // No shade over the footage, so the copy carries its own shadow to stay
+          // legible on the bright frames (white rooftops, concrete).
+          "[text-shadow:0_2px_14px_rgba(0,0,0,0.65),0_1px_3px_rgba(0,0,0,0.5)]",
           "transition-all duration-1000 delay-300",
           show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
         ].join(" ")}
@@ -113,7 +113,7 @@ export default function HeroPremium() {
           </div>
 
           {/* Subtitle */}
-          <p className="text-lg md:text-xl text-white/80 max-w-2xl mb-10 leading-relaxed">
+          <p className="text-lg md:text-xl text-white max-w-2xl mb-10 leading-relaxed">
             At Solenergy, we build smart energy ecosystems—not just solar panels or generators. 
             Welcome to your complete Energy Solutions.
           </p>
@@ -122,7 +122,7 @@ export default function HeroPremium() {
           <div className="flex flex-wrap gap-4">
             <Link
               href="/solutions"
-              className="group relative inline-flex items-center gap-3 px-8 py-4 bg-brand-yellow text-zinc-900 font-bold rounded-lg overflow-hidden transition-all duration-300 hover:shadow-[0_0_40px_rgba(244,180,26,0.4)] hover:scale-[1.02]"
+              className="group relative inline-flex items-center gap-3 px-8 py-4 bg-brand-yellow text-zinc-900 font-bold rounded-lg overflow-hidden [text-shadow:none] transition-all duration-300 hover:shadow-[0_0_40px_rgba(244,180,26,0.4)] hover:scale-[1.02]"
             >
               <span className="relative z-10">Explore Solutions</span>
               <svg className="relative z-10 w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -134,7 +134,7 @@ export default function HeroPremium() {
 
             <Link
               href="/contact"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-transparent text-white font-bold rounded-lg border-2 border-white/30 transition-all duration-300 hover:bg-white/10 hover:border-white/50"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-black/25 backdrop-blur-sm text-white font-bold rounded-lg border-2 border-white/40 transition-all duration-300 hover:bg-white/10 hover:border-white/50"
             >
               Get Free Quote
             </Link>
@@ -146,7 +146,7 @@ export default function HeroPremium() {
               <div className="w-12 h-12 rounded-full bg-brand-yellow/20 flex items-center justify-center">
                 <span className="text-brand-yellow font-bold text-lg">30</span>
               </div>
-              <div className="text-white/70 text-sm">
+              <div className="text-white/90 text-sm">
                 <div className="font-semibold text-white">Years</div>
                 Experience
               </div>
@@ -156,7 +156,7 @@ export default function HeroPremium() {
               <div className="w-12 h-12 rounded-full bg-brand-yellow/20 flex items-center justify-center">
                 <span className="text-brand-yellow font-bold text-lg">50+</span>
               </div>
-              <div className="text-white/70 text-sm">
+              <div className="text-white/90 text-sm">
                 <div className="font-semibold text-white">MW</div>
                 Installed
               </div>
@@ -166,7 +166,7 @@ export default function HeroPremium() {
               <div className="w-12 h-12 rounded-full bg-brand-yellow/20 flex items-center justify-center">
                 <span className="text-brand-yellow font-bold text-lg">24/7</span>
               </div>
-              <div className="text-white/70 text-sm">
+              <div className="text-white/90 text-sm">
                 <div className="font-semibold text-white">Support</div>
                 Available
               </div>
@@ -175,9 +175,6 @@ export default function HeroPremium() {
         </div>
       </div>
 
-      {/* Decorative elements */}
-      <div className="absolute top-20 right-20 w-64 h-64 bg-brand-yellow/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-20 left-10 w-48 h-48 bg-brand-orange/10 rounded-full blur-3xl pointer-events-none" />
     </section>
   );
 }

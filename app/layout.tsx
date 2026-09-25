@@ -21,10 +21,15 @@ export const metadata: Metadata = {
     template: `%s | Solenergy`,
   },
   description: SITE.description,
+  // The sun ring from the logo on a dark tile. ?v= busts the old favicon, which
+  // browsers cache far longer than the page.
   icons: {
-    icon: "/favicon.ico",       // default favicon
-    shortcut: "/favicon.ico",   // legacy browsers
-    apple: "/favicon.ico",      // Apple touch icon
+    icon: [
+      { url: "/favicon.ico?v=2", sizes: "16x16 32x32 48x48" },
+      { url: "/icon-192.png?v=2", type: "image/png", sizes: "192x192" },
+    ],
+    shortcut: "/favicon.ico?v=2",
+    apple: { url: "/apple-touch-icon.png?v=2", sizes: "180x180" },
   },
   keywords: Array.from(SITE.keywords),
   openGraph: {
