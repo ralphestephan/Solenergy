@@ -36,7 +36,7 @@ export const SITE = {
     "solar prioritization",
     "Solenergy",
   ],
-  ogImage: "/images/og/og-solenergy.png",
+  ogImage: "/images/og/og-solenergy.jpg",
   socials: {
     // twitter: "@Solenergy", // Disabled until further notice
     instagram: "solenergy.me",
@@ -47,7 +47,9 @@ export const SITE = {
   org: {
     legalName: "Solenergy",
     url: "https://solenergypower.com",
-    logo: "/images/logo.png",
+    // Dark-text variant: Google (Organization schema) and the /api/og card both
+    // put the logo on white, where the white-text logo.png disappears.
+    logo: "/images/logoDark.png",
     sameAs: [
       // "https://twitter.com/Solenergy", // Disabled until further notice
       "https://www.instagram.com/solenergy.me",

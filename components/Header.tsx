@@ -39,7 +39,7 @@ export default function Header() {
           {/* Desktop */}
           <div className="hidden md:flex h-24 items-center justify-between text-zinc-800">
             <Link href="/" aria-label="Solenergy home" className="inline-flex items-center gap-3">
-              <Image src="/images/logoDark.png" alt="Solenergy" width={480} height={200} className="h-44 w-auto" priority />
+              <Image src="/images/logoDark.png" alt="Solenergy" width={700} height={179} className="h-14 w-auto" priority />
             </Link>
 
             <ul className="flex items-center gap-7 text-[15px] font-medium">
@@ -77,7 +77,7 @@ export default function Header() {
             </button>
 
             <Link href="/" aria-label="Solenergy home" className="absolute left-1/2 -translate-x-1/2">
-              <Image src="/images/logoDark.png" alt="Solenergy" width={500} height={208} className="h-32 w-auto" priority />
+              <Image src="/images/logoDark.png" alt="Solenergy" width={700} height={179} className="h-7 min-[380px]:h-8 w-auto" priority />
             </Link>
 
             <Link href="/contact" className="shiny-cta px-3.5 py-2 text-xs font-semibold z-10">
@@ -92,7 +92,7 @@ export default function Header() {
       <div className={`drawer-overlay ${open ? "open" : ""}`} onClick={() => setOpen(false)} />
       <aside className={`drawer ${open ? "open" : ""}`} aria-hidden={!open}>
         <div className="p-4 pt-6 flex items-center gap-3">
-          <Image src="/images/logoDark.png" alt="Solenergy" width={520} height={217} className="h-36 w-auto" />
+          <Image src="/images/logoDark.png" alt="Solenergy" width={700} height={179} className="h-12 w-auto" />
         </div>
         <nav className="px-2 pb-8 text-zinc-900">
           <ul className="space-y-1">

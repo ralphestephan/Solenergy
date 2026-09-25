@@ -131,7 +131,7 @@ export default function SiteFooter({
         <div className="col-span-2 md:col-span-2">
           <h2 id="footer-heading" className="sr-only">Footer</h2>
           <Link href="/" className="inline-flex items-center" aria-label="Solenergy home">
-            <img src="/images/logo.png" alt="Solenergy logo" className="h-9 w-auto md:h-12" />
+            <img src="/images/logo.png" alt="Solenergy logo" width={700} height={179} className="h-10 w-auto md:h-12" />
           </Link>
           <p className="text-zinc-400 mt-2 md:mt-3 max-w-[36ch] text-sm md:text-base leading-6">
             Powering Lebanon&apos;s future with sustainable solar energy solutions and reliable backup generators.

@@ -1,25 +1,16 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
-import Image from "next/image";
 import Link from "next/link";
 
-const SLIDES = [
-  {
-    image: "/images/field.jpg",
-    alt: "Solar Energy Solutions",
-  },
-  {
-    image: "/images/panels.png",
-    alt: "Solar Panel Systems",
-  },
-  {
-    image: "/images/fieldwork.png",
-    alt: "Professional Installation",
-  },
-] as const;
-
-const INTERVAL_MS = 5000;
+// Project reel, cropped above the white logo strip the source carries along its
+// bottom edge and cut down from a 4K master (~850 MB) to 1280x624. AV1 first
+// (~21 MB) for browsers that decode it; H.264 (~33 MB) for everyone else.
+const VIDEO = {
+  av1: "/videos/hero.av1.mp4",
+  h264: "/videos/hero.mp4",
+  poster: "/videos/hero-poster.jpg",
+} as const;
 
 function useInView<T extends HTMLElement>(opts: IntersectionObserverInit = { threshold: 0.1 }) {
   const ref = useRef<T | null>(null);
@@ -37,17 +28,31 @@ function useInView<T extends HTMLElement>(opts: IntersectionObserverInit = { thr
 }
 
 export default function HeroPremium() {
-  const [active, setActive] = useState(0);
   const { ref, show } = useInView<HTMLDivElement>({ threshold: 0.15 });
+  const videoRef = useRef<HTMLVideoElement | null>(null);
 
   useEffect(() => {
-    const prefersReduced =
-      typeof window !== "undefined" &&
-      window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
-    if (prefersReduced) return;
-
-    const id = setInterval(() => setActive((i) => (i + 1) % SLIDES.length), INTERVAL_MS);
-    return () => clearInterval(id);
+    const v = videoRef.current;
+    if (!v) return;
+    if (window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches) {
+      v.pause();
+      return;
+    }
+    // <source> fallback only covers a file the browser refuses up front. One that
+    // claims AV1 and then fails to decode it errors on the element and stays
+    // blank, so drop to the H.264 file by hand.
+    const toH264 = () => {
+      if (!v.currentSrc.endsWith(VIDEO.av1)) return;
+      v.src = VIDEO.h264;
+      v.play().catch(() => {});
+    };
+    v.addEventListener("error", toH264);
+    if (v.error) toH264();
+    // React does not emit the `muted` attribute in server HTML, and iOS refuses
+    // to autoplay a video it cannot see is muted -- set it and start playback here.
+    v.muted = true;
+    v.play().catch(() => {});
+    return () => v.removeEventListener("error", toH264);
   }, []);
 
   return (
@@ -56,28 +61,27 @@ export default function HeroPremium() {
       ref={ref}
       className="relative min-h-[85vh] lg:min-h-[90vh] flex items-center overflow-hidden"
     >
-      {/* Background images with dark overlay */}
-      {SLIDES.map((slide, idx) => (
-        <div
-          key={slide.image}
-          className={[
-            "absolute inset-0 transition-opacity duration-1000 ease-in-out",
-            active === idx ? "opacity-100" : "opacity-0",
-          ].join(" ")}
+      {/* Background video with dark overlay */}
+      <div className="absolute inset-0 bg-zinc-900">
+        <video
+          ref={videoRef}
+          className="absolute inset-0 h-full w-full object-cover md:object-left"
+          poster={VIDEO.poster}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          aria-hidden="true"
+          tabIndex={-1}
         >
-          <Image
-            src={slide.image}
-            alt={slide.alt}
-            fill
-            className="object-cover"
-            priority={idx === 0}
-            sizes="100vw"
-          />
-          {/* Dark gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-zinc-900/90 via-zinc-900/70 to-zinc-900/40" />
-          <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/60 via-transparent to-zinc-900/30" />
-        </div>
-      ))}
+          <source src={VIDEO.av1} type='video/mp4; codecs="av01.0.05M.08"' />
+          <source src={VIDEO.h264} type="video/mp4" />
+        </video>
+        {/* Dark gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-zinc-900/90 via-zinc-900/70 to-zinc-900/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/60 via-transparent to-zinc-900/30" />
+      </div>
 
       {/* Content */}
       <div
@@ -169,23 +173,6 @@ export default function HeroPremium() {
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Slide indicators */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex gap-3">
-        {SLIDES.map((_, idx) => (
-          <button
-            key={idx}
-            onClick={() => setActive(idx)}
-            className={[
-              "w-3 h-3 rounded-full transition-all duration-300",
-              active === idx
-                ? "bg-brand-yellow w-8"
-                : "bg-white/40 hover:bg-white/60",
-            ].join(" ")}
-            aria-label={`Go to slide ${idx + 1}`}
-          />
-        ))}
       </div>
 
       {/* Decorative elements */}
