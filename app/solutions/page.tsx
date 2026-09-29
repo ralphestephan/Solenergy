@@ -137,10 +137,9 @@ export default function Page() {
 
         <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 py-20">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-6">
-              <span className="w-2 h-2 rounded-full bg-brand-yellow animate-pulse" />
-              <span className="text-sm font-medium text-white/90">Comprehensive Energy Solutions</span>
-            </div>
+            <span className="inline-flex items-center px-4 py-2 rounded-full bg-brand-yellow/20 text-brand-yellow text-sm font-semibold uppercase mb-6">
+              Comprehensive Energy Solutions
+            </span>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-[1.1] tracking-tight text-white mb-6">
               POWERING LEBANON&apos;S <span className="text-brand-yellow">FUTURE</span>

@@ -76,7 +76,7 @@ export default function Process() {
           <div className="pointer-events-none absolute -bottom-10 -right-10 w-40 h-40 rounded-full bg-brand-orange/10 blur-3xl" />
 
           <div>
-            <span className="inline-flex items-center px-3 py-1 rounded-full bg-zinc-100 text-xs font-medium">
+            <span className="inline-flex items-center px-4 py-2 rounded-full bg-brand-yellow/10 text-brand-yellow text-sm font-semibold uppercase">
               Process
             </span>
             <h2 className="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight">

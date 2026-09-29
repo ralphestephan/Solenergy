@@ -42,7 +42,7 @@ export default function BlogTeasers() {
         {/* Title row with "See all" */}
         <div className="relative mb-10 flex items-end justify-between gap-4">
           <div>
-            <span className="inline-flex items-center px-3 py-1 rounded-full bg-zinc-100 text-xs font-medium relative">
+            <span className="inline-flex items-center px-4 py-2 rounded-full bg-brand-yellow/10 text-brand-yellow text-sm font-semibold uppercase relative">
               Insights
             </span>
             <h2 className="mt-2 text-3xl md:text-4xl font-extrabold tracking-tight relative">

@@ -106,7 +106,7 @@ export default function Clients() {
     <section className="py-16 bg-gradient-to-b from-white to-zinc-50">
       <div className="mx-auto max-w-7xl px-4">
         <div className="text-center mb-12">
-          <span className="inline-flex items-center px-3 py-1 rounded-full bg-brand-yellow/10 text-xs font-medium text-brand-yellow">
+          <span className="inline-flex items-center px-4 py-2 rounded-full bg-brand-yellow/10 text-brand-yellow text-sm font-semibold uppercase">
             Trusted Partners
           </span>
           <h2 className="mt-4 text-3xl sm:text-4xl font-extrabold tracking-tight">
