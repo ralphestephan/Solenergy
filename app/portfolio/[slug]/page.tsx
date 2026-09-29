@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import { SITE } from "@/lib/site";
 import SEOJsonLd from "@/components/SEOJsonLd";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import { projects, type Project } from "@/data/projects";
+import { getPortfolio, getPortfolioProject } from "@/lib/portfolio";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -13,27 +13,40 @@ import ProjectGallery from "@/components/ProjectGallery";
 
 type Props = { params: Promise<{ slug: string }> };
 
-export function generateStaticParams() {
+// Projects come from what Solenergy PUBLISHES in BDI (lib/portfolio.ts), or the
+// built-in list while BDI is unreachable. A slug published after the last build
+// renders on its first visit; one that is no longer published answers 404.
+export const dynamicParams = true;
+
+export async function generateStaticParams() {
+  const { projects } = await getPortfolio();
   return projects.map((p) => ({ slug: p.slug }));
 }
 
+// Blank-line-separated paragraphs. Single-paragraph text renders exactly one <p>.
+const paragraphs = (text: string) => text.split(/\n\s*\n/).map((t) => t.trim()).filter(Boolean);
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const project = projects.find((x) => x.slug === slug);
+  const { project } = await getPortfolioProject(slug);
   if (!project) return { title: "Project" };
-  
-  const system = `${project.capacity}${project.systemType ? ` ${project.systemType}` : ""}`;
-  const description = `${project.capacity}${project.systemType ? ` ${project.systemType.toLowerCase()}` : ""} solar system in ${project.location}. ${project.fullDescription || project.description}`;
+
+  // "5kW Off-Grid" / "5kW off-grid solar system in <location>", as always; a fact
+  // left empty in BDI drops out instead of leaving a gap.
+  const system = [project.capacity, project.systemType].filter(Boolean).join(" ");
+  const kind = [project.capacity, project.systemType?.toLowerCase()].filter(Boolean).join(" ");
+  const where = project.location ? ` in ${project.location}` : "";
+  const description = `${kind ? `${kind} solar system` : "Solar system"}${where}. ${project.fullDescription || project.description}`.trim();
 
   return {
-    title: `${project.title}: ${system} Solar Project`,
+    title: system ? `${project.title}: ${system} Solar Project` : `${project.title}: Solar Project`,
     description,
     alternates: { canonical: `/portfolio/${project.slug}` },
     openGraph: {
       title: project.title,
       description,
       url: `${SITE.baseUrl}/portfolio/${project.slug}`,
-      images: [{ url: project.image, width: 1200, height: 630 }],
+      ...(project.image ? { images: [{ url: project.image, width: 1200, height: 630 }] } : {}),
     },
     // twitter: { card: "summary_large_image", site: "@solenergy" }, // Disabled until further notice
   };
@@ -41,18 +54,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ProjectPage({ params }: Props) {
   const { slug } = await params;
-  const project = projects.find((x) => x.slug === slug);
+  const { project, source } = await getPortfolioProject(slug);
   if (!project) return notFound();
 
   return (
-    <main className="w-full overflow-x-clip">
+    <main className="w-full overflow-x-clip" data-portfolio-source={source}>
       <SEOJsonLd
         data={{
           "@context": "https://schema.org",
           "@type": "Project",
           "name": project.title,
           "description": project.description,
-          "image": project.image,
+          ...(project.image ? { "image": project.image } : {}),
         }}
       />
 
@@ -71,13 +84,15 @@ export default async function ProjectPage({ params }: Props) {
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <Image
-            src={project.image}
-            alt={project.title}
-            fill
-            priority
-            className="object-cover"
-          />
+          {project.image && (
+            <Image
+              src={project.image}
+              alt={project.title}
+              fill
+              priority
+              className="object-cover"
+            />
+          )}
           <div className="absolute inset-0 bg-gradient-to-r from-zinc-900/95 via-zinc-900/80 to-zinc-900/70" />
         </div>
 
@@ -103,14 +118,18 @@ export default async function ProjectPage({ params }: Props) {
           </div>
           
           <div className="mt-8 flex flex-wrap items-center justify-center gap-6 text-white/80">
-            <div className="flex items-center gap-2">
-              <Zap className="w-5 h-5 text-brand-yellow" />
-              <span className="font-semibold">{project.capacity}</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <MapPin className="w-5 h-5 text-brand-yellow" />
-              <span>{project.location}</span>
-            </div>
+            {project.capacity && (
+              <div className="flex items-center gap-2">
+                <Zap className="w-5 h-5 text-brand-yellow" />
+                <span className="font-semibold">{project.capacity}</span>
+              </div>
+            )}
+            {project.location && (
+              <div className="flex items-center gap-2">
+                <MapPin className="w-5 h-5 text-brand-yellow" />
+                <span>{project.location}</span>
+              </div>
+            )}
             {project.year && (
               <div className="flex items-center gap-2">
                 <Calendar className="w-5 h-5 text-brand-yellow" />
@@ -129,10 +148,25 @@ export default async function ProjectPage({ params }: Props) {
             <div className="lg:col-span-2">
               <h2 className="text-3xl font-bold text-zinc-900 mb-6">Project Overview</h2>
               <div className="prose prose-lg max-w-none">
-                <p className="text-zinc-600 text-lg leading-relaxed mb-6">
-                  {project.fullDescription || project.description}
-                </p>
+                {paragraphs(project.fullDescription || project.description).map((text, i) => (
+                  <p key={i} className="text-zinc-600 text-lg leading-relaxed mb-6">
+                    {text}
+                  </p>
+                ))}
               </div>
+
+              {project.sections.map((section, i) => (
+                <div key={i} className="mt-12">
+                  {section.heading && (
+                    <h3 className="text-2xl font-bold text-zinc-900 mb-6">{section.heading}</h3>
+                  )}
+                  {paragraphs(section.text).map((text, j) => (
+                    <p key={j} className="text-zinc-600 text-lg leading-relaxed mb-6">
+                      {text}
+                    </p>
+                  ))}
+                </div>
+              ))}
 
               {project.features && project.features.length > 0 && (
                 <div className="mt-12">
@@ -170,14 +204,18 @@ export default async function ProjectPage({ params }: Props) {
                       <div className="text-sm text-zinc-500 mb-1">Category</div>
                       <div className="font-semibold text-zinc-900">{project.category}</div>
                     </div>
-                    <div>
-                      <div className="text-sm text-zinc-500 mb-1">Capacity</div>
-                      <div className="font-semibold text-zinc-900">{project.capacity}</div>
-                    </div>
-                    <div>
-                      <div className="text-sm text-zinc-500 mb-1">Location</div>
-                      <div className="font-semibold text-zinc-900">{project.location}</div>
-                    </div>
+                    {project.capacity && (
+                      <div>
+                        <div className="text-sm text-zinc-500 mb-1">Capacity</div>
+                        <div className="font-semibold text-zinc-900">{project.capacity}</div>
+                      </div>
+                    )}
+                    {project.location && (
+                      <div>
+                        <div className="text-sm text-zinc-500 mb-1">Location</div>
+                        <div className="font-semibold text-zinc-900">{project.location}</div>
+                      </div>
+                    )}
                     {project.client && (
                       <div>
                         <div className="text-sm text-zinc-500 mb-1">Client</div>
@@ -190,6 +228,12 @@ export default async function ProjectPage({ params }: Props) {
                         <div className="font-semibold text-zinc-900">{project.year}</div>
                       </div>
                     )}
+                    {project.extraFacts.map((fact, i) => (
+                      <div key={`${fact.label}-${i}`}>
+                        <div className="text-sm text-zinc-500 mb-1">{fact.label}</div>
+                        <div className="font-semibold text-zinc-900">{fact.value}</div>
+                      </div>
+                    ))}
                   </div>
                 </div>
 

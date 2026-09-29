@@ -40,10 +40,13 @@ import Process from "@/components/Process";
 import Brands from "@/components/Brands";
 import BlogTeasers from "@/components/BlogTeasers";
 import TrustSignals from "@/components/TrustSignals";
+import { getPortfolio, projectCards } from "@/lib/portfolio";
 
 
 
-export default function Page() {
+export default async function Page() {
+  // Feature Works shows the portfolio Solenergy publishes in BDI (lib/portfolio.ts).
+  const portfolio = await getPortfolio();
   return (
     <main className="w-full overflow-x-clip">
       <SEOJsonLd
@@ -133,7 +136,11 @@ export default function Page() {
       </Reveal>
 
       {/* FEATURED WORKS - Project gallery */}
-      <FeaturedWorks />
+      <FeaturedWorks
+        projects={projectCards(portfolio.projects.slice(0, 8))}
+        categories={portfolio.categories}
+        source={portfolio.source}
+      />
 
       {/* BRANDS */}
       <Reveal><Brands /></Reveal>

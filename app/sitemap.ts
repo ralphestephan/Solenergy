@@ -3,7 +3,7 @@ import type { MetadataRoute } from "next";
 import { SITE } from "@/lib/site";
 import solutions from "@/data/solutions";
 import { insights } from "@/data/insights";
-import { projects } from "@/data/projects";
+import { getPortfolio } from "@/lib/portfolio";
 
 // Every path here must be a route that exists in app/. /homedome and /shop were
 // listed for months and have never been built — both answered 404 to Google and
@@ -20,8 +20,11 @@ const staticPaths = [
   { path: "/faqs", priority: 0.6 },
 ];
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date().toISOString();
+  // The projects BDI publishes (lib/portfolio.ts), or the built-in list while it
+  // is unreachable -- the same list app/portfolio/[slug] renders.
+  const { projects } = await getPortfolio();
 
   const base = staticPaths.map((p) => ({
     url: `${SITE.baseUrl}${p.path}`,
@@ -50,7 +53,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // work is named after the sites it was installed on, so every one of those twelve
   // 404'd while the twelve real case studies were invisible to search.
   const projectPages = projects.map((p) => ({
-    url: `${SITE.baseUrl}/portfolio/${p.slug}`,
+    url: `${SITE.baseUrl}/portfolio/${encodeURIComponent(p.slug)}`,
     lastModified: now,
     changeFrequency: "monthly" as const,
     priority: 0.8,

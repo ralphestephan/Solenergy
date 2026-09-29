@@ -50,6 +50,9 @@ const nextConfig = {
   remotePatterns: [
   { protocol: 'https', hostname: 'cdn.shopify.com' },
   { protocol: 'https', hostname: 'shopify-assets.shopifycdn.com' },
+  // Portfolio photos uploaded in BDI (lib/portfolio.ts). Served as-is while
+  // `unoptimized` is on; listed so the optimizer accepts them if it comes back.
+  { protocol: 'https', hostname: 'uwhamhqmwduyzbyqkjod.supabase.co', pathname: '/storage/v1/object/public/**' },
   ],
   },
   async redirects() {

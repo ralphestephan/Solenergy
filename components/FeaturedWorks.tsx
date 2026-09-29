@@ -5,10 +5,9 @@ import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { projects } from "@/data/projects";
+import type { PortfolioSource, ProjectCard } from "@/lib/portfolio";
 
-const CATEGORIES = ["All Projects", "Solar Systems", "Generators", "Energy Management", "Commercial", "Residential", "Institutional"] as const;
-type Category = typeof CATEGORIES[number];
+type Category = string;
 
 function useInView<T extends HTMLElement>(opts: IntersectionObserverInit = { threshold: 0.1 }) {
   const ref = useRef<T | null>(null);
@@ -25,7 +24,18 @@ function useInView<T extends HTMLElement>(opts: IntersectionObserverInit = { thr
   return { ref, show } as const;
 }
 
-export default function FeaturedWorks() {
+// The projects come from the home page (a server component), which reads them from
+// BDI through lib/portfolio.ts: the first 8 in grid order, Featured ones first.
+export default function FeaturedWorks({
+  projects,
+  categories,
+  source,
+}: {
+  projects: ProjectCard[];
+  categories: string[];
+  source: PortfolioSource;
+}) {
+  const CATEGORIES: Category[] = ["All Projects", ...categories];
   const { ref, show } = useInView<HTMLElement>();
   const [activeCategory, setActiveCategory] = useState<Category>("All Projects");
 
@@ -38,7 +48,7 @@ export default function FeaturedWorks() {
       : featuredProjects.filter((p) => p.category === activeCategory);
 
   return (
-    <section ref={ref} className="py-24 bg-zinc-900 relative overflow-hidden">
+    <section ref={ref} className="py-24 bg-zinc-900 relative overflow-hidden" data-portfolio-source={source}>
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-zinc-900 via-zinc-800 to-zinc-900" />
       
@@ -98,12 +108,14 @@ export default function FeaturedWorks() {
               className="group relative aspect-[4/3] rounded-xl overflow-hidden bg-zinc-800"
             >
               {/* Image */}
-              <Image
-                src={project.image}
-                alt={project.title}
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-110"
-              />
+              {project.image && (
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+              )}
 
               {/* Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/90 via-zinc-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -115,8 +127,12 @@ export default function FeaturedWorks() {
                 </div>
                 <h3 className="text-white font-bold text-lg mb-2">{project.title}</h3>
                 <div className="flex items-center gap-3 text-white/80 text-sm">
-                  <span>{project.capacity}</span>
-                  <span>•</span>
+                  {project.capacity && (
+                    <>
+                      <span>{project.capacity}</span>
+                      <span>•</span>
+                    </>
+                  )}
                   <span>{project.location}</span>
                 </div>
               </div>
@@ -146,13 +162,15 @@ export default function FeaturedWorks() {
               >
                 <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-zinc-800">
                   {/* Image */}
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
-                    sizes="(max-width: 640px) 85vw, 70vw"
-                  />
+                  {project.image && (
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      sizes="(max-width: 640px) 85vw, 70vw"
+                    />
+                  )}
 
                   {/* Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/80 via-zinc-900/30 to-transparent" />
@@ -164,8 +182,12 @@ export default function FeaturedWorks() {
                     </div>
                     <h3 className="text-white font-bold text-lg mb-2">{project.title}</h3>
                     <div className="flex items-center gap-3 text-white/80 text-sm">
-                      <span>{project.capacity}</span>
-                      <span>•</span>
+                      {project.capacity && (
+                        <>
+                          <span>{project.capacity}</span>
+                          <span>•</span>
+                        </>
+                      )}
                       <span>{project.location}</span>
                     </div>
                   </div>
