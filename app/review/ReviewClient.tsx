@@ -14,7 +14,7 @@ import { useEffect, useState } from "react";
 // depend on any of them.
 
 const ORG = "3041e8aa-1139-42c9-ba3c-ebf9f2d98b5d";
-const FN = "https://uwhamhqmwduyzbyqkjod.supabase.co/functions/v1";
+const FN = "https://hypqgabfpnfgodmunews.supabase.co/functions/v1";
 
 const C = {
   ink: "#0B1F2A",
