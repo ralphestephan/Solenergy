@@ -1,10 +1,19 @@
 import type { Metadata } from "next";
+import { SITE } from "@/lib/site";
+
+const description =
+  "The terms governing Solenergy's solar, generator, energy storage and consultation services: quotes and pricing, installation, warranties, maintenance and payment.";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
-  description:
-    "The terms governing Solenergy's solar, generator, energy storage and consultation services: quotes and pricing, installation, warranties, maintenance and payment.",
+  description,
   alternates: { canonical: "/terms" },
+  openGraph: {
+    title: "Terms of Service | Solenergy",
+    description,
+    url: `${SITE.baseUrl}/terms`,
+    images: [{ url: SITE.ogImage }],
+  },
 };
 
 export default function TermsPage() {

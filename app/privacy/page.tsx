@@ -1,10 +1,19 @@
 import type { Metadata } from "next";
+import { SITE } from "@/lib/site";
+
+const description =
+  "How Solenergy collects, uses and protects your information, which cookies and analytics tools run only with your consent, and how to exercise your privacy rights.";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description:
-    "How Solenergy collects, uses and protects your information, which cookies and analytics tools run only with your consent, and how to exercise your privacy rights.",
+  description,
   alternates: { canonical: "/privacy" },
+  openGraph: {
+    title: "Privacy Policy | Solenergy",
+    description,
+    url: `${SITE.baseUrl}/privacy`,
+    images: [{ url: SITE.ogImage }],
+  },
 };
 
 export default function PrivacyPage() {

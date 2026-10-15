@@ -57,15 +57,21 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      // /index rendered the home page a second time, under a URL Google could index on its own.
       {
-        source: '/ecommerce',
-        destination: '/shop',
+        source: '/index',
+        destination: '/',
         permanent: true,
       },
+    ]
+  },
+  async headers() {
+    return [
+      // Preview and *.vercel.app aliases must never be indexed: only the custom domain is the site.
       {
-        source: '/ecommerce/:path*',
-        destination: '/shop/:path*',
-        permanent: true,
+        source: '/:path*',
+        has: [{ type: 'host', value: '(?<h>.+)\\.vercel\\.app' }],
+        headers: [{ key: 'X-Robots-Tag', value: 'noindex' }],
       },
     ]
   },

@@ -32,9 +32,11 @@ export const metadata: Metadata = {
     apple: { url: "/apple-touch-icon.png?v=2", sizes: "180x180" },
   },
   keywords: Array.from(SITE.keywords),
+  // No og:url and no canonical here: a layout value is inherited by every page that does not set its
+  // own, which told Google that /privacy, /terms, /review and the 404 were copies of the home page.
+  // Each page sets its own canonical and og:url; the home page sets "/" in app/page.tsx.
   openGraph: {
     type: "website",
-    url: SITE.baseUrl,
     title: SITE.name,
     description: SITE.description,
     siteName: SITE.name,
@@ -60,7 +62,6 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
-  alternates: { canonical: SITE.baseUrl },
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {

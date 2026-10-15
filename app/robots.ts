@@ -8,13 +8,9 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: [
-          "/api/*",
-          "/_next/*",
-          "/static/*",
-          "/*.js$",
-          "/*.json$"
-        ]
+        // Only the API is private. Google renders pages with their CSS and JS, so /_next/, /static/
+        // and *.js / *.json must stay crawlable.
+        disallow: ["/api/"]
       }
     ],
     sitemap: `${SITE.baseUrl}/sitemap.xml`,
