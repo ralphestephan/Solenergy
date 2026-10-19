@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 import { FaTiktok } from "react-icons/fa";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
-import { openConsentPreferences } from "@/lib/consent";
+import { adConsent, openConsentPreferences } from "@/lib/consent";
 
 // Minimal brand marks (inline SVGs)
 function XLogo(props: React.SVGProps<SVGSVGElement>) {
@@ -78,7 +78,7 @@ export default function SiteFooter({
       const res = await fetch("/api/newsletter", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, hp, startedAt: startedAt.current, submittedAt: Date.now() }),
+        body: JSON.stringify({ email, hp, ad_consent: adConsent(), startedAt: startedAt.current, submittedAt: Date.now() }),
       });
 
       // /api/newsletter answers 200 with {success:boolean}; `success` is the
