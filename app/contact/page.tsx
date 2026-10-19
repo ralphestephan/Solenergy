@@ -2,6 +2,7 @@
 "use client"
 import SEOJsonLd from "@/components/SEOJsonLd";
 import { SITE } from "@/lib/site";
+import { adConsent } from "@/lib/consent";
 import { MessageCircle, Mail, Phone, Clock, MapPin, ArrowRight, CheckCircle } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -68,7 +69,7 @@ export default function Page() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...data, startedAt: startedAt.current, submittedAt: Date.now() }),
+        body: JSON.stringify({ ...data, ad_consent: adConsent(), startedAt: startedAt.current, submittedAt: Date.now() }),
       });
 
       // /api/contact answers 200 with {success:boolean} — `success` is true only

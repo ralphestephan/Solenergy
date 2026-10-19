@@ -27,6 +27,16 @@ export function getStoredConsent(): ConsentPrefs | null {
   }
 }
 
+/**
+ * The visitor's advertising-cookie choice, read when a form is sent, for the `ad_consent` BDI needs:
+ * BDI reports a lead to the ad accounts only when it is exactly true. False when refused, not chosen
+ * yet, storage is blocked, Global Privacy Control is on, or on the server. Always a boolean.
+ */
+export function adConsent(): boolean {
+  if (gpcEnabled()) return false;
+  return getStoredConsent()?.advertising === true;
+}
+
 export function setConsent(input: ConsentPrefs): void {
   const prefs: ConsentPrefs = { analytics: !!input.analytics, advertising: !!input.advertising && !gpcEnabled() };
   try {

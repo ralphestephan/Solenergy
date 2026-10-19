@@ -380,7 +380,7 @@ export async function sendEmails(formType: FormType, body: SubmissionBody): Prom
 
   const isNewsletter = formType === "newsletter";
   const rows = Object.keys(body)
-    .filter((k) => k !== "hp" && k !== "organizationId" && k !== "form_type" && body[k] !== "" && body[k] != null)
+    .filter((k) => k !== "hp" && k !== "organizationId" && k !== "form_type" && k !== "ad_consent" && body[k] !== "" && body[k] != null)
     .map(
       (k) =>
         `<tr><td style="padding:4px 12px 4px 0;color:#666">${esc(k)}</td><td style="padding:4px 0">${esc(body[k])}</td></tr>`,
@@ -482,6 +482,9 @@ export async function mirrorToBdi(
         organizationId: ORG,
         form_type: formType,
         page_slug: typeof body.page_slug === "string" && body.page_slug ? body.page_slug : pageSlug,
+        // The visitor's advertising-cookie choice (the form reads the banner when it sends): always
+        // a real boolean. BDI reports a lead to the ad accounts only when it is exactly true.
+        ad_consent: body.ad_consent === true,
       }),
     });
     const j = (await res.json().catch(() => null)) as { success?: unknown; code?: unknown } | null;
