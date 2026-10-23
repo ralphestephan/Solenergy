@@ -28,7 +28,7 @@ const services = [
   {
     title: "One Energy Dashboard",
     body:
-      "With Sol4.o, solar, batteries, generators, and grid power come together in one real-time platform. Monitor. Optimize. Control.",
+      "With our energy management platform, solar, batteries, generators, and grid power come together in one real-time platform. Monitor. Optimize. Control.",
     icon: Cloud,
     href: "/solutions/energy-management",
     image: "/images/deyeESS.png",

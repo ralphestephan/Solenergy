@@ -63,6 +63,12 @@ const nextConfig = {
         destination: '/',
         permanent: true,
       },
+      // The platform article was retitled and its slug no longer names a product name.
+      {
+        source: '/insights/solen-4-0-energy-management-saas-platform',
+        destination: '/insights/energy-management-platform',
+        permanent: true,
+      },
     ]
   },
   async headers() {
