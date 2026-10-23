@@ -10,7 +10,7 @@ import { SITE } from "@/lib/site";
 export const metadata: Metadata = {
   title: "About Us: Solar, Generator & Energy Experts Since 1996",
   description:
-    "From backup generator services in 1996 to solar installations and the Sol4.0 energy management platform: Solenergy's story, values and team, with 50+ MW installed and service in Lebanon, Qatar and Iraq.",
+    "From backup generator services in 1996 to solar installations and the energy management platform: Solenergy's story, values and team, with 50+ MW installed and service in Lebanon, Qatar and Iraq.",
   alternates: { canonical: "/about" },
   openGraph: {
     title: "About Solenergy",
@@ -240,8 +240,8 @@ export default function Page() {
               },
               {
                 year: "2026",
-                title: "Sol4.0 Platform",
-                description: "Starting Sol4.0—our complete energy management solutions platform.",
+                title: "Energy Management Platform",
+                description: "Starting our complete energy management solutions platform.",
               },
             ].map((milestone) => (
               <div

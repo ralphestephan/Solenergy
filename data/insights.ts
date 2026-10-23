@@ -3698,14 +3698,14 @@ border-bottom-color: rgba(245,178,27,.85);
   },
 
   {
-    slug: "solen-4-0-energy-management-saas-platform",
-    title: "Sol4.o: Complete Energy Management Platform",
+    slug: "energy-management-platform",
+    title: "Solenergy's Energy Management Platform",
     excerpt:
-      "Introducing Sol4.o—Solenergy's flagship cloud-based platform that unifies solar, generators, batteries, and grid power into one intelligent dashboard. Monitor, control, and optimize all your energy assets from anywhere.",
+      "Introducing Solenergy's flagship cloud-based platform that unifies solar, generators, batteries, and grid power into one intelligent dashboard. Monitor, control, and optimize all your energy assets from anywhere.",
     date: "2025-10-29",
     readMins: 10,
     cover: "/images/ChatGPT Image Jan 5, 2026, 12_22_47 AM.png",
-    coverAlt: "Sol4.o energy management dashboard",
+    coverAlt: "Solenergy energy management platform dashboard",
     tags: ["Smart Manufacturing", "Smart Systems", "Energy Management", "SaaS"],
     sections: [
       {
@@ -3713,15 +3713,15 @@ border-bottom-color: rgba(245,178,27,.85);
         heading: "Introduction: One Platform for All Your Energy",
         paras: [
           "Managing modern energy systems is complex. You have solar panels on the roof, a diesel generator in the yard, batteries in the utility room, and the EDL grid connection—all operating independently with separate monitors and controls. When something goes wrong or needs optimization, you're juggling multiple apps, physical gauges, and scattered data.",
-          "Sol4.o solves this fragmentation. It's Solenergy's cloud-based Software-as-a-Service platform that brings together every energy asset into one unified, intelligent interface accessible from any device. Think of it as the 'brain' of your energy system—monitoring everything in real-time, predicting problems before they occur, and optimizing performance automatically.",
-          "Whether you're a homeowner wanting to track solar savings, a business manager monitoring multiple locations, or an industrial facility optimizing megawatt-scale operations, Sol4.o delivers the visibility and control you need."
+          "Solenergy's energy management platform solves this fragmentation. It's Solenergy's cloud-based Software-as-a-Service platform that brings together every energy asset into one unified, intelligent interface accessible from any device. Think of it as the 'brain' of your energy system—monitoring everything in real-time, predicting problems before they occur, and optimizing performance automatically.",
+          "Whether you're a homeowner wanting to track solar savings, a business manager monitoring multiple locations, or an industrial facility optimizing megawatt-scale operations, the platform delivers the visibility and control you need."
         ]
       },
       {
         id: "unified-monitoring",
         heading: "Unified Real-Time Monitoring",
         paras: [
-          "The Sol4.o dashboard provides instant visibility into your entire energy ecosystem. Solar inverters report real-time generation, panel health, and efficiency metrics. Generator controllers log runtime hours, fuel consumption, battery voltage, and maintenance alerts. Battery management systems provide state-of-charge, cycle counts, cell voltages, and temperature monitoring. Smart meters track grid consumption, import/export flows, and power quality metrics.",
+          "The platform dashboard provides instant visibility into your entire energy ecosystem. Solar inverters report real-time generation, panel health, and efficiency metrics. Generator controllers log runtime hours, fuel consumption, battery voltage, and maintenance alerts. Battery management systems provide state-of-charge, cycle counts, cell voltages, and temperature monitoring. Smart meters track grid consumption, import/export flows, and power quality metrics.",
           "Everything flows into a single, intuitive visualization. See at a glance: Where is power coming from right now (solar, generator, battery, or grid)? Where is it going (which loads are consuming)? How much is each source costing you per kilowatt-hour? What's your current energy independence percentage? Are there any alerts or anomalies requiring attention?",
           "The system updates every few seconds, providing truly real-time data. Color-coded indicators make status obvious—green for optimal, yellow for attention needed, red for critical issues. Energy flow diagrams show power moving through your system like water through pipes, making complex interactions instantly understandable."
         ],
@@ -3737,7 +3737,7 @@ border-bottom-color: rgba(245,178,27,.85);
         id: "intelligent-control",
         heading: "Remote Control and Automation",
         paras: [
-          "Monitoring is just the beginning. Sol4.o enables comprehensive remote control. Start or stop generators from your phone while sitting in traffic. Adjust load priorities if unexpected high demand occurs. Switch between energy sources based on real-time costs. Schedule charging cycles to optimize battery lifespan. All without touching physical switches.",
+          "Monitoring is just the beginning. The platform enables comprehensive remote control. Start or stop generators from your phone while sitting in traffic. Adjust load priorities if unexpected high demand occurs. Switch between energy sources based on real-time costs. Schedule charging cycles to optimize battery lifespan. All without touching physical switches.",
           "But manual control isn't required—the platform's automation engine handles routine decisions automatically. Configure rules like: 'Start generator when battery drops below 20% and sun has set,' or 'Switch to grid during generator maintenance window,' or 'Charge batteries aggressively when solar generation exceeds 80% of capacity.' The system executes these rules perfectly, 24/7.",
           "Advanced users can create complex conditional logic: 'If weather forecast predicts rain tomorrow AND battery is below 60%, prioritize battery charging today. If sunny weather forecast confirmed, defer charging to capture maximum solar savings.' The platform becomes your tireless energy manager, making optimal decisions around the clock."
         ],
@@ -3753,7 +3753,7 @@ border-bottom-color: rgba(245,178,27,.85);
         id: "predictive-analytics",
         heading: "Predictive Maintenance and Alerts",
         paras: [
-          "Sol4.o doesn't just report current status—it predicts future problems before they cause downtime. Machine learning algorithms analyze historical data to identify patterns that precede failures. Gradual degradation in battery capacity triggers early replacement recommendations. Unusual generator vibration patterns detected weeks before catastrophic bearing failure. Solar panel output decline identifying shading issues or dirt accumulation.",
+          "The platform doesn't just report current status—it predicts future problems before they cause downtime. Machine learning algorithms analyze historical data to identify patterns that precede failures. Gradual degradation in battery capacity triggers early replacement recommendations. Unusual generator vibration patterns detected weeks before catastrophic bearing failure. Solar panel output decline identifying shading issues or dirt accumulation.",
           "The system sends proactive alerts: 'Generator oil change recommended within 10 operating hours based on current usage patterns.' 'Battery #2 showing elevated temperature—inspection advised before weekend.' 'Solar production 15% below expected for current weather—cleaning or inspection needed.' These advance warnings transform maintenance from reactive emergency repairs to planned, cost-effective servicing.",
           "For fleet managers with multiple sites, predictive analytics aggregate insights across locations. If a particular generator model shows recurring issues after 500 hours, the system flags other units approaching that threshold. If seasonal patterns emerge (e.g., higher failure rates during summer heat), maintenance schedules automatically adjust."
         ]
@@ -3762,7 +3762,7 @@ border-bottom-color: rgba(245,178,27,.85);
         id: "cost-tracking",
         heading: "Financial Tracking and ROI Analytics",
         paras: [
-          "Energy decisions are ultimately financial decisions. Sol4.o tracks costs in real-time, calculating the true expense of every kilowatt-hour from each source. Diesel fuel consumption multiplied by current prices gives generator cost per kWh. EDL tariffs applied to grid consumption. Solar is essentially free after installation, but the system factors in maintenance and eventual equipment replacement.",
+          "Energy decisions are ultimately financial decisions. The platform tracks costs in real-time, calculating the true expense of every kilowatt-hour from each source. Diesel fuel consumption multiplied by current prices gives generator cost per kWh. EDL tariffs applied to grid consumption. Solar is essentially free after installation, but the system factors in maintenance and eventual equipment replacement.",
           "Live cost dashboards show: 'Today, solar provided 45 kWh at $0.02/kWh effective cost, generator 12 kWh at $0.45/kWh, grid 8 kWh at $0.30/kWh. Your average cost: $0.14/kWh, saving $18 compared to grid-only.' Over time, charts visualize monthly trends, seasonal variations, and cumulative savings.",
           "ROI tracking answers the critical question: 'When will my solar investment pay for itself?' The platform calculates payback period based on actual performance, not theoretical projections. As components age or energy prices change, ROI estimates update automatically. Detailed reports suitable for financial analysis, tax preparation, or investor presentations."
         ],
@@ -3780,14 +3780,14 @@ border-bottom-color: rgba(245,178,27,.85);
           "Organizations with multiple locations gain powerful centralized management. A hotel chain monitors all properties from headquarters. A factory with sites in Beirut, Tripoli, and Zahle sees aggregated performance and compares site efficiency. An energy service company manages hundreds of client installations through one master interface.",
           "Role-based access control ensures appropriate visibility. Site managers see their location's data and basic controls. Regional managers view performance across multiple sites and access advanced analytics. Corporate energy officers get aggregated metrics, cost summaries, and strategic insights. Technicians receive maintenance alerts but not financial data.",
           "API integration enables connection to other business systems. Push energy data to your ERP for comprehensive cost accounting. Sync with building management systems for HVAC optimization based on available solar power. Feed data to sustainability reporting platforms for ESG compliance. Export to custom analytics tools or data warehouses.",
-          "White-label options allow service providers to rebrand Sol4.o as their own platform, offering energy monitoring as a subscription service to their customers while Solenergy handles backend infrastructure and updates."
+          "White-label options allow service providers to rebrand the platform as their own, offering energy monitoring as a subscription service to their customers while Solenergy handles backend infrastructure and updates."
         ]
       },
       {
         id: "mobile-app",
         heading: "Mobile Apps and Accessibility",
         paras: [
-          "Sol4.o includes native mobile apps for iOS and Android, providing full functionality on smartphones and tablets. The interface adapts seamlessly to smaller screens without sacrificing power. Check current status while commuting, receive push notifications for critical alerts, start generators remotely when leaving work early, review daily reports over morning coffee.",
+          "The platform includes native mobile apps for iOS and Android, providing full functionality on smartphones and tablets. The interface adapts seamlessly to smaller screens without sacrificing power. Check current status while commuting, receive push notifications for critical alerts, start generators remotely when leaving work early, review daily reports over morning coffee.",
           "Push notifications are smart and configurable. Critical alerts (generator failure, grid outage, system malfunction) push immediately with high priority. Important notices (maintenance due soon, battery low) arrive during specified hours. Routine updates (daily summary, weekly report) batch to avoid notification fatigue. All notifications link directly to relevant dashboard views for quick investigation.",
           "Offline capability ensures continued operation during internet disruptions—common in Lebanon. The local gateway caches data and executes automation rules independently. When connectivity returns, cached data syncs automatically. Users see 'last updated' timestamps to gauge data freshness."
         ],
@@ -3802,7 +3802,7 @@ border-bottom-color: rgba(245,178,27,.85);
         id: "implementation",
         heading: "Implementation and Pricing",
         paras: [
-          "Getting started with Sol4.o requires minimal hardware. You need reliable internet connectivity (fiber, 4G router, or Starlink), smart meters on critical circuits (provided by Solenergy), and a communication gateway device (included in installation). Solenergy handles complete setup—equipment installation, network configuration, account creation, and training.",
+          "Getting started with the platform requires minimal hardware. You need reliable internet connectivity (fiber, 4G router, or Starlink), smart meters on critical circuits (provided by Solenergy), and a communication gateway device (included in installation). Solenergy handles complete setup—equipment installation, network configuration, account creation, and training.",
           "Subscription pricing scales with system size and features. Basic residential: $40/month for single-site monitoring up to 20kW. Advanced residential: $75/month adds predictive analytics and automation rules. Commercial: $100-250/month depending on capacity and number of assets. Enterprise: Custom pricing for multi-site deployments, API access, and white-label options.",
           "All plans include: Unlimited data storage and historical access, mobile apps for iOS and Android, regular software updates and new features, email and in-app support, 99.5% uptime SLA with redundant cloud infrastructure. Setup fee: $500-1,500 depending on complexity, typically included with new Solenergy system installations.",
           "Free trial available: Solenergy offers 30-day trial periods for existing system owners to experience the platform before committing. Contact our team for demo access and system compatibility assessment."
@@ -3812,18 +3812,18 @@ border-bottom-color: rgba(245,178,27,.85);
         id: "future-roadmap",
         heading: "Future Roadmap: AI and Advanced Features",
         paras: [
-          "Solenergy continuously enhances Sol4.o with cutting-edge capabilities. Coming in 2025-2026: AI-powered consumption forecasting that learns your patterns and predicts usage weeks in advance for optimal planning. Electric vehicle integration with bidirectional charging support—use your EV as a mobile battery bank. Peer-to-peer energy trading where neighbors with excess solar can sell directly through smart contracts and blockchain verification.",
+          "Solenergy continuously enhances the platform with cutting-edge capabilities. Coming in 2025-2026: AI-powered consumption forecasting that learns your patterns and predicts usage weeks in advance for optimal planning. Electric vehicle integration with bidirectional charging support—use your EV as a mobile battery bank. Peer-to-peer energy trading where neighbors with excess solar can sell directly through smart contracts and blockchain verification.",
           "Advanced weather integration using hyperlocal forecasting, satellite imagery, and IoT sensors to predict solar generation with 95%+ accuracy days ahead. Voice control through Alexa, Google Assistant, or Siri—'Hey Siri, what's my solar production today?' Carbon footprint tracking with detailed emissions avoided calculations suitable for sustainability reports and carbon credit markets.",
-          "Our vision: Fully autonomous energy systems where users simply define priorities and budgets while AI handles all optimization, maintenance scheduling, and cost minimization. The future of energy is intelligent, distributed, and sustainable—and Sol4.o is leading the way."
+          "Our vision: Fully autonomous energy systems where users simply define priorities and budgets while AI handles all optimization, maintenance scheduling, and cost minimization. The future of energy is intelligent, distributed, and sustainable—and our platform is leading the way."
         ]
       }
     ],
     faq: [
       { q: "What happens if my internet connection goes down?", a: "Local controllers continue operating autonomously using last-known configurations. The system is designed to fail-safe—critical loads remain powered and automation rules execute locally. When internet returns, cached data syncs automatically to the cloud. You typically won't notice brief outages." },
-      { q: "Can Sol4.o work with equipment from other manufacturers?", a: "Yes. Sol4.o uses industry-standard protocols like Modbus, MQTT, and REST APIs to integrate with most modern inverters, generators, and battery systems. Solenergy maintains a compatibility list of tested equipment. If your device has digital communication capability, we can likely integrate it." },
-      { q: "Is my energy data secure and private?", a: "Absolutely. Sol4.o uses bank-grade encryption (TLS 1.3) for all data transmission. Data is stored in ISO 27001 certified data centers with regular security audits. Access requires two-factor authentication. Your data is never shared with third parties or used for advertising. You retain full ownership and can export or delete data anytime." },
+      { q: "Can the platform work with equipment from other manufacturers?", a: "Yes. The platform uses industry-standard protocols like Modbus, MQTT, and REST APIs to integrate with most modern inverters, generators, and battery systems. Solenergy maintains a compatibility list of tested equipment. If your device has digital communication capability, we can likely integrate it." },
+      { q: "Is my energy data secure and private?", a: "Absolutely. The platform uses bank-grade encryption (TLS 1.3) for all data transmission. Data is stored in ISO 27001 certified data centers with regular security audits. Access requires two-factor authentication. Your data is never shared with third parties or used for advertising. You retain full ownership and can export or delete data anytime." },
       { q: "How much technical knowledge do I need to use the platform?", a: "None. The interface is designed for non-technical users—homeowners, business managers, facility operators. Setup and configuration are handled by Solenergy during installation. Daily operation is as simple as checking a weather app. Advanced features and automation are optional and can be enabled as you gain confidence." },
-      { q: "Can I add Sol4.o to my existing solar system?", a: "Yes! Sol4.o works with existing installations. Solenergy assesses your current equipment, installs necessary communication hardware (meters, gateway), and connects everything to the platform. Retrofits typically completed in half a day with minimal disruption." },
+      { q: "Can I add the platform to my existing solar system?", a: "Yes! The platform works with existing installations. Solenergy assesses your current equipment, installs necessary communication hardware (meters, gateway), and connects everything to the platform. Retrofits typically completed in half a day with minimal disruption." },
       { q: "What mobile data usage does the app require?", a: "Very minimal. The platform transmits compressed data—typically 50-100 MB per month for a residential system. Commercial systems may use 200-300 MB. Suitable even for limited 4G data plans. You can also restrict app updates and heavy data transfers to WiFi in app settings." }
     ]
   }

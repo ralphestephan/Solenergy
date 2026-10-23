@@ -151,7 +151,7 @@ const solutions: Solution[] = [
     slug: "energy-management",
     heading: "Smart Energy Management",
     description:
-      "Complete industrial solution combining smart energy management and IoT automation. Integrate solar, generators, and grid power with advanced monitoring, predictive analytics, and our Sol4.o platform for total operational control.",
+      "Complete industrial solution combining smart energy management and IoT automation. Integrate solar, generators, and grid power with advanced monitoring, predictive analytics, and our energy management platform for total operational control.",
     image: "/images/deyeESS.png",
     category: "specialized",
     tech: [
@@ -181,7 +181,7 @@ const solutions: Solution[] = [
       },
       {
         key: "solen-platform",
-        label: "Sol4.o Platform",
+        label: "Energy Management Platform",
         icon: "cloud",
         blurb: "Unified platform managing solar, generators, and energy systems in one real-time dashboard."
       },

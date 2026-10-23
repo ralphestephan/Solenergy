@@ -16,7 +16,7 @@ Solenergy delivers comprehensive energy solutions tailored for Lebanese househol
 
 [Solutions: Solar Services](https://solenergy.com/solutions/solar-services): Complete solar energy installations from consultation to monitoring and maintenance.
 
-[Solutions: Energy Management & Smart Manufacturing](https://solenergy.com/solutions/energy-management): Complete industrial solution combining smart energy management, IoT automation, and smart manufacturing technologies with Sol4.o platform.
+[Solutions: Energy Management & Smart Manufacturing](https://solenergy.com/solutions/energy-management): Complete industrial solution combining smart energy management, IoT automation, and smart manufacturing technologies with our energy management platform.
 
 [Solutions: Maintenance Services](https://solenergy.com/solutions/maintenance-services): 24/7 preventive maintenance and emergency support for all energy systems.
 

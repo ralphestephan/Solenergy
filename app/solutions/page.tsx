@@ -331,7 +331,7 @@ export default function Page() {
                     { v: "solar", label: "Solar Systems", Icon: Sun },
                     { v: "generators", label: "Generators", Icon: Zap },
                     { v: "maintenance", label: "Maintenance", Icon: Wrench },
-                    { v: "saas", label: "Sol4.o Platform", Icon: Cloud },
+                    { v: "saas", label: "Energy Management Platform", Icon: Cloud },
                   ].map(({ v, label, Icon }) => (
                     <TabsTrigger
                       key={v}
@@ -355,7 +355,7 @@ export default function Page() {
                     { v: "solar", label: "Solar", shortLabel: "Solar", Icon: Sun },
                     { v: "generators", label: "Generators", shortLabel: "Gen", Icon: Zap },
                     { v: "maintenance", label: "Maintenance", shortLabel: "Maint", Icon: Wrench },
-                    { v: "saas", label: "Sol4.o", shortLabel: "Sol4.o", Icon: Cloud },
+                    { v: "saas", label: "Energy Management Platform", shortLabel: "Platform", Icon: Cloud },
                   ].map(({ v, shortLabel, Icon }) => (
                     <TabsTrigger
                       key={v}
@@ -422,7 +422,7 @@ export default function Page() {
               <TabsContent value="saas" className="motion-safe:animate-tabIn-slow">
                 <SplitCard
                   label="Energy Management"
-                  title="Sol4.o Platform"
+                  title="Energy Management Platform"
                   desc="Unified platform managing solar, generators, and energy systems in one real-time dashboard."
                   img="/images/deyeESS.png"
                   items={[
