@@ -10,6 +10,7 @@ import Header from "@/components/Header";
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import { ga4Ids } from '@/lib/tenant-brand';
 import CookieConsent from '@/components/CookieConsent';
+import { NewPageTop } from "@/components/NewPageTop";
 import { getTenantBrand } from "@/lib/tenant-brand";
 
 const poppins = Poppins({ subsets: ["latin"], display: "swap", variable: "--font-poppins", weight: ["700"] });
@@ -74,7 +75,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   // Neither GA4 nor the Meta Pixel loads until the visitor consents (components/CookieConsent.tsx).
   const brand = await getTenantBrand();
   return (
-    <html lang="en" className={poppins.variable}>
+    <html lang="en" className={poppins.variable} data-scroll-behavior="smooth">
       <head>
         <meta name="google-site-verification" content="aSFML--c4EYr4rrZliksliZ-zE69910E17yB9C_xUlw" />
         <GoogleAnalytics gaIds={ga4Ids(brand).length ? ga4Ids(brand) : ["G-NF65BFYXVT"]} pixelId={brand.metaPixelId} />
@@ -86,6 +87,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <BackToTopFab insetClass="bottom-6 right-6 sm:bottom-8 sm:right-8" size={56} />
         <SiteFooter contact={brand.contact} />
         <CookieConsent />
+        <NewPageTop />
       </body>
     </html>
   );
