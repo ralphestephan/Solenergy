@@ -179,7 +179,7 @@ export default function SiteFooter({
         </div>
 
         <nav aria-label="Explore" className="col-span-1 md:col-span-1">
-          <h4 className="font-semibold text-zinc-100 tracking-wide">Explore</h4>
+          <h3 className="font-semibold text-zinc-100 tracking-wide">Explore</h3>
           <span className="mt-1 block h-0.5 w-10 rounded-full bg-gradient-to-r from-brand-yellow to-brand-orange" />
           {/* mobile: 2-col dense grid; desktop: list */}
           <ul className="mt-2 md:mt-3 grid grid-cols-2 gap-x-4 gap-y-1 md:block md:space-y-2 text-sm md:text-base">
@@ -195,7 +195,7 @@ export default function SiteFooter({
         <div className="col-span-1 md:col-start-4 md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {/* Contact */}
           <nav aria-label="Contact">
-            <h4 className="font-semibold text-zinc-100 tracking-wide">Contact</h4>
+            <h3 className="font-semibold text-zinc-100 tracking-wide">Contact</h3>
             <span className="mt-1 block h-0.5 w-10 rounded-full bg-gradient-to-r from-brand-yellow to-brand-orange" />
             <ul className="mt-2 md:mt-3 grid grid-cols-2 gap-x-4 gap-y-1 md:block md:space-y-2 text-sm md:text-base">
               {helpful.map(([label, href]) => (
@@ -215,7 +215,7 @@ export default function SiteFooter({
 
           {/* Info (condensed) */}
           <address className="not-italic">
-            <h4 className="font-semibold text-zinc-100 tracking-wide">Info</h4>
+            <h3 className="font-semibold text-zinc-100 tracking-wide">Info</h3>
             <span className="mt-1 block h-0.5 w-10 rounded-full bg-gradient-to-r from-brand-yellow to-brand-orange" />
             <div className="mt-2 md:mt-3 space-y-4 text-zinc-400 text-sm md:text-base leading-6">
 
@@ -321,7 +321,7 @@ export default function SiteFooter({
 
             {/* Desktop inline form */}
             <div className="hidden sm:block" id="newsletter">
-              <h4 className="font-semibold text-zinc-100 tracking-wide">Stay in the loop</h4>
+              <h3 className="font-semibold text-zinc-100 tracking-wide">Stay in the loop</h3>
               <span className="mt-1 block h-0.5 w-10 rounded-full bg-gradient-to-r from-brand-yellow to-brand-orange" />
               <p className="mt-1 text-sm text-zinc-400">Short, useful updates. No spam, ever.</p>
 
@@ -372,7 +372,7 @@ export default function SiteFooter({
 
       {/* LOWER */}
       <div className="border-t border-zinc-800">
-        <div className="mx-auto max-w-6xl px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-zinc-500">
+        <div className="mx-auto max-w-6xl px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-zinc-400">
           <div>© {new Date().getFullYear()} Solenergy • All rights reserved.</div>
           <div className="flex items-center gap-4">
             <Link href="/privacy" className="hover:text-brand-yellow transition-colors">Privacy</Link>

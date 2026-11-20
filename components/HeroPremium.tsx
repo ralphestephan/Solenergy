@@ -28,7 +28,7 @@ function useInView<T extends HTMLElement>(opts: IntersectionObserverInit = { thr
 }
 
 export default function HeroPremium() {
-  const { ref, show } = useInView<HTMLDivElement>({ threshold: 0.15 });
+  const { ref } = useInView<HTMLDivElement>({ threshold: 0.15 });
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
   useEffect(() => {
@@ -48,11 +48,27 @@ export default function HeroPremium() {
     };
     v.addEventListener("error", toH264);
     if (v.error) toH264();
+    // SPEED (PageSpeed 19 Nov 2026): the film no longer downloads before the page is usable. It starts after the load
+    // event, never on Save-Data or a 2g connection (the poster picture stays), and the element carries preload="none"
+    // and no autoPlay attribute, so nothing is fetched until this runs.
+    const conn = (navigator as Navigator & { connection?: { saveData?: boolean; effectiveType?: string } }).connection;
+    if (conn?.saveData || /(^|-)2g$/.test(conn?.effectiveType ?? "")) {
+      v.removeEventListener("error", toH264);
+      return;
+    }
     // React does not emit the `muted` attribute in server HTML, and iOS refuses
     // to autoplay a video it cannot see is muted -- set it and start playback here.
-    v.muted = true;
-    v.play().catch(() => {});
-    return () => v.removeEventListener("error", toH264);
+    const start = () => {
+      v.muted = true;
+      v.preload = "auto";
+      v.play().catch(() => {});
+    };
+    if (document.readyState === "complete") start();
+    else window.addEventListener("load", start, { once: true });
+    return () => {
+      v.removeEventListener("error", toH264);
+      window.removeEventListener("load", start);
+    };
   }, []);
 
   return (
@@ -67,11 +83,10 @@ export default function HeroPremium() {
           ref={videoRef}
           className="absolute inset-0 h-full w-full object-cover md:object-left"
           poster={VIDEO.poster}
-          autoPlay
           muted
           loop
           playsInline
-          preload="auto"
+          preload="none"
           aria-hidden="true"
           tabIndex={-1}
         >
@@ -87,8 +102,9 @@ export default function HeroPremium() {
           // No shade over the footage, so the copy carries its own shadow to stay
           // legible on the bright frames (white rooftops, concrete).
           "[text-shadow:0_2px_14px_rgba(0,0,0,0.65),0_1px_3px_rgba(0,0,0,0.5)]",
-          "transition-all duration-1000 delay-300",
-          show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
+          // No reveal on the hero (PageSpeed 19 Nov 2026: with the copy at opacity 0 until the hero scrolled into view and then a
+          // 1.3 s fade, Lighthouse found no largest-contentful-paint at all on a phone: NO_LCP, no mobile score). The first screen
+          // is finished at first paint.
         ].join(" ")}
       >
         <div className="max-w-3xl">
