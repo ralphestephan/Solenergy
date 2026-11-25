@@ -17,7 +17,7 @@ const CRAWLERS = [
   "*",
 ];
 /** This site's private paths, in every group. */
-const DISALLOW: string[] = ["C:/Program Files/Git/api/"];
+const DISALLOW: string[] = ["/api/"];
 
 export default function robots(): MetadataRoute.Robots {
   return {
