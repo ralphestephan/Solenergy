@@ -1,0 +1,13 @@
+# BDI site gate: the launch checklist runs on every PR and fails it on a failing required point.
+# Text and one-time setup: docs/SITE_GATE.md in ralphestephan/memberflow-sync.
+name: BDI site gate
+on:
+  pull_request:
+    branches: [main]
+jobs:
+  gate:
+    uses: ralphestephan/memberflow-sync/.github/workflows/site-gate.yml@staging
+    with:
+      production-url: https://solenergypower.com
+    secrets:
+      BDI_GATE_TOKEN: ${{ secrets.BDI_GATE_TOKEN }}
